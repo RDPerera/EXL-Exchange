@@ -26,10 +26,9 @@
       $lastName = mysqli_real_escape_string($db, $_POST['lastName']);
       $dob=mysqli_real_escape_string($db, $_POST['dob']);
 
+      /*Form Validation*/
+      /*===============*/
 
-
-      /*--------Form Validation-----------*/
-      
       //user agreement sigining status
       if(isset($_POST['agreement'])){$agreement = 1;}else{$agreement = 0;}
 
@@ -65,24 +64,22 @@
             $numberOfErrors++;
         }
       }
-
-      /* Quering in buyer/user tables*/
+      /* Quering in seller/user tables*/
       if ($numberOfErrors== 0) {
           $password = md5($password);
           $query = "INSERT INTO user (userName,firstName,lastName,dob,email,accountStatus,verificationStatus) 
                     VALUES('$userName', '$firstName', '$lastName','$dob','$email',0,0)";
           mysqli_query($db, $query);
-          $query = "INSERT INTO buyer
-                    VALUES('$userName',0)";
-          mysqli_query($db, $query);
+         $query = "INSERT INTO seller
+         VALUES('$userName',0,0,0)";
+         mysqli_query($db, $query);
           $_SESSION['userName'] = $userName;
-          $_SESSION['accoutType'] = "BUYER";
+          $_SESSION['accoutType'] = "SELLER";
           $_SESSION['email']=$email;
           header('location: verfication.php');
       }
     }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -118,7 +115,7 @@
                 <span class="error"><?php echo $errors["dob"];?></span>
             </div>
             <div class="fieldset">
-                <label for="email" class="label">Email</label>
+                <label for="email" class="label">University Student Email Address</label>
                 <input type="email" placeholder="Enter Email" name="email" id="email">
                 <span class="error"><?php echo $errors["email"];?></span>
             </div>
@@ -144,3 +141,4 @@
 </body>
 
 </html>
+
