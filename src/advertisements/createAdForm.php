@@ -46,7 +46,7 @@
                 <td>
                     <label class="custom-file-upload">
                         <input type="file" />
-                       Browse
+                        Browse
                     </label> &nbsp &nbsp
                     <input type='submit' value='Upload' name='but_upload'>
                 </td>
@@ -61,7 +61,7 @@
             </tr>
             <tr>
                 <td>
-                    Brief Description
+                    Enter a search tag
                 </td>
                 <td>
                     <input type="text">
@@ -69,7 +69,7 @@
             </tr>
             <tr>
                 <td>
-                    Advertisement Description
+                    Advertisement Content
                 </td>
                 <td>
                     <textarea></textarea>
@@ -84,6 +84,40 @@
                 </td>
             </tr>
 
+            <tr>
+                <td>
+                    <h3>Add collaborators to the advertisement </h3>
+                    <h5>Enter the EXL Exchange username of each member</h5>
+                </td>
+
+            </tr>
+
+            <tr>
+                <td>
+                    Group member 01
+                </td>
+                <td>
+                    <input type="text">
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    Group member 02
+                </td>
+                <td>
+                    <input type="text">
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    Group member 03
+                </td>
+                <td>
+                    <input type="text">
+                </td>
+            </tr>
         </table>
     </form>
 
