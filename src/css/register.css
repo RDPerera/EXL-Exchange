@@ -7,7 +7,7 @@ body {
 }
 .container {
   background-color: white;
-  border-radius: 2%;
+  border-radius: 2px;
   display: block;
   margin: auto;
   padding-top: 30px;
