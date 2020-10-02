@@ -123,7 +123,7 @@
                 <span class="error"><?php echo $errors["email"];?></span>
             </div>
             <div class="fieldset">
-                <label for="password" class="label">Crate New Password</label>
+                <label for="password" class="label">Create New Password</label>
                 <input type="password" placeholder="Enter Password" name="password" id="password">
             </div>
             <div class="fieldset">
