@@ -69,8 +69,8 @@
       /* Quering in buyer/user tables*/
       if ($numberOfErrors== 0) {
           $password = md5($password);
-          $query = "INSERT INTO user (userName,firstName,lastName,dob,email,accountStatus,verificationStatus) 
-                    VALUES('$userName', '$firstName', '$lastName','$dob','$email',0,0)";
+          $query = "INSERT INTO user (userName,firstName,lastName,dob,email,accountStatus,verificationStatus,verificationOTP) 
+                    VALUES('$userName', '$firstName', '$lastName','$dob','$email',0,0,0)";
           mysqli_query($db, $query);
           $query = "INSERT INTO buyer
                     VALUES('$userName',0)";
@@ -137,7 +137,7 @@
                       Privacy</a>.
                   <span class="error"><?php echo $errors["agreement"];?></span>
               </p>
-              <input type="submit" class="registerbtn" value="Register" name="register">
+              <input type="submit" class="registerbtn" value="Next" name="register">
             </div>
         </div>
     </form>
