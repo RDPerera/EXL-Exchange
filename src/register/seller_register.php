@@ -67,8 +67,8 @@
       /* Quering in seller/user tables*/
       if ($numberOfErrors== 0) {
           $password = md5($password);
-          $query = "INSERT INTO user (userName,firstName,lastName,dob,email,accountStatus,verificationStatus) 
-                    VALUES('$userName', '$firstName', '$lastName','$dob','$email',0,0)";
+          $query = "INSERT INTO user (userName,firstName,lastName,dob,email,accountStatus,verificationStatus,verificationOTP) 
+                    VALUES('$userName', '$firstName', '$lastName','$dob','$email',0,0,0)";
           mysqli_query($db, $query);
          $query = "INSERT INTO seller
          VALUES('$userName',0,0,0)";
