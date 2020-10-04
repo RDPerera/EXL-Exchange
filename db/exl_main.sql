@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 02, 2020 at 06:55 PM
+-- Generation Time: Oct 04, 2020 at 10:20 AM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.4.7
 
@@ -32,14 +32,6 @@ CREATE TABLE `buyer` (
   `buyerRate` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `buyer`
---
-
-INSERT INTO `buyer` (`userName`, `buyerRate`) VALUES
-('admin', 0),
-('manthinima', 0);
-
 -- --------------------------------------------------------
 
 --
@@ -47,7 +39,7 @@ INSERT INTO `buyer` (`userName`, `buyerRate`) VALUES
 --
 
 CREATE TABLE `seller` (
-  `userName` int(11) NOT NULL,
+  `userName` varchar(255) NOT NULL,
   `mainRate` double NOT NULL,
   `communicationRate` double NOT NULL,
   `deliveringRate` double NOT NULL
@@ -67,16 +59,9 @@ CREATE TABLE `user` (
   `email` varchar(255) NOT NULL,
   `accountStatus` int(2) NOT NULL,
   `verificationStatus` int(2) NOT NULL,
-  `verificationOTP` int(8) NOT NULL
+  `verificationOTP` int(8) NOT NULL,
+  `password` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `user`
---
-
-INSERT INTO `user` (`userName`, `firstName`, `lastName`, `dob`, `email`, `accountStatus`, `verificationStatus`, `verificationOTP`) VALUES
-('admin', 'Dilan', 'Perera', '2020-09-25', '2018cs123@stu.ucsc.cmb.ac.lk', 0, 1, 1403761),
-('manthinima', 'Manthi', 'Nimaya', '2020-08-17', 'nimayamanthi452@gmail.com', 0, 0, 0);
 
 --
 -- Indexes for dumped tables
