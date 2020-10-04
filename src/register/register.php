@@ -65,20 +65,21 @@
             $numberOfErrors++;
         }
       }
-
       /* Quering in buyer/user tables*/
       if ($numberOfErrors== 0) {
-          $password = md5($password);
-          $query = "INSERT INTO user (userName,firstName,lastName,dob,email,accountStatus,verificationStatus,verificationOTP) 
-                    VALUES('$userName', '$firstName', '$lastName','$dob','$email',0,0,0)";
+          $password = md5($password_1);
+          $query = "INSERT INTO user (userName,firstName,lastName,dob,email,accountStatus,verificationStatus,verificationOTP,password) 
+                    VALUES('$userName', '$firstName', '$lastName','$dob','$email',0,0,0,'$password')";
           mysqli_query($db, $query);
           $query = "INSERT INTO buyer
-                    VALUES('$userName',0)";
+          VALUES('$userName',0)";
           mysqli_query($db, $query);
           $_SESSION['userName'] = $userName;
-          $_SESSION['accoutType'] = "BUYER";
+          $_SESSION['accoutType'] = "Buyer";
           $_SESSION['email']=$email;
-          header('location: verfication.php');
+          $_SESSION['firstName']=$firstName;
+          $_SESSION['lastName']=$lastName;
+          header('Location: ../verification/verification.php');
       }
     }
 ?>
@@ -99,36 +100,36 @@
             <div class="header"><span style="color:#007BFF">Create</span> A New Account</div>
             <div class="fieldset">
                 <label for="firstName" class="label">First Name</label>
-                <input type="text" placeholder="Enter First Name" name="firstName" id="firstName">
+                <input type="text" placeholder="Enter First Name" name="firstName" id="firstName" autocomplete="off">
                 <span class="error"><?php echo $errors["firstname"];?></span>
             </div>
             <div class="fieldset">
                 <label for="lastname" class="label">Last Name</label>
-                <input type="text" placeholder="Enter Last Name" name="lastName" id="lastName">
+                <input type="text" placeholder="Enter Last Name" name="lastName" id="lastName" autocomplete="off">
                 <span class="error"><?php echo $errors["lastname"];?></span>
             </div>
             <div class="fieldset">
                 <label for="lastname" class="label">User Name</label>
-                <input type="text" placeholder="Pick a User Name" name="userName" id="userName">
+                <input type="text" placeholder="Pick a User Name" name="userName" id="userName" autocomplete="off">
                 <span class="error"><?php echo $errors["userName"];?></span>
             </div>
             <div class="fieldset">
                 <label for="dob" class="label">Date Of Birth</label>
-                <input type="date" placeholder="Enter DOB" name="dob" id="dob">
+                <input type="date" placeholder="Enter DOB" name="dob" id="dob" autocomplete="off">
                 <span class="error"><?php echo $errors["dob"];?></span>
             </div>
             <div class="fieldset">
                 <label for="email" class="label">Email</label>
-                <input type="email" placeholder="Enter Email" name="email" id="email">
+                <input type="email" placeholder="Enter Email" name="email" id="email" autocomplete="off">
                 <span class="error"><?php echo $errors["email"];?></span>
             </div>
             <div class="fieldset">
                 <label for="password" class="label">Create New Password</label>
-                <input type="password" placeholder="Enter Password" name="password" id="password">
+                <input type="password" placeholder="Enter Password" name="password" id="password" autocomplete="off">
             </div>
             <div class="fieldset">
                 <label for="passwordRepeat" class="label">Confirm Your Password</label>
-                <input type="password" placeholder="Confirm Password" name="passwordRepeat" id="passwordRepeat">
+                <input type="password" placeholder="Confirm Password" name="passwordRepeat" id="passwordRepeat" autocomplete="off">
                 <span class="error"><?php echo $errors["password"];?></span>
             </div>
             <div class="fieldset">
