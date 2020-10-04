@@ -2,10 +2,17 @@
 -- version 4.9.2
 -- https://www.phpmyadmin.net/
 --
+<<<<<<< HEAD
 -- Host: 127.0.0.1:3308
 -- Generation Time: Oct 04, 2020 at 09:13 PM
 -- Server version: 8.0.18
 -- PHP Version: 7.3.12
+=======
+-- Host: 127.0.0.1
+-- Generation Time: Oct 04, 2020 at 10:20 AM
+-- Server version: 10.4.13-MariaDB
+-- PHP Version: 7.4.7
+>>>>>>> e18715e4c54738c8d246697480519ece7cbeab27
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,6 +32,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+<<<<<<< HEAD
 -- Table structure for table `advertisement`
 --
 
@@ -56,6 +64,15 @@ CREATE TABLE IF NOT EXISTS `buyer` (
   `userName` varchar(255) NOT NULL,
   `buyerRate` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+=======
+-- Table structure for table `buyer`
+--
+
+CREATE TABLE `buyer` (
+  `userName` varchar(255) NOT NULL,
+  `buyerRate` double NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+>>>>>>> e18715e4c54738c8d246697480519ece7cbeab27
 
 -- --------------------------------------------------------
 
@@ -63,13 +80,21 @@ CREATE TABLE IF NOT EXISTS `buyer` (
 -- Table structure for table `seller`
 --
 
+<<<<<<< HEAD
 DROP TABLE IF EXISTS `seller`;
 CREATE TABLE IF NOT EXISTS `seller` (
+=======
+CREATE TABLE `seller` (
+>>>>>>> e18715e4c54738c8d246697480519ece7cbeab27
   `userName` varchar(255) NOT NULL,
   `mainRate` double NOT NULL,
   `communicationRate` double NOT NULL,
   `deliveringRate` double NOT NULL
+<<<<<<< HEAD
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+=======
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+>>>>>>> e18715e4c54738c8d246697480519ece7cbeab27
 
 -- --------------------------------------------------------
 
@@ -85,8 +110,31 @@ CREATE TABLE IF NOT EXISTS `user` (
   `dob` date NOT NULL,
   `email` varchar(255) NOT NULL,
   `accountStatus` int(2) NOT NULL,
+<<<<<<< HEAD
   `verificationStatus` int(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+=======
+  `verificationStatus` int(2) NOT NULL,
+  `verificationOTP` int(8) NOT NULL,
+  `password` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `seller`
+--
+ALTER TABLE `seller`
+  ADD PRIMARY KEY (`userName`);
+
+--
+-- Indexes for table `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`userName`);
+>>>>>>> e18715e4c54738c8d246697480519ece7cbeab27
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
