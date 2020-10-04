@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3308
--- Generation Time: Oct 04, 2020 at 09:00 PM
+-- Generation Time: Oct 04, 2020 at 09:13 PM
 -- Server version: 8.0.18
 -- PHP Version: 7.3.12
 
@@ -44,6 +44,32 @@ CREATE TABLE IF NOT EXISTS `advertisement` (
   `member3` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`advertisementID`)
 ) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `buyer`
+--
+
+DROP TABLE IF EXISTS `buyer`;
+CREATE TABLE IF NOT EXISTS `buyer` (
+  `userName` varchar(255) NOT NULL,
+  `buyerRate` double NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `seller`
+--
+
+DROP TABLE IF EXISTS `seller`;
+CREATE TABLE IF NOT EXISTS `seller` (
+  `userName` varchar(255) NOT NULL,
+  `mainRate` double NOT NULL,
+  `communicationRate` double NOT NULL,
+  `deliveringRate` double NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
 
