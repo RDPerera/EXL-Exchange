@@ -86,7 +86,9 @@ label {
 /* custom code */
 
 .resendbtn {
+  background-color: #686868;
   color: white;
+  width: 40%;
   padding-left: 40px;
   padding-right: 40px;
   padding-bottom: 12px;
@@ -97,10 +99,9 @@ label {
   transition: ease-in-out 0.3s;
   font-weight: 500;
   font-size: 14px;
-  background-color: #3d3d3d;
 }
 .resendbtn:hover {
   color:#3d3d3d;
-  background-color: rgb(241, 241, 241);
+  background-color: #f5f0f0;
   font-weight: 500;
 }

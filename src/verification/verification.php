@@ -1,18 +1,23 @@
 <?php
 session_start();
-//$state = "display:none";
+$stateInvalid = "display:none";
+$stateAlready = "display:none";
+$stateSuccess = "display:none";
+
 $baseURL = "localhost/EXL-Exchange/src/verification/verification.php";
-$userName = "admin";
-$accountType = "BUYER";
-$fisrtName = "Dilan";
-$lastName = "Perera";
-$email = "r.dilanperera@gmail.com";
+$userName = $_SESSION['userName'];
+$accountType = $_SESSION['accoutType'];
+$fisrtName = $_SESSION['firstName'];
+$lastName = $_SESSION['lastName'];
+$email = $_SESSION['email'];
 $error = "";
+
 // Create OTP Code
 $otp=rand ( 1000000 , 9999999 );
 $token=md5($otp);
 $link=$baseURL."?userName=".$userName."&token=".$token;
 
+//$stateAlready = "";
 //Create DB Connection
 $db = mysqli_connect('localhost', 'root', '', 'exl_main');
 
@@ -29,7 +34,7 @@ $mail = new PHPMailer(true);
 
 //Server settings
 
-//$mail->SMTPDebug = SMTP::DEBUG_SERVER; // for debugging 
+//$mail->SMTPDebug = SMTP::DEBUG_SERVER; // for debugging
 $mail->isSMTP();                                            
 $mail->Host       = 'smtp.gmail.com';                    
 $mail->SMTPAuth   = true;                                   
@@ -40,13 +45,13 @@ $mail->Port       = 587;
 
 //Recipients
 $mail->setFrom('exlexchangemail@gmail.com', 'EXL-Exchange');
-$mail->addAddress($email, 'Dilan Perera');    
+$mail->addAddress($email, $fisrtName.$lastName);    
 
 // Content
-$mail->isHTML(true);                                  // Set email format to HTML
+$mail->isHTML(true);                                // Set email format to HTML
 $mail->Subject = 'Email Confirmation';
 $mail->Body    = "<b> <p style='font-family:Segoe UI, Tahoma, Geneva, Verdana, sans-serif;font-size:18px;'>Welcome to EXL Exchange $fisrtName $lastName ,</b><br>
-Please confirm that you want to use this as your EXL-Exchange account email addres.<br><br>
+Please confirm that you want to use this email address as your EXL-Exchange $accountType account email address.<br><br>
 <a href='$link'><button style='color: white;padding-left: 40px;padding-right: 40px;padding-bottom: 12px;padding-top: 12px;
 border-radius: 5px;border: none;font-family:Segoe UI, Tahoma, Geneva, Verdana, sans-serif;
 font-weight: 500;font-size: 14px;background-color: #007bff;'>Verify My Email Address</button></a>
@@ -65,19 +70,18 @@ if((!isset($_GET['userName']) and !isset($_GET['token']) and !isset($_GET['submi
             //Update DB with OTP
             $query = "UPDATE user SET verificationOTP='$otp' WHERE userName = '$userName' ";
             mysqli_query($db, $query);
-            echo "hello!";
         }
         else{
-            header('../errors/505.php');
+            header('Location: ../errors/505.php');
         }
     }
     else{
-        echo "You  Already Registered !";
+        $stateAlready = "";
     }
     }
     else
     {
-        header('../errors/404.php');
+        header('Location: ../errors/404.php');
     }
 }
 elseif((isset($_GET['userName']) and isset($_GET['token'])) or isset($_GET['submit']))
@@ -92,11 +96,17 @@ elseif((isset($_GET['userName']) and isset($_GET['token'])) or isset($_GET['subm
             if($_GET['token'] == md5($user['verificationOTP'])){
                 //Update DB with Status
                 $query = "UPDATE user SET verificationStatus=1 WHERE userName = '$userName' ";
-                mysqli_query($db, $query);
-                echo "Done!";
+                if(mysqli_query($db, $query))
+                {
+                    $stateSuccess = "";
+                }
+                else{
+                    header('Location: ../errors/505.php');
+                }
             }
             else{
-                header('../errors/505.php');
+                $stateInvalid = "";
+                header('Location: '.$_SERVER['PHP_SELF']); 
             }
         }
         if(isset($_GET['pin']))
@@ -104,21 +114,28 @@ elseif((isset($_GET['userName']) and isset($_GET['token'])) or isset($_GET['subm
             if($user['verificationOTP']== $_GET['pin']){
                 //Update DB with Status
                 $query = "UPDATE user SET verificationStatus=1 WHERE userName = '$userName' ";
-                mysqli_query($db, $query);
-                echo "Done!";
+                if(mysqli_query($db, $query))
+                {
+                    $stateSuccess = "";
+                }
+                else{
+                    header('Location: ../errors/505.php');
+                }
             }
             else{
-                header('../errors/505.php');
+                $stateInvalid = "";
+                header('Location: '.$_SERVER['PHP_SELF']); 
             }
         }                                                                                                       
     }
     else{
-        echo "You  Already Registered !";
+        
+        $stateAlready = "";
     }
     }
     else
     {
-        header('../errors/404.php');
+        header('Location: ../errors/404.php');
     }
     
 }
@@ -131,28 +148,45 @@ elseif((isset($_GET['userName']) and isset($_GET['token'])) or isset($_GET['subm
     <title>Verification</title>
     <link rel="stylesheet" type="text/css" href="../css/model.css">
     <link rel="stylesheet" type="text/css" href="../css/verification.css">
+    
 </head>
-<body>
-<div class="model-background" style="<?php echo $state ?>">
+<body> 
+<div id="model1" class="model-background" style="<?php echo $stateInvalid ?>">
     <div class="model-content">
-        <div class="model-header">Invalid Verification</div>
-        <div class="model-text">Your One Time Password Is Incorrect </div>
-        <button class="model-button"> OK </button>
+        <div class="model-header"><span class="model-header-content">Invalid Verification</span></div>
+        <div class="model-text v-h-center">Your One Time Password Is Incorrect !</div>
+        <button id="model-btn-1" class="model-button"> OK </button>
     </div>
 </div>
-<form method="get" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-        <div class="container">
-            <div class="header"><span style="color:#007BFF;font-size:20px">Check Your Email </span></div>
-            <div class="fieldset">
-                <label for="pin" class="label">Verification email sent to <?php echo $email ?>.</br>Enter the OTP code to verfy the account</label>
-                <input type="text" placeholder="OTP Code" name="pin" id="pin">
-                <span class="error"><?php echo $error;?></span>
-            </div>
-            <div class="fieldset">
-            <input type="submit" class="resendbtn" value="Resend" name="resend">
-            <input type="submit" class="registerbtn" value="Complete Registration" name="submit">
-            </div>
+<div id="model2" class="model-background" style="<?php echo $stateAlready ?>">
+    <div class="model-content">
+        <div class="model-header"><span class="model-header-content">Already Registared</span></div>
+        <div class="model-text v-h-center">You Are Already Registered. Please LogIn !</div>
+        <button id="model-btn-2" class="model-button" > Login </button>
+    </div>
+</div>
+<div id="model3" class="model-background" style="<?php echo $stateSuccess ?>">
+    <div class="model-content">
+        <div class="model-header"><span class="model-header-content">Registration Successfull</span></div>
+        <div class="model-text v-h-center">Your Registration Process Is Successfull</div>
+        <button id="model-btn-3" class="model-button"> Go To Dashboard</button>
+    </div>
+</div>
+<form method="get" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">  
+    <div class="container">
+        <div class="header"><span style="color:#007BFF;font-size:20px">Check Your Email </span></div>
+        <div class="fieldset">
+            <label for="pin" class="label">Verification email sent to <?php echo $email ?>.</br>Enter the OTP code to verfy the account</label>
+            <input type="text" placeholder="OTP Code" name="pin" id="pin">
+            <span class="error"><?php echo $error;?></span>
         </div>
-    </form>
+        <div class="fieldset">
+        <input type="submit" class="resendbtn" value="Resend" name="resend" id="resendbtn">
+        <input type="submit" class="registerbtn" value="Complete Registration" name="submit">
+        </div>
+    </div>
+</form>
+<script type="text/javascript" src="../js/verification.js"></script>
+    
 </body>
 </html>
