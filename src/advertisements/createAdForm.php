@@ -1,46 +1,57 @@
 <?php
 
-//$db = mysqli_connect('localhost', 'root', '', 'exl_main');
+//Database connection
 
-//form validation - WITHOUT STATUS
+$db = mysqli_connect('localhost:3308', 'root', '', 'exl_main');
 
-// define variables and set to empty values
+
+//form validation 
+
 $titleErr = $emailErr = $categoryErr = $tagErr =  $contentErr = $statusErr ="";
 $title = $email = $category = $tag = $content = $status = "";
 
+$ValidationErrors = 0;
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   if (empty($_POST["title"])) {
     $titleErr = "* Title is required";
+    $ValidationErrors++;
   } else {
     $title = test_input($_POST["title"]);
   }
   
   if (empty($_POST["email"])) {
     $emailErr = "* Email is required";
+    $ValidationErrors++;
   } else {
     $email = test_input($_POST["email"]);
   }
     
   if (empty($_POST["category"])) {
     $categoryErr = "* Category is required";
+    $ValidationErrors++;
+
   } else {
     $category = test_input($_POST["category"]);
   }
 
   if (empty($_POST["tag"])) {
     $tagErr = "* Tag is required";
+    $ValidationErrors++;
   } else {
     $tag = test_input($_POST["tag"]);
   }
 
   if (empty($_POST["content"])) {
     $contentErr = "* content is required";
+    $ValidationErrors++;
+
   } else {
     $content = test_input($_POST["content"]);
   }
 
   if (empty($_POST["status"])) {
     $statusErr = "* status is required";
+    $ValidationErrors++;
   } else {
     $status = test_input($_POST["status"]);
   }
@@ -52,6 +63,50 @@ function test_input($data) {
   $data = stripslashes($data);
   $data = htmlspecialchars($data);
   return $data;
+}
+
+if($ValidationErrors==0){ //there are no validation errors
+
+    if (isset($_POST['submit'])) {//retrieveing user entered data from the form
+
+        $title = mysqli_real_escape_string($db, $_POST['title']);
+        $category = mysqli_real_escape_string($db, $_POST['category']);
+        $status = mysqli_real_escape_string($db, $_POST['status']);
+        $tag = mysqli_real_escape_string($db, $_POST['tag']);
+        $content = mysqli_real_escape_string($db, $_POST['content']);
+        $email = mysqli_real_escape_string($db, $_POST['email']);
+        $member1 = mysqli_real_escape_string($db, $_POST['member1']);
+        $member2 = mysqli_real_escape_string($db, $_POST['member2']);
+        $member3 = mysqli_real_escape_string($db, $_POST['member3']);
+
+
+        if(isset($_FILES['imageUpload'])){
+            //Process the image that is uploaded by the user
+            $target_dir = "uploads/";
+            $target_file = $target_dir . basename($_FILES["imageUpload"]["name"]);
+            $uploadOk = 1;
+            $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
+
+            move_uploaded_file($_FILES["imageUpload"]["tmp_name"], $target_file);
+
+            // if (move_uploaded_file($_FILES["imageUpload"]["tmp_name"], $target_file)) {
+            //     echo "The file ". basename( $_FILES["imageUpload"]["name"]). " has been uploaded.";
+            // } else {
+            //     echo "Sorry, there was an error uploading your file.";
+            // }
+
+            $image=basename( $_FILES["imageUpload"]["name"],".jpg"); // used to store the filename in a variable
+
+            $date = date('Y-m-d H:i:s'); //getting the current data and time
+             
+            //storing the data the database
+            $query= "INSERT INTO advertisement (dateTime,status,category,image,title,tag,content,email,member1,member2,member3) VALUES ('$date','$status', '$category','$image' , '$title' , '$tag' ,'$content' , '$email' , '$member1' , '$member2' , '$member3')";
+            mysqli_query($db, $query);
+        }
+    }
+}
+else{
+    echo '<p> val error!! </p>';
 }
 
 if(isset($_POST['submit'])){ 
@@ -79,7 +134,7 @@ else{
 
 <body>
     <h1 align="center">Enter the Advertisement Details</h1>
-    <form method="post" name="createAdForm">
+    <form method="post" name="createAdForm" enctype="multipart/form-data">
         <table align="center">
             <tr>
                 <td>
@@ -115,10 +170,10 @@ else{
                 </td>
                 <td>
                     <label class="custom-file-upload">
-                        <input type="file" name="image">
+                        <input type='file' name='imageUpload' id='imageUpload'>
                         Browse
                     </label> &nbsp &nbsp
-                    <input type='submit' value='Upload' name='but_upload'>
+                    <input type='submit' value='Upload'>
                 </td>
             </tr>
             <tr>
@@ -174,7 +229,7 @@ else{
                     Group member 01
                 </td>
                 <td>
-                    <input type="text">
+                    <input type="text" name="member1">
                 </td>
             </tr>
 
@@ -183,7 +238,7 @@ else{
                     Group member 02
                 </td>
                 <td>
-                    <input type="text">
+                    <input type="text" name="member2">
                 </td>
             </tr>
 
@@ -192,7 +247,7 @@ else{
                     Group member 03
                 </td>
                 <td>
-                    <input type="text">
+                    <input type="text" name="member3">
                 </td>
             </tr>
 
