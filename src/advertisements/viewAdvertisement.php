@@ -21,7 +21,7 @@ echo "<div class='row'>";
                 echo "<div class=\"polaroid\">";
                     echo "<img src='uploads/$row[4].jpg' height='490px' width='490px'>";
                     echo "<div class=\"container\">";
-                        echo "<p> $row[3] Adverstisements <br> #$row[6]</p>";
+                        echo "<p class='imageBottom'> $row[3] Advertisements <br> #$row[6]</p>";
                     echo" </div> ";
                 echo "</div>";
     
@@ -29,8 +29,18 @@ echo "<div class='row'>";
     
     //column 2
     echo "<div class='column' >";
-                echo "<h1> $row[5] </h1>";
-                echo "<p class='desc'> $row[7] </p>";
+                
+
+                echo "<div class=\"polaroidRightColumn\">";
+                echo "";
+                    echo "<h1> $row[5] </h1>";
+                    echo "<p class='desc'> $row[7] </p>";
+                    // echo "<div class=\"container\">";
+                    //     echo "<p> $row[3] Adverstisements <br> #$row[6]</p>";
+                    // echo" </div> ";
+                echo "</div>";
+
+                    
                 
 
     echo "</div>";
@@ -58,10 +68,9 @@ mysqli_close($db);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>View the advertisement</title>
     <link rel="stylesheet" type="text/css" href="../css/viewAdvertisement.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@600;700&display=swap" rel="stylesheet">    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet"> 
 </head>
 <body>
-
 </body>
 
 </html>

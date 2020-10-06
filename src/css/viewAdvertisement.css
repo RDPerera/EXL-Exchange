@@ -2,8 +2,10 @@
 @import url('https://fonts.googleapis.com/css?family=Quicksand&display=swap');
 
 body {
-    font-family: 'Open Sans', sans-serif;
-    background-color: lightblue;
+    font-family: 'Quicksand', sans-serif;
+    background-color: rgb(27, 165, 216);
+    background-image: url("../img/viewAdBackground.jpg");
+    
 }
 
 .column {
@@ -19,26 +21,69 @@ body {
 
 div.polaroid {
         width: 490px;
-       height: 550px;
-        background-color: white;
+       height: 560px;
+       background-color:rgb(16, 177, 189);
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
         
         margin-left: 40px;
         margin-top: 30px;
     }
-      
+div.polaroidRightColumn {
+        width: 700px;
+       height: 560px;
+       background-color:rgb(15, 206, 240);
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        color:rgb(2, 70, 87);
+        margin-left: 40px;
+        margin-top: 30px;
+    }
 div.container {
     text-align: center;
     /* padding: 10px 20px; */
 }
 
 h1{
-    text-align: center;
-}
+    /* margin-top: 30px;
+   
+    
+    text-transform: uppercase */
+    /* border-bottom: double rgb(1, 1, 44); */
 
+
+    
+    text-shadow: 1px 1px 2px #0a0253;
+	font-weight: 600;
+	font-size: 36px;
+	line-height: 40px;
+	padding: 15px 15px 15px 15%;
+	color: #25b1e9;
+	border-radius: 0 10px 0 10px;
+    background-color: rgb(4, 45, 78);
+}
+img:hover {
+    /* margin-top: 50px; */
+    opacity: 0.85;
+    
+  }
+
+h1:hover{
+    opacity: 0.9;
+  }
 p.desc {
+    margin-top: 10;
+    color:rgb(0, 0, 0);
     margin-right: 30px;
+    margin-left: 30px;
     text-indent: 10px;
     text-align: justify;
-    
+    text-shadow: 1px 1px 1px #8f8f8f;
+    }
+
+
+p.imageBottom{
+    color: rgb(12, 3, 54);
+    text-indent: 10px;
+    letter-spacing: 1px;
+    text-shadow: 1px 1px 1px #8f8f8f;
+
 }
