@@ -1,3 +1,28 @@
+<?php
+
+//Database connection
+
+$db = mysqli_connect('localhost:3308', 'root', '', 'exl_main');
+
+$query = "SELECT * FROM advertisement";
+
+
+//displaying the image
+$result = mysqli_query($db, $query);
+//$result = mysqli_fetch_array();
+
+while($row = mysqli_fetch_array($result)) {
+    // echo "<tr>";
+    // echo "<td>$row[0]</td>";
+    // echo "</tr>\n";
+    echo "<table>";
+    echo "<tr>";
+    echo "<td><img src='uploads/$row[4].jpg' height='150px' width='300px'></td>";
+    echo "</tr>\n";
+    echo $row[4];
+    echo "</table>";
+}
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
