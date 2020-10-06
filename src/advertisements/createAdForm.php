@@ -4,6 +4,10 @@
 
 $db = mysqli_connect('localhost:3308', 'root', '', 'exl_main');
 
+// Check connection
+if($db === false){
+    die("ERROR: Could not connect. " . mysqli_connect_error());
+}
 
 //form validation 
 
@@ -116,7 +120,8 @@ else{
   echo '<p> no </p>';
 }
 
-
+// Close connection
+mysqli_close($db);
 ?>
 
 
@@ -128,7 +133,6 @@ else{
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="../css/createAdForm.css" />
-    <script type="text/javascript" src="../js/createAdForm.js"></script>
     <title>Create an advertisement</title>
 </head>
 
