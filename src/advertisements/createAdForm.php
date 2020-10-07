@@ -11,8 +11,8 @@ if($db === false){
 
 //form validation 
 
-$titleErr = $emailErr = $categoryErr = $tagErr =  $contentErr = $statusErr ="";
-$title = $email = $category = $tag = $content = $status = "";
+$titleErr = $emailErr = $categoryErr = $tagErr =  $contentErr = $statusErr = $priceErr = "";
+$title = $email = $category = $tag = $content = $status = $price = "";
 
 $ValidationErrors = 0;
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -60,6 +60,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $status = test_input($_POST["status"]);
   }
 
+  if (empty($_POST["price"])) {
+    $priceErr = "* Price is required";
+    $ValidationErrors++;
+  } else {
+    $price = test_input($_POST["price"]);
+  }
 }
 
 function test_input($data) {
@@ -82,8 +88,9 @@ if($ValidationErrors==0){ //there are no validation errors
         $member1 = mysqli_real_escape_string($db, $_POST['member1']);
         $member2 = mysqli_real_escape_string($db, $_POST['member2']);
         $member3 = mysqli_real_escape_string($db, $_POST['member3']);
+        $price = mysqli_real_escape_string($db, $_POST['price']);
 
-
+        //the image file
         if(isset($_FILES['imageUpload'])){
 
             //Process the image that is uploaded by the user
@@ -99,7 +106,7 @@ if($ValidationErrors==0){ //there are no validation errors
             $date = date('Y-m-d H:i:s'); //getting the current data and time
              
             //storing the data the database
-            $query= "INSERT INTO advertisement (dateTime,status,category,image,title,tag,content,email,member1,member2,member3) VALUES ('$date','$status', '$category','$image' , '$title' , '$tag' ,'$content' , '$email' , '$member1' , '$member2' , '$member3')";
+            $query= "INSERT INTO advertisement (dateTime,status,category,image,title,tag,content,email,member1,member2,member3,price) VALUES ('$date','$status', '$category','$image' , '$title' , '$tag' ,'$content' , '$email' , '$member1' , '$member2' , '$member3','$price')";
             mysqli_query($db, $query);
         }
     }
@@ -179,19 +186,23 @@ mysqli_close($db);
                 <label>Enter your email</label>
                 <input type="email" id="email" name="email">
                 <span class="error"> <?php echo $emailErr;?></span>
-
                 <br><br>
-            
+
+                <label>Enter the price</label>
+                <input type="text" name="price" placeholder="The price in Srilankan Rupees">
+                <span class="error"> <?php echo $priceErr;?></span>
+                <br><br>
+
                 <h3>Add Collaborators to the Advertisement </h3> 
               
                 <label> Group member 01 </label>
-                <input type="text" name="member1" placeholder="Enter the EXL Exchange username of the member">
+                <input type="text" name="member1" placeholder="Enter the EXL Exchange username of the first member">
 
                 <label> Group member 02 </label>
-                <input type="text" name="member2" placeholder="Enter the EXL Exchange username of the member">
+                <input type="text" name="member2" placeholder="Enter the EXL Exchange username of the second member">
 
                 <label> Group member 03 </label>
-                <input type="text" name="member3" placeholder="Enter the EXL Exchange username of the member">
+                <input type="text" name="member3" placeholder="Enter the EXL Exchange username of the third member">
                 <br><br>
                 <input type="submit" name="submit" value="Create The Advertisement">
             </div>
