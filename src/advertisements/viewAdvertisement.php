@@ -9,7 +9,8 @@ if($db === false){
     die("ERROR: Could not connect. " . mysqli_connect_error());
 }
 
-$query = "SELECT * FROM advertisement"; //update this when linking this to dashboard
+$adID = $_GET['id'];
+$query = "SELECT * FROM advertisement WHERE advertisementID = $adID"; //update this when linking this to dashboard
 
 echo "<div class='row'>";
     //column 1
@@ -38,7 +39,7 @@ echo "<div class='row'>";
                     echo " <div class='class1'>Advertisement Description</div> <p class='desc'> <br> $row[7] <br> <br> </p>";
                     // echo "<img src='https://img.icons8.com/fluent/48/000000/price-tag-pound.png'/>";
                     // echo "The Price";
-                    echo "<button class='button2'> The Price -  LKR $row[6] </button>";
+                    echo "<button class='button2'> The Price -  LKR $row[12].00 </button>";
                     echo "</div>";
 
                     
