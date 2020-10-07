@@ -1,68 +1,88 @@
 @import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Quicksand&display=swap');
 body {
-    font-family: 'Muli', sans-serif;
-}
-
-th,
-td {
-    padding: 15px;
-    text-align: left;
-}
-
-textarea {
-    width: 100%;
-    height: 150px;
-    padding: 12px 20px;
-    box-sizing: border-box;
-    border: 2px solid gray;
-    border-radius: 4px;
-    background-color: #f8f8f8;
-    resize: none;
-}
-
-input[type=text] {
-    width: 100%;
-    border: 2px solid gray;
-    border-radius: 4px;
-}
-
-select {
-    width: 100%;
-    height: 50px;
-    padding: 16px 20px;
-    border: none;
-    border-radius: 4px;
-    background-color: #f1f1f1;
-}
-
-input[type=email] {
-    width: 100%;
-    border: 2px solid gray;
-    border-radius: 4px;
-}
-
-input[type=submit] {
-    background-color: rgb(240, 234, 232);
-    border-color: black;
-    color: rgb(0, 0, 0);
-    padding: 7.5px 32px;
-    text-decoration: none;
-    margin: 4px 2px;
-    cursor: pointer;
+    font-family: 'Quicksand', sans-serif;
+   color: white;
+   background-color:#006DCB
+    
 }
 
 input[type="file"] {
     display: none;
 }
 
-body {
-    background-color: rgb(240, 234, 232);
-}
-
 .custom-file-upload {
-    border: 1px solid rgb(0, 0, 0);
+    border: 1px solid #90cbff;
     display: inline-block;
     padding: 6px 12px;
     cursor: pointer;
+}
+
+
+    div.polaroid {
+        width: 800px;
+       height: 1200px;
+       background-color:#011425;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        
+        margin-left: 40px;
+
+        
+    }
+
+    .center {
+        margin: auto;
+        width: 50%;
+        padding: 10px;
+      }
+
+      input[type=text], select, input[type=email],textarea {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+      }
+      
+      input[type=submit] {
+
+        background-color: #1e0579;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+
+      }
+      
+      input[type=submit]:hover {
+        background-color: #2c0ba7;
+      }
+      
+      div {
+        border-radius: 5px;
+        background-color: #006DCB;
+        padding: 20px;
+      }
+
+      span.error{
+          color: rgb(233, 44, 44);
+      }
+label{
+    color: #90cbff;
+    text-shadow: 1px 1px 2px black;
+}
+
+h1{
+    color: #011425;
+    text-shadow: 1px 1px 2px rgb(4, 138, 172);
+    margin-left: 140px;
+}
+
+h3{
+    color: #51aeff;
+    text-shadow: 1px 1px 2px rgb(0, 0, 0);
+    text-align: center;
 }

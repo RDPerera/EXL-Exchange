@@ -46,7 +46,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   }
 
   if (empty($_POST["content"])) {
-    $contentErr = "* content is required";
+    $contentErr = "* Content is required";
     $ValidationErrors++;
 
   } else {
@@ -54,7 +54,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   }
 
   if (empty($_POST["status"])) {
-    $statusErr = "* status is required";
+    $statusErr = "* Status is required";
     $ValidationErrors++;
   } else {
     $status = test_input($_POST["status"]);
@@ -85,6 +85,7 @@ if($ValidationErrors==0){ //there are no validation errors
 
 
         if(isset($_FILES['imageUpload'])){
+
             //Process the image that is uploaded by the user
             $target_dir = "uploads/";
             $target_file = $target_dir . basename($_FILES["imageUpload"]["name"]);
@@ -92,12 +93,6 @@ if($ValidationErrors==0){ //there are no validation errors
             $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
 
             move_uploaded_file($_FILES["imageUpload"]["tmp_name"], $target_file);
-
-            // if (move_uploaded_file($_FILES["imageUpload"]["tmp_name"], $target_file)) {
-            //     echo "The file ". basename( $_FILES["imageUpload"]["name"]). " has been uploaded.";
-            // } else {
-            //     echo "Sorry, there was an error uploading your file.";
-            // }
 
             $image=basename( $_FILES["imageUpload"]["name"],".jpg"); // used to store the filename in a variable
 
@@ -109,16 +104,7 @@ if($ValidationErrors==0){ //there are no validation errors
         }
     }
 }
-else{
-    echo '<p> val error!! </p>';
-}
 
-if(isset($_POST['submit'])){ 
-  echo '<p> yes </p>';
-}
-else{
-  echo '<p> no </p>';
-}
 
 // Close connection
 mysqli_close($db);
@@ -131,136 +117,84 @@ mysqli_close($db);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="../css/createAdForm.css" />
     <title>Create an advertisement</title>
 </head>
 
 <body>
+
     <h1 align="center">Enter the Advertisement Details</h1>
     <form method="post" name="createAdForm" enctype="multipart/form-data">
-        <table align="center">
-            <tr>
-                <td>
-                    Enter the title
-                </td>
-                <td>
-                    <input type="text" name="title">
-                    <span class="error"> <?php echo $titleErr;?></span>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Select the category
-                </td>
-                <td>
-                    <select name="category">
-                        <option>
-                            Graphics Designing
-                        </option>
-                        <option>
-                            Programming
-                        </option>
-                        <option>
-                            Content Writing
-                        </option>
-                    </select>
-                    <span class="error"> <?php echo $categoryErr;?></span>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Upload an image
-                </td>
-                <td>
-                    <label class="custom-file-upload">
-                        <input type='file' name='imageUpload' id='imageUpload'>
-                        Browse
-                    </label> &nbsp &nbsp
-                    <input type='submit' value='Upload'>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Advertisement Status
-                </td>
-                <td>
-                    <input type="radio" id="active" name="status" value="active">
-                    <label for="active">Active</label><br>
-                    <input type="radio" id="inactive" name="status" value="inactive">
-                    <label for="inactive">Inactive</label><br>
-                    <span class="error"> <?php echo $statusErr;?></span>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Enter a search tag
-                </td>
-                <td>
-                    <input type="text" name="tag">
-                    <span class="error"> <?php echo $tagErr;?></span>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Advertisement Content
-                </td>
-                <td>
-                    <textarea name="content"></textarea>
-                    <span class="error"> <?php echo $contentErr;?></span>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Enter your email
-                </td>
-                <td>
-                    <input type="email" id="email" name="email">
-                    <span class="error"> <?php echo $emailErr;?></span>
-                </td>
-            </tr>
+        <div class='center'>
+            <div class='polaroid'>
+                <label> Enter the title </label>
+                <input type="text" name="title">
+                <span class="error"> <?php echo $titleErr;?></span>
 
-            <tr>
-                <td>
-                    <h3>Add collaborators to the advertisement </h3>
-                    <h5>Enter the EXL Exchange username of each member</h5>
-                </td>
+                <br><br>
+                <label> Select the category </label>
+                <select name="category">
+                    <option>
+                        Graphics Designing
+                    </option>
+                    <option>
+                        Programming
+                    </option>
+                    <option>
+                        Content Writing
+                    </option>
+                </select>
+                <span class="error"> <?php echo $categoryErr;?></span>
+                <br><br>
 
-            </tr>
+                <label> Upload an image </label> &nbsp &nbsp &nbsp
+                <label class="custom-file-upload">
+                    <input type='file' name='imageUpload' id='imageUpload'>
+                    Browse
+                </label>
+                <br><br>
 
-            <tr>
-                <td>
-                    Group member 01
-                </td>
-                <td>
-                    <input type="text" name="member1">
-                </td>
-            </tr>
+                <label for='radio'> Advertisement Status </label> <br><br>
+                <input type="radio" id="active" name="status" value="active">
+                <label for="active">Active</label><br>
+                <input type="radio" id="inactive" name="status" value="inactive">
+                <label for="inactive">Inactive</label><br>
+                <span class="error"> <?php echo $statusErr;?></span>
+                <br><br>
+                <label>Enter a search tag </label>
 
-            <tr>
-                <td>
-                    Group member 02
-                </td>
-                <td>
-                    <input type="text" name="member2">
-                </td>
-            </tr>
+                <input type="text" name="tag">
+                <span class="error"> <?php echo $tagErr;?></span>
 
-            <tr>
-                <td>
-                    Group member 03
-                </td>
-                <td>
-                    <input type="text" name="member3">
-                </td>
-            </tr>
+                <br><br>
 
-            <tr>
-                <td>
-                    <input type="submit" name="submit" value="Create">
-                </td>
-            </tr>
-        </table>
+                <label>Advertisement Content</label>
+                <textarea name="content"></textarea>
+
+                <span class="error"> <?php echo $contentErr;?></span>
+
+                <br><br>
+                <label>Enter your email</label>
+                <input type="email" id="email" name="email">
+                <span class="error"> <?php echo $emailErr;?></span>
+
+                <br><br>
+            
+                <h3>Add Collaborators to the Advertisement </h3> 
+              
+                <label> Group member 01 </label>
+                <input type="text" name="member1" placeholder="Enter the EXL Exchange username of the member">
+
+                <label> Group member 02 </label>
+                <input type="text" name="member2" placeholder="Enter the EXL Exchange username of the member">
+
+                <label> Group member 03 </label>
+                <input type="text" name="member3" placeholder="Enter the EXL Exchange username of the member">
+                <br><br>
+                <input type="submit" name="submit" value="Create The Advertisement">
+            </div>
     </form>
 
 
