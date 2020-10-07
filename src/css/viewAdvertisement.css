@@ -3,8 +3,8 @@
 
 body {
     font-family: 'Quicksand', sans-serif;
-    background-color: rgb(27, 165, 216);
-    background-image: url("../img/viewAdBackground.jpg");
+    background-color: #006DCB;
+    /* background-image: url("../img/viewAdBackground.jpg"); */
     
 }
 
@@ -22,7 +22,7 @@ body {
 div.polaroid {
         width: 490px;
        height: 560px;
-       background-color:rgb(16, 177, 189);
+       background-color:#011425;
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
         
         margin-left: 40px;
@@ -31,11 +31,12 @@ div.polaroid {
 div.polaroidRightColumn {
         width: 700px;
        height: 560px;
-       background-color:rgb(15, 206, 240);
+       background-color:rgb(255, 255, 255);
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
         color:rgb(2, 70, 87);
         margin-left: 40px;
         margin-top: 30px;
+        /* background-image: url("../img/viewAdBackground.jpg"); */
     }
 div.container {
     text-align: center;
@@ -56,8 +57,7 @@ h1{
 	font-size: 36px;
 	line-height: 40px;
 	padding: 15px 15px 15px 15%;
-	color: #25b1e9;
-	border-radius: 0 10px 0 10px;
+	color: #ffffff;
     background-color: rgb(4, 45, 78);
 }
 img:hover {
@@ -81,9 +81,57 @@ p.desc {
 
 
 p.imageBottom{
-    color: rgb(12, 3, 54);
+    color: rgb(255, 255, 255);
     text-indent: 10px;
     letter-spacing: 1px;
-    text-shadow: 1px 1px 1px #8f8f8f;
+    /* text-shadow: 1px 1px 1px #8f8f8f; */
+
+}
+
+.class1{
+    margin-left: 30px;
+    font-weight:bold;
+    font-size: larger;
+    
+
+}
+button {
+    background-color: #081653; 
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+
+    font-size: 16px;
+    margin-left: 40px;
+ 
+  }
+ .button1:hover{
+     opacity: 0.8;
+ }
+.button1 {
+    
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  }
+
+  .button2 {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    background-color: #006DCB; 
+    border: none;
+    color: rgb(255, 255, 255);
+    padding: 15px 32px;
+    text-align: center;
+    font-size: 16px;
+    margin-left: 40px;
+    
+
+}
+
+  .class2{
+    margin-left: 30px;
+    font-weight:bold;
+    font-size: larger;
+    display: inline;
+    
 
 }

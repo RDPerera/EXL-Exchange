@@ -24,6 +24,7 @@ echo "<div class='row'>";
                         echo "<p class='imageBottom'> $row[3] Advertisements <br> #$row[6]</p>";
                     echo" </div> ";
                 echo "</div>";
+   
     
     echo "</div>";
     
@@ -34,15 +35,17 @@ echo "<div class='row'>";
                 echo "<div class=\"polaroidRightColumn\">";
                 echo "";
                     echo "<h1> $row[5] </h1>";
-                    echo "<p class='desc'> $row[7] </p>";
-                    // echo "<div class=\"container\">";
-                    //     echo "<p> $row[3] Adverstisements <br> #$row[6]</p>";
-                    // echo" </div> ";
-                echo "</div>";
+                    echo " <div class='class1'>Advertisement Description</div> <p class='desc'> <br> $row[7] <br> <br> </p>";
+                    // echo "<img src='https://img.icons8.com/fluent/48/000000/price-tag-pound.png'/>";
+                    // echo "The Price";
+                    echo "<button class='button2'> The Price -  LKR $row[6] </button>";
+                    echo "</div>";
 
                     
                 
-
+    echo "<br><br>";
+    echo "<button class='button1'> Contact Seller </button>";
+    echo "<button class='button1'> Request </button>";
     echo "</div>";
 echo "</div>";
             }
@@ -67,7 +70,7 @@ mysqli_close($db);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>View the advertisement</title>
-    <link rel="stylesheet" type="text/css" href="../css/viewAdvertisement.css" />
+    <link rel="stylesheet" type="text/css" href="../css/viewAdvertisement.css" >
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@600;700&display=swap" rel="stylesheet">    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet"> 
 </head>
 <body>
