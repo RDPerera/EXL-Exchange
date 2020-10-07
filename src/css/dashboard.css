@@ -126,6 +126,10 @@ body {
   box-sizing: border-box;
   transition: ease-in-out 0.5s;
 }
+.selected-item
+{
+  background-color: #0377f3;
+}
 .sidebar-menu img {
   padding: 10px;
   vertical-align: middle;
@@ -145,15 +149,20 @@ label #home {
   width: 32px;
   height: 32px;
 }
-.content
+.content-super
 {
     transition: 0.5s;
-    margin-left: 250px;
-    background-image: url("../img/mountain-1920x1080-4k-5k-wallpaper-climber-android-wallpaper-flat-11099.jpg");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 100vh;
+    margin-left: 290px;
+    padding-top: 58px;
+}
+#home:checked ~ .content-super {
+  margin-left: 60px;
+}
+.page-container
+{
+  width: 100%;
+  height: 100%;
+
 }
 #home:checked ~ .sidebar {
   left: -220px;
@@ -181,7 +190,5 @@ label #home {
 #home:checked ~ .sidebar .slidbar-name {
   display: none;
 }
-#home:checked ~ .content {
-    margin-left: 0;
-  }
+
   
