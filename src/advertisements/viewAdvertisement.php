@@ -10,7 +10,7 @@ if($db === false){
 }
 
 $adID = $_GET['id'];
-$query = "SELECT * FROM advertisement WHERE advertisementID = $adID"; //update this when linking this to dashboard
+$query = "SELECT * FROM advertisement WHERE advertisementID = $adID"; 
 
 echo "<div class='row'>";
     //column 1
