@@ -1,21 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.2
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
-<<<<<<< HEAD
--- Host: 127.0.0.1:3308
--- Generation Time: Oct 04, 2020 at 09:13 PM
--- Server version: 8.0.18
--- PHP Version: 7.3.12
-=======
 -- Host: 127.0.0.1
--- Generation Time: Oct 04, 2020 at 10:20 AM
+-- Generation Time: Oct 08, 2020 at 08:33 PM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.4.7
->>>>>>> e18715e4c54738c8d246697480519ece7cbeab27
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -32,39 +24,39 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
-<<<<<<< HEAD
 -- Table structure for table `advertisement`
 --
 
-DROP TABLE IF EXISTS `advertisement`;
-CREATE TABLE IF NOT EXISTS `advertisement` (
-  `advertisementID` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `advertisement` (
+  `advertisementID` int(11) NOT NULL,
   `dateTime` datetime NOT NULL,
   `status` varchar(10) NOT NULL,
   `category` varchar(255) NOT NULL,
-  `image` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `image` varchar(50) NOT NULL,
   `title` varchar(255) NOT NULL,
   `tag` varchar(50) NOT NULL,
   `content` varchar(1000) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `member1` varchar(255) DEFAULT NULL,
-  `member2` varchar(255) DEFAULT NULL,
-  `member3` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`advertisementID`)
-) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `userName` varchar(255) NOT NULL,
+  `member1` varchar(255) NOT NULL,
+  `member2` varchar(255) NOT NULL,
+  `member3` varchar(255) NOT NULL,
+  `price` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `advertisement`
+--
+
+INSERT INTO `advertisement` (`advertisementID`, `dateTime`, `status`, `category`, `image`, `title`, `tag`, `content`, `userName`, `member1`, `member2`, `member3`, `price`) VALUES
+(0, '2020-10-08 15:34:30', 'active', 'Graphics Designing', 'thumb-1920-238870', 'Photography For BDs', 'ps', 'helllo guys,isad', 'r.dilanperera@gmail.com', '', '', '', 1500),
+(0, '2020-10-08 16:38:52', 'active', 'Content Writing', 'retina-desktop-wallpapers_5303433', 'fsdf', 'dsfsdf', 'sdfsdf', '', 'sdf', '', '', 1500),
+(0, '2020-10-08 20:01:55', 'active', 'Graphics Designing', 'retina-desktop-wallpapers_5303433', 'Photography For BDs', 'dfg', 'sadsadasdsdsd\r\nasdasdasdasd\r\nasdasdasd', '', 'asdsad', '', '', 1500),
+(0, '2020-10-08 20:02:53', 'active', 'Graphics Designing', 'retina-desktop-wallpapers_5303433', 'Photography For BDs', 'dfg', 'sadsadasdsdsd\r\nasdasdasdasd\r\nasdasdasd', '', 'asdsad', '', '', 1500),
+(0, '2020-10-08 20:03:20', 'inactive', 'Programming', 'samsung-galaxy-s9-1920x1080-android-8-0-android-or', 'fasfas', 'sdf', 'dsfsdfs', '', '', '', '', 0);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `buyer`
---
-
-DROP TABLE IF EXISTS `buyer`;
-CREATE TABLE IF NOT EXISTS `buyer` (
-  `userName` varchar(255) NOT NULL,
-  `buyerRate` double NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-=======
 -- Table structure for table `buyer`
 --
 
@@ -72,7 +64,6 @@ CREATE TABLE `buyer` (
   `userName` varchar(255) NOT NULL,
   `buyerRate` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
->>>>>>> e18715e4c54738c8d246697480519ece7cbeab27
 
 -- --------------------------------------------------------
 
@@ -80,21 +71,12 @@ CREATE TABLE `buyer` (
 -- Table structure for table `seller`
 --
 
-<<<<<<< HEAD
-DROP TABLE IF EXISTS `seller`;
-CREATE TABLE IF NOT EXISTS `seller` (
-=======
 CREATE TABLE `seller` (
->>>>>>> e18715e4c54738c8d246697480519ece7cbeab27
   `userName` varchar(255) NOT NULL,
   `mainRate` double NOT NULL,
   `communicationRate` double NOT NULL,
   `deliveringRate` double NOT NULL
-<<<<<<< HEAD
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-=======
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
->>>>>>> e18715e4c54738c8d246697480519ece7cbeab27
 
 -- --------------------------------------------------------
 
@@ -102,18 +84,13 @@ CREATE TABLE `seller` (
 -- Table structure for table `user`
 --
 
-DROP TABLE IF EXISTS `user`;
-CREATE TABLE IF NOT EXISTS `user` (
+CREATE TABLE `user` (
   `userName` varchar(255) NOT NULL,
   `firstName` varchar(255) NOT NULL,
   `lastName` varchar(255) NOT NULL,
   `dob` date NOT NULL,
   `email` varchar(255) NOT NULL,
   `accountStatus` int(2) NOT NULL,
-<<<<<<< HEAD
-  `verificationStatus` int(2) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-=======
   `verificationStatus` int(2) NOT NULL,
   `verificationOTP` int(8) NOT NULL,
   `password` varchar(255) NOT NULL
@@ -134,7 +111,6 @@ ALTER TABLE `seller`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`userName`);
->>>>>>> e18715e4c54738c8d246697480519ece7cbeab27
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
