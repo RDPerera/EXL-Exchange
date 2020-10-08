@@ -7,13 +7,14 @@ if($db === false){
     die("ERROR: Could not connect. " . mysqli_connect_error());
 }
 
-//Retrieving the advertisement id by using GET
-$adID = $_GET['id'];
-$query = "DELETE FROM advertisement WHERE advertisementID = $adID"; 
+//Retrieving the advertisement username by using GET
+$adUsername = $_GET['username'];
+$query = "DELETE FROM advertisement WHERE username = '$adUsername'"; 
 
 if(mysqli_query($db, $query)){
-    echo "Deleted the advertisement - $adID successfully";
+    echo "Deleted the advertisement - $adUsername successfully";
 }
 
+//code the redirection
 mysqli_close($db);
  ?>

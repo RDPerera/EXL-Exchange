@@ -3,7 +3,7 @@
 //HARD coded the session variables
 session_start();
 
-$username = $_SESSION['username'] = "user1";
+$username = $_SESSION['username'] = "user2";
 
 
 //Database connection
@@ -47,12 +47,10 @@ echo "<div class='row'>";
                     // echo "The Price";
                     echo "<button class='button2'> The Price -  LKR $row[12].00 </button>";
                     echo "</div>";
-
-                    
-                
-    echo "<br><br>";
-    echo "<button class='button1'> Update Advertisement </button>";
-    echo "<button class='button1'> Delete Advertisement </button>";
+        
+    echo "<br><br>";  
+    echo "<div class='link'> <a href='updateAdvertisement.php?username=$username'> Update Advertisement</a> </div>";
+    echo "<div class='link'> <a href='deleteAdvertisement.php?username=$username'> Delete Advertisement</a> </div>";
     echo "</div>";
 echo "</div>";
             }

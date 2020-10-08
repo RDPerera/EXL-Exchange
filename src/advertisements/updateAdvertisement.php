@@ -15,7 +15,6 @@
     <?php
     
 //Database connection
-
 $db = mysqli_connect('localhost:3308', 'root', '', 'exl_main');
 
 // Check connection
@@ -23,11 +22,12 @@ if($db === false){
     die("ERROR: Could not connect. " . mysqli_connect_error());
 }
 
-$username = "hard coded"; //get this from the session
+$username = "hard coded"; //get this from the session OR from GET :)
 
-//Retrieving the form data
-$adID = $_GET['id'];
-$query = "SELECT * FROM advertisement WHERE advertisementID = $adID"; 
+//Retrieving the GET data
+$adUsername = $_GET['username'];
+
+$query = "SELECT * FROM advertisement WHERE username = '$adUsername'"; 
 
 $options="";
 $optionArray= Array("Graphics Designing","Programming","Content Writing");
@@ -155,14 +155,14 @@ $activeCheck = $inactiveCheck = "";
                             $image=basename( $_FILES["imageUpload"]["name"],".jpg"); // used to store the filename in a variable
                             
                             //query 
-                            $query = "UPDATE advertisement SET image = '$image' , status = '$status' ,category = '$category', title = '$title' ,tag = '$tag' ,content = '$content' ,username = '$username' ,member1 = '$member1',member2 = '$member2' ,member3 = '$member3' ,price = '$price' WHERE advertisementID = $adID ";
+                            $query = "UPDATE advertisement SET image = '$image' , status = '$status' ,category = '$category', title = '$title' ,tag = '$tag' ,content = '$content' ,username = '$username' ,member1 = '$member1',member2 = '$member2' ,member3 = '$member3' ,price = '$price' WHERE username = '$adUsername' ";
                             
 
                         }
                         else //the user have not uploaded a new image
                         {  
                           //query               
-                          $query = "UPDATE advertisement SET status = '$status' ,category = '$category', title = '$title' ,tag = '$tag' ,content = '$content' ,username = '$username' ,member1 = '$member1',member2 = '$member2' ,member3 = '$member3' ,price = '$price' WHERE advertisementID = $adID ";                            
+                          $query = "UPDATE advertisement SET status = '$status' ,category = '$category', title = '$title' ,tag = '$tag' ,content = '$content' ,username = '$username' ,member1 = '$member1',member2 = '$member2' ,member3 = '$member3' ,price = '$price' WHERE username = '$adUsername' ";                            
                         }
                         //update the database
                         mysqli_query($db, $query);
