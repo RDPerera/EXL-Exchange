@@ -31,17 +31,7 @@
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: small;
 }
-.main-title{
-  padding: 20px;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  font-size: 18px;
-  font-weight: 400;
-}
-.blue-text
-{
-  color: #007bff;
-  font-weight: 500;
-}
+
 .request-title{
   font-weight: 500;
   padding-right: 10px;
