@@ -35,7 +35,7 @@ body {
 
 .left-head {
   margin-top: -34px;
-  margin-left: 40px;
+  margin-left: 45px;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   font-size: larger;
   font-weight: 600;
@@ -190,9 +190,10 @@ label #home {
 #home:checked ~ .sidebar .slidbar-name {
   display: none;
 }
+
 .main-title{
   margin-top: 0;
-  margin-left: 0;
+  margin-left: 30px;
   padding-top: 20px;
   padding-bottom: 10px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;

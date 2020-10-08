@@ -155,7 +155,7 @@ mysqli_close($db);
     </div>
     <div class="content-super">
         <div class="sub-container">
-            <div class="main-title"><span class="blue-text">Create </span>Advertisement</div>
+            <div class="main-title-create"><span class="blue-text-create">Create </span>Advertisement</div>
             <form method="post" name="createAdForm" enctype="multipart/form-data">
 
                 <div class="fieldset">
