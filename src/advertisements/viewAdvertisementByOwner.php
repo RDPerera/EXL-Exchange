@@ -1,11 +1,10 @@
 <?php
 
 //HARD coded the session variables
-//session_start();
+session_start();
 
-//$userName = $_SESSION['userName'];
+$username = $_SESSION['username'] = "user2";
 
-$username = "hard coded";
 
 //Database connection
 
@@ -48,12 +47,10 @@ echo "<div class='row'>";
                     // echo "The Price";
                     echo "<button class='button2'> The Price -  LKR $row[12].00 </button>";
                     echo "</div>";
-
-                    
-                
-    echo "<br><br>";
-    echo "<button class='button1'> Contact Seller </button>";
-    echo "<button class='button1'> Request </button>";
+        
+    echo "<br><br>";  
+    echo "<div class='link'> <a href='updateAdvertisement.php?username=$username'> Update Advertisement</a> </div>";
+    echo "<div class='link'> <a href='deleteAdvertisement.php?username=$username'> Delete Advertisement</a> </div>";
     echo "</div>";
 echo "</div>";
             }
@@ -78,7 +75,7 @@ mysqli_close($db);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>View the advertisement</title>
-    <link rel="stylesheet" type="text/css" href="../css/viewAdvertisement.css" >
+    <link rel="stylesheet" type="text/css" href="../css/viewAdvertisementByOwner.css" >
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@600;700&display=swap" rel="stylesheet">    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet"> 
 </head>
 <body>

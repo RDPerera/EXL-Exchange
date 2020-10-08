@@ -15,7 +15,6 @@
     <?php
     
 //Database connection
-
 $db = mysqli_connect('localhost:3308', 'root', '', 'exl_main');
 
 // Check connection
@@ -23,9 +22,12 @@ if($db === false){
     die("ERROR: Could not connect. " . mysqli_connect_error());
 }
 
-//Retrieving the form data
-$adID = $_GET['id'];
-$query = "SELECT * FROM advertisement WHERE advertisementID = $adID"; 
+$username = "hard coded"; //get this from the session OR from GET :)
+
+//Retrieving the GET data
+$adUsername = $_GET['username'];
+
+$query = "SELECT * FROM advertisement WHERE username = '$adUsername'"; 
 
 $options="";
 $optionArray= Array("Graphics Designing","Programming","Content Writing");
@@ -62,8 +64,8 @@ $activeCheck = $inactiveCheck = "";
            
                 //updation form validation 
 
-                $titleErr = $emailErr = $categoryErr = $tagErr =  $contentErr = $statusErr = $priceErr = "";
-                $title = $email = $category = $tag = $content = $status = $price = $image ="";
+                $titleErr = $categoryErr = $tagErr =  $contentErr = $statusErr = $priceErr = "";
+                $title = $category = $tag = $content = $status = $price = $image ="";
                 
                 function test_input($data) {
                   $data = trim($data);
@@ -79,13 +81,6 @@ $activeCheck = $inactiveCheck = "";
                     $ValidationErrors++;
                   } else {
                     $title = test_input($_POST["title"]);
-                  }
-                  
-                  if (empty($_POST["email"])) {
-                    $emailErr = "* Email is required";
-                    $ValidationErrors++;
-                  } else {
-                    $email = test_input($_POST["email"]);
                   }
                     
                   if (empty($_POST["category"])) {
@@ -135,7 +130,6 @@ $activeCheck = $inactiveCheck = "";
                         $status = mysqli_real_escape_string($db, $_POST['status']);
                         $tag = mysqli_real_escape_string($db, $_POST['tag']);
                         $content = mysqli_real_escape_string($db, $_POST['content']);
-                        $email = mysqli_real_escape_string($db, $_POST['email']);
                         $member1 = mysqli_real_escape_string($db, $_POST['member1']);
                         $member2 = mysqli_real_escape_string($db, $_POST['member2']);
                         $member3 = mysqli_real_escape_string($db, $_POST['member3']);
@@ -161,14 +155,14 @@ $activeCheck = $inactiveCheck = "";
                             $image=basename( $_FILES["imageUpload"]["name"],".jpg"); // used to store the filename in a variable
                             
                             //query 
-                            $query = "UPDATE advertisement SET image = '$image' , status = '$status' ,category = '$category', title = '$title' ,tag = '$tag' ,content = '$content' ,email = '$email' ,member1 = '$member1',member2 = '$member2' ,member3 = '$member3' ,price = '$price' WHERE advertisementID = $adID ";
+                            $query = "UPDATE advertisement SET image = '$image' , status = '$status' ,category = '$category', title = '$title' ,tag = '$tag' ,content = '$content' ,username = '$username' ,member1 = '$member1',member2 = '$member2' ,member3 = '$member3' ,price = '$price' WHERE username = '$adUsername' ";
                             
 
                         }
                         else //the user have not uploaded a new image
                         {  
                           //query               
-                          $query = "UPDATE advertisement SET status = '$status' ,category = '$category', title = '$title' ,tag = '$tag' ,content = '$content' ,email = '$email' ,member1 = '$member1',member2 = '$member2' ,member3 = '$member3' ,price = '$price' WHERE advertisementID = $adID ";                            
+                          $query = "UPDATE advertisement SET status = '$status' ,category = '$category', title = '$title' ,tag = '$tag' ,content = '$content' ,username = '$username' ,member1 = '$member1',member2 = '$member2' ,member3 = '$member3' ,price = '$price' WHERE username = '$adUsername' ";                            
                         }
                         //update the database
                         mysqli_query($db, $query);
@@ -191,14 +185,13 @@ $activeCheck = $inactiveCheck = "";
                 <span class="error"> <?php echo $categoryErr;?></span>
                 <br><br>
 
-                <!-- HANDLE THE IMAGE UPDATION -->
                 <label> Upload an image </label> &nbsp &nbsp &nbsp
                 <label class="custom-file-upload">
                     <input type='file' name='imageUpload' id='imageUpload'>
                     Browse
                 </label>
                 <br><br>
-                <!-- HANDLE THE IMAGE UPDATION -->
+     
                 <label for='radio'> Advertisement Status </label> <br><br>
                 <input type="radio" id="active" name="status" value="active" <?php echo $activeCheck;?>>
                 <label for="active">Active</label><br>
@@ -218,10 +211,6 @@ $activeCheck = $inactiveCheck = "";
 
                 <span class="error"> <?php echo $contentErr;?></span>
 
-                <br><br>
-                <label>The email</label>
-                <input type="email" id="email" name="email" value=" <?php echo $row[8];?>">
-                <span class="error"> <?php echo $emailErr;?></span>
                 <br><br>
 
                 <label>The price</label>
