@@ -9,10 +9,12 @@ if($db === false){
     die("ERROR: Could not connect. " . mysqli_connect_error());
 }
 
+$username = "hard coded"; //get this from the session
+
 //form validation 
 
-$titleErr = $emailErr = $categoryErr = $tagErr =  $contentErr = $statusErr = $priceErr = "";
-$title = $email = $category = $tag = $content = $status = $price = "";
+$titleErr = $categoryErr = $tagErr =  $contentErr = $statusErr = $priceErr = "";
+$title = $category = $tag = $content = $status = $price = "";
 
 $ValidationErrors = 0;
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -21,13 +23,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $ValidationErrors++;
   } else {
     $title = test_input($_POST["title"]);
-  }
-  
-  if (empty($_POST["email"])) {
-    $emailErr = "* Email is required";
-    $ValidationErrors++;
-  } else {
-    $email = test_input($_POST["email"]);
   }
     
   if (empty($_POST["category"])) {
@@ -84,7 +79,6 @@ if($ValidationErrors==0){ //there are no validation errors
         $status = mysqli_real_escape_string($db, $_POST['status']);
         $tag = mysqli_real_escape_string($db, $_POST['tag']);
         $content = mysqli_real_escape_string($db, $_POST['content']);
-        $email = mysqli_real_escape_string($db, $_POST['email']);
         $member1 = mysqli_real_escape_string($db, $_POST['member1']);
         $member2 = mysqli_real_escape_string($db, $_POST['member2']);
         $member3 = mysqli_real_escape_string($db, $_POST['member3']);
@@ -106,7 +100,7 @@ if($ValidationErrors==0){ //there are no validation errors
             $date = date('Y-m-d H:i:s'); //getting the current data and time
              
             //storing the data the database
-            $query= "INSERT INTO advertisement (dateTime,status,category,image,title,tag,content,email,member1,member2,member3,price) VALUES ('$date','$status', '$category','$image' , '$title' , '$tag' ,'$content' , '$email' , '$member1' , '$member2' , '$member3','$price')";
+            $query= "INSERT INTO advertisement (dateTime,status,category,image,title,tag,content,username,member1,member2,member3,price) VALUES ('$date','$status', '$category','$image' , '$title' , '$tag' ,'$content' , '$username' , '$member1' , '$member2' , '$member3','$price')";
             mysqli_query($db, $query);
         }
     }
@@ -181,13 +175,7 @@ mysqli_close($db);
                 <textarea name="content"></textarea>
 
                 <span class="error"> <?php echo $contentErr;?></span>
-
                 <br><br>
-                <label>Enter your email</label>
-                <input type="email" id="email" name="email">
-                <span class="error"> <?php echo $emailErr;?></span>
-                <br><br>
-
                 <label>Enter the price</label>
                 <input type="text" name="price" placeholder="The price in Srilankan Rupees">
                 <span class="error"> <?php echo $priceErr;?></span>

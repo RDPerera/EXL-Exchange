@@ -1,11 +1,10 @@
 <?php
 
 //HARD coded the session variables
-//session_start();
+session_start();
 
-//$userName = $_SESSION['userName'];
+$username = $_SESSION['username'] = "user1";
 
-$username = "hard coded";
 
 //Database connection
 
@@ -52,8 +51,8 @@ echo "<div class='row'>";
                     
                 
     echo "<br><br>";
-    echo "<button class='button1'> Contact Seller </button>";
-    echo "<button class='button1'> Request </button>";
+    echo "<button class='button1'> Update Advertisement </button>";
+    echo "<button class='button1'> Delete Advertisement </button>";
     echo "</div>";
 echo "</div>";
             }
@@ -78,7 +77,7 @@ mysqli_close($db);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>View the advertisement</title>
-    <link rel="stylesheet" type="text/css" href="../css/viewAdvertisement.css" >
+    <link rel="stylesheet" type="text/css" href="../css/viewAdvertisementByOwner.css" >
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@600;700&display=swap" rel="stylesheet">    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet"> 
 </head>
 <body>
