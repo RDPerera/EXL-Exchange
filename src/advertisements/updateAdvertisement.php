@@ -59,12 +59,11 @@ $activeCheck = $inactiveCheck = "";
                 else{
                     $inactiveCheck = "checked";
                 }
-
-                
+           
                 //updation form validation 
 
                 $titleErr = $emailErr = $categoryErr = $tagErr =  $contentErr = $statusErr = $priceErr = "";
-                $title = $email = $category = $tag = $content = $status = $price = "";
+                $title = $email = $category = $tag = $content = $status = $price = $image ="";
                 
                 function test_input($data) {
                   $data = trim($data);
@@ -141,16 +140,17 @@ $activeCheck = $inactiveCheck = "";
                         $member2 = mysqli_real_escape_string($db, $_POST['member2']);
                         $member3 = mysqli_real_escape_string($db, $_POST['member3']);
                         $price = mysqli_real_escape_string($db, $_POST['price']);
-                
+
+                        $date = date('Y-m-d H:i:s'); //getting the current data and time
+
                         //the image file
-                        if(isset($_FILES['imageUpload'])){
+                        if(!empty($_FILES["imageUpload"]["name"])) //the user have uploaded a new image
+                        { 
                 
                             //Delete the older image file
-                            //QUERY
+                            unlink("uploads/$row[4].jpg");
 
-                            
-                
-                            //Process the image that is uploaded by the user
+                            //Process the new image that is uploaded by the user
                             $target_dir = "uploads/";
                             $target_file = $target_dir . basename($_FILES["imageUpload"]["name"]);
                             $uploadOk = 1;
@@ -159,17 +159,21 @@ $activeCheck = $inactiveCheck = "";
                             move_uploaded_file($_FILES["imageUpload"]["tmp_name"], $target_file);
                 
                             $image=basename( $_FILES["imageUpload"]["name"],".jpg"); // used to store the filename in a variable
-                
-                            $date = date('Y-m-d H:i:s'); //getting the current data and time
-                      
-                            //storing the data the database //IMAGE
-                            $query = "UPDATE advertisement SET status = '$status' ,category = '$category', title = '$title' ,tag = '$tag' ,content = '$content' ,email = '$email' ,member1 = '$member1',member2 = '$member2' ,member3 = '$member3' ,price = '$price' WHERE advertisementID = $adID ";
-                            mysqli_query($db, $query);
+                            
+                            //query 
+                            $query = "UPDATE advertisement SET image = '$image' , status = '$status' ,category = '$category', title = '$title' ,tag = '$tag' ,content = '$content' ,email = '$email' ,member1 = '$member1',member2 = '$member2' ,member3 = '$member3' ,price = '$price' WHERE advertisementID = $adID ";
+                            
 
                         }
+                        else //the user have not uploaded a new image
+                        {  
+                          //query               
+                          $query = "UPDATE advertisement SET status = '$status' ,category = '$category', title = '$title' ,tag = '$tag' ,content = '$content' ,email = '$email' ,member1 = '$member1',member2 = '$member2' ,member3 = '$member3' ,price = '$price' WHERE advertisementID = $adID ";                            
+                        }
+                        //update the database
+                        mysqli_query($db, $query);
                     }
-                }
-                
+                }                
 ?>
     <h1 align="center">Update the Advertisement</h1>
     <form method="post" enctype="multipart/form-data">
@@ -196,9 +200,9 @@ $activeCheck = $inactiveCheck = "";
                 <br><br>
                 <!-- HANDLE THE IMAGE UPDATION -->
                 <label for='radio'> Advertisement Status </label> <br><br>
-                <input type="radio" id="active" name="status" value="active" <?php echo $activeCheck;?> >
+                <input type="radio" id="active" name="status" value="active" <?php echo $activeCheck;?>>
                 <label for="active">Active</label><br>
-                <input type="radio" id="inactive" name="status" value="inactive" <?php echo $inactiveCheck;?> >
+                <input type="radio" id="inactive" name="status" value="inactive" <?php echo $inactiveCheck;?>>
                 <label for="inactive">Inactive</label><br>
                 <span class="error"> <?php echo $statusErr;?></span>
                 <br><br>
@@ -221,20 +225,24 @@ $activeCheck = $inactiveCheck = "";
                 <br><br>
 
                 <label>The price</label>
-                <input type="text" name="price" placeholder="The price in Srilankan Rupees" value=" <?php echo $row[12];?>">
+                <input type="text" name="price" placeholder="The price in Srilankan Rupees"
+                    value=" <?php echo $row[12];?>">
                 <span class="error"> <?php echo $priceErr;?></span>
                 <br><br>
 
                 <h3>Update Collaborators of the Advertisement </h3>
 
                 <label> Group member 01 </label>
-                <input type="text" name="member1" placeholder="Enter the EXL Exchange username of the first member" value=" <?php echo $row[9];?>">
+                <input type="text" name="member1" placeholder="Enter the EXL Exchange username of the first member"
+                    value=" <?php echo $row[9];?>">
 
                 <label> Group member 02 </label>
-                <input type="text" name="member2" placeholder="Enter the EXL Exchange username of the second member" value=" <?php echo $row[10];?>">
+                <input type="text" name="member2" placeholder="Enter the EXL Exchange username of the second member"
+                    value=" <?php echo $row[10];?>">
 
                 <label> Group member 03 </label>
-                <input type="text" name="member3" placeholder="Enter the EXL Exchange username of the third member" value=" <?php echo $row[11];?>">
+                <input type="text" name="member3" placeholder="Enter the EXL Exchange username of the third member"
+                    value=" <?php echo $row[11];?>">
                 <br><br>
                 <input type="submit" name="submit" value="Update The Advertisement">
             </div>
@@ -248,8 +256,8 @@ $activeCheck = $inactiveCheck = "";
 
     }
 
-// Close connection
-// mysqli_close($db);
+//Close connection
+mysqli_close($db);
 ?>
 
 </body>
