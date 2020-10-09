@@ -3,11 +3,10 @@
 body {
     margin: 0;
     font-family: 'Quicksand', sans-serif;
-    box-shadow: 0 6px 13px 0 rgba(0,0,0,0.2), 0 6px 13px 0 rgba(0,0,0,0.19);
-
   }
   
   .topnav {
+    box-shadow: 0 6px 13px 0 rgba(0,0,0,0.2), 0 6px 13px 0 rgba(0,0,0,0.19);
     overflow: hidden;
     background-color: #035dbe;  
   }
@@ -53,7 +52,6 @@ body {
 
   .topnav .search-container button:hover {
     background: #008bad;
- 
     transition: all ease-in-out 350ms;
   }
   
@@ -73,7 +71,7 @@ body {
     display: none;   
   }
   
-img {
+img.exlLogo {
   height:68px;
   width:260px;
   margin-top: 3px;
@@ -84,7 +82,7 @@ img {
   float: left;
 
 }
-img{
+img.exlLogo{
  
     filter: drop-shadow(1px 1px 1px rgb(44, 44, 44)); 
   
@@ -186,3 +184,7 @@ img{
   transition: all ease-in-out 350ms;
 }
  
+
+
+
+

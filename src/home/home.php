@@ -10,6 +10,7 @@
     <title>EXL Exchange - The Freelancing Platform for Undergraduates</title>
     <link rel="icon" type="image/png" href="../img/icons/ee-logo.png">
     <link rel="stylesheet" type="text/css" href="../css/homeNavBar.css">
+    <link rel="stylesheet" type="text/css" href="../css/homeSlideShow.css">
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -17,10 +18,11 @@
 
 <body>
 
+    <!-- the navigation bar -->
     <div class="topnav" id="myTopnav">
         <a href="javascript:void(0);" class="icon" onclick="scrollTheMenu()">
             <i class="fa fa-bars"></i> </a>
-        <img src="../img/logoWhite.png">
+        <img src="../img/logoWhite.png" class="exlLogo">
         <a href="" class="active">Home</a>
         <a href="">Categories</a>
         <a href="">About</a>
@@ -37,9 +39,39 @@
             </form>
         </div>
     </div>
+    <br>
+    <!-- the slideshow -->
+    <div class="slideshow-container">
 
+        <div class="mySlides fade">
+            <div class="numbertext">1 / 3</div>
+            <img src="../img/ss1.jpg" style="width:100%" class="slideshow">
+            <div class="text">Caption Text</div>
+        </div>
+
+        <div class="mySlides fade">
+            <div class="numbertext">2 / 3</div>
+            <img src="../img/ss2.jpg" style="width:100%"class="slideshow">
+            <div class="text">Caption Two</div>
+        </div>
+
+        <div class="mySlides fade">
+            <div class="numbertext">3 / 3</div>
+            <img src="../img/ss3.jpg" style="width:100%"  class="slideshow">
+            <div class="text">Caption Three</div>
+        </div>
+
+    </div>
+    <br>
+
+    <div style="text-align:center">
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+    </div>
 
     <script type="text/javascript" src="../js/homeNavBar.js"></script>
+    <script type="text/javascript" src="../js/homeSlideShow.js"></script>
 </body>
 
 </html>
