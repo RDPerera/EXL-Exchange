@@ -1,5 +1,7 @@
 <?php
 $userName ="dilan";
+session_start();
+$_SESSION['userName']="dilan";
 $password = "95b13048c989bf4574cc69eef65eef12";
 //Create DB Connection
 $db = mysqli_connect('localhost', 'root', '', 'exl_main');
@@ -64,33 +66,44 @@ else
             <div class="content">
                 <div class="main-title"><span class="blue-text">Current</span> Advertisements</div>
                 <div class="advertisements">
-                    <div class="card">
-                        <img src="../img/profile.jpg" class="card-image" />
-                        <div class="card-info">
-                            <div class="card-title">
-                                I will write quality blog posts, SEO articles, and website content
+                <?php 
+                $sql = "SELECT * FROM advertisement WHERE userName = '$userName' ";
+                $result = mysqli_query($db, $sql);
+                
+                if (mysqli_num_rows($result) > 0) 
+                {
+                while($row = mysqli_fetch_assoc($result)) {
+                    echo "<a href='../advertisements/views.php?id=".$row['advertisementID']."' style='text-decoration:none;color:black'>
+                    <div class='card'>
+                        <img src='../advertisements/uploads/dilan.jpg' class='card-image' />
+                        <div class='card-info'>
+                            <div class='card-title'>
+                                ".$row['title']."
                             </div>
-                            <div class="card-category">
-                                Category <span class="card-tag">Content Writing</span>
+                            <div class='card-category'>
+                                Category <span class='card-tag'>".$row['category']."</span>
                             </div>
-                            <div class="card-feedbacks">
-                                Feedbacks <span class="card-feedback-number">+33</span>
+                            <div class='card-feedbacks'>
+                                Feedbacks <span class='card-feedback-number'>+".$row['feedbacks']."</span>
                             </div>
-                            <div class="card-rate">
+                            <div class='card-rate'>
                                 Rate
-                                <span class="card-rate-number"><img src="../img/icons/icons8-star-96.png"
-                                        class="rate-star" />5</span>
+                                <span class='card-rate-number'><img src='../img/icons/icons8-star-96.png'
+                                        class='rate-star' />".$row['rate']."</span>
                             </div>
-                            <div class="card-description">
-                                I can write on various topics and formats that match your brand
-                                and persona. My ultimate goal as an article writer is to convert
-                                your website visitors to repeat customers with my blog writing.
+                            <div class='card-description'>
+                            ".$row['content']."
                             </div>
                         </div>
-                        <div class="card-price">
-                            <span class="card-price-tag">Rs.1500.00</span>
+                        <div class='card-price'>
+                            <span class='card-price-tag'>".$row['price']."</span>
                         </div>
                     </div>
+                    </a>
+                    ";
+                }
+                }
+                ?>
                     <div class="empty-card">
                         <img src="../img/icons/icons8-plus-math-96.png" width="50px" height="50px"
                             style="vertical-align: middle; padding-right: 10px" />
