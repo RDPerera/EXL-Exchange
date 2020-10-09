@@ -155,6 +155,13 @@ else
 
 </head>
 <body>
+<div id="model1" class="model-background" style="<?php echo $complete ?>">
+        <div class="model-content">
+            <div class="model-header"><span class="model-header-content">Created Successfully</span></div>
+            <div class="model-text v-h-center">Your Ad created successfully !</div>
+            <button id="model-btn-1" class="model-button" onclick="dispose()"> OK </button>
+        </div>
+    </div>
     <input type="checkbox" id="home">
     <header class="header">
         <label for="home"><img src="../img/icons/ee-logo.png" class="home-menu"></label>
@@ -273,7 +280,7 @@ else
         // When the user clicks on button close,it will close the modal
         function dispose() {
         modal1.style.display = "none";
-        window.location.replace("http://localhost/EXL-Exchange/src/seller/dashboard.php");
+        window.location.replace("seller/dashboard.php");
         };
     </script>
 </body>
