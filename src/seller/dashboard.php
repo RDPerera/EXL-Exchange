@@ -75,7 +75,7 @@ else
                 while($row = mysqli_fetch_assoc($result)) {
                     echo "<a href='../advertisements/views.php?id=".$row['advertisementID']."' style='text-decoration:none;color:black'>
                     <div class='card'>
-                        <img src='../advertisements/uploads/dilan.jpg' class='card-image' />
+                        <img src='../advertisements/uploads/".$row['image'].".jpg' class='card-image' />
                         <div class='card-info'>
                             <div class='card-title'>
                                 ".$row['title']."
