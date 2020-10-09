@@ -6,7 +6,7 @@ $complete = "display:none";
 $userName="dilan";
 //Database connection
 
-$db = mysqli_connect('localhost:3308', 'root', '', 'exl_main');
+$db = mysqli_connect('localhost', 'root', '', 'exl_main');
 
 // Check connection
 if($db === false){
@@ -113,10 +113,37 @@ if($ValidationErrors==0){ //there are no validation errors
 // Close connection
 mysqli_close($db);
 ?>
+<?php
+$userName ="dilan";
+session_start();
+$_SESSION['userName']="dilan";
+$password = "95b13048c989bf4574cc69eef65eef12";
+//Create DB Connection
+$db = mysqli_connect('localhost', 'root', '', 'exl_main');
+$userCheck = "SELECT * FROM user WHERE userName='$userName' and password='$password' LIMIT 1";
+$result = mysqli_query($db, $userCheck);
+$user = mysqli_fetch_assoc($result);
+if ($user) { 
+    $firstName=$user['firstName'];
+    $lastName=$user['lastName'];
+    $profilePicture = $user['profilePicture'];
+    $dob=$user['dob'];
+    $email=$user['email'];
+    $userCheck = " SELECT * FROM seller WHERE userName='$userName' LIMIT 1 ";
+    $result = mysqli_query($db, $userCheck);
+    $user = mysqli_fetch_assoc($result);
+    $mainRate=$user['mainRate'];
+    $communicationRate=$user['communicationRate'];
+    $deliveringRAte=$user['deliveringRate'];
+}
+else
+{
+    header('Location: ../login/login.php');
+}
+?>
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -125,17 +152,9 @@ mysqli_close($db);
     <link rel="stylesheet" type="text/css" href="../css/sdashboard-create-ad.css" />
     <link rel="stylesheet" type="text/css" href="../css/model.css">
     <script src="../js/sdashboard-create.js"></script>
-    
-</head>
 
+</head>
 <body>
-    <div id="model1" class="model-background" style="<?php echo $complete ?>">
-        <div class="model-content">
-            <div class="model-header"><span class="model-header-content">Created Successfully</span></div>
-            <div class="model-text v-h-center">Your Ad created successfully !</div>
-            <button id="model-btn-1" class="model-button" onclick="dispose()"> OK </button>
-        </div>
-    </div>
     <input type="checkbox" id="home">
     <header class="header">
         <label for="home"><img src="../img/icons/ee-logo.png" class="home-menu"></label>
@@ -145,23 +164,18 @@ mysqli_close($db);
     <div class="sidebar">
         <center>
             <div class="sidebar-profile-container">
-                <a href="#"><img src="../img/profile.jpg" class="sidebar-profile"></a>
+                <a href="#"><img src="../seller/uploads/<?php echo $profilePicture ?>"class="sidebar-profile"></a>
             </div>
-            <span class="slidbar-name">Dilan Perera</span>
+            <span class="slidbar-name"><?php echo $firstName." ".$lastName; ?></span>
         </center>
         <div class="sidebar-menu">
-            <a href="#" ><img src="../img/icons/icons8-home-144.png"
-                    class="sidebar-icons"><span>Home</span></a>
-            <a href="#"><img src="../img/icons/icons8-chat-96.png" class="sidebar-icons"><span>Messages</span></a>
-            <a href="#"><img src="../img/icons/icons8-submit-resume-96.png " class="sidebar-icons"><span>Current
-                    Jobs</span></a>
-            <a href="#" class=" selected-item"><img src="../img/icons/icons8-plus-math-96.png" class="sidebar-icons"><span>Create
-                    Ad</span></a>
-            <a href="#"><img src="../img/icons/icons8-question-mark-96.png" class="sidebar-icons"><span>Help &
-                    Supports</span></a>
-            <a href="#"><img src="../img/icons/icons8-complaint-90.png"
-                    class="sidebar-icons"><span>Complaints</span></a>
-            <a href="#"><img src="../img/icons/icons8-settings-500.png" class="sidebar-icons"><span>Settings</span></a>
+        <a href="#" class=" selected-item"><img src="../img/icons/icons8-home-144.png" class="sidebar-icons"><span>Home</span></a>
+        <a href="#"><img src="../img/icons/icons8-chat-96.png" class="sidebar-icons"><span>Messages</span></a>
+        <a href="#"><img src="../img/icons/icons8-submit-resume-96.png " class="sidebar-icons"><span>Current Jobs</span></a>
+        <a href="#"><img src="../img/icons/icons8-plus-math-96.png" class="sidebar-icons"><span>Create Add</span></a>
+        <a href="#"><img src="../img/icons/icons8-question-mark-96.png" class="sidebar-icons"><span>Help & Supports</span></a>
+        <a href="#"><img src="../img/icons/icons8-complaint-90.png" class="sidebar-icons"><span>Complaints</span></a>
+        <a href="#"><img src="../img/icons/icons8-settings-500.png" class="sidebar-icons"><span>Settings</span></a>
         </div>
     </div>
     <div class="content-super">
