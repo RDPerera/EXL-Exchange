@@ -2,6 +2,7 @@
 <?php
 // session_start();
 // $userName = $_SESSION['userName'];
+$complete = "display:none";
 $userName="dilan";
 //Database connection
 
@@ -103,6 +104,7 @@ if($ValidationErrors==0){ //there are no validation errors
             //storing the data the database
             $query= "INSERT INTO advertisement (dateTime,status,category,image,title,tag,content,userName,member1,member2,member3,price) VALUES ('$date','$status', '$category','$image' , '$title' , '$tag' ,'$content' , '$userName' , '$member1' , '$member2' , '$member3','$price')";
             mysqli_query($db, $query);
+            $complete="";
         }
     }
 }
@@ -121,10 +123,19 @@ mysqli_close($db);
     <title>Document</title>
     <link rel="stylesheet" type="text/css" href="../css/sdashboard.css">
     <link rel="stylesheet" type="text/css" href="../css/sdashboard-create-ad.css" />
+    <link rel="stylesheet" type="text/css" href="../css/model.css">
     <script src="../js/sdashboard-create.js"></script>
+    
 </head>
 
 <body>
+    <div id="model1" class="model-background" style="<?php echo $complete ?>">
+        <div class="model-content">
+            <div class="model-header"><span class="model-header-content">Created Successfully</span></div>
+            <div class="model-text v-h-center">Your Ad created successfully !</div>
+            <button id="model-btn-1" class="model-button" onclick="dispose()"> OK </button>
+        </div>
+    </div>
     <input type="checkbox" id="home">
     <header class="header">
         <label for="home"><img src="../img/icons/ee-logo.png" class="home-menu"></label>
@@ -242,6 +253,15 @@ mysqli_close($db);
             </form>
         </div>
     </div>
+    <script>
+        // Get the modal and button
+        var modal1 = document.getElementById("model1");
+        // When the user clicks on button close,it will close the modal
+        function dispose() {
+        modal1.style.display = "none";
+        window.location.replace("http://localhost/EXL-Exchange/src/seller/dashboard.php");
+        };
+    </script>
 </body>
 
 </html>
