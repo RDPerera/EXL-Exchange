@@ -84,11 +84,17 @@ img {
   float: left;
 
 }
+img{
+ 
+    filter: drop-shadow(1px 1px 1px rgb(44, 44, 44)); 
+  
+
+}
 
 .logo{
   display: inline;
 }
-  @media screen and (max-width: 1203px) { /* Do these when screen width is less than 1203px */
+  @media screen and (max-width: 1236px) { /* Do these when screen width is less than 1203px */
 
     .topnav a:not(:first-child) {display: none;}
     .topnav a.icon {
@@ -101,7 +107,7 @@ img {
     }
   }
   
-  @media screen and (max-width: 1203px) { /* Do these when user clicks the menu button */
+  @media screen and (max-width: 1236px) { /* Do these when user clicks the menu button */
     .topnav.responsive {
       position: relative;
     }
