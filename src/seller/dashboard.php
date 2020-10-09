@@ -1,3 +1,30 @@
+<?php
+$userName ="dilan";
+$password = "95b13048c989bf4574cc69eef65eef12";
+//Create DB Connection
+$db = mysqli_connect('localhost', 'root', '', 'exl_main');
+$userCheck = "SELECT * FROM user WHERE userName='$userName' and password='$password' LIMIT 1";
+$result = mysqli_query($db, $userCheck);
+$user = mysqli_fetch_assoc($result);
+if ($user) { 
+    $firstName=$user['firstName'];
+    $lastName=$user['lastName'];
+    $profilePicture = $user['profilePicture'];
+    $dob=$user['dob'];
+    $email=$user['email'];
+    $userCheck = " SELECT * FROM seller WHERE userName='$userName' LIMIT 1 ";
+    $result = mysqli_query($db, $userCheck);
+    $user = mysqli_fetch_assoc($result);
+    $mainRate=$user['mainRate'];
+    $communicationRate=$user['communicationRate'];
+    $deliveringRAte=$user['deliveringRate'];
+}
+else
+{
+    header('Location: ../login/login.php');
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,9 +45,9 @@
     <div class="sidebar">
         <center>
             <div class="sidebar-profile-container">
-                <a href="#"><img src="../img/profile.jpg"class="sidebar-profile"></a>
+                <a href="#"><img src="../seller/uploads/<?php echo $profilePicture ?>"class="sidebar-profile"></a>
             </div>
-            <span class="slidbar-name">Dilan Perera</span>
+            <span class="slidbar-name"><?php echo $firstName." ".$lastName; ?></span>
         </center>
         <div class="sidebar-menu">
         <a href="#" class=" selected-item"><img src="../img/icons/icons8-home-144.png" class="sidebar-icons"><span>Home</span></a>
@@ -37,87 +64,6 @@
             <div class="content">
                 <div class="main-title"><span class="blue-text">Current</span> Advertisements</div>
                 <div class="advertisements">
-                    <div class="card">
-                        <img src="../img/profile.jpg" class="card-image" />
-                        <div class="card-info">
-                            <div class="card-title">
-                                I will write quality blog posts, SEO articles, and website content
-                            </div>
-                            <div class="card-category">
-                                Category <span class="card-tag">Content Writing</span>
-                            </div>
-                            <div class="card-feedbacks">
-                                Feedbacks <span class="card-feedback-number">+33</span>
-                            </div>
-                            <div class="card-rate">
-                                Rate
-                                <span class="card-rate-number"><img src="../img/icons/icons8-star-96.png"
-                                        class="rate-star" />5</span>
-                            </div>
-                            <div class="card-description">
-                                I can write on various topics and formats that match your brand
-                                and persona. My ultimate goal as an article writer is to convert
-                                your website visitors to repeat customers with my blog writing.
-                            </div>
-                        </div>
-                        <div class="card-price">
-                            <span class="card-price-tag">Rs.1500.00</span>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <img src="../img/profile.jpg" class="card-image" />
-                        <div class="card-info">
-                            <div class="card-title">
-                                I will write quality blog posts, SEO articles, and website content
-                            </div>
-                            <div class="card-category">
-                                Category <span class="card-tag">Content Writing</span>
-                            </div>
-                            <div class="card-feedbacks">
-                                Feedbacks <span class="card-feedback-number">+33</span>
-                            </div>
-                            <div class="card-rate">
-                                Rate
-                                <span class="card-rate-number"><img src="../img/icons/icons8-star-96.png"
-                                        class="rate-star" />5</span>
-                            </div>
-                            <div class="card-description">
-                                I can write on various topics and formats that match your brand
-                                and persona. My ultimate goal as an article writer is to convert
-                                your website visitors to repeat customers with my blog writing.
-                            </div>
-                        </div>
-                        <div class="card-price">
-                            <span class="card-price-tag">Rs.1500.00</span>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <img src="../img/profile.jpg" class="card-image" />
-                        <div class="card-info">
-                            <div class="card-title">
-                                I will write quality blog posts, SEO articles, and website content
-                            </div>
-                            <div class="card-category">
-                                Category <span class="card-tag">Content Writing</span>
-                            </div>
-                            <div class="card-feedbacks">
-                                Feedbacks <span class="card-feedback-number">+33</span>
-                            </div>
-                            <div class="card-rate">
-                                Rate
-                                <span class="card-rate-number"><img src="../img/icons/icons8-star-96.png"
-                                        class="rate-star" />5</span>
-                            </div>
-                            <div class="card-description">
-                                I can write on various topics and formats that match your brand
-                                and persona. My ultimate goal as an article writer is to convert
-                                your website visitors to repeat customers with my blog writing.
-                            </div>
-                        </div>
-                        <div class="card-price">
-                            <span class="card-price-tag">Rs.1500.00</span>
-                        </div>
-                    </div>
                     <div class="card">
                         <img src="../img/profile.jpg" class="card-image" />
                         <div class="card-info">
