@@ -1,0 +1,188 @@
+* {box-sizing: border-box;}
+
+body {
+    margin: 0;
+    font-family: 'Quicksand', sans-serif;
+    box-shadow: 0 6px 13px 0 rgba(0,0,0,0.2), 0 6px 13px 0 rgba(0,0,0,0.19);
+
+  }
+  
+  .topnav {
+    overflow: hidden;
+    background-color: #035dbe;  
+  }
+  
+  .topnav a {
+    
+    float: left;
+    display: block;
+    color: #ffffff;
+    text-align: center;
+    padding: 25px 30px;
+    text-decoration: none;
+    font-size: 17px;
+
+  }
+  .topnav .search-container {
+    float: right;
+    margin-top: 10px;
+     }
+
+  .topnav input[type=text] {
+    box-shadow: 0 6px 13px 0 rgba(0,0,0,0.2), 0 6px 13px 0 rgba(0,0,0,0.19);
+    padding: 6px;
+    margin-top: 8px;
+    font-size: 17px;
+    border: none;
+    font-family: 'Quicksand', sans-serif;
+
+  }
+  
+  .topnav .search-container button {
+    box-shadow: 0 6px 13px 0 rgba(0,0,0,0.2), 0 6px 13px 0 rgba(0,0,0,0.19);
+    float: right;
+    padding: 6px 10px;
+    margin-top: 8px;
+    margin-right: 16px;
+    background: #000157;
+    color: white;
+    font-size: 17px;
+    border: none;
+    cursor: pointer;
+  }
+
+  .topnav .search-container button:hover {
+    background: #008bad;
+ 
+    transition: all ease-in-out 350ms;
+  }
+  
+  .topnav a:hover {
+    
+    background-color: #000157;
+    color: rgb(255, 255, 255);
+    transition: 0.3s;
+  }
+  
+  .topnav a.active {
+    background-color: #000157;
+    color: white;
+  }
+  
+  .topnav .icon {
+    display: none;   
+  }
+  
+img {
+  height:68px;
+  width:260px;
+  margin-top: 3px;
+  margin-right: 15px;
+
+  padding-left: 3px;
+  padding-right: 6px;
+  float: left;
+
+}
+img{
+ 
+    filter: drop-shadow(1px 1px 1px rgb(44, 44, 44)); 
+  
+
+}
+
+.logo{
+  display: inline;
+}
+  @media screen and (max-width: 1236px) { /* Do these when screen width is less than 1203px */
+
+    .topnav a:not(:first-child) {display: none;}
+    .topnav a.icon {
+      float: left;
+      display: block;
+    }
+
+    .topnav img{
+      display: none;
+    }
+  }
+  
+  @media screen and (max-width: 1236px) { /* Do these when user clicks the menu button */
+    .topnav.responsive {
+      position: relative;
+    }
+    .topnav.responsive .icon {
+      float: left ;
+      position: absolute;
+
+    }
+    .topnav.responsive a {
+      float: none;
+      text-align: right;
+      display: flex;
+      flex-direction:row-reverse;
+    }
+    .topnav.responsive .buttons{
+      display: none;
+    }
+
+    .topnav.responsive .search-container{
+      display: none;
+   
+    }
+  }
+
+  @media screen and (max-width:516px) /*for even smaller devices*/
+  { 
+    .topnav input[type=text]{
+      font-size: 10px;
+    }
+    .topnav .search-container button{
+
+      font-size: 12px;
+    }
+  }
+
+/*Styling Buttons*/
+.buttons{
+  float: right;
+  margin-right: 15px;
+}
+
+.signin-button{
+  box-shadow: 0 6px 13px 0 rgba(0,0,0,0.2), 0 6px 13px 0 rgba(0,0,0,0.19);
+  margin-right: 5px;
+  margin-top: 14px;
+  font-family: 'Quicksand', sans-serif;
+  background-color: #000157;
+  border: 1.5px solid transparent;
+  border-radius: 2em;
+  padding: 0.6rem 0.8rem;
+  margin-left: 2px;
+  font-size: 1rem;
+  cursor: pointer;
+  color:white;
+
+}
+.signin-button:hover {
+  color: #ffffff;
+  background-color: #008bad;
+  transition: all ease-in-out 350ms;
+}
+.signup-button{
+  box-shadow: 0 6px 13px 0 rgba(0,0,0,0.2), 0 6px 13px 0 rgba(0,0,0,0.19);
+  font-family: 'Quicksand', sans-serif;
+  color: white;
+  background-color: #000157;
+  border: 1.5px solid transparent;
+  border-radius: 2em;
+  padding: 0.6rem 0.8rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
+.signup-button:hover {
+  color: #ffffff;
+  background-color: #008bad;
+  transition: all ease-in-out 350ms;
+}
+ 

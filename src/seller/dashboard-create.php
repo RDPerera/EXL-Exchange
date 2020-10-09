@@ -6,7 +6,7 @@ $complete = "display:none";
 $userName="dilan";
 //Database connection
 
-$db = mysqli_connect('localhost', 'root', '', 'exl_main');
+$db = mysqli_connect('localhost:3308', 'root', '', 'exl_main');
 
 // Check connection
 if($db === false){
