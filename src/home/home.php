@@ -13,7 +13,7 @@
     <link rel="stylesheet" type="text/css" href="../css/homeSlideShow.css">
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    
+
 </head>
 
 <body>
@@ -39,36 +39,39 @@
             </form>
         </div>
     </div>
-   
-    <br>
+
+
     <!-- the slideshow -->
-    <div class="slideshow-container">
 
-        <div class="mySlides fade">
-            
-            <img src="../img/ss4.jpg" style="width:100%" class="slideshow">
-            <div class="text">The Exclusive Freelancing Platform for Undergraduates</div>
+    <div class="wholeSS">
+        <div class="slideshow-container">
+
+            <div class="mySlides fade">
+
+                <img src="../img/ss7.jpg" style="width:100%" class="slideshow">
+                <div class="text">The Exclusive Freelancing Platform for Undergraduates</div>
+            </div>
+
+            <div class="mySlides fade">
+
+                <img src="../img/ss8.jpg" style="width:100%" class="slideshow">
+                <div class="text">Join us today and enhance your skills</div>
+            </div>
+
+            <!-- <div class="mySlides fade">
+
+                <img src="../img/ss6.jpg" style="width:100%" class="slideshow">
+                <div class="text">The best platform to buy a high quality service</div>
+            </div> -->
+
         </div>
+        <br>
 
-        <div class="mySlides fade">
-          
-            <img src="../img/ss5.jpg" style="width:100%" class="slideshow">
-            <div class="text">Join us today and enhance your skills</div>
+        <div style="text-align:center">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
         </div>
-
-        <div class="mySlides fade">
-           
-            <img src="../img/ss6.jpg" style="width:100%"  class="slideshow">
-            <div class="text">The best platform to buy a high quality service</div>
-        </div>
-
-    </div>
-    <br>
-
-    <div style="text-align:center">
-        <span class="dot"></span>
-        <span class="dot"></span>
-        <span class="dot"></span>
     </div>
 
     <script type="text/javascript" src="../js/homeNavBar.js"></script>

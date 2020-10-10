@@ -2,13 +2,13 @@
 
 .mySlides {display: none;}
 img.slideshow {vertical-align: middle;
-  max-height: 600px;
+  max-height: 564px;
 }
 
 /* Slideshow container */
 .slideshow-container {
-  /* max-height: 500px; */
-  max-width: 1200px;
+  max-height: 564px;
+  /* max-width: 1200px; */
   position: relative;
  
   margin: auto;
@@ -52,6 +52,11 @@ img.slideshow {vertical-align: middle;
   -webkit-animation-duration: 3.5s;
   animation-name: fade;
   animation-duration: 3.5s;
+}
+
+.wholeSS{
+  /* background-color:#035dbe; */
+  /* float: left; */
 }
 
 @-webkit-keyframes fade {

@@ -10,7 +10,7 @@ body {
     /* box-shadow: 0 6px 13px 0 rgba(0,0,0,0.2), 0 6px 13px 0 rgba(0,0,0,0.19); */
     overflow: hidden;
     background-color: #035dbe;  
-    border-bottom:solid white;
+    /* border-bottom:solid white; */
   }
   
   .topnav a {
