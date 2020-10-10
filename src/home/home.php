@@ -13,7 +13,7 @@
     <link rel="stylesheet" type="text/css" href="../css/homeSlideShow.css">
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+    
 </head>
 
 <body>
@@ -39,26 +39,27 @@
             </form>
         </div>
     </div>
+   
     <br>
     <!-- the slideshow -->
     <div class="slideshow-container">
 
         <div class="mySlides fade">
-            <div class="numbertext">1 / 3</div>
-            <img src="../img/ss1.jpg" style="width:100%" class="slideshow">
-            <div class="text">Caption Text</div>
+            
+            <img src="../img/ss4.jpg" style="width:100%" class="slideshow">
+            <div class="text">The Exclusive Freelancing Platform for Undergraduates</div>
         </div>
 
         <div class="mySlides fade">
-            <div class="numbertext">2 / 3</div>
-            <img src="../img/ss2.jpg" style="width:100%"class="slideshow">
-            <div class="text">Caption Two</div>
+          
+            <img src="../img/ss5.jpg" style="width:100%" class="slideshow">
+            <div class="text">Join us today and enhance your skills</div>
         </div>
 
         <div class="mySlides fade">
-            <div class="numbertext">3 / 3</div>
-            <img src="../img/ss3.jpg" style="width:100%"  class="slideshow">
-            <div class="text">Caption Three</div>
+           
+            <img src="../img/ss6.jpg" style="width:100%"  class="slideshow">
+            <div class="text">The best platform to buy a high quality service</div>
         </div>
 
     </div>

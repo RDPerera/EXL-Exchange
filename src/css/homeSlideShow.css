@@ -1,33 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito&family=Raleway:ital,wght@1,300&family=Roboto:wght@100;500&display=swap');
+
 .mySlides {display: none;}
-img.slideshow {vertical-align: middle;}
+img.slideshow {vertical-align: middle;
+  max-height: 600px;
+}
 
 /* Slideshow container */
 .slideshow-container {
-  max-width: 1500px;
+  /* max-height: 500px; */
+  max-width: 1200px;
   position: relative;
+ 
   margin: auto;
-  box-shadow: 0 6px 13px 0 rgba(0,0,0,0.2), 0 6px 13px 0 rgba(0,0,0,0.19);
+  /* box-shadow: 0 6px 13px 0 rgba(0,0,0,0.2), 0 6px 13px 0 rgba(0,0,0,0.19); */
 }
 
 /* Caption text */
 .text {
-  color: #f2f2f2;
-  font-size: 15px;
+  color: #ffffff;
+  font-size: 25px;
   padding: 8px 12px;
   position: absolute;
   bottom: 8px;
   width: 100%;
   text-align: center;
+  text-shadow: 1px 1px 1px #000000;
+  font-family: 'Nunito', sans-serif;
+  letter-spacing: 2px;
 }
 
-/* Number text (1/3 etc) */
-.numbertext {
-  color: #f2f2f2;
-  font-size: 12px;
-  padding: 8px 12px;
-  position: absolute;
-  top: 0;
-}
+
 
 /* The dots/bullets/indicators */
 .dot {
