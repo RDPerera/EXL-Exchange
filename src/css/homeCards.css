@@ -1,0 +1,136 @@
+.card-container {
+    font-family: 'neuzeit-grotesk', sans-serif;
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 40px;
+    width: 100%;
+    max-width: 1200px;
+    height: auto;
+    margin: 20px;
+    font-family: 'neuzeit-grotesk', sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 1em;
+    line-height: 1.5;
+    color: #303336;
+
+}
+
+.card {
+    box-shadow: 0 6px 13px 0 rgba(0,0,0,0.2), 0 6px 13px 0 rgba(0,0,0,0.19);
+    height: 470px;
+    border-radius: 10px;
+    background-color: #fff;
+    overflow: hidden;
+}
+
+.card .card-top {
+    height: 236px;
+    font-family: 'neuzeit-grotesk', sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 1em;
+    line-height: 1.5;
+    color: #303336;
+    background-color: #d1e8ee;
+    overflow: hidden;
+}
+
+.card .card-top a {
+    display: block;  
+    height: 100%;  
+}
+
+.card .card-top a img {
+    width: 100%;
+    height: inherit;
+    object-fit: cover;
+    object-position: center; 
+    transition: 300ms;
+}
+
+.card .card-content {
+    padding: 30px;
+}
+
+.card .card-content .tag {
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.card .tag-blue {
+    color: #33459b;
+}
+
+/* .card .tag-green {
+    color: #339b4b;
+}
+
+.card .tag-red {
+    color: #9b3d33;
+} */
+
+.card .title {
+    color: #303336;
+    font-weight: 700;
+    transition: 300ms;
+}
+
+.card p {
+    color: #7B8591;
+    margin-top: 20px;
+}
+
+
+/* Content Style | Hover Effect */
+
+.card .card-top a img:hover {
+    opacity: .75;
+}
+
+.card .title:hover {
+    color: #303336bb;
+}
+
+
+/* Display this style when screen-width is lower than 1240px */
+@media only screen and (max-width: 1240px) {
+
+    main {
+        display: block;
+        height: auto;
+        min-height: max(640px, 100vh);
+        padding: 80px 0;
+    }
+
+    .card-container {
+        grid-template-columns: 1fr 1fr;
+        height: auto;
+        margin: 0;
+        padding: 40px;
+    }
+
+    .card {
+        height: auto;
+    }
+
+}
+
+/* Display this style when screen-width is lower than 768px */
+@media only screen and (max-width: 768px) {
+
+    .card-container {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+/* Display this style when screen-width is lower than 425px */
+@media only screen and (max-width: 425px) {
+
+    .card-container {
+        padding: 20px;
+    }
+
+}

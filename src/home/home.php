@@ -11,6 +11,7 @@
     <link rel="icon" type="image/png" href="../img/icons/ee-logo.png">
     <link rel="stylesheet" type="text/css" href="../css/homeNavBar.css">
     <link rel="stylesheet" type="text/css" href="../css/homeSlideShow.css">
+    <link rel="stylesheet" type="text/css" href="../css/homeCards.css">
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -60,8 +61,8 @@
 
             <!-- <div class="mySlides fade">
 
-                <img src="../img/ss6.jpg" style="width:100%" class="slideshow">
-                <div class="text">The best platform to buy a high quality service</div>
+                <img src="../img/ss13.jpg" style="width:100%" class="slideshow">
+                <div class="text">The best platform to buy high quality services</div>
             </div> -->
 
         </div>
@@ -73,6 +74,23 @@
             <span class="dot"></span>
         </div>
     </div>
+
+
+    <!-- Set of advertisement cards -->
+    <section class="card-container">
+        <div class="card">
+            <div class="card-top">
+                <a href=""><img src="https://images.unsplash.com/photo-1595147389795-37094173bfd8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1949&q=80" alt="Unsplash Photo"></a>
+            </div>
+            <div class="card-content">
+                <h6 class="tag tag-blue">TRAVEL</h6>
+                <a href=""><h3 class="title">Sample Advertisement 01</h3></a>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </div>
+        </div>
+        
+    </section>
+    
 
     <script type="text/javascript" src="../js/homeNavBar.js"></script>
     <script type="text/javascript" src="../js/homeSlideShow.js"></script>

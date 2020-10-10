@@ -2,12 +2,12 @@
 
 .mySlides {display: none;}
 img.slideshow {vertical-align: middle;
-  max-height: 564px;
+  max-height: 559px;
 }
 
 /* Slideshow container */
 .slideshow-container {
-  max-height: 564px;
+  max-height: 559px;
   /* max-width: 1200px; */
   position: relative;
  
@@ -17,14 +17,14 @@ img.slideshow {vertical-align: middle;
 
 /* Caption text */
 .text {
-  color: #ffffff;
+  color: #000000;
   font-size: 25px;
   padding: 8px 12px;
   position: absolute;
   bottom: 8px;
   width: 100%;
   text-align: center;
-  text-shadow: 1px 1px 1px #000000;
+  text-shadow: 1px 1px 1px #ffffff;
   font-family: 'Nunito', sans-serif;
   letter-spacing: 2px;
 }
@@ -73,3 +73,5 @@ img.slideshow {vertical-align: middle;
 @media only screen and (max-width: 300px) {
   .text {font-size: 11px}
 }
+
+
