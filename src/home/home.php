@@ -80,17 +80,28 @@
     <section class="card-container">
         <div class="card">
             <div class="card-top">
-                <a href=""><img src="https://images.unsplash.com/photo-1595147389795-37094173bfd8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1949&q=80" alt="Unsplash Photo"></a>
+                <a href=""><img
+                        src="https://images.unsplash.com/photo-1595147389795-37094173bfd8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1949&q=80"
+                        alt="Unsplash Photo"></a>
             </div>
             <div class="card-content">
-                <h6 class="tag tag-blue">TRAVEL</h6>
-                <a href=""><h3 class="title">Sample Advertisement 01</h3></a>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+
+                <h6 class="tag tag-blue">Heading sample</h6>
+                <a href="">
+                    <h3 class="title">Sample Advertisement 01</h3>
+                </a>
+                <button class="price">LKR 1500.00</button>
+                <div class="bottom">
+                    <img class="ratingIcon" src="https://img.icons8.com/fluent/28/000000/star.png">
+                    <p class="rating">5.0</p>
+
+                </div>
+
             </div>
         </div>
-        
+
     </section>
-    
+
 
     <script type="text/javascript" src="../js/homeNavBar.js"></script>
     <script type="text/javascript" src="../js/homeSlideShow.js"></script>
