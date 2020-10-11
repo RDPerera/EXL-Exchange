@@ -1,9 +1,8 @@
 
 <?php
-// session_start();
-// $userName = $_SESSION['userName'];
+session_start();
 $complete = "display:none";
-$userName="dilan";
+$userName =$_SESSION['userName'];
 //Database connection
 
 
@@ -17,7 +16,7 @@ if($db === false){
 //form validation 
 
 $titleErr = $userNameErr = $categoryErr = $tagErr =  $contentErr = $statusErr = $priceErr = "";
-$title = $userName = $category = $tag = $content = $status = $price = "";
+$title = $category = $tag = $content = $status = $price = "";
 
 $ValidationErrors = 0;
 if ($_SERVER["REQUEST_METHOD"] == "POST" && !isset($_POST['logout'])) {
@@ -111,18 +110,7 @@ if($ValidationErrors==0){ //there are no validation errors
     }
 }
 
-
-// Close connection
-mysqli_close($db);
-?>
-<?php
-$userName ="dilan";
-session_start();
-$_SESSION['userName']="dilan";
-$password = "95b13048c989bf4574cc69eef65eef12";
-//Create DB Connection
-$db = mysqli_connect('localhost', 'root', '', 'exl_main');
-$userCheck = "SELECT * FROM user WHERE userName='$userName' and password='$password' LIMIT 1";
+$userCheck = "SELECT * FROM user WHERE userName='$userName' LIMIT 1";
 $result = mysqli_query($db, $userCheck);
 $user = mysqli_fetch_assoc($result);
 if ($user) { 

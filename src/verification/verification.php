@@ -5,6 +5,7 @@ $stateAlready = "display:none";
 $stateSuccess = "display:none";
 
 $baseURL = "localhost/EXL-Exchange/src/verification/verification.php";
+
 $userName = $_SESSION['userName'];
 $accountType = $_SESSION['accoutType'];
 $fisrtName = $_SESSION['firstName'];

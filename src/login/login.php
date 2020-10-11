@@ -9,52 +9,21 @@
     $db = mysqli_connect('localhost', 'root', '', 'exl_main');
     //for form validations initially no errors
     $errors["userName"]="";
-    $errors["firstname"]="";
-    $errors["lastname"]="";
-    $errors["dob"]="";
     $errors["password"]="";
-    $errors["email"]="";
-    $errors["agreement"]="";
 
     if (isset($_POST['register'])) {
       // Get Data from form
       $userName = mysqli_real_escape_string($db, $_POST['userName']);
-      $email = mysqli_real_escape_string($db, $_POST['email']);
-      $password_1 = mysqli_real_escape_string($db, $_POST['password']);
-      $password_2 = mysqli_real_escape_string($db, $_POST['passwordRepeat']);
-      $firstName = mysqli_real_escape_string($db, $_POST['firstName']);
-      $lastName = mysqli_real_escape_string($db, $_POST['lastName']);
-      $dob=mysqli_real_escape_string($db, $_POST['dob']);
-
-
+      $password = mysqli_real_escape_string($db, $_POST['password']);
 
       /*--------Form Validation-----------*/
-      
-      //user agreement sigining status
-      if(isset($_POST['agreement'])){$agreement = 1;}else{$agreement = 0;}
+
 
       //other element validation
-      if (empty($userName)) { $errors["userName"]="userName is required"; }
-      if ($agreement==0) { $errors["agreement"]="You need to agree the Terms and Privacy"; }
-      if (empty($email)) { $errors["email"]="Email is required"; }
-      if (empty($firstName)) { $errors["firstname"]="First Name is required"; }
-      if (empty($lastName)) { $errors["lastname"]="Last Name is required"; }
-      if (empty($dob)) { $errors["dob"]= "Date Of Birth is required"; }
-      if (empty($password_1)) { $errors["password"]= "Password is required"; }
-      if ($password_1 != $password_2) {
-        $errors["password"]= "The two passwords are not matched";
-      }
-      $userCheck = "SELECT * FROM user WHERE userName='$userName' OR email='$email' LIMIT 1";
-      $result = mysqli_query($db, $userCheck);
-      $user = mysqli_fetch_assoc($result);
-      if ($user) { 
-        if ($user['userName'] === $userName) {
-            $errors["userName"]= "userName already exists";
-        }
-        if ($user['email'] === $email) {
-            $errors["email"]= "email already exists";
-        }
-      }
+      if (empty($userName)) { $errors["userName"]="User Name is required"; }
+      if (empty($password)) { $errors["password"]= "Password is required"; }
+
+      
 
       /* Number of validation failures */
       $numberOfErrors=0;
@@ -67,21 +36,79 @@
       }
       /* Quering in buyer/user tables*/
       if ($numberOfErrors== 0) {
-          $password = md5($password_1);
-          $query = "INSERT INTO user (userName,firstName,lastName,dob,email,accountStatus,verificationStatus,verificationOTP,password) 
-                    VALUES('$userName', '$firstName', '$lastName','$dob','$email',0,0,0,'$password')";
-          mysqli_query($db, $query);
-          $query = "INSERT INTO buyer
-          VALUES('$userName',0)";
-          mysqli_query($db, $query);
-          $_SESSION['userName'] = $userName;
-          $_SESSION['accoutType'] = "Buyer";
-          $_SESSION['email']=$email;
-          $_SESSION['firstName']=$firstName;
-          $_SESSION['lastName']=$lastName;
-          header('Location: ../verification/verification.php');
-      }
+         $password = md5($password);
+         $userCheck = "SELECT * FROM user WHERE userName='$userName' and password='$password' LIMIT 1";
+         $result = mysqli_query($db, $userCheck);
+         $user = mysqli_fetch_assoc($result);
+         if ($user) 
+         { 
+                $_SESSION['userName'] = $user['userName'];
+                $userCheck = "SELECT * FROM user WHERE userName='$userName' and verificationStatus='1' and accountStatus='0' LIMIT 1";
+                $result = mysqli_query($db, $userCheck);
+                $user = mysqli_fetch_assoc($result);
+                if ($user) 
+                {
+                    $userCheck = "SELECT * FROM buyer WHERE userName='$userName' LIMIT 1";
+                    $result = mysqli_query($db, $userCheck);
+                    $user = mysqli_fetch_assoc($result);
+                    if ($user) {
+                        header('Location: ../buyer/dashboard.php');
+                    }
+                    $userCheck = "SELECT * FROM seller WHERE userName='$userName' LIMIT 1";
+                    $result = mysqli_query($db, $userCheck);
+                    $user = mysqli_fetch_assoc($result);
+                    if ($user) { 
+
+                        header('Location: ../seller/dashboard.php');
+                    }
+                }
+                else
+                {
+                    $userCheck = "SELECT * FROM user WHERE userName='$userName' LIMIT 1";
+                    $result = mysqli_query($db, $userCheck);
+                    $user = mysqli_fetch_assoc($result);
+                    if ($user['verificationStatus']=='0') 
+                    {
+                    $userDelete = "DELETE FROM user WHERE userName='$userName'";
+                    $result = mysqli_query($db, $userDelete);
+                    $userDelete = "DELETE FROM buyer WHERE userName='$userName'";
+                    $result = mysqli_query($db, $userDelete);
+                    $userDelete = "DELETE FROM seller WHERE userName='$userName'";
+                    $result = mysqli_query($db, $userDelete);
+                    $errors["password"]= "Your Account is Not Verified !";
+                    }
+                    else if ($user['accountStatus']=='1') {
+                        $errors["password"]= "Your Account is BANNED for 1 Day !";
+                    }
+                    else if ($user['accountStatus']=='2') {
+                        $errors["password"]= "Your Account is BANNED for 7 Days !";
+                    }
+                    else if ($user['accountStatus']=='3') {
+                        $errors["password"]= "Your Account is BANNED for 14 Day !";
+                    }
+                    else if ($user['accountStatus']=='4') {
+                        $errors["password"]= "Your Account is BANNED for 30 Day !";
+                    }
+                    else if ($user['accountStatus']=='5') {
+                        $errors["password"]= "Your Account is BANNED for 60 day !";
+                    }
+                    else if ($user['accountStatus']=='6') {
+                        $errors["password"]= "Your Account is BANNED for 365 day !";
+                    }
+                    else if ($user['accountStatus']=='7') {
+                        $errors["password"]= "Your Account is BANNED for Permanatly !";
+                    }
+                    else {
+                        $errors["password"]= "Your Account is BLOCKED Contact EXL-Exchange !";
+                    }
+                }
+            }
+        else{
+            $errors["password"]= "Invaild Login ! - Wrong User Name OR Password";
+        }    
     }
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -99,46 +126,16 @@
         <div class="container">
             <div class="header"><span style="color:#007BFF">Create</span> A New Account</div>
             <div class="fieldset">
-                <label for="firstName" class="label">First Name</label>
-                <input type="text" placeholder="Enter First Name" name="firstName" id="firstName" autocomplete="off">
-                <span class="error"><?php echo $errors["firstname"];?></span>
-            </div>
-            <div class="fieldset">
-                <label for="lastname" class="label">Last Name</label>
-                <input type="text" placeholder="Enter Last Name" name="lastName" id="lastName" autocomplete="off">
-                <span class="error"><?php echo $errors["lastname"];?></span>
-            </div>
-            <div class="fieldset">
                 <label for="lastname" class="label">User Name</label>
-                <input type="text" placeholder="Pick a User Name" name="userName" id="userName" autocomplete="off">
+                <input type="text" placeholder="Enter User Name or Email" name="userName" id="userName" autocomplete="off">
                 <span class="error"><?php echo $errors["userName"];?></span>
             </div>
             <div class="fieldset">
-                <label for="dob" class="label">Date Of Birth</label>
-                <input type="date" placeholder="Enter DOB" name="dob" id="dob" autocomplete="off">
-                <span class="error"><?php echo $errors["dob"];?></span>
-            </div>
-            <div class="fieldset">
-                <label for="email" class="label">Email</label>
-                <input type="email" placeholder="Enter Email" name="email" id="email" autocomplete="off">
-                <span class="error"><?php echo $errors["email"];?></span>
-            </div>
-            <div class="fieldset">
-                <label for="password" class="label">Create New Password</label>
+                <label for="password" class="label">Password</label>
                 <input type="password" placeholder="Enter Password" name="password" id="password" autocomplete="off">
-            </div>
-            <div class="fieldset">
-                <label for="passwordRepeat" class="label">Confirm Your Password</label>
-                <input type="password" placeholder="Confirm Password" name="passwordRepeat" id="passwordRepeat" autocomplete="off">
                 <span class="error"><?php echo $errors["password"];?></span>
             </div>
-            <div class="fieldset">
-              <p class="agreement-condition">
-                  <input type="checkbox" name="agreement" id="agreement" value="1">I agree to company <a href="#">Terms &
-                      Privacy</a>.
-                  <span class="error"><?php echo $errors["agreement"];?></span>
-              </p>
-              <input type="submit" class="registerbtn" value="Next" name="register">
+              <input type="submit" class="registerbtn" value="Login" name="register">
             </div>
         </div>
     </form>

@@ -1,11 +1,10 @@
 <?php
-$userName ="dilan";
+
 session_start();
-$_SESSION['userName']="dilan";
-$password = "95b13048c989bf4574cc69eef65eef12";
+$userName =$_SESSION['userName'];
 //Create DB Connection
 $db = mysqli_connect('localhost', 'root', '', 'exl_main');
-$userCheck = "SELECT * FROM user WHERE userName='$userName' and password='$password' LIMIT 1";
+$userCheck = "SELECT * FROM user WHERE userName='$userName' LIMIT 1";
 $result = mysqli_query($db, $userCheck);
 $user = mysqli_fetch_assoc($result);
 if ($user) { 
