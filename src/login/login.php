@@ -124,10 +124,10 @@
 <body>
     <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
         <div class="container">
-            <div class="header"><span style="color:#007BFF">Create</span> A New Account</div>
+            <div class="header"><span style="color:#007BFF">Login</span> </div>
             <div class="fieldset">
                 <label for="lastname" class="label">User Name</label>
-                <input type="text" placeholder="Enter User Name or Email" name="userName" id="userName" autocomplete="off">
+                <input type="text" placeholder="Enter User Name" name="userName" id="userName" autocomplete="off">
                 <span class="error"><?php echo $errors["userName"];?></span>
             </div>
             <div class="fieldset">
@@ -135,8 +135,8 @@
                 <input type="password" placeholder="Enter Password" name="password" id="password" autocomplete="off">
                 <span class="error"><?php echo $errors["password"];?></span>
             </div>
-              <input type="submit" class="registerbtn" value="Login" name="register">
-            </div>
+            <a href="forgetpw.php" style="text-decoration:none"><div  class="normal-blue-font">Forgotten Your Username/Password?</div></a>
+             <div style="padding-bottom:20px"> <input type="submit" class="registerbtn" value="Login" name="register"></div>
         </div>
     </form>
 </body>

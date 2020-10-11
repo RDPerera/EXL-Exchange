@@ -69,6 +69,7 @@ input[type="date"]:focus {
   background-color: rgb(255, 255, 255);
   font-weight: 500;
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.1), 0 4px 6px 0 rgba(0, 0, 0, 0.05);
+  
 }
 .agreement-condition {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
@@ -91,4 +92,12 @@ label {
 }
 .fieldset {
   margin: 0 0 15px 0;
+}
+.normal-blue-font
+{
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #007bff;
+  font-size: small;
+  padding-bottom: 20px;
+  text-decoration: none;
 }

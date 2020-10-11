@@ -16,7 +16,6 @@ btn2.onclick = function () {
 };
 btn3.onclick = function () {
   modal3.style.display = "none";
-  window.location.replace("http://www.w3schools.com");
   window.location.replace("http://localhost/EXL-Exchange/src/login/login.php");
 };
 var timeleft = 60;
