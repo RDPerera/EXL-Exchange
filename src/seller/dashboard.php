@@ -25,6 +25,11 @@ else
 {
     header('Location: ../login/login.php');
 }
+if(isset($_POST['logout']))
+{
+    session_destroy();
+    header('Location: ../login/login.php');
+}
 ?>
 
 <!DOCTYPE html>
@@ -32,7 +37,7 @@ else
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Dashboard</title>
     <link rel="stylesheet" type="text/css" href="../css/sdashboard.css">
     <link rel="stylesheet" type="text/css" href="../css/card.css" />
 
@@ -42,12 +47,12 @@ else
     <header class="header">
         <label for="home"><img src="../img/icons/ee-logo.png" class="home-menu"></label>
         <div class="left-head">Seller<span class="min-text"> Dashboard</span></div>
-        <div class="right-head"><button class="head-btn">Log Out</button></div>
+        <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>"><div class="right-head"><input type="submit" name="logout" value="Log Out" class="head-btn"></div>
     </header>
     <div class="sidebar">
         <center>
             <div class="sidebar-profile-container">
-                <a href="#"><img src="../seller/uploads/<?php echo $profilePicture ?>"class="sidebar-profile"></a>
+                <a href="#"><img src="uploads/<?php echo $profilePicture ?>"class="sidebar-profile"></a>
             </div>
             <span class="slidbar-name"><?php echo $firstName." ".$lastName; ?></span>
         </center>
@@ -55,7 +60,7 @@ else
         <a href="#" class=" selected-item"><img src="../img/icons/icons8-home-144.png" class="sidebar-icons"><span>Home</span></a>
         <a href="#"><img src="../img/icons/icons8-chat-96.png" class="sidebar-icons"><span>Messages</span></a>
         <a href="#"><img src="../img/icons/icons8-submit-resume-96.png " class="sidebar-icons"><span>Current Jobs</span></a>
-        <a href="#"><img src="../img/icons/icons8-plus-math-96.png" class="sidebar-icons"><span>Create Add</span></a>
+        <a href="dashboard-create.php"><img src="../img/icons/icons8-plus-math-96.png" class="sidebar-icons"><span>Create Add</span></a>
         <a href="#"><img src="../img/icons/icons8-question-mark-96.png" class="sidebar-icons"><span>Help & Supports</span></a>
         <a href="#"><img src="../img/icons/icons8-complaint-90.png" class="sidebar-icons"><span>Complaints</span></a>
         <a href="#"><img src="../img/icons/icons8-settings-500.png" class="sidebar-icons"><span>Settings</span></a>
@@ -73,7 +78,7 @@ else
                 if (mysqli_num_rows($result) > 0) 
                 {
                 while($row = mysqli_fetch_assoc($result)) {
-                    echo "<a href='../advertisements/views.php?id=".$row['advertisementID']."' style='text-decoration:none;color:black'>
+                    echo "<a href='../advertisements/view-s.php?id=".$row['advertisementID']."' style='text-decoration:none;color:black'>
                     <div class='card'>
                         <img src='../advertisements/uploads/".$row['image'].".jpg' class='card-image' />
                         <div class='card-info'>

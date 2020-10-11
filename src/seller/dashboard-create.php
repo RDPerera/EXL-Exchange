@@ -6,6 +6,7 @@ $complete = "display:none";
 $userName="dilan";
 //Database connection
 
+
 $db = mysqli_connect('localhost', 'root', '', 'exl_main');
 
 // Check connection
@@ -19,7 +20,8 @@ $titleErr = $userNameErr = $categoryErr = $tagErr =  $contentErr = $statusErr = 
 $title = $userName = $category = $tag = $content = $status = $price = "";
 
 $ValidationErrors = 0;
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if ($_SERVER["REQUEST_METHOD"] == "POST" && !isset($_POST['logout'])) {
+    
   if (empty($_POST["title"])) {
     $titleErr = "* Title is required";
     $ValidationErrors++;
@@ -74,7 +76,7 @@ function test_input($data) {
 
 if($ValidationErrors==0){ //there are no validation errors
 
-    if (isset($_POST['submit'])) {//retrieveing user entered data from the form
+    if (isset($_POST['fsubmit'])) {//retrieveing user entered data from the form
 
         $title = mysqli_real_escape_string($db, $_POST['title']);
         $category = mysqli_real_escape_string($db, $_POST['category']);
@@ -140,6 +142,11 @@ else
 {
     header('Location: ../login/login.php');
 }
+if(isset($_POST['logout']))
+    {
+        session_destroy();
+        header('Location: ../login/login.php');
+    }
 ?>
 
 <!DOCTYPE html>
@@ -147,7 +154,7 @@ else
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Dashboard</title>
     <link rel="stylesheet" type="text/css" href="../css/sdashboard.css">
     <link rel="stylesheet" type="text/css" href="../css/sdashboard-create-ad.css" />
     <link rel="stylesheet" type="text/css" href="../css/model.css">
@@ -159,7 +166,7 @@ else
         <div class="model-content">
             <div class="model-header"><span class="model-header-content">Created Successfully</span></div>
             <div class="model-text v-h-center">Your Ad created successfully !</div>
-            <button id="model-btn-1" class="model-button" onclick="dispose()"> OK </button>
+            <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>"><div class="right-head"><input type="submit" name="logout" value="Log Out" class="head-btn"></div>
         </div>
     </div>
     <input type="checkbox" id="home">
@@ -176,10 +183,10 @@ else
             <span class="slidbar-name"><?php echo $firstName." ".$lastName; ?></span>
         </center>
         <div class="sidebar-menu">
-        <a href="#" class=" selected-item"><img src="../img/icons/icons8-home-144.png" class="sidebar-icons"><span>Home</span></a>
+        <a href="dashboard.php"><img src="../img/icons/icons8-home-144.png" class="sidebar-icons"><span>Home</span></a>
         <a href="#"><img src="../img/icons/icons8-chat-96.png" class="sidebar-icons"><span>Messages</span></a>
         <a href="#"><img src="../img/icons/icons8-submit-resume-96.png " class="sidebar-icons"><span>Current Jobs</span></a>
-        <a href="#"><img src="../img/icons/icons8-plus-math-96.png" class="sidebar-icons"><span>Create Add</span></a>
+        <a href="#"  class=" selected-item"><img src="../img/icons/icons8-plus-math-96.png" class="sidebar-icons"><span>Create Add</span></a>
         <a href="#"><img src="../img/icons/icons8-question-mark-96.png" class="sidebar-icons"><span>Help & Supports</span></a>
         <a href="#"><img src="../img/icons/icons8-complaint-90.png" class="sidebar-icons"><span>Complaints</span></a>
         <a href="#"><img src="../img/icons/icons8-settings-500.png" class="sidebar-icons"><span>Settings</span></a>
@@ -270,7 +277,7 @@ else
                                 placeholder="Enter the EXL Exchange username of the third member">
                         </div>
 
-                        <input type="submit" name="submit" value="Create" class="createbtn">
+                        <input type="submit" name="fsubmit" value="Create" class="createbtn">
             </form>
         </div>
     </div>
