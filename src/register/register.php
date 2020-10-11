@@ -41,6 +41,7 @@
       if (empty($lastName)) { $errors["lastname"]="Last Name is required"; }
       if (empty($dob)) { $errors["dob"]= "Date Of Birth is required"; }
       if (empty($password_1)) { $errors["password"]= "Password is required"; }
+      if (empty($password_2)) { $errors["password"]= "Confirm Your Password"; }
       if ($password_1 != $password_2) {
         $errors["password"]= "The two passwords are not matched";
       }
