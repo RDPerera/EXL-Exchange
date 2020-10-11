@@ -109,7 +109,7 @@ if(isset($_POST['submit'])){
             <span class="error"><?php echo $error;?></span>
         </div>
         <div class="fieldset">
-        <input type="submit" class="registerbtn" value="Send Password Reset Informations" name="submit">
+        <input type="submit" class="registerbtn" value="Send Password Reset Information" name="submit">
         </div>
     </div>
 </form>

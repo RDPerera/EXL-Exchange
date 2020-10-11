@@ -10,7 +10,7 @@ img.slideshow {vertical-align: middle;
   max-height: 559px;
   /* max-width: 1200px; */
   position: relative;
- 
+ margin-top: 0;
   margin: auto;
   /* box-shadow: 0 6px 13px 0 rgba(0,0,0,0.2), 0 6px 13px 0 rgba(0,0,0,0.19); */
 }
