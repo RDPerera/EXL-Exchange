@@ -51,20 +51,19 @@
             <div class="mySlides fade">
 
                 <img src="../img/ss7.jpg" style="width:100%" class="slideshow">
-                <div class="text">The Exclusive Freelancing Platform for Undergraduates</div>
+                <!-- <div class="text">The Exclusive Freelancing Platform for Undergraduates</div> -->
             </div>
 
             <div class="mySlides fade">
 
                 <img src="../img/ss8.jpg" style="width:100%" class="slideshow">
-                <div class="text">Join us today and enhance your skills</div>
+                <!-- <div class="text">Join us today and enhance your skills</div> -->
             </div>
 
-            <!-- <div class="mySlides fade">
+            <div class="mySlides fade">
 
-                <img src="../img/ss13.jpg" style="width:100%" class="slideshow">
-                <div class="text">The best platform to buy high quality services</div>
-            </div> -->
+                <img src="../img/ss9.jpg" style="width:100%" class="slideshow">
+            </div>
 
         </div>
         <br>
