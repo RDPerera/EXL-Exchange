@@ -30,8 +30,8 @@
         <a href="">Contact</a>
         
         <div class="buttons">
-            <button class="signin-button" href="">Sign In</button>
-            <button class="signup-button" href="">Sign Up</button>
+            <button class="signin-button" href="../login/login.php">Sign In</button>
+            <button class="signup-button" href="../register/register.php">Sign Up</button>
         </div>
         <div class="search-container">
             <form action="">
