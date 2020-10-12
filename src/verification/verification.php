@@ -149,7 +149,7 @@ elseif((isset($_GET['userName']) and isset($_GET['token'])) or isset($_GET['subm
     <title>Verification</title>
     <link rel="stylesheet" type="text/css" href="../css/model.css">
     <link rel="stylesheet" type="text/css" href="../css/verification.css">
-    
+    <link rel="icon" type="image/png" href="../img/icons/ee-logo.png">
 </head>
 <body> 
 <div id="model1" class="model-background" style="<?php echo $stateInvalid ?>">
