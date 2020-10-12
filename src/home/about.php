@@ -7,10 +7,9 @@
     <title>EXL Exchange - About</title>
     <link rel="icon" type="image/png" href="../img/icons/ee-logo.png">
     <link rel="stylesheet" type="text/css" href="../css/homeNavBar.css">
-    <link rel="stylesheet" type="text/css" href="../css/homeSlideShow.css">
-    <link rel="stylesheet" type="text/css" href="../css/homeCards.css">
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../css/footer.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/brands.min.css"  />
 
 </head>
 
@@ -21,14 +20,14 @@
         <a href="javascript:void(0);" class="icon" onclick="scrollTheMenu()">
             <i class="fa fa-bars"></i> </a>
         <img src="../img/logoWhite.png" class="exlLogo">
-        <a href="#" >Home</a>
+        <a href="home.php" >Home</a>
         <a href="categories.php">Categories</a>
         <a href="about.php" class="active">About</a>
         <a href="contact.php">Contact</a>
         
         <div class="buttons">
-            <button class="signin-button" onclick=" window.location.replace(../login/login.php)">Sign In</button>
-            <button class="signup-button" onclick=" window.location.replace(../register/register.php)">Sign Up</button>
+        <button class="signin-button" onclick=" window.location.href='../login/login.php'">Sign In</button>
+            <button class="signup-button" onclick=" window.location.href='../register/register.php'">Sign Up</button>
         </div>
         <div class="search-container">
             <form action="">
@@ -38,6 +37,26 @@
         </div>
         
     </div>
+
+
+
+
+    <!-- Content goes here -->
+    <br><br><br><br><br><br><br><br><br>
+
+
+
+
+    <footer>
+    <div class="footer-container">
+        <span class="footer-text"> © EXL-Exchange 2020</span>
+        <span class="social-media">
+            <a href="#"><i class="fab fa-facebook-square"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+        </span>
+    </div>
+    </footer>
     <script type="text/javascript" src="../js/homeNavBar.js"></script>
     <script type="text/javascript" src="../js/homeSlideShow.js"></script>
 </body>
