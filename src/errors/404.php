@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>505 Error!</title>
+    <link rel="icon" type="image/png" href="../img/icons/ee-logo.png">
     <link rel="stylesheet" href="../css/error.css" type="text/css">
 </head>
 <body class="backg1">
