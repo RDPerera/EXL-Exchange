@@ -13,9 +13,7 @@
     <link rel="stylesheet" type="text/css" href="../css/homeSlideShow.css">
     <link rel="stylesheet" type="text/css" href="../css/homeCards.css">
     <link rel="stylesheet" type="text/css" href="../css/footer.css">
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/brands.min.css"  />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
 
 </head>
 
@@ -79,32 +77,56 @@
 
 
     <!-- Set of advertisement cards -->
-    <section class="card-container">
-        <div class="card">
-            <div class="card-top">
-                <a href=""><img
-                        src="https://images.unsplash.com/photo-1595147389795-37094173bfd8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1949&q=80"
-                        alt="Unsplash Photo"></a>
-            </div>
-            <div class="card-content">
+    <div class="main-title-create"><span class="blue-text-create">Top </span>Advertisements</div>
+    <section class='card-container'>
 
-                <h6 class="tag tag-blue">Heading sample</h6>
-                <a href="">
-                    <h3 class="title">Sample Advertisement 01</h3>
-                </a>
-                <button class="price">LKR 1500.00</button>
-                <div class="bottom">
-                    <img class="ratingIcon" src="https://img.icons8.com/fluent/28/000000/star.png">
-                    <p class="rating">5.0</p>
 
+    <?php 
+    
+    echo"
+        <div class='card'>
+            <div class='card-top'>
+                <a href=''><img src='../img/bp.png' alt='Unsplash Photo'></a></div>
+            <div class='card-content'>
+                <div class='top'>
+                <div class='user'><img src='../img/profile.jpg' class='profile'><span class='name'><a href=''>Dilan Perera</a></span><span class='srate'>Seller Rate 4.0</span></div>
+                <a href=''><span class='title'>I will write quality blog posts, SEO articles, and website content</span></a>
                 </div>
+                <div class='bottom'>
+                        <button class='price'>LKR 1500.00</button>
+                        <span class='rate-container'><img src='..\img\icons\icons8-star-96.png' class='ratingIcon'>
+                        <span class='rating'>5.0</span>
+        <span></div></div></div>
+        ";
 
-            </div>
-        </div>
+    ?>
+
 
     </section>
+    <div class='main-title-create'><span class='blue-text-create'>Recent </span>Advertisements</div>
+    <section class='card-container'>
 
 
+    <?php 
+    echo"
+        <div class='card'>
+            <div class='card-top'>
+                <a href=''><img src='../img/bp.png' alt='Unsplash Photo'></a></div>
+            <div class='card-content'>
+                <div class='top'>
+                <div class='user'><img src='../img/profile.jpg' class='profile'><span class='name'><a href=''>Dilan Perera</a></span><span class='srate'>Seller Rate 4.0</span></div>
+                <a href=''><span class='title'>I will write quality blog posts, SEO articles, and website content</span></a>
+                </div>
+                <div class='bottom'>
+                        <button class='price'>LKR 1500.00</button>
+                        <span class='rate-container'><img src='..\img\icons\icons8-star-96.png' class='ratingIcon'>
+                        <span class='rating'>5.0</span>
+        <span></div></div></div>
+        ";
+        
+    ?>
+
+    </section>
     <script type="text/javascript" src="../js/homeNavBar.js"></script>
     <script type="text/javascript" src="../js/homeSlideShow.js"></script>
 

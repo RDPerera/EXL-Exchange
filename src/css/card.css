@@ -9,6 +9,7 @@
   row-gap: 20px;
   column-gap: 10px;
 }
+
 .requests
 {
   padding: 0;
@@ -16,6 +17,7 @@
   width: 98%;
   justify-self: center;
 }
+
 .request{
   display: grid;
   grid-template-columns: 1fr 2fr 1fr 1fr 1fr;
@@ -117,7 +119,7 @@
 .card-feedback-number {
   overflow: hidden;
   color: white;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 11px;
   background-color: #28a745;
   border-radius: 9px;
@@ -142,7 +144,7 @@
   overflow: hidden;
   display: inline;
   padding: 3px;
-  color: #007bff;
+  color: #;
   font-weight: 500;
   font-size: 11px;
 }

@@ -112,7 +112,7 @@ img.exlLogo {
 }
 img.exlLogo{
  
-    filter: drop-shadow(1px 1px 5px rgb(2, 95, 243)); 
+    
     transition: ease-in-out 1s;
 }
 img.exlLogo:hover{
