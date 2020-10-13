@@ -1,11 +1,13 @@
 <?php
-
 //HARD coded the session variables
+<<<<<<< Updated upstream
 //session_start();
 
 //$userName = $_SESSION['userName'];
 
 $username = "chathura";
+=======
+>>>>>>> Stashed changes
 
 //Database connection
 
