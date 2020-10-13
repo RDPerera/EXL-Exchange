@@ -5,7 +5,7 @@
 
 //$userName = $_SESSION['userName'];
 
-$username = "hard coded";
+$username = "chathura";
 
 //Database connection
 
@@ -27,7 +27,7 @@ echo "<div class='row'>";
             while($row = mysqli_fetch_array($result)){
                 
                 echo "<div class=\"polaroid\">";
-                    echo "<img src='uploads/$row[4].jpg' height='490px' width='490px'>";
+                    echo "<img src='../img/adUploads/$row[4]' height='490px' width='490px'>";
                     echo "<div class=\"container\">";
                         echo "<p class='imageBottom'> $row[3] Advertisements <br> #$row[6]</p>";
                     echo" </div> ";
