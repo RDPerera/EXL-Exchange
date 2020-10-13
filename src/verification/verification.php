@@ -20,7 +20,7 @@ $link=$baseURL."?userName=".$userName."&token=".$token;
 
 //$stateAlready = "";
 //Create DB Connection
-$db = mysqli_connect('localhost:3308', 'root', '', 'exl_main');
+$db = mysqli_connect('localhost', 'root', '', 'exl_main');
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;

@@ -4,7 +4,7 @@ session_start();
     $stateSuccess = "display:none";
     $errors = array(); 
     // DB Connection
-    $db = mysqli_connect('localhost:3308', 'root', '', 'exl_main');
+    $db = mysqli_connect('localhost', 'root', '', 'exl_main');
     //for form validations initially no errors
     $errors["userName"]="";
     $errors["password"]="";
