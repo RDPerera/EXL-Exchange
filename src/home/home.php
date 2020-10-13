@@ -91,11 +91,11 @@
     echo"
         <div class='card'>
             <div class='card-top'>
-                <a href=''><img src='../img/".$row['image']."' alt='Unsplash Photo'></a></div>
+                <a href='../advertisements/view-v.php?id=".$row['advertisementID']."'><img src='../img/".$row['image']."' alt='Unsplash Photo'></a></div>
             <div class='card-content'>
                 <div class='top'>
-                <div class='user'><img src='../seller/uploads/".$row['profilePicture']."' class='profile'><span class='name'><a href=''>".$row['firstName']." ".$row['lastName']."</a></span><span class='srate'>Seller Rate ".$row['mainRate']."</span></div>
-                <a href=''><span class='title'>".$row['title']."</span></a>
+                <div class='user'><img src='../seller/uploads/".$row['profilePicture']."' class='profile'><span class='name'><a href='../seller/view.php?id=".$row['userName']."' target='_blank'>".$row['firstName']." ".$row['lastName']."</a></span><span class='srate'>Seller Rate ".$row['mainRate']."</span></div>
+                <a href='../advertisements/view-v.php?id=".$row['advertisementID']."'><span class='title'>".$row['title']."</span></a>
                 </div>
                 <div class='bottom'>
                         <span class='feed-container'>LKR ".$row['price']."</span>
@@ -104,6 +104,9 @@
         </span></div></div></div>
         ";
     }
+    }
+    else{
+        echo "<h1>NO Results</h1>";
     }
     ?>
 
@@ -123,11 +126,11 @@
     echo"
         <div class='card'>
             <div class='card-top'>
-                <a href=''><img src='../img/".$row['image']."' alt='Unsplash Photo'></a></div>
+                <a href='../advertisements/view-v.php?id=".$row['advertisementID']."'><img src='../img/".$row['image']."' alt='Unsplash Photo'></a></div>
             <div class='card-content'>
                 <div class='top'>
-                <div class='user'><img src='../seller/uploads/".$row['profilePicture']."' class='profile'><span class='name'><a href=''>".$row['firstName']." ".$row['lastName']."</a></span><span class='srate'>Seller Rate ".$row['mainRate']."</span></div>
-                <a href=''><span class='title'>".$row['title']."</span></a>
+                <div class='user'><img src='../seller/uploads/".$row['profilePicture']."' class='profile'><span class='name'><a href='../seller/view.php?id=".$row['userName']."' target='_blank'>".$row['firstName']." ".$row['lastName']."</a></span><span class='srate'>Seller Rate ".$row['mainRate']."</span></div>
+                <a href='../advertisements/view-v.php?id=".$row['advertisementID']."'><span class='title'>".$row['title']."</span></a>
                 </div>
                 <div class='bottom'>
                         <span class='feed-container'>LKR ".$row['price']."</span>
@@ -136,6 +139,9 @@
         </span></div></div></div>
         ";
     }
+    }
+    else{
+        echo "<h1>NO Results</h1>";
     }
     ?>
 
@@ -155,11 +161,11 @@
     echo"
         <div class='card'>
             <div class='card-top'>
-                <a href=''><img src='../img/".$row['image']."' alt='Unsplash Photo'></a></div>
+                <a href='../advertisements/view-v.php?id=".$row['advertisementID']."'><img src='../img/".$row['image']."' alt='Unsplash Photo'></a></div>
             <div class='card-content'>
                 <div class='top'>
-                <div class='user'><img src='../seller/uploads/".$row['profilePicture']."' class='profile'><span class='name'><a href=''>".$row['firstName']." ".$row['lastName']."</a></span><span class='srate'>Seller Rate ".$row['mainRate']."</span></div>
-                <a href=''><span class='title'>".$row['title']."</span></a>
+                <div class='user'><img src='../seller/uploads/".$row['profilePicture']."' class='profile'><span class='name'><a href='../seller/view.php?id=".$row['userName']."' target='_blank'>".$row['firstName']." ".$row['lastName']."</a></span><span class='srate'>Seller Rate ".$row['mainRate']."</span></div>
+                <a href='../advertisements/view-v.php?id=".$row['advertisementID']."'><span class='title'>".$row['title']."</span></a>
                 </div>
                 <div class='bottom'>
                         <span class='feed-container'>LKR ".$row['price']."</span>
@@ -168,6 +174,9 @@
         </span></div></div></div>
         ";
     }
+    }
+    else{
+        echo "<h1>NO Results</h1>";
     }
     ?>
 
