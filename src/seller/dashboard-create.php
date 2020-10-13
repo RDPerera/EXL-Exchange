@@ -1,11 +1,10 @@
-
 <?php
 session_start();
 $complete = "display:none";
 $userName =$_SESSION['userName'];
+
+
 //Database connection
-
-
 $db = mysqli_connect('localhost', 'root', '', 'exl_main');
 
 // Check connection
@@ -73,10 +72,10 @@ function test_input($data) {
   return $data;
 }
 
-if($ValidationErrors==0){ //there are no validation errors
-
+if($ValidationErrors==0) { //there are no validation errors
+    
     if (isset($_POST['fsubmit'])) {//retrieveing user entered data from the form
-
+       
         $title = mysqli_real_escape_string($db, $_POST['title']);
         $category = mysqli_real_escape_string($db, $_POST['category']);
         $status = mysqli_real_escape_string($db, $_POST['status']);
@@ -86,28 +85,38 @@ if($ValidationErrors==0){ //there are no validation errors
         $member2 = mysqli_real_escape_string($db, $_POST['member2']);
         $member3 = mysqli_real_escape_string($db, $_POST['member3']);
         $price = mysqli_real_escape_string($db, $_POST['price']);
+        $date = date('Y-m-d H:i:s'); //getting the current data and time
 
-        //the image file
-        if(isset($_FILES['imageUpload'])){
 
-            //Process the image that is uploaded by the user
-            $target_dir = "../advertisements/uploads/";
-            $target_file = $target_dir . basename($_FILES["imageUpload"]["name"]);
-            $uploadOk = 1;
-            $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
-
-            move_uploaded_file($_FILES["imageUpload"]["tmp_name"], $target_file);
-
-            $image=basename( $_FILES["imageUpload"]["name"],".jpg"); // used to store the filename in a variable
-
-            $date = date('Y-m-d H:i:s'); //getting the current data and time
-             
-            //storing the data the database
-            $query= "INSERT INTO advertisement (dateTime,status,category,image,title,tag,content,userName,member1,member2,member3,price) VALUES ('$date','$status', '$category','$image' , '$title' , '$tag' ,'$content' , '$userName' , '$member1' , '$member2' , '$member3','$price')";
-            mysqli_query($db, $query);
-            $complete="";
-        }
-    }
+              //taking an image as the user input and storing it
+              $target_dir = "../img/adUploads/";
+              $uploadOk = 0;
+              $image = "";
+              if(!empty($_FILES["imageupload"]["name"])) //if an image is selected
+              {
+                  $filename = $_FILES["imageupload"]["name"];
+                  $target_file = $target_dir . basename($_FILES["imageupload"]["name"]);
+                  $uploadOk = 1;
+                  $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+              }
+              
+              //if there were no errors
+              if ($uploadOk == 1) 
+              {
+                  move_uploaded_file($_FILES["imageupload"]["tmp_name"], $target_file); //move the image file to the target location
+              }
+              
+              if(!empty($_FILES["imageupload"]["name"])) //only if an image is selected
+              {    
+                $timestamp = time();       
+                $image=$userName.$timestamp.".".$imageFileType; //generating an unique name to the image file
+                rename("../img/adUploads/$filename","../img/adUploads/$image"); //adding the generated name to the file
+              }
+      
+        $query= "INSERT INTO advertisement (dateTime,status,category,image,title,tag,content,userName,member1,member2,member3,price) VALUES ('$date','$status', '$category','$image' , '$title' , '$tag' ,'$content' , '$userName' , '$member1' , '$member2' , '$member3','$price')";
+        mysqli_query($db, $query);
+        $complete="";
+    }   
 }
 
 $userCheck = "SELECT * FROM user WHERE userName='$userName' LIMIT 1";
@@ -139,6 +148,7 @@ if(isset($_POST['logout']))
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -150,12 +160,14 @@ if(isset($_POST['logout']))
     <script src="../js/sdashboard-create.js"></script>
 
 </head>
+
 <body>
-<div id="model1" class="model-background" style="<?php echo $complete ?>">
+    <div id="model1" class="model-background" style="<?php echo $complete ?>">
         <div class="model-content">
             <div class="model-header"><span class="model-header-content">Created Successfully</span></div>
             <div class="model-text v-h-center">Your Ad created successfully !</div>
-            <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>"><div class="right-head"><input type="submit" name="logout" value="Log Out" class="head-btn"></div>
+            <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>"> 
+                <div class="right-head"><input type="submit" name="logout" value="Log Out" class="head-btn"></div>
         </div>
     </div>
     <input type="checkbox" id="home">
@@ -171,15 +183,18 @@ if(isset($_POST['logout']))
             </div>
             <span class="slidbar-name"><?php echo $firstName." ".$lastName; ?></span>
         </center>
-        <div class="sidebar-menu">
+    <div class="sidebar-menu">
         <a href="dashboard.php"><img src="../img/icons/icons8-home-144.png" class="sidebar-icons"><span>Home</span></a>
         <a href="#"><img src="../img/icons/icons8-chat-96.png" class="sidebar-icons"><span>Messages</span></a>
-        <a href="#"><img src="../img/icons/icons8-submit-resume-96.png " class="sidebar-icons"><span>Current Jobs</span></a>
-        <a href="#"  class=" selected-item"><img src="../img/icons/icons8-plus-math-96.png" class="sidebar-icons"><span>Create Add</span></a>
-        <a href="#"><img src="../img/icons/icons8-question-mark-96.png" class="sidebar-icons"><span>Help & Supports</span></a>
+        <a href="#"><img src="../img/icons/icons8-submit-resume-96.png " class="sidebar-icons"><span>Current
+                Jobs</span></a>
+        <a href="#" class=" selected-item"><img src="../img/icons/icons8-plus-math-96.png"
+                class="sidebar-icons"><span>Create Add</span></a>
+        <a href="#"><img src="../img/icons/icons8-question-mark-96.png" class="sidebar-icons"><span>Help &
+                Supports</span></a>
         <a href="#"><img src="../img/icons/icons8-complaint-90.png" class="sidebar-icons"><span>Complaints</span></a>
         <a href="#"><img src="../img/icons/icons8-settings-500.png" class="sidebar-icons"><span>Settings</span></a>
-        </div>
+    </div>
     </div>
     <div class="content-super">
         <div class="sub-container">
@@ -211,7 +226,7 @@ if(isset($_POST['logout']))
                 <div class="fieldset">
                     <label> Upload an image </label> &nbsp &nbsp &nbsp
                     <label class="browsebtn">
-                        <input type='file' name='imageUpload' id='imageUpload' class="createbtn">
+                        <input type="file" name="imageupload" id="imageupload" class="createbtn">
                         Browse
                     </label>
 
@@ -271,13 +286,13 @@ if(isset($_POST['logout']))
         </div>
     </div>
     <script>
-        // Get the modal and button
-        var modal1 = document.getElementById("model1");
-        // When the user clicks on button close,it will close the modal
-        function dispose() {
+    // Get the modal and button
+    var modal1 = document.getElementById("model1");
+    // When the user clicks on button close,it will close the modal
+    function dispose() {
         modal1.style.display = "none";
         window.location.replace("seller/dashboard.php");
-        };
+    };
     </script>
 </body>
 

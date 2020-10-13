@@ -3,7 +3,7 @@
 session_start();
 $userName =$_SESSION['userName'];
 //Create DB Connection
-$db = mysqli_connect('localhost', 'root', '', 'exl_main');
+$db = mysqli_connect('localhost:3308', 'root', '', 'exl_main');
 $userCheck = "SELECT * FROM user WHERE userName='$userName' LIMIT 1";
 $result = mysqli_query($db, $userCheck);
 $user = mysqli_fetch_assoc($result);
