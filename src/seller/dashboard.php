@@ -88,7 +88,7 @@ if(isset($_POST['logout']))
                             <div class='card-category'>
                                 Category <span class='card-tag'>".$row['category']."</span>
                             </div>
-                            <div class='card-feedbacks'>
+                            <div class='card-feedback'>
                                 Feedbacks <span class='card-feedback-number'>+".$row['feedbacks']."</span>
                             </div>
                             <div class='card-rate'>

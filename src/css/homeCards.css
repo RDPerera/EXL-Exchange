@@ -167,6 +167,21 @@ a {
 }
 
 
+
+
+img.ratingIcon {
+  width: 25px;
+  height: 25px;
+  vertical-align: middle;
+  padding-right: 5px;
+  padding-bottom: 3px;
+}
+span.rating {
+  vertical-align: middle;
+  color: rgb(243, 243, 243);
+  font-size: medium;
+  font-weight: 600;
+}
 .rate-container {
   float: right;
   align-items: center;
@@ -184,38 +199,24 @@ a {
   box-shadow: 1px 1px 2px #ffc107;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
-
-img.ratingIcon {
-  width: 25px;
-  height: 25px;
-  vertical-align: middle;
-  padding-right: 5px;
-  padding-bottom: 3px;
-}
-span.rating {
-  vertical-align: middle;
-  color: rgb(243, 243, 243);
-  font-size: medium;
-  font-weight: 600;
-}
-
-button.price {
-  float: left;
-  text-align: center;
-  overflow: hidden;
-  color: white;
-  font-weight: 500;
-  font-size: small;
-  background-color: #007bff;
-  border: none;
-  border-radius: 9px;
-  padding-bottom: 6px;
-  padding-top: 5px;
-  padding-left: 20px;
-  padding-right: 20px;
-  box-shadow: 1px 1px 2px #007bff;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-}
+.feed-container {
+    float: left;
+    align-items: center;
+    vertical-align: middle;
+    overflow: hidden;
+    color: white;
+    font-weight: 500;
+    font-size: 15px;
+    background-color: #007bff;
+    border-radius: 9px;
+    padding-bottom: 3px;
+    padding-top: 4px;
+    padding-left: 8px;
+    padding-right: 8px;
+    box-shadow: 1px 1px 2px #007bff;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
 
 /* Content Style | Hover Effect */
 
@@ -240,7 +241,7 @@ button.price {
   }
 }
 /* Display this style when screen-width is lower than 1240px */
-@media only screen and (max-width: 1148px) {
+@media only screen and (max-width: 1270px) {
   .card-container {
     grid-template-columns: 1fr 1fr 1fr;
     height: auto;
@@ -252,7 +253,7 @@ button.price {
     height: 350px;
   }
 }
-@media only screen and (max-width: 864px) {
+@media only screen and (max-width: 988px) {
   .card-container {
     grid-template-columns: 1fr 1fr;
     height: auto;

@@ -82,23 +82,29 @@
 
 
     <?php 
-    
+    $db = mysqli_connect('localhost', 'root', '', 'exl_main');
+    $sql = "SELECT * FROM advertisement,user,seller WHERE advertisement.userName=user.userName AND seller.userName=user.userName ORDER BY feedbacks  DESC "; 
+    $result = mysqli_query($db, $sql);  
+    if (mysqli_num_rows($result) > 0) 
+    {
+    while($row = mysqli_fetch_assoc($result)) {
     echo"
         <div class='card'>
             <div class='card-top'>
-                <a href=''><img src='../img/bp.png' alt='Unsplash Photo'></a></div>
+                <a href=''><img src='../img/".$row['image']."' alt='Unsplash Photo'></a></div>
             <div class='card-content'>
                 <div class='top'>
-                <div class='user'><img src='../img/profile.jpg' class='profile'><span class='name'><a href=''>Dilan Perera</a></span><span class='srate'>Seller Rate 4.0</span></div>
-                <a href=''><span class='title'>I will write quality blog posts, SEO articles, and website content</span></a>
+                <div class='user'><img src='../seller/uploads/".$row['profilePicture']."' class='profile'><span class='name'><a href=''>".$row['firstName']." ".$row['lastName']."</a></span><span class='srate'>Seller Rate ".$row['mainRate']."</span></div>
+                <a href=''><span class='title'>".$row['title']."</span></a>
                 </div>
                 <div class='bottom'>
-                        <button class='price'>LKR 1500.00</button>
+                        <span class='feed-container'>LKR ".$row['price']."</span>
                         <span class='rate-container'><img src='..\img\icons\icons8-star-96.png' class='ratingIcon'>
-                        <span class='rating'>5.0</span>
-        <span></div></div></div>
+                        <span class='rating'>".$row['rate']." | Feedbacks ".$row['feedbacks']."</span>
+        </span></div></div></div>
         ";
-
+    }
+    }
     ?>
 
 
@@ -108,25 +114,65 @@
 
 
     <?php 
+    $db = mysqli_connect('localhost', 'root', '', 'exl_main');
+    $sql = "SELECT * FROM advertisement,user,seller WHERE advertisement.userName=user.userName AND seller.userName=user.userName ORDER BY dateTime "; 
+    $result = mysqli_query($db, $sql);  
+    if (mysqli_num_rows($result) > 0) 
+    {
+    while($row = mysqli_fetch_assoc($result)) {
     echo"
         <div class='card'>
             <div class='card-top'>
-                <a href=''><img src='../img/bp.png' alt='Unsplash Photo'></a></div>
+                <a href=''><img src='../img/".$row['image']."' alt='Unsplash Photo'></a></div>
             <div class='card-content'>
                 <div class='top'>
-                <div class='user'><img src='../img/profile.jpg' class='profile'><span class='name'><a href=''>Dilan Perera</a></span><span class='srate'>Seller Rate 4.0</span></div>
-                <a href=''><span class='title'>I will write quality blog posts, SEO articles, and website content</span></a>
+                <div class='user'><img src='../seller/uploads/".$row['profilePicture']."' class='profile'><span class='name'><a href=''>".$row['firstName']." ".$row['lastName']."</a></span><span class='srate'>Seller Rate ".$row['mainRate']."</span></div>
+                <a href=''><span class='title'>".$row['title']."</span></a>
                 </div>
                 <div class='bottom'>
-                        <button class='price'>LKR 1500.00</button>
+                        <span class='feed-container'>LKR ".$row['price']."</span>
                         <span class='rate-container'><img src='..\img\icons\icons8-star-96.png' class='ratingIcon'>
-                        <span class='rating'>5.0</span>
-        <span></div></div></div>
+                        <span class='rating'>".$row['rate']." | Feedbacks ".$row['feedbacks']."</span>
+        </span></div></div></div>
         ";
-        
+    }
+    }
     ?>
 
     </section>
+
+    <div class='main-title-create'><span class='blue-text-create'>Newbie </span>Advertisements</div>
+    <section class='card-container'>
+
+
+    <?php 
+    $db = mysqli_connect('localhost', 'root', '', 'exl_main');
+    $sql = "SELECT * FROM advertisement,user,seller WHERE advertisement.userName=user.userName AND seller.userName=user.userName ORDER BY feedbacks "; 
+    $result = mysqli_query($db, $sql);  
+    if (mysqli_num_rows($result) > 0) 
+    {
+    while($row = mysqli_fetch_assoc($result)) {
+    echo"
+        <div class='card'>
+            <div class='card-top'>
+                <a href=''><img src='../img/".$row['image']."' alt='Unsplash Photo'></a></div>
+            <div class='card-content'>
+                <div class='top'>
+                <div class='user'><img src='../seller/uploads/".$row['profilePicture']."' class='profile'><span class='name'><a href=''>".$row['firstName']." ".$row['lastName']."</a></span><span class='srate'>Seller Rate ".$row['mainRate']."</span></div>
+                <a href=''><span class='title'>".$row['title']."</span></a>
+                </div>
+                <div class='bottom'>
+                        <span class='feed-container'>LKR ".$row['price']."</span>
+                        <span class='rate-container'><img src='..\img\icons\icons8-star-96.png' class='ratingIcon'>
+                        <span class='rating'>".$row['rate']." | Feedbacks ".$row['feedbacks']."</span>
+        </span></div></div></div>
+        ";
+    }
+    }
+    ?>
+
+    </section>
+
     <script type="text/javascript" src="../js/homeNavBar.js"></script>
     <script type="text/javascript" src="../js/homeSlideShow.js"></script>
 
