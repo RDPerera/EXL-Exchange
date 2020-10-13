@@ -1,4 +1,6 @@
 <?php
+
+//NOTE FOR DILAN - close your the form tag
 session_start();
 $complete = "display:none";
 $userName =$_SESSION['userName'];

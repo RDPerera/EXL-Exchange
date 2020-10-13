@@ -22,7 +22,7 @@ if($db === false){
     die("ERROR: Could not connect. " . mysqli_connect_error());
 }
 
-$username = "hard coded"; //get this from the session OR from GET :)
+$username = "chathura"; //get this from the session OR from GET :)
 
 //Retrieving the GET data
 $adUsername = $_GET['username'];
@@ -140,19 +140,21 @@ $activeCheck = $inactiveCheck = "";
                         //the image file
                         if(!empty($_FILES["imageUpload"]["name"])) //the user have uploaded a new image
                         { 
-                
+
                             //Delete the older image file
-                            unlink("uploads/$row[4].jpg");
+                            unlink("../img/adUploads/$row[4]");
 
                             //Process the new image that is uploaded by the user
-                            $target_dir = "uploads/";
+                            $target_dir = "../img/adUploads/";
                             $target_file = $target_dir . basename($_FILES["imageUpload"]["name"]);
-                            $uploadOk = 1;
-                            $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
-                
+                            $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+                            $filename = $_FILES["imageUpload"]["name"];
+
                             move_uploaded_file($_FILES["imageUpload"]["tmp_name"], $target_file);
-                
-                            $image=basename( $_FILES["imageUpload"]["name"],".jpg"); // used to store the filename in a variable
+
+                            $timestamp = time();       
+                            $image=$username.$timestamp.".".$imageFileType; //generating an unique name to the image file
+                            rename("../img/adUploads/$filename","../img/adUploads/$image"); //adding the generated name to the file
                             
                             //query 
                             $query = "UPDATE advertisement SET image = '$image' , status = '$status' ,category = '$category', title = '$title' ,tag = '$tag' ,content = '$content' ,username = '$username' ,member1 = '$member1',member2 = '$member2' ,member3 = '$member3' ,price = '$price' WHERE username = '$adUsername' ";
