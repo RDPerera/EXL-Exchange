@@ -168,8 +168,7 @@ if(isset($_POST['logout']))
         <div class="model-content">
             <div class="model-header"><span class="model-header-content">Created Successfully</span></div>
             <div class="model-text v-h-center">Your Ad created successfully !</div>
-            <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>"> 
-                <div class="right-head"><input type="submit" name="logout" value="Log Out" class="head-btn"></div>
+            <button id="model-btn" class="model-button" onclick="dispose()"> OK </button>
         </div>
     </div>
     <input type="checkbox" id="home">
@@ -177,6 +176,8 @@ if(isset($_POST['logout']))
         <label for="home"><img src="../img/icons/ee-logo.png" class="home-menu"></label>
         <div class="left-head">Seller<span class="min-text"> Dashboard</span></div>
         <div class="right-head"><button class="head-btn">Log Out</button></div>
+        <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>"> 
+         <div class="right-head"><input type="submit" name="logout" value="Log Out" class="head-btn"></div></form>
     </header>
     <div class="sidebar">
         <center>
@@ -293,7 +294,7 @@ if(isset($_POST['logout']))
     // When the user clicks on button close,it will close the modal
     function dispose() {
         modal1.style.display = "none";
-        window.location.replace("seller/dashboard.php");
+        window.location.replace("../seller/dashboard.php");
     };
     </script>
 </body>

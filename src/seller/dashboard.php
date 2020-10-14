@@ -3,7 +3,7 @@
 session_start();
 $userName =$_SESSION['userName'];
 //Create DB Connection
-$db = mysqli_connect('localhost:3308', 'root', '', 'exl_main');
+$db = mysqli_connect('localhost', 'root', '', 'exl_main');
 $userCheck = "SELECT * FROM user WHERE userName='$userName' LIMIT 1";
 $result = mysqli_query($db, $userCheck);
 $user = mysqli_fetch_assoc($result);
@@ -80,7 +80,7 @@ if(isset($_POST['logout']))
                 while($row = mysqli_fetch_assoc($result)) {
                     echo "<a href='../advertisements/view-s.php?id=".$row['advertisementID']."' style='text-decoration:none;color:black'>
                     <div class='card'>
-                        <img src='../advertisements/uploads/".$row['image'].".jpg' class='card-image' />
+                        <img src='../img/adUploads/".$row['image']."' class='card-image' />
                         <div class='card-info'>
                             <div class='card-title'>
                                 ".$row['title']."
@@ -101,7 +101,7 @@ if(isset($_POST['logout']))
                             </div>
                         </div>
                         <div class='card-price'>
-                            <span class='card-price-tag'>".$row['price']."</span>
+                            <span class='card-price-tag'>LKR ".$row['price']."</span>
                         </div>
                     </div>
                     </a>
