@@ -41,7 +41,7 @@ class exlFramework
   
      }
      
-     //session management
+     //session management - UNFINISHED
 
 }
 
