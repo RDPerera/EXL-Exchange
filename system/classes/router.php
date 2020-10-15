@@ -1,18 +1,18 @@
 <?php
 
 class router {
-    
-    // Default controller, method, parameters -- SET THESE VALUES!!
+   
+    // Set Default controller, method, parameters here
 
-    public $controller = "defaultController"; 
-    public $method     = "";
+    public $controller = "defaultController";
+    public $method     = "index";
     public $params     = [];
 
     public function __construct()
     {
         $url = $this->url();
         if(!empty($url)){
-            if(file_exists("../../src/controllers/" . $url[0] . ".php")){
+            if(file_exists("../application/controllers/" . $url[0] . ".php")){
                     $this->controller = $url[0];
                     unset($url[0]);
             } else {
@@ -21,8 +21,8 @@ class router {
         }
         
         // Include controller
-        require_once "../../src/controllers/" . $this->controller . ".php";
-        // create an instrance of the controller
+        require_once "../application/controllers/" . $this->controller . ".php";
+
         $this->controller = new $this->controller;
 
 
@@ -53,7 +53,7 @@ class router {
             $url = rtrim($url);
             $url = filter_var($url, FILTER_SANITIZE_URL);
             $url = explode("/", $url);
-            return $url;
+            return $url; //returns the set of url portions as an array
         }
     }
 
