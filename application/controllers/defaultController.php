@@ -2,8 +2,12 @@
 
 class defaultController extends exlFramework
 {
+    public function _constructor()
+    {
+        $this->helper("link");
+    }
     public function index(){
-        echo "You have reached the default controller - default method";
+        $this->view("home");
         
     }
 }
