@@ -14,7 +14,7 @@ function linkJS($jsPath){
 function linkFAV($favPath){
 
     $url = BASEURL. "/assets/img/icons/". $favPath;
-    echo '<link rel="stylesheet" type="image/png" href="'. $url .'">';
+    echo '<link rel="icon" type="image/png" href="'. $url .'">';
 }
 
 function srcIMG($imgName)
