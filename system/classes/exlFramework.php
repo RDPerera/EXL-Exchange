@@ -14,6 +14,17 @@ class exlFramework
       }
  
     }
+    public function helper($helperName){
+
+      if(file_exists("../system/helpers/".$helperName.".php")){
+
+         require_once "../system/helpers/".$helperName.".php";
+
+      } else {
+         echo "<div style='margin:0;padding: 10px;background-color:silver;'>Sorry helper $helperName file not found </div>";
+      }
+
+   }
  
     public function model($modelName){
  

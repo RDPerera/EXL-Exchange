@@ -2,11 +2,8 @@
 
 class defaultController extends exlFramework
 {
-    public function _constructor()
-    {
-        $this->helper("link");
-    }
     public function index(){
+        $this->helper("linker");
         $this->view("home");
         
     }

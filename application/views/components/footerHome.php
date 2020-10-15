@@ -9,3 +9,8 @@
     </span>
 </div>
 </footer>
+
+<?php linkJS("homeNavBar") ?>
+<?php linkJS("homeSlideShow") ?>
+</body>
+</html>
