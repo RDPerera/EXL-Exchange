@@ -42,8 +42,52 @@ class exlFramework
  
     }
  
-     
-     //session management - UNFINISHED
+//session management 
+
+    // Set session
+    public function setSession($sessionName, $sessionValue){
+
+
+      if(!empty($sessionName) && !empty($sessionValue)){
+         $_SESSION[$sessionName] = $sessionValue;
+      }
+
+  }
+
+  // Get session
+  public function getSession($sessionName){
+
+    if(!empty($sessionName)){
+       return $_SESSION[$sessionName];
+    }
+
+  }
+
+  // Unset session
+  public function unsetSession($sessionName){
+
+     if(!empty($sessionName)){
+        
+        unset($_SESSION[$sessionName]);
+
+     }
+
+  }
+
+  // Destroy sessions
+  public function destroy(){
+
+     session_destroy();
+
+  }
+
+
+  //redirection method
+  public function redirect($path){
+
+   header("location:" . BASEURL . "/".$path);
+
+   }
 
 }
 
