@@ -1,12 +1,12 @@
 <?php
 
-class dashboardCreate extends exlFramework
+class advertisements_Controller extends exlFramework
 {
  
   public function __construct()
   {
     $this->helper("linker");
-    $this->advertisements = $this->model('advertisements'); 
+    $this->advertisements_model = $this->model('advertisements_model'); 
   }
 
   public function index()
@@ -14,7 +14,7 @@ class dashboardCreate extends exlFramework
     $this->view("dashboardCreate");
   }
 
-  public function formHandling()
+  public function formInput()
   {
 
     // session_start();
@@ -113,8 +113,8 @@ class dashboardCreate extends exlFramework
             rename("../public/assets/img/adUploads/$filename", "../public/assets/img/adUploads/$image"); //adding the generated name to the file
           }
 
-          $this->advertisements->store($date,$status,$category,$image,$title,$tag,$content,$userName,$member1,$member2,$member3,$price);
-          $this->redirect("dashboardCreate");
+          $this->advertisements_model->store($date,$status,$category,$image,$title,$tag,$content,$userName,$member1,$member2,$member3,$price);
+          $this->redirect("advertisements_Controller");
           // $complete = "";
         }
     }
@@ -147,5 +147,12 @@ class dashboardCreate extends exlFramework
       // }
   
 
+      }
+
+
+      public function showAd($adID)
+      {
+        $row = $this->advertisements_model->retrieve($adID);
+        $this->view("view-s", $row);       
       }
     }
