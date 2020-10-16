@@ -42,7 +42,7 @@ class exlFramework
  
     }
  
-//session management 
+//session management methods
 
     // Set session
     public function setSession($sessionName, $sessionValue){
@@ -80,7 +80,6 @@ class exlFramework
      session_destroy();
 
   }
-
 
   //redirection method
   public function redirect($path){
