@@ -8,7 +8,10 @@ class defaultController extends exlFramework
     }
     public function index(){
         $this->helper("linker");
-        $this->view("homeView",$this->ads->getAds());
+        $data['popular']=$this->ads->getAdsPopular();
+        $data['new']=$this->ads->getAdsNew();
+        $data['noob']=$this->ads->getAdsNoob();
+        $this->view("homeView",$data);
 
     }
 }
