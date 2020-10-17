@@ -30,4 +30,13 @@ class advertisements_model extends database
         $row = mysqli_fetch_row($result);
         return $row;
     }
+
+    public function delete($adUsername)
+    {
+        $query = "DELETE FROM advertisement WHERE username = '$adUsername'";
+
+        if (mysqli_query($GLOBALS['db'], $query)) {
+            echo "Deleted the advertisement - $adUsername successfully";
+        }
+    }
 }
