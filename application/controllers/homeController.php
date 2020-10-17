@@ -1,6 +1,6 @@
 <?php
 
-class defaultController extends exlFramework
+class homeController extends exlFramework
 {
     public function __construct()
     {

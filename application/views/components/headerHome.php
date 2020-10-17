@@ -17,14 +17,14 @@
         <a href="javascript:void(0);" class="icon" onclick="scrollTheMenu()">
             <i class="fa fa-bars"></i> </a>
         <img src="<?php echo srcIMG("logoWhite.png"); ?>" class="exlLogo">
-        <a href="home.php" class="active">Home</a>
-        <a href="categories.php">Categories</a>
-        <a href="about.php">About</a>
-        <a href="contact.php">Contact</a>
+        <a href="<?php echo BASEURL?>" class="active">Home</a>
+        <a href="<?php echo BASEURL.'/categories'?>">Categories</a>
+        <a href="<?php echo BASEURL.'/about'?>">About</a>
+        <a href="<?php echo BASEURL.'/contact'?>">Contact</a>
         
         <div class="buttons">
-            <button class="signin-button" onclick=" window.location.href='../login/login.php'">Sign In</button>
-            <button class="signup-button" onclick=" window.location.href='../register/register.php'">Sign Up</button>
+            <button class="signin-button" onclick="window.location.href='<?php echo BASEURL.'/login' ?>'">Sign In</button>
+            <button class="signup-button" onclick="window.location.href='<?php echo BASEURL.'/register' ?>'">Sign Up</button>
         </div>
         <div class="search-container">
             <form action="">
