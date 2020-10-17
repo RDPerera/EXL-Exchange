@@ -24,7 +24,7 @@ class advertisements_Controller extends exlFramework
 
     //form validation 
 
-    $errorData = [
+    $row = [
 
       'titleErr' => '',
       'userNameErr' => '',
@@ -42,32 +42,32 @@ class advertisements_Controller extends exlFramework
     $ValidationErrors = 0;
     if ($_SERVER["REQUEST_METHOD"] == "POST" && !isset($_POST['logout'])) {
       if (empty($_POST["title"])) {
-        $errorData['titleErr'] = "* Title is required";
+        $row['titleErr'] = "* Title is required";
         $ValidationErrors++;
       }
 
       if (empty($_POST["category"])) {
-        $errorData['categoryErr'] = "* Category is required";
+        $row['categoryErr'] = "* Category is required";
         $ValidationErrors++;
       }
 
       if (empty($_POST["tag"])) {
-        $errorData['tagErr'] = "* Tag is required";
+        $row['tagErr'] = "* Tag is required";
         $ValidationErrors++;
       }
 
       if (empty($_POST["content"])) {
-        $errorData['contentErr']  = "* Content is required";
+        $row['contentErr']  = "* Content is required";
         $ValidationErrors++;
       }
 
       if (empty($_POST["status"])) {
-        $errorData['statusErr'] = "* Status is required";
+        $row['statusErr'] = "* Status is required";
         $ValidationErrors++;
       }
 
       if (empty($_POST["price"])) {
-        $errorData['priceErr'] = "* Price is required";
+        $row['priceErr'] = "* Price is required";
         $ValidationErrors++;
       }
     }
@@ -118,7 +118,7 @@ class advertisements_Controller extends exlFramework
         // $complete = "";
       }
     } else { //there are validation errors
-      $this->view("dashboardCreate", $errorData);
+      $this->view("dashboardCreate", $row);
     }
 
 
@@ -158,5 +158,135 @@ class advertisements_Controller extends exlFramework
   public function deleteAd($username)
   {
     $this->advertisements_model->delete($username);
+  }
+
+  private function getExistingData($username)
+  {
+       //get the ad data using the username 
+       $row = $this->advertisements_model->getDataByUsername($username);
+       $options = "";
+       $optionArray = array("Graphics Designing", "Programming", "Content Writing");
+   
+       //to handle the select tag (to retrieve data from database and display in the page)
+       if ($row[3] == $optionArray[0]) {
+         $options = "<option selected>$row[3]</option><option>$optionArray[1]</option><option>$optionArray[2]</option>";
+       } else if ($row[3] == $optionArray[1]) {
+         $options = "<option>$optionArray[0]</option><option selected>$optionArray[1]</option><option>$optionArray[2]</option>";
+       } else {
+         $options = "<option>$optionArray[0]</option><option>$optionArray[1]</option><option selected>$optionArray[2]</option>";
+       }
+       $row[13] = $options;
+   
+       //to handle the radio button (to retrieve data from database and display in the page)
+       $row[14] = $row[15] = $activeCheck = $inactiveCheck = "";
+       if ($row[2] == "active") {
+         $activeCheck = "checked";
+         $row[14] = $activeCheck;
+       } else {
+         $inactiveCheck = "checked";
+         $row[15] = $inactiveCheck;
+       }
+
+       return $row;
+  }
+
+  public function updateAdLoad($username) //function that is used to retrieve the existing values of the ad from the database to the view
+  {
+    $row = $this->getExistingData($username);
+    $this->view("updateAd", $row); //open the updation form using that data
+  }
+
+  public function updateAdSubmit($username) //store the updated values from the view to the database
+  {
+
+    //PART 2
+    $row = $this->getExistingData($username);
+
+    //form validation 
+
+    //$row indices for errors
+        //   'titleErr'     16    
+        //   'categoryErr'  17
+        //   'tagErr'       18
+        //   'contentErr'   19
+        //   'statusErr'    20
+        //   'priceErr'     21
+
+    $title = $category = $tag = $content = $status = $price = $image = "";
+
+    $ValidationErrors = 0;
+    if ($_SERVER["REQUEST_METHOD"] == "POST" && !isset($_POST['logout'])) {
+      if (empty($_POST["title"])) {
+        $row[16] = "* Title is required";
+        $ValidationErrors++;
+      }
+
+      if (empty($_POST["category"])) {
+        $row[17] = "* Category is required";
+        $ValidationErrors++;
+      }
+
+      if (empty($_POST["tag"])) {
+        $row[18] = "* Tag is required";
+        $ValidationErrors++;
+      }
+
+      if (empty($_POST["content"])) {
+        $row[19]  = "* Content is required";
+        $ValidationErrors++;
+      }
+
+      if (empty($_POST["status"])) {
+        $row[20] = "* Status is required";
+        $ValidationErrors++;
+      }
+
+      if (empty($_POST["price"])) {
+        $row[21] = "* Price is required";
+        $ValidationErrors++;
+      }
+    }
+    if ($ValidationErrors == 0) { //there are no validation errors
+
+      if (isset($_POST['submit'])) { //retrieveing data from the form
+
+        //retrieveing user entered data from the form
+        $title = $this->input('title');
+        $category = $this->input('category');
+        $tag = $this->input('tag');
+        $content = $this->input('content');
+        $status = $this->input('status');
+        $price = $this->input('price');
+        $member1 = $this->input('member1');
+        $member2 = $this->input('member2');
+        $member3 = $this->input('member3');
+
+        //the image file
+        if (!empty($_FILES["imageUpload"]["name"])) //the user have uploaded a new image
+        {
+          //Delete the older image file
+          unlink("../public/assets/img/adUploads/$row[4]");
+
+          //Process the new image that is uploaded by the user
+          $target_dir = "../public/assets/img/adUploads/";
+          $target_file = $target_dir . basename($_FILES["imageUpload"]["name"]);
+          $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+          $filename = $_FILES["imageUpload"]["name"];
+
+          move_uploaded_file($_FILES["imageUpload"]["tmp_name"], $target_file);
+
+          $timestamp = time();
+          $image = $username . $timestamp . "." . $imageFileType; //generating an unique name to the image file
+          rename("../public/assets/img/adUploads/$filename", "../public/assets/img/adUploads/$image"); //adding the generated name to the file
+
+          $this->advertisements_model->updateWithImage($status, $category, $image, $title, $tag, $content, $username, $member1, $member2, $member3, $price);
+        } else //the user have not uploaded a new image
+        {
+          $this->advertisements_model->updateWithoutImage($status, $category, $title, $tag, $content, $username, $member1, $member2, $member3, $price);
+        }
+      }
+    } else {
+      $this->view("updateAd", $row);
+    }
   }
 }
