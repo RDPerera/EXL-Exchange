@@ -1,9 +1,10 @@
 
 body {
+    margin-top: 60px;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #007bff;
+    background-color: #007bff ;
     /* background-image: url("../img/viewAdBackground.jpg"); */
-    
+    /* #007bff */
 }
 
 .column {
@@ -18,13 +19,15 @@ body {
     }
 
 div.polaroid {
-        width: 490px;
-       height: 560px;
-       background-color:#011425;
+
+        width: 590px;
+       height: 660px;
+       background-color:  #163961;
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-        
-        margin-left: 40px;
+        border-radius: 8px;
+        margin-left: 180px;
         margin-top: 30px;
+        color:rgb(0, 0, 0);
     }
 div.polaroidRightColumn {
         width: 700px;
@@ -51,6 +54,7 @@ h1{
 	color: rgb(147, 203, 255);
     background-color: rgb(4, 45, 78);
 }
+
 img:hover {
     /* margin-top: 50px; */
     opacity: 0.85;
@@ -88,7 +92,7 @@ p.imageBottom{
 }
 button {
     background-color: #081653; 
-    border: none;
+    border-radius: 8px;
     color: white;
     padding: 15px 32px;
     text-align: center;
@@ -101,7 +105,7 @@ button {
      opacity: 0.8;
  }
 .button1 {
-    
+    border-radius: 8px;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
   }
 
@@ -114,7 +118,7 @@ button {
     text-align: center;
     font-size: 16px;
     margin-left: 40px;
-    
+    border-radius: 8px;
 
 }
 
@@ -128,6 +132,8 @@ button {
 }
 
 a:link, a:visited {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    border-radius: 8px;
     background-color: #0010a3;
     color: white;
     padding: 14px 25px;

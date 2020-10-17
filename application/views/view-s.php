@@ -14,7 +14,7 @@
     <div class='row'>
         <div class='column'>
             <div class="polaroid">
-                <img src='../../public/assets/img/adUploads/<?php echo $data[4]; ?>' height='490px' width='490px'>
+                <img src='../../public/assets/img/adUploads/<?php echo $data[4]; ?>' height='590px' width='590px'>
                 <div class="container">
                     <p class='imageBottom'> <?php echo $data[3]; ?> Advertisements <br> #<?php echo $data[6]; ?></p>
                 </div>
