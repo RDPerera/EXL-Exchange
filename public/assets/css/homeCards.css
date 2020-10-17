@@ -35,23 +35,21 @@
   overflow: hidden;
 }
 
-.main-title-create{
-    margin-top: 0;
-    padding-top: 20px;
-    padding-bottom: 30px;
-    padding-left: 30px ;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 30px;
-    font-weight: 400;
-  }
-  .blue-text-create
-  {
-    
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 30px;
-    color: #007bff;
-    font-weight: 600;
-  }
+.main-title-create {
+  margin-top: 0;
+  padding-top: 20px;
+  padding-bottom: 30px;
+  padding-left: 30px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 30px;
+  font-weight: 400;
+}
+.blue-text-create {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 30px;
+  color: #007bff;
+  font-weight: 600;
+}
 a {
   text-decoration: none;
   font-family: "Lato", sans-serif;
@@ -93,10 +91,10 @@ a {
   grid-area: name;
 }
 .name a {
-    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    font-size: medium;
-    color: black;
-    text-decoration: none;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: medium;
+  color: black;
+  text-decoration: none;
 }
 .profile {
   grid-area: profile;
@@ -106,9 +104,8 @@ a {
   align-self: center;
   transition: ease-in-out 0.5s;
 }
-.profile:hover
-{
-    opacity: 0.7;
+.profile:hover {
+  opacity: 0.7;
 }
 .srate {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
@@ -154,7 +151,7 @@ a {
 } */
 
 .card .title {
-    margin-top: 5px;
+  margin-top: 5px;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   font-size: 16px;
   font-weight: 500;
@@ -165,9 +162,6 @@ a {
   line-height: 98%;
   color: black;
 }
-
-
-
 
 img.ratingIcon {
   width: 25px;
@@ -200,23 +194,22 @@ span.rating {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 .feed-container {
-    float: left;
-    align-items: center;
-    vertical-align: middle;
-    overflow: hidden;
-    color: white;
-    font-weight: 500;
-    font-size: 15px;
-    background-color: #007bff;
-    border-radius: 9px;
-    padding-bottom: 3px;
-    padding-top: 4px;
-    padding-left: 8px;
-    padding-right: 8px;
-    box-shadow: 1px 1px 2px #007bff;
-    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  }
-  
+  float: left;
+  align-items: center;
+  vertical-align: middle;
+  overflow: hidden;
+  color: white;
+  font-weight: 500;
+  font-size: 15px;
+  background-color: #007bff;
+  border-radius: 9px;
+  padding-bottom: 3px;
+  padding-top: 4px;
+  padding-left: 8px;
+  padding-right: 8px;
+  box-shadow: 1px 1px 2px #007bff;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
 
 /* Content Style | Hover Effect */
 

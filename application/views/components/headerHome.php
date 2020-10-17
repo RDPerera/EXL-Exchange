@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
     <?php linkFAV("ee-logo.png"); ?>
     <?php linkCSS("homeNavBar"); ?>
+    <?php linkCSS("homeCards") ?>
     <?php linkCSS("homeSlideShow") ?>
     <?php linkCSS("footer") ?>
 </head>
@@ -15,7 +16,7 @@
 <div class="topnav" id="myTopnav">
         <a href="javascript:void(0);" class="icon" onclick="scrollTheMenu()">
             <i class="fa fa-bars"></i> </a>
-        <img src="<?php srcIMG("logoWhite.png") ?>" class="exlLogo">
+        <img src="<?php echo srcIMG("logoWhite.png"); ?>" class="exlLogo">
         <a href="home.php" class="active">Home</a>
         <a href="categories.php">Categories</a>
         <a href="about.php">About</a>
