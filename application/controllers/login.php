@@ -1,14 +1,14 @@
 <?php
     class login extends exlFramework
     {
-        public function _constructor()
+        public function __construct()
         {
-            start_session();
             $this->helper("linker");
             $this->loginModel = $this->model('loginModel');
         }
         public function index()
         {
+            
             $userName = "";
             $email    = "";
             $errors = array(); 
@@ -17,20 +17,25 @@
             $data['errors']=$errors;
             $this->helper("linker");
             $this->view("loginView",$data);
+           
+        }
+        public function submit()
+        {
+            $errors = array(); 
+            $errors["userName"]="";
+            $errors["password"]="";
             if (isset($_POST['register'])) {
                 // Get Data from form
                 $userName =  $_POST['userName'];
                 $password =  $_POST['password'];
-          
                 /*--------Form Validation-----------*/
-          
-          
+                
                 //other element validation
                 if (empty($userName)) { $errors["userName"]="User Name is required"; }
                 if (empty($password)) { $errors["password"]= "Password is required"; }
-          
                 
-          
+                
+                
                 /* Number of validation failures */
                 $numberOfErrors=0;
                 foreach ($errors as $key => $value)
@@ -43,29 +48,30 @@
                 /* Quering in buyer/user tables*/
                 if ($numberOfErrors== 0) {
                    $password = md5($password);
-                   $user = $loginModel->passwordCheck($userName,$password);
+                   
+                   $user = $this->loginModel->passwordCheck($userName,$password);
                    if ($user) 
-                   { 
-                          $_SESSION['userName'] = $user['userName'];
-                          $user = $loginModel->accountCheck($userName);
+                   {
+                          $this->setSession('userName',$userName);
+                          $user = $this->loginModel->accountCheck($userName);
                           if ($user) 
                           {
-                              $user = $loginModel->buyerCheck($userName);
+                              $user = $this->loginModel->buyerCheck($userName);
                               if ($user) {
-                                  redirect('buyer/dashboard');
+                                $this->redirect('buyerdashboard');
                               }
-                              $user = $loginModel->sellerCheck($userName);
+                              $user = $this->loginModel->sellerCheck($userName);
                               if ($user) { 
           
-                                  redirect('seller/dashboard');
+                                $this->redirect('sellerdashboard');
                               }
                           }
                           else
                           {
-                              $user = $loginModel->userNameCheck($userName);
+                              $user = $this->loginModel->userNameCheck($userName);
                               if ($user['verificationStatus']=='0') 
                               {
-                                  $loginModel->deleteUser($userName);
+                                  $this->loginModel->deleteUser($userName);
                                   $errors["password"]= "Your Account is Not Verified !";
                               }
                               else if ($user['accountStatus']=='1') {
@@ -97,9 +103,14 @@
                   else
                   {
                       $errors["password"]= "Invaild Login ! - Wrong User Name OR Password";
-                  }    
+                  }  
+                  
               }
+                
+              $data['errors']=$errors;
+              $this->view("loginView",$data);
         }
+        
     }
 
 }
