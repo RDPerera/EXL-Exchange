@@ -4,7 +4,7 @@ class router {
    
     // Set Default controller, method, parameters here
 
-    public $controller = "homeController";
+    public $controller = "home";
     public $method     = "index";
     public $params     = [];
 

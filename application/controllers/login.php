@@ -8,7 +8,7 @@
         }
         public function index()
         {
-            
+            /*Initially No errors*/
             $userName = "";
             $email    = "";
             $errors = array(); 
@@ -29,12 +29,9 @@
                 $userName =  $_POST['userName'];
                 $password =  $_POST['password'];
                 /*--------Form Validation-----------*/
-                
-                //other element validation
+
                 if (empty($userName)) { $errors["userName"]="User Name is required"; }
                 if (empty($password)) { $errors["password"]= "Password is required"; }
-                
-                
                 
                 /* Number of validation failures */
                 $numberOfErrors=0;
@@ -56,48 +53,11 @@
                           $user = $this->loginModel->accountCheck($userName);
                           if ($user) 
                           {
-                              $user = $this->loginModel->buyerCheck($userName);
-                              if ($user) {
-                                $this->redirect('buyerdashboard');
-                              }
-                              $user = $this->loginModel->sellerCheck($userName);
-                              if ($user) { 
-          
-                                $this->redirect('sellerdashboard');
-                              }
+                              linkDashboard($userName); //if account login suucessfull redirect to dashboard
                           }
                           else
                           {
-                              $user = $this->loginModel->userNameCheck($userName);
-                              if ($user['verificationStatus']=='0') 
-                              {
-                                  $this->loginModel->deleteUser($userName);
-                                  $errors["password"]= "Your Account is Not Verified !";
-                              }
-                              else if ($user['accountStatus']=='1') {
-                                  $errors["password"]= "Your Account is BANNED for 1 Day !";
-                              }
-                              else if ($user['accountStatus']=='2') {
-                                  $errors["password"]= "Your Account is BANNED for 7 Days !";
-                              }
-                              else if ($user['accountStatus']=='3') {
-                                  $errors["password"]= "Your Account is BANNED for 14 Day !";
-                              }
-                              else if ($user['accountStatus']=='4') {
-                                  $errors["password"]= "Your Account is BANNED for 30 Day !";
-                              }
-                              else if ($user['accountStatus']=='5') {
-                                  $errors["password"]= "Your Account is BANNED for 60 day !";
-                              }
-                              else if ($user['accountStatus']=='6') {
-                                  $errors["password"]= "Your Account is BANNED for 365 day !";
-                              }
-                              else if ($user['accountStatus']=='7') {
-                                  $errors["password"]= "Your Account is BANNED for Permanatly !";
-                              }
-                              else {
-                                  $errors["password"]= "Your Account is BLOCKED Contact EXL-Exchange !";
-                              }
+                              $errors['password']=throwAccountError($userName);
                           }
                   }
                   else
@@ -106,13 +66,59 @@
                   }  
                   
               }
-                
+              /* Regenerate Login Page With Errors */
               $data['errors']=$errors;
               $this->view("loginView",$data);
         }
         
     }
+    /* Redirect user to relevent dashboard */
+    private function linkDashboard($userName)
+    {
+        $user = $this->loginModel->buyerCheck($userName);
+        if ($user) {
+          $this->redirect('buyerdashboard');
+        }
+        $user = $this->loginModel->sellerCheck($userName);
+        if ($user) { 
 
+          $this->redirect('sellerdashboard');
+        }
+    }
+    /* return the reson to login failure*/
+    private function throwAccountError($userName)
+    {
+        $user = $this->loginModel->userNameCheck($userName);
+        if ($user['verificationStatus']=='0') 
+        {
+            $this->loginModel->deleteUser($userName);
+            return "Your Account is Not Verified !";
+        }
+        else if ($user['accountStatus']=='1') {
+            return "Your Account is BANNED for 1 Day !";
+        }
+        else if ($user['accountStatus']=='2') {
+            return "Your Account is BANNED for 7 Days !";
+        }
+        else if ($user['accountStatus']=='3') {
+            return "Your Account is BANNED for 14 Day !";
+        }
+        else if ($user['accountStatus']=='4') {
+            return "Your Account is BANNED for 30 Day !";
+        }
+        else if ($user['accountStatus']=='5') {
+            return "Your Account is BANNED for 60 day !";
+        }
+        else if ($user['accountStatus']=='6') {
+            return "Your Account is BANNED for 365 day !";
+        }
+        else if ($user['accountStatus']=='7') {
+            return "Your Account is BANNED for Permanatly !";
+        }
+        else {
+            return "Your Account is BLOCKED Contact EXL-Exchange !";
+        }
+    }
 }
 
 ?>
