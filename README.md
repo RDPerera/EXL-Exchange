@@ -1,4 +1,6 @@
 # EXL-Exchange
+![alt text](/public/assets/img/logo.png)
+
 In Sri Lanka, most of the University students intend to have a proper platform to express their skills. Even though there are websites like work.lk , workdesk for freelancing they don’t target undergraduates primarily.
 To handle the mentioned issue we are introducing the web application, **“EXL Exchange”**  which stands the meaning **“Experiential Learning”** to connect a buyer and a seller where, 
 
