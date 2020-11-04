@@ -57,7 +57,7 @@
                           }
                           else
                           {
-                              $errors['password']=throwAccountError($userName);
+                              $errors['password']=$this->throwAccountError($userName);
                           }
                   }
                   else
@@ -77,12 +77,12 @@
     {
         $user = $this->loginModel->buyerCheck($userName);
         if ($user) {
-          $this->redirect('buyerdashboard');
+          $this->redirect('buyerDashboard');
         }
         $user = $this->loginModel->sellerCheck($userName);
         if ($user) { 
 
-          $this->redirect('sellerdashboard');
+          $this->redirect('sellerDashboard');
         }
     }
     /* return the reson to login failure*/
