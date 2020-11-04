@@ -53,7 +53,7 @@
                           $user = $this->loginModel->accountCheck($userName);
                           if ($user) 
                           {
-                              linkDashboard($userName); //if account login suucessfull redirect to dashboard
+                              $this->linkDashboard($userName); //if account login suucessfull redirect to dashboard
                           }
                           else
                           {
