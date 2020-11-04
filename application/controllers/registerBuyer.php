@@ -1,10 +1,10 @@
 <?php
-    class registerSeller extends exlFramework
+    class registerBuyer extends exlFramework
     {
         public function __construct()
         {
             $this->helper("linker");
-            $this->registerModel = $this->model('registerSellerModel');
+            $this->registerModel = $this->model('registerBuyerModel');
         }
         public function initiate()
         {
@@ -23,10 +23,9 @@
             /*Initially No errors*/
             $data['errors']=$this->initiate();
             $this->helper("linker");
-            $this->view("registerSellerView",$data);
+            $this->view("registerBuyerView",$data);
            
         }
-
         public function submit()
         {
             $data['errors']=$errors=$this->initiate();
@@ -48,7 +47,6 @@
                 if (empty($userName)) { $errors["userName"]="userName is required"; }
                 if ($agreement==0) { $errors["agreement"]="You need to agree the Terms and Privacy"; }
                 if (empty($email)) { $errors["email"]="Email is required"; }
-                if (!empty($email)){if(strcmp(substr($email,-6),".ac.lk")!=0){$errors["email"]="Email must be an University Email";}}
                 if (empty($firstName)) { $errors["firstname"]="First Name is required"; }
                 if (empty($lastName)) { $errors["lastname"]="Last Name is required"; }
                 if (empty($dob)) { $errors["dob"]= "Date Of Birth is required"; }
@@ -72,7 +70,7 @@
                 if ($numberOfErrors== 0) {
                     $this->registerModel->addSeller($userName,$firstName,$lastName,$dob,$email,md5($password_1));
                     $this->setSession('userName',$userName);
-                    $this->setSession('accoutType',"Seller");
+                    $this->setSession('accoutType',"Buyer");
                     $this->setSession('email',$email);
                     $this->setSession('firstName',$firstName);
                     $this->setSession('lastName',$lastName);
@@ -80,7 +78,7 @@
                 }
                 /* Regenerate Login Page With Errors */
                 $data['errors']=$errors;
-                $this->view("registerSellerView",$data);
+                $this->view("registerBuyerView",$data);
         }
 }
 
