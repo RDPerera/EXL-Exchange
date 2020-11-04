@@ -2,7 +2,10 @@
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
-
+function sayhello()
+{
+    return "hello";
+}
 function sendMail($to,$toName,$subject,$body,$altBody)
 {
     // Load Composer's autoloader

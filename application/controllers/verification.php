@@ -4,6 +4,7 @@ class verification extends exlFramework
     public function __construct()
     {
         $this->helper('linker');
+        $this->helper('mail');
         $this->verificationModel = $this->model('verificationModel');
     }
     public function index()
@@ -17,8 +18,17 @@ class verification extends exlFramework
         $lastName = $this->getSession('lastName');
         $data['email'] = $email = $this->getSession('email');
         $data['error'] = $error = "";
-        $this->helper("linker");
         $this->view("verificationView",$data);
+        // Create OTP Code
+        $otp=rand ( 1000000 , 9999999 );
+        $token=md5($otp);
+        $link=BASEURL."?userName=".$userName."&token=".$token;
+        echo sendMail("r.dilanperera@gmail.com","Dilan Perera","test","hello this is test","alt text");
     }
+    public function submit()
+    {
+        
+    }
+    
 }
 ?>
