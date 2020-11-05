@@ -2,10 +2,7 @@
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
-function sayhello()
-{
-    return "hello";
-}
+
 function sendMail($to,$toName,$subject,$body,$altBody)
 {
     // Load Composer's autoloader
@@ -28,7 +25,7 @@ function sendMail($to,$toName,$subject,$body,$altBody)
     $mail->addAddress($to, $toName);
     // Content
     $mail->isHTML(true);
-    $mail->Subject = 'Reset Your Password';
+    $mail->Subject = $subject;
     $mail->Body    = $body;
     $mail->AltBody = $altBody;
 
