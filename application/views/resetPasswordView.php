@@ -10,7 +10,7 @@
     <?php linkFav('ee-logo.png');?>
     <?php 
     $stateSuccess = $data['stateSuccess'];
-    $error=$data['error'];
+    $errors=$data['password-error'];
     ?>
 </head>
 
@@ -22,7 +22,7 @@
         <button id="model-btn" class="model-button"> Go To Login Page</button>
     </div>
 </div>
-    <form method="get" action="<?php echo BASEURL.'/resetPassword/reset';?>">
+    <form method="get" action="<?php echo BASEURL.'/forgetPassword/reset';?>">
         <div class="container">
             <div class="header"><span style="color:#007BFF">Reset Passsword</span> </div>
             <div class="fieldset">
@@ -33,7 +33,7 @@
             <div class="fieldset">
                 <label for="password" class="label">Confirm Password</label>
                 <input type="password" placeholder="Enter Password" name="cpassword" id="password" autocomplete="off">
-                <span class="error"><?php echo $errors["password"];?></span>
+                <span class="error"><?php echo $errors;?></span>
             </div>
              <div style="padding-bottom:20px"> <input type="submit" class="registerbtn" value="Reset" name="reset"></div>
         </div>
