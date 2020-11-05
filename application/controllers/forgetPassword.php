@@ -5,7 +5,8 @@ class forgetPassword extends exlFramework
     {
         $this->helper('linker');
         $this->helper('mail');
-        $this->verificationModel = $this->model('verificationModel');
+        $this->forgetPasswordModel = $this->model('forgetPasswordModel');
+
     }
     public function index()
     {
@@ -18,7 +19,7 @@ class forgetPassword extends exlFramework
         $data['stateSuccess'] = "display:none";
         $data['error']= "";
         $email = $_POST['email'];
-        $user = $this->verificationModel->userCheck($email,$email);
+        $user = $this->forgetPasswordModel->userCheck($email);
         if ($user) { 
             $token=$user['password'];
             $userName=$user['userName'];
@@ -43,6 +44,7 @@ class forgetPassword extends exlFramework
             if(sendMail($email,$fisrtName." ".$lastName,$Subject,$Body,$AltBody)){
                 $updatedData=array();
                 $updatedData['error']= "";
+                $updatedData['userName']= $userName;
                 $updatedData['stateSuccess'] = "";
                 $this->view("forgetPasswordView",$updatedData);
             }
@@ -62,13 +64,15 @@ class forgetPassword extends exlFramework
         $data['stateSuccess'] = "display:none";
         $data['password-error']= "";
         $this->view("resetPasswordView",$data);
+        $_SESSION['userName']=$_GET['userName'];
+        $_SESSION['password']=$_GET['token'];
     }
     public function reset()
     {
         // Get Data from form
-      $password =  $_GET['password'];
-      $cpassword = $_GET['cpassword'];
-
+      $password =  $_POST['password'];
+      $cpassword = $_POST['cpassword'];
+      
       /*--------Form Validation-----------*/
 
 
@@ -79,36 +83,25 @@ class forgetPassword extends exlFramework
         $errors["password"]= "The two passwords are not matched";
       }
       
-
-      /* Number of validation failures */
-      $numberOfErrors=0;
-      foreach ($errors as $key => $value)
-      {
-        if($value!="")
-        {
-            $numberOfErrors++;
-        }
-      }
       /* Quering in buyer/user tables*/
-      if ($numberOfErrors== 0) {
-         $userCheck = "SELECT * FROM user WHERE userName='$userName' and password='$opassword' LIMIT 1";
-         $result = mysqli_query($db, $userCheck);
-         $user = mysqli_fetch_assoc($result);
+      if ( !isset($errors["password"])) {
+         $user = $this->forgetPasswordModel->passwordCheck($_SESSION['userName'],$_SESSION['password']);
          if ($user) 
          { 
-             
             $password=md5($password);
-            $update = "UPDATE user SET password ='$password' WHERE userName='$userName' ";
-            $result = mysqli_query($db, $update);
-            if($result){
-                $stateSuccess = "";
+            if($this->forgetPasswordModel->updatePassword($_SESSION['userName'],$password)){
+                $data=array();
+
+                $data['password-error'] = "";
+                $data['stateSuccess'] = "";
+                $this->view("resetPasswordView",$data);
             }
             else{
-                header('Location: ../errors/505.php');
+                $this->view("505");
             }
         }
         else{
-            header('Location: ../errors/404.php');
+            $this->view("404");
         }    
     }
     else{

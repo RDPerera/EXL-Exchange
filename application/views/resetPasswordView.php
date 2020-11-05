@@ -22,20 +22,20 @@
         <button id="model-btn" class="model-button"> Go To Login Page</button>
     </div>
 </div>
-    <form method="get" action="<?php echo BASEURL.'/forgetPassword/reset';?>">
+    <form method="post" action="<?php echo BASEURL.'/forgetPassword/reset';?>">
         <div class="container">
             <div class="header"><span style="color:#007BFF">Reset Passsword</span> </div>
             <div class="fieldset">
                 <label for="password" class="label">New Password</label>
-                <input type="password" placeholder="Enter Password" name="password" id="password" autocomplete="off">
+                <input type="password" placeholder="Enter Password" name="password" id="password" autocomplete="off" onkeyup='check();'>
                 
             </div>
             <div class="fieldset">
                 <label for="password" class="label">Confirm Password</label>
-                <input type="password" placeholder="Enter Password" name="cpassword" id="password" autocomplete="off">
-                <span class="error"><?php echo $errors;?></span>
+                <input type="password" placeholder="Enter Password" name="cpassword" id="cpassword" autocomplete="off" onkeyup='check();'>
+                <span class="error" id="message"><?php echo $errors;?></span>
             </div>
-             <div style="padding-bottom:20px"> <input type="submit" class="registerbtn" value="Reset" name="reset"></div>
+             <div style="padding-bottom:20px"> <input type="submit" class="registerbtn" value="Reset" name="reset" id="reset" ></div>
         </div>
     </form>
 
@@ -46,7 +46,16 @@
     modal.style.display = "none";
     window.location.replace("http://localhost/EXL-Exchange/login");
     };
-
+    var check = function() {
+        if (document.getElementById('password').value ==
+            document.getElementById('cpassword').value) {
+            document.getElementById('message').innerHTML = '';
+            document.getElementById('reset').disabled =false;
+        } else {
+            document.getElementById('message').innerHTML = 'The two passwords are not matched';
+            document.getElementById('reset').disabled =true;
+        }
+    }
     </script>
 </body>
 
