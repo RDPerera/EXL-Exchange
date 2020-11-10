@@ -1,0 +1,29 @@
+.message-container {
+  padding: 5px 10px;
+  border-radius: 10px;
+  width: fit-content;
+  margin-bottom: 5px;
+}
+.message-container span {
+  font-size: 0.7rem;
+  margin-left: 15px;
+}
+.chat-container {
+  width: 500px;
+}
+#sender {
+  background-color: #007bff;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+  border-top-right-radius: 4px;
+}
+#receiver {
+  background-color: rgb(251, 251, 251);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+  border-top-left-radius: 4px;
+}
+.message-input-container {
+  display: flex;
+}
+.message-input {
+  width: 100%;
+}
