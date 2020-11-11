@@ -3,6 +3,8 @@
   border-radius: 15px;
   width: fit-content;
   margin-bottom: 5px;
+  margin-left: 4px;
+  margin-right: 4px;
 }
 .message-container span {
   font-size: 0.7rem;
@@ -17,7 +19,23 @@
 }
 .chat-body {
   height: 500px;
+  overflow-y: scroll;
 }
+
+#chat-body::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background-color: #f8f8f8;
+}
+
+#chat-body::-webkit-scrollbar {
+  width: 12px;
+}
+
+#chat-body::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: rgb(202, 202, 202);
+}
+
 #sender {
   background-color: #007bff;
   color: white;
@@ -40,10 +58,12 @@
   border-top-left-radius: 15px;
   background-color: rgb(246, 246, 246);
   transition: ease-in-out 0.3s;
+  outline: none;
 }
 
 .message-submit {
   border: none;
+  outline: none;
   padding: 10px;
   background-color: #007bff;
   color: white;
