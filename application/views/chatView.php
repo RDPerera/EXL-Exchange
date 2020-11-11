@@ -6,9 +6,6 @@
     <title>Request</title>
     <?php linkCSS('chat'); ?>
     <?php linkFav('ee-logo.png');?> 
-
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 </head>
 <body>
     <div class="chat-container">
@@ -32,22 +29,5 @@
     </form>
     </div> 
     <div id="user_details"></div>
-<script>
-$(document).ready(function(){
-    fetchChat();
-    function fetchChat()
-    {
-        $.ajax({
-            url:"chat/submit",
-            method:"POST",
-            success:function(data)
-            {
-                $('#user_details').html(data);
-            }
-        })
-    }
-
-});
-</script>
 </body>
 </html>
