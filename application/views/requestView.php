@@ -9,12 +9,19 @@
 </head>
 <body>
     <div id="chat-container"></div>
+    <div class="chat-container">
+        <div class="message-input-container">
+            <input type="text" name="message" class="message-input" placeholder="Type A Message" id="message">
+            <button name="message-submit" class="message-submit" id="message-submit" >SEND</button>
+        </div>
+    </div> 
     <script>
-    $(document).ready(function(){
+
+    $(document).ready(function(){ 
         fetchChat();
         setInterval(function(){
-        fetchChat();
-        }, 5000);
+            fetchChat();
+        },500);
 
         function fetchChat()
         {
@@ -27,6 +34,20 @@
                 }
             })
         }
+        
+        $(document).on('click', '.message-submit', function(){
+        var chat_message = $('#message').val();
+        if(chat_message!=""){
+        $.ajax({
+            url:"chat/send",
+            method:"POST",
+            data:{message:chat_message},
+            success:function(data){
+                $('#message').val('');
+            }
+        })
+        }
+        });
 
     });
     </script>

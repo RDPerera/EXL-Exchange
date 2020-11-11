@@ -9,7 +9,7 @@
         }
         public function getChat($sender,$receiver)
         {
-            $chat = "SELECT * FROM user_message WHERE sender='$sender' AND receiver='$receiver'";
+            $chat = "SELECT * FROM user_message WHERE (sender='$sender' AND receiver='$receiver') OR (sender='$receiver' AND receiver='$sender')";
             $result = mysqli_query($GLOBALS['db'], $chat);
             return mysqli_fetch_all($result,MYSQLI_ASSOC);
         }

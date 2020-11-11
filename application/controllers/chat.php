@@ -14,7 +14,7 @@ class chat extends exlFramework
         $data['chat']=$this->model->getChat($sender,$receiver);
         $this->view("chatView",$data);
     }
-    public function submit()
+    public function send()
     {
         $sender="Dilan";
         $receiver="Nimaya";

@@ -9,6 +9,7 @@
 </head>
 <body>
     <div class="chat-container">
+    <div class="chat-body">
     <?php
         $chat=$data['chat'];
         foreach ($chat as $row)
@@ -22,12 +23,7 @@
             }
         }   
     ?>
-    <form method="post"action="<?php echo BASEURL.'/chat/submit';?>"  class="message-input-container">
-        <input type="text" name="message" class="message-input" placeholder="Type A Message" id="message">
-        <input type="submit" class="message-submit" name="submit" value="SEND" >
-        
-    </form>
+    </div>
     </div> 
-    <div id="user_details"></div>
 </body>
 </html>
