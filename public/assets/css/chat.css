@@ -1,6 +1,6 @@
 .message-container {
   padding: 5px 10px;
-  border-radius: 10px;
+  border-radius: 15px;
   width: fit-content;
   margin-bottom: 5px;
 }
@@ -10,9 +10,14 @@
 }
 .chat-container {
   width: 500px;
+  padding: 10px;
+  border-radius: 7px;
+  background-color: rgb(251, 251, 251);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 #sender {
   background-color: #007bff;
+  color: white;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
   border-top-right-radius: 4px;
 }
@@ -26,4 +31,29 @@
 }
 .message-input {
   width: 100%;
+  border: none;
+  padding: 10px;
+  border-bottom-left-radius: 15px;
+  border-top-left-radius: 15px;
+  background-color: rgb(246, 246, 246);
+  transition: ease-in-out 0.3s;
+}
+
+.message-submit {
+  border: none;
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border-bottom-right-radius: 15px;
+  border-top-right-radius: 15px;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  transition: ease-in-out 0.3s;
+}
+.message-submit:hover {
+  background-color: #0079fa;
+  color: white;
+}
+.message-input:hover {
+  background-color: rgb(251, 251, 251);
 }

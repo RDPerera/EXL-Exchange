@@ -19,6 +19,7 @@ class chat extends exlFramework
         $sender="Dilan";
         $receiver="Nimaya";
         $message=$_POST['message'];
+        date_default_timezone_set('Asia/Colombo');
         $date=date("Y-m-d");
         $time=date("h:i:sa");
         echo $time;
