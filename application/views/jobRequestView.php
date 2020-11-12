@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Request</title>
+    <title>Job Request</title>
     <?php linkCSS('chat'); ?>
     <?php linkFav('ee-logo.png');?> 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
@@ -72,7 +72,7 @@
         function fetchStatus()
         {
             $.ajax({
-                url:"adChat/status",
+                url:"adChat/adstatus",
                 method:"POST",
                 success:function(data)
                 {
