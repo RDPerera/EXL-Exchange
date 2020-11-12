@@ -24,7 +24,7 @@
             <div class="sidebar-profile-container">
                 <a href="#"><img src="uploads/<?php echo $profilePicture ?>" class="sidebar-profile"></a>
             </div>
-            <span class="slidbar-name"><?php echo $data[0]." ".$data[1]; ?></span>
+            <span class="slidbar-name"><?php echo $data[0][0]." ".$data[0][1]; ?></span>
         </center>
         <div class="sidebar-menu">
             <a href="#" class=" selected-item"><img src="../img/icons/icons8-home-144.png"
@@ -47,41 +47,43 @@
                 <div class="main-title"><span class="blue-text">Current</span> Advertisements</div>
                 <div class="advertisements">
                     <?php 
-                $sql = "SELECT * FROM advertisement WHERE userName = '$userName' ";
-                $result = mysqli_query($db, $sql);
-                
-                if (mysqli_num_rows($result) > 0) 
+                // $sql = "SELECT * FROM advertisement WHERE userName = '$userName' ";
+                // $result = mysqli_query($db, $sql);
+                $cardCount = count($data)-1;  
+                if ($cardCount > 0) 
                 {
-                while($row = mysqli_fetch_assoc($result)) {
-                    echo "<a href='../advertisements/view-s.php?id=".$row['advertisementID']."' style='text-decoration:none;color:black'>
-                    <div class='card'>
-                        <img src='../img/adUploads/".$row['image']."' class='card-image' />
-                        <div class='card-info'>
-                            <div class='card-title'>
-                                ".$row['title']."
+                    $i=1;
+                    while($i<=$cardCount) {
+                        echo "<a href='../advertisements/view-s.php?id=".$data[$i][0]."' style='text-decoration:none;color:black'>
+                        <div class='card'>
+                            <img src='../img/adUploads/".$data[$i][1]."' class='card-image' />
+                            <div class='card-info'>
+                                <div class='card-title'>
+                                    ".$data[$i][2]."
+                                </div>
+                                <div class='card-category'>
+                                    Category <span class='card-tag'>".$data[$i][3]."</span>
+                                </div>
+                                <div class='card-feedback'>
+                                    Feedbacks <span class='card-feedback-number'>+".$data[$i][4]."</span>
+                                </div>
+                                <div class='card-rate'>
+                                    Rate
+                                    <span class='card-rate-number'><img src='../img/icons/icons8-star-96.png'
+                                            class='rate-star' />".$data[$i][5]."</span>
+                                </div>
+                                <div class='card-description'>
+                                ".$data[$i][6]."
+                                </div>
                             </div>
-                            <div class='card-category'>
-                                Category <span class='card-tag'>".$row['category']."</span>
-                            </div>
-                            <div class='card-feedback'>
-                                Feedbacks <span class='card-feedback-number'>+".$row['feedbacks']."</span>
-                            </div>
-                            <div class='card-rate'>
-                                Rate
-                                <span class='card-rate-number'><img src='../img/icons/icons8-star-96.png'
-                                        class='rate-star' />".$row['rate']."</span>
-                            </div>
-                            <div class='card-description'>
-                            ".$row['content']."
+                            <div class='card-price'>
+                                <span class='card-price-tag'>LKR ".$data[$i][7]."</span>
                             </div>
                         </div>
-                        <div class='card-price'>
-                            <span class='card-price-tag'>LKR ".$row['price']."</span>
-                        </div>
-                    </div>
-                    </a>
-                    ";
-                }
+                        </a>
+                        ";
+                        $i++;
+                    }
                 }
                 ?>
                     <div class="empty-card">
