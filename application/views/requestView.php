@@ -42,7 +42,7 @@
         var chat_message = $('#message').val();
         if(chat_message!=""){
             $.ajax({
-                url:"chat/send",
+                url:"adChat/send",
                 method:"POST",
                 data:{message:chat_message},
                 success:function(data){
@@ -61,7 +61,7 @@
         function fetchChat()
         {
             $.ajax({
-                url:"chat/index",
+                url:"adChat/index",
                 method:"POST",
                 success:function(data)
                 {
@@ -72,7 +72,7 @@
         function fetchStatus()
         {
             $.ajax({
-                url:"chat/status",
+                url:"adChat/status",
                 method:"POST",
                 success:function(data)
                 {

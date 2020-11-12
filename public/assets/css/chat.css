@@ -71,6 +71,7 @@
   background-color: rgb(246, 246, 246);
   transition: ease-in-out 0.3s;
   outline: none;
+  font-size: 15px;
 }
 
 .message-submit {
