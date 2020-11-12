@@ -124,39 +124,49 @@
 }
 
 .chat-top-header {
-  grid-area: header;
-  background-color: white;
+  background-color: rgb(240, 240, 240);
   height: 150px;
+  padding-bottom: 20px;
+  grid-area: header;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  grid-area: header;
+  display: grid;
+  grid-template-areas:
+    "img title "
+    "img rate  "
+    "img content";
 }
 .chat-contacts {
   grid-area: side;
 }
 .chat-main {
   background-color: rgb(251, 251, 251);
+  border-bottom-right-radius: 10px;
   grid-area: main;
 }
 .workspace-container {
   grid-area: workspace;
 }
 .massenger-container {
+  box-shadow: 0 0px 6px 0 rgba(0, 0, 0, 0.3);
   display: grid;
   grid-area: messenger;
   grid-template-areas:
-    "header header header header hader"
+    "header header header header header"
     "side main main main main"
     "side main main  main main";
   background-color: #007bff;
   color: white;
-  border-radius: 8px;
+  border-radius: 10px;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 .main-container {
   display: grid;
   height: 100%;
-  width: 100%;
+  background-color: white;
   margin-top: 50px;
   margin-left: 10px;
-  box-shadow: 0px 1px gray;
   grid-template-areas: "messenger workspace";
 }
 
@@ -184,4 +194,69 @@
       "side"
       "main";
   }
+}
+.addImg {
+  width: 120px;
+  height: 120px;
+  border-radius: 15px;
+  border: 2px solid white;
+}
+.img-container {
+  grid-area: img;
+  padding: 20px;
+  border: 1px solid blue;
+}
+.content {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: black;
+  grid-area: content;
+}
+.title {
+  font-size: large;
+  font-weight: 600;
+  grid-area: title;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: black;
+}
+.ad-rating {
+  grid-area: rate;
+  display: inline;
+}
+span.rating {
+  vertical-align: middle;
+  color: rgb(243, 243, 243);
+  font-size: medium;
+  font-weight: 600;
+}
+.rate-container {
+  align-items: center;
+  vertical-align: middle;
+  overflow: hidden;
+  color: white;
+  font-weight: 500;
+  font-size: 11px;
+  background-color: #ffc107;
+  border-radius: 9px;
+  padding-bottom: 2px;
+  padding-top: 2px;
+  padding-left: 8px;
+  padding-right: 8px;
+  box-shadow: 1px 1px 2px #ffc107;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+.feed-container {
+  align-items: center;
+  vertical-align: middle;
+  overflow: hidden;
+  color: white;
+  font-weight: 500;
+  font-size: 15px;
+  background-color: #007bff;
+  border-radius: 9px;
+  padding-bottom: 3px;
+  padding-top: 4px;
+  padding-left: 8px;
+  padding-right: 8px;
+  box-shadow: 1px 1px 2px #007bff;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
