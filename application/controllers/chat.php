@@ -25,5 +25,13 @@ class chat extends exlFramework
         echo $time;
         $this->model->send($message,$sender,$receiver,$date,$time);
     }
+    public function status()
+    {
+        $data['sender']=$sender="Dilan";
+        $data['receiver']=$receiver="dilan";
+        $data['chatStatus']=$this->model->getStatus($receiver);
+        $data['userDetails']=$this->model->getDetails($receiver);
+        $this->view("chatStatusView",$data);
+    }
 }
 ?>
