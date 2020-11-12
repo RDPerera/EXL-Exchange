@@ -1,7 +1,6 @@
 .chat-header {
   height: 50px;
   background-color: #007bff;
-  width: 500px;
   padding: 10px;
   border-top-left-radius: 7px;
   border-top-right-radius: 7px;
@@ -15,12 +14,8 @@
   margin-left: 4px;
   margin-right: 4px;
 }
-.message-container span {
-  font-size: 0.7rem;
-  margin-left: 15px;
-}
+
 .chat-container {
-  width: 500px;
   padding: 10px;
   border-bottom-left-radius: 7px;
   border-bottom-right-radius: 7px;
@@ -56,6 +51,7 @@
   background-color: rgb(251, 251, 251);
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
   border-top-left-radius: 4px;
+  color: black;
 }
 .message-input-container {
   display: flex;
@@ -125,4 +121,67 @@
   border-radius: 50px;
   grid-area: pic;
   border: 2px solid rgb(255, 255, 255);
+}
+
+.chat-top-header {
+  grid-area: header;
+  background-color: white;
+  height: 150px;
+}
+.chat-contacts {
+  grid-area: side;
+}
+.chat-main {
+  background-color: rgb(251, 251, 251);
+  grid-area: main;
+}
+.workspace-container {
+  grid-area: workspace;
+}
+.massenger-container {
+  display: grid;
+  grid-area: messenger;
+  grid-template-areas:
+    "header header header header hader"
+    "side main main main main"
+    "side main main  main main";
+  background-color: #007bff;
+  color: white;
+  border-radius: 8px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+.main-container {
+  display: grid;
+  height: 100%;
+  width: 100%;
+  margin-top: 50px;
+  margin-left: 10px;
+  box-shadow: 0px 1px gray;
+  grid-template-areas: "messenger workspace";
+}
+
+.time {
+  font-size: 0.7rem;
+  margin-left: 15px;
+}
+.op-msj {
+  font-size: 13px;
+  color: #007bff;
+  font-weight: 600;
+}
+@media only screen and (max-width: 700px) {
+  .main-container {
+    display: grid;
+    grid-template-areas:
+      "messenger"
+      "workspace";
+  }
+
+  .massenger-container {
+    display: grid;
+    grid-template-areas:
+      "header"
+      "side"
+      "main";
+  }
 }
