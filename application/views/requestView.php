@@ -9,12 +9,14 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 </head>
 <body>
+    <div class="chat-header" id="chat-header">
+    </div>
     <div class="chat-container">
     <div class="chat-body" id="chat-body">
     <div id="chat-container"></div>
     </div>
     <div class="message-input-container">
-        <input type="text" name="message" class="message-input" placeholder="Type A Message" id="message">
+        <input type="text" name="message" class="message-input" placeholder="Type a message..." id="message">
         <button name="message-submit" class="message-submit" id="message-submit" >SEND</button>
     </div>
     </div> 
@@ -22,6 +24,7 @@
     <script>
     $(document).ready(function(){ 
         fetchChat();
+        fetchStatus();
         updateScroll();
         var scrolled = false;
         setInterval(function(){
@@ -32,6 +35,7 @@
                 updateScroll();
             }
             fetchChat();
+            fetchStatus();
         },100);
 
         $(document).on('click', '.message-submit', function(){
@@ -62,6 +66,17 @@
                 success:function(data)
                 {
                     $('#chat-container').html(data);
+                }
+            })
+        }
+        function fetchStatus()
+        {
+            $.ajax({
+                url:"chat/status",
+                method:"POST",
+                success:function(data)
+                {
+                    $('#chat-header').html(data);
                 }
             })
         }
