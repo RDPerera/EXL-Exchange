@@ -1,26 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<?php include "components/headerHome.php"; ?>
     <title>Job Request</title>
     <?php linkCSS('chat'); ?>
-    <?php linkFav('ee-logo.png');?> 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 </head>
 <body>
-    <div class="chat-header" id="chat-header">
+    <div class="main-container">
+    <div class="massenger-container">
+        <div class="chat-top-header" id="chat-top-header"></div>
+        <div class="chat-contacts" id="chat-header"></div>
+        <div class="chat-main">
+            <div class="chat-container">
+            <div class="chat-body" id="chat-body"><div id="chat-container"></div></div>
+            <div class="message-input-container">
+                <input type="text" name="message" class="message-input" placeholder="Type a message..." id="message">
+                <button name="message-submit" class="message-submit" id="message-submit" >SEND</button>
+            </div>
+            </div> 
+        </div>
     </div>
-    <div class="chat-container">
-    <div class="chat-body" id="chat-body">
-    <div id="chat-container"></div>
+    <div class="workspace-container"></div>
     </div>
-    <div class="message-input-container">
-        <input type="text" name="message" class="message-input" placeholder="Type a message..." id="message">
-        <button name="message-submit" class="message-submit" id="message-submit" >SEND</button>
-    </div>
-    </div> 
-
     <script>
     $(document).ready(function(){ 
         fetchChat();
