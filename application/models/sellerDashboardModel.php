@@ -3,7 +3,7 @@
 class sellerDashboardModel extends database
 {
 
-    public function retrieveUser($userName)
+    public function retrieveUser($userName) //retrieves the user table data from the database and returns it
     {
         $userCheck = "SELECT * FROM user WHERE userName='$userName' LIMIT 1";
         $result = mysqli_query($GLOBALS['db'], $userCheck);
@@ -11,7 +11,7 @@ class sellerDashboardModel extends database
         return $user;
     }
 
-    public function retrieveSeller($userName)
+    public function retrieveSeller($userName) //retrieves the seller table data from the database and returns it
     {
         $userCheck = " SELECT * FROM seller WHERE userName='$userName' LIMIT 1 ";
         $result = mysqli_query($GLOBALS['db'], $userCheck);
@@ -19,7 +19,7 @@ class sellerDashboardModel extends database
         return $user;
     }
 
-    public function sellerAds($userName)
+    public function sellerAds($userName) //retrieves the user advertisement data from the database and returns it
     {
     
         $sql = "SELECT * FROM advertisement WHERE userName = '$userName' ";
@@ -27,7 +27,7 @@ class sellerDashboardModel extends database
         $i=0;
         if (mysqli_num_rows($result) > 0) 
         {
-            while ($row = mysqli_fetch_assoc($result))
+            while ($row = mysqli_fetch_assoc($result)) //putting the received ad data to an 2D array so that we can send it to the controller
             {
                $dataToSend[$i][0] =  $row['advertisementID'];
                $dataToSend[$i][1] =  $row['image'];
