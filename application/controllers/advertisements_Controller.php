@@ -16,7 +16,6 @@ class advertisements_Controller extends exlFramework
 
   public function formInput()
   {
-
     // session_start();
     // $complete = "display:none";
     // $userName = $_SESSION['userName'];
@@ -198,7 +197,6 @@ class advertisements_Controller extends exlFramework
 
   public function updateAdSubmit($username) //store the updated values from the view to the database
   {
-
     //PART 2
     $row = $this->getExistingData($username);
 
@@ -289,4 +287,6 @@ class advertisements_Controller extends exlFramework
       $this->view("updateAd", $row);
     }
   }
+
+
 }
