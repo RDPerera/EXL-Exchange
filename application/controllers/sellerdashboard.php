@@ -10,7 +10,7 @@ class sellerDashboard extends exlFramework
     {
         // session_start();
         // $userName = $_SESSION['userName'];
-        $userName = "chathura"; //hard coded
+        $userName = $_SESSION['userName'];; //hard coded
 
         //retrieving user data from the database
         $user = $this->sellerDashboardModel->retrieveUser($userName);
@@ -61,13 +61,13 @@ class sellerDashboard extends exlFramework
     public function loadChangeDPView()
     {
 
-        $userName = "chathura";  //HARDCODED USERNAME
+        $userName = $_SESSION['userName'];  //HARDCODED USERNAME
         $this->view("changeProfilePicture"); //load the view to change the profile picture
     }
 
     public function handleThePicture()
     {
-        $userName = "chathura";  //HARDCODED USERNAME
+        $userName = $_SESSION['userName'];  //HARDCODED USERNAME
         $row = $this->sellerDashboardModel->checkOlderDP($userName);
 
         //check whether there is an older profile picture
@@ -99,6 +99,7 @@ class sellerDashboard extends exlFramework
                 //set the default one as the DP
                 $this->sellerDashboardModel->deleteDP($userName);
             }
-        } 
+        }
+        redirect('sellerDashboard');
     }
 }

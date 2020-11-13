@@ -1,7 +1,7 @@
 <?php
 
 // Database configurations 
-define("HOST", "localhost:3308");
+define("HOST", "localhost");
 define("USER", "root");
 define("DATABASE", "exl_main");
 define("PASSWORD", "");

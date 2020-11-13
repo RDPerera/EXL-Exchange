@@ -361,3 +361,26 @@ span.rating {
   display: block;
   font-size: 3rem;
 }
+.set-timer {
+  background-color: rgb(245, 245, 245);
+  padding: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  border-radius: 10px;
+}
+.set-timer span {
+  display: inline;
+  font-size: medium;
+  margin-left: 20px;
+  margin-right: 10px;
+}
+.set-timer input {
+  display: inline;
+}
+.datetime {
+  margin-left: 10px;
+  border-radius: 5px;
+  padding: 5px;
+  border: none;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
