@@ -68,12 +68,12 @@ class sellerDashboard extends exlFramework
     public function handleThePicture()
     {
         $userName = "chathura";  //HARDCODED USERNAME
-        $user = $this->sellerDashboardModel->checkOlderDP($userName);
+        $row = $this->sellerDashboardModel->checkOlderDP($userName);
 
         //check whether there is an older profile picture
-        if ($user['profilePicture']) {
+        if ($row['profilePicture']) {
             //delete the older profile picture from the system folder
-            unlink("../public/assets/img/userImages/" . $user['profilePicture'] . "");
+            unlink("../public/assets/img/userImages/" . $row['profilePicture'] . "");
         }
 
         if (isset($_POST['saveButton'])) {

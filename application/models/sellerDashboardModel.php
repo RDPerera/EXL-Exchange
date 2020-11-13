@@ -47,8 +47,8 @@ class sellerDashboardModel extends database
     {
         $query = "SELECT profilePicture FROM user WHERE userName = '$userName' ";
         $result = mysqli_query($GLOBALS['db'], $query);
-        $user = mysqli_fetch_assoc($result);
-        return $user;
+        $row = mysqli_fetch_assoc($result);
+        return $row;
     }
 
     public function updateNewDP($image, $userName)
