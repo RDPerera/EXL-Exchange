@@ -50,11 +50,11 @@ class sellerDashboard extends exlFramework
             //load the view
             $this->view("sellerDashboardView", $data);
         } else {
-            header('Location: ../login/login.php');
+            $this->redirect('login');
         }
         if (isset($_POST['logout'])) {
             session_destroy();
-            header('Location: ../login/login.php');
+            $this->redirect('login');
         }
     }
 
@@ -100,6 +100,6 @@ class sellerDashboard extends exlFramework
                 $this->sellerDashboardModel->deleteDP($userName);
             }
         }
-        redirect('sellerDashboard');
+        $this->redirect('sellerDashboard');
     }
 }
