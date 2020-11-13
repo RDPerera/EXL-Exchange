@@ -31,7 +31,9 @@
             </div> 
         </div>
     </div>
-    <div class="workspace-container"></div>
+    <div class="workspace-container">
+        
+    </div>
     </div>
     <script>
     $(document).ready(function(){ 
@@ -80,6 +82,7 @@
                     $('#chat-container').html(data);
                 }
             })
+            
         }
         function fetchStatus()
         {
