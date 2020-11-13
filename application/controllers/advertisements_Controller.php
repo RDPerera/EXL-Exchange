@@ -22,7 +22,7 @@ class advertisements_Controller extends exlFramework
     $userName = "chathura";
 
     //form validation 
-
+    
     $row = [
 
       'titleErr' => '',

@@ -66,7 +66,7 @@ class advertisements_model extends database
     }
     public function updateWithoutImage($status, $category, $title, $tag, $content, $userName, $member1, $member2, $member3, $price)
     {
-
+        
         $title = mysqli_real_escape_string($GLOBALS['db'], $title);
         $category = mysqli_real_escape_string($GLOBALS['db'], $category);
         $status = mysqli_real_escape_string($GLOBALS['db'], $status);
