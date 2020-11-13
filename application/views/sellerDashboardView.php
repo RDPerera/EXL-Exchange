@@ -22,7 +22,7 @@
     <div class="sidebar">
         <center>
             <div class="sidebar-profile-container">
-                <a href="#"><img src="<?php echo BASEURL; ?>/public/assets/img/userImages/<?php if ($data[0][2]) {
+                <a href="<?php echo BASEURL;?>/sellerdashboard/loadChangeDPView"><img src="<?php echo BASEURL; ?>/public/assets/img/userImages/<?php if ($data[0][2]) {
                                                                                                 echo $data[0][2];
                                                                                             } else {
                                                                                                 echo "pp_default.jpg";
