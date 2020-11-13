@@ -62,5 +62,9 @@ class sellerDashboard extends exlFramework
         }
     }
 
-    
+    public function changeProfilePicture()
+    {
+        $this->view("changeProfilePicture");
+
+    }
 }
