@@ -5,6 +5,11 @@ function linkCSS($cssPath){
     echo '<link rel="stylesheet" type="text/css" href="'. $url .'">';
 }
 
+function linkSCSS($scssPath){
+    $url = BASEURL . "/assets/css/" .$scssPath.".less";
+    echo '<link rel="stylesheet" type="text/css" href="'. $url .'">';
+}
+
 function linkJS($jsPath){
 
     $url = BASEURL. "/assets/js/". $jsPath.".js";

@@ -42,6 +42,7 @@
             <a href="#"><img src="<?php echo BASEURL; ?>/public/assets/img/icons/icons8-settings-500.png" class="sidebar-icons"><span>Settings</span></a>
         </div>
     </div>
+
     <div class="content-super">
         <div class="page-container">
             <div class="content">

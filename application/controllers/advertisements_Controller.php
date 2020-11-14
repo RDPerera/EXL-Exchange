@@ -14,9 +14,10 @@ class advertisements_Controller extends exlFramework
     $userName = $_SESSION['userName'];
     //check whether ad limit is reched for the user
     $count = $this->advertisements_model->checkAdLimit($userName);
-    if($count['count']>=8){
-      echo "You cannot create more than eight advertisements";
-      return 0;
+
+    if($count['count']>=5)
+    {
+      $this->view("maxAdAlert");
     }
     else{
       $this->view("dashboardCreate");
