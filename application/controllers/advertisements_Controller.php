@@ -11,7 +11,16 @@ class advertisements_Controller extends exlFramework
 
   public function index()
   {
-    $this->view("dashboardCreate");
+    $userName = $_SESSION['userName'];
+    //check whether ad limit is reched for the user
+    $count = $this->advertisements_model->checkAdLimit($userName);
+    if($count['count']>=8){
+      echo "You cannot create more than eight advertisements";
+      return 0;
+    }
+    else{
+      $this->view("dashboardCreate");
+    }
   }
 
   public function formInput()
@@ -19,7 +28,6 @@ class advertisements_Controller extends exlFramework
 
     $complete = "display:none";
     $userName = $_SESSION['userName'];
-    $userName = "chathura";
 
     //form validation 
 

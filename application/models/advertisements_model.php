@@ -80,4 +80,12 @@ class advertisements_model extends database
         $query = "UPDATE advertisement SET status = '$status' ,category = '$category', title = '$title' ,tag = '$tag' ,content = '$content' , member1 = '$member1',member2 = '$member2' ,member3 = '$member3' ,price = '$price' WHERE username = '$userName' ";
         mysqli_query($GLOBALS['db'], $query);
     }
+
+    public function checkAdLimit($userName)
+    {
+        $query = "SELECT COUNT(advertisementID) AS count FROM advertisement WHERE username= '$userName'";
+        $result = mysqli_query($GLOBALS['db'], $query);
+        $row = mysqli_fetch_assoc($result);
+        return $row;
+    }
 }
