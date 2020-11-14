@@ -15,7 +15,7 @@ class advertisements_Controller extends exlFramework
     //check whether ad limit is reched for the user
     $count = $this->advertisements_model->checkAdLimit($userName);
 
-    if($count['count']>=5)
+    if($count['count']>=8)
     {
       $this->view("maxAdAlert");
     }
