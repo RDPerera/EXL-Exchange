@@ -8,9 +8,7 @@ class sellerDashboard extends exlFramework
     }
     public function index()
     {
-
         $userName = $_SESSION['userName'];  
-
         //retrieving user data from the database
         $user = $this->sellerDashboardModel->retrieveUser($userName);
 
@@ -59,8 +57,6 @@ class sellerDashboard extends exlFramework
 
     public function loadChangeDPView()
     {
-
-        $userName = $_SESSION['userName'];  
         $this->view("changeProfilePicture"); //load the view to change the profile picture
     }
 
@@ -101,4 +97,6 @@ class sellerDashboard extends exlFramework
         }
         $this->redirect('sellerDashboard');
     }
+
+   
 }
