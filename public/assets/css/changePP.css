@@ -22,7 +22,7 @@ label {
 }
 .header {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  font-size: xx-large;
+  font-size: larger;
   margin-bottom: 30px;
   font-weight: 500;
 }
@@ -41,24 +41,22 @@ input[type="file"] {
 .custom-file-upload {
   border: 1px solid #007bff;
   display: inline-block;
-  padding: 6px 12px;
+  padding: 7px 12px;
   cursor: pointer;
   color: #007bff;
   font-weight: normal;
   border-radius: 5px;
   font-size: 16px;
 }
-.custom-file-upload:hover{
-    transition: ease-in-out 0.3s;
-    background-color: #007bff;
-    color:white;
+.custom-file-upload:hover {
+  transition: ease-in-out 0.3s;
+  background-color: #007bff;
+  color: white;
 }
 .savebtn {
   color: white;
-  padding-left: 40px;
-  padding-right: 40px;
-  padding-bottom: 10px;
-  padding-top: 10px;
+  margin: 0;
+  padding: 8px 12px;
   border-radius: 4px;
   border: none;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
@@ -66,6 +64,7 @@ input[type="file"] {
   font-weight: 500;
   font-size: 14px;
   background-color: #007bff;
+  border: 1px solid #007bff;
 }
 .savebtn:hover {
   color: #007bff;
