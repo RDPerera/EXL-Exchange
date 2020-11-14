@@ -206,3 +206,15 @@ label #home {
   color: #007bff;
   font-weight: 500;
 }
+
+a.nostyle:link {
+  text-decoration: inherit;
+  color: inherit;
+  cursor: auto;
+}
+
+a.nostyle:visited {
+  text-decoration: inherit;
+  color: inherit;
+  cursor: auto;
+}
