@@ -19,8 +19,8 @@
             <div class="model-text v-h-center">Your Ad created successfully !</div>
             <button id="model-btn" class="model-button" onclick="dispose()"> OK </button>
         </div>
-    </div>
-    <input type="checkbox" id="home">
+    </div> -->
+    <!-- <input type="checkbox" id="home">
     <header class="header">
         <label for="home"><img src="../img/icons/ee-logo.png" class="home-menu"></label>
         <div class="left-head">Seller<span class="min-text"> Dashboard</span></div>

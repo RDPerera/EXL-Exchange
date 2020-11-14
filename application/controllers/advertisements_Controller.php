@@ -11,15 +11,23 @@ class advertisements_Controller extends exlFramework
 
   public function index()
   {
-    $this->view("dashboardCreate");
+    $userName = $_SESSION['userName'];
+    //check whether ad limit is reched for the user
+    $count = $this->advertisements_model->checkAdLimit($userName);
+    if($count['count']>=8){
+      echo "You cannot create more than eight advertisements";
+      return 0;
+    }
+    else{
+      $this->view("dashboardCreate");
+    }
   }
 
   public function formInput()
   {
-    // session_start();
-    // $complete = "display:none";
-    // $userName = $_SESSION['userName'];
-    $userName = "chathura";
+
+    $complete = "display:none";
+    $userName = $_SESSION['userName'];
 
     //form validation 
 
@@ -114,7 +122,7 @@ class advertisements_Controller extends exlFramework
 
         $this->advertisements_model->store($date, $status, $category, $image, $title, $tag, $content, $userName, $member1, $member2, $member3, $price);
         $this->redirect("advertisements_Controller");
-        // $complete = "";
+        $complete = "";
       }
     } else { //there are validation errors
       $this->view("dashboardCreate", $row);
@@ -143,8 +151,7 @@ class advertisements_Controller extends exlFramework
     //   session_destroy();
     //   header('Location: ../login/login.php');
     // }
-
-
+    $this->redirect('sellerDashboard');
   }
 
 
@@ -161,32 +168,32 @@ class advertisements_Controller extends exlFramework
 
   private function getExistingData($username)
   {
-       //get the ad data using the username 
-       $row = $this->advertisements_model->getDataByUsername($username);
-       $options = "";
-       $optionArray = array("Graphics Designing", "Programming", "Content Writing");
-   
-       //to handle the select tag (to retrieve data from database and display in the page)
-       if ($row[3] == $optionArray[0]) {
-         $options = "<option selected>$row[3]</option><option>$optionArray[1]</option><option>$optionArray[2]</option>";
-       } else if ($row[3] == $optionArray[1]) {
-         $options = "<option>$optionArray[0]</option><option selected>$optionArray[1]</option><option>$optionArray[2]</option>";
-       } else {
-         $options = "<option>$optionArray[0]</option><option>$optionArray[1]</option><option selected>$optionArray[2]</option>";
-       }
-       $row[13] = $options;
-   
-       //to handle the radio button (to retrieve data from database and display in the page)
-       $row[14] = $row[15] = $activeCheck = $inactiveCheck = "";
-       if ($row[2] == "active") {
-         $activeCheck = "checked";
-         $row[14] = $activeCheck;
-       } else {
-         $inactiveCheck = "checked";
-         $row[15] = $inactiveCheck;
-       }
+    //get the ad data using the username 
+    $row = $this->advertisements_model->getDataByUsername($username);
+    $options = "";
+    $optionArray = array("Graphics Designing", "Programming", "Content Writing");
 
-       return $row;
+    //to handle the select tag (to retrieve data from database and display in the page)
+    if ($row[3] == $optionArray[0]) {
+      $options = "<option selected>$row[3]</option><option>$optionArray[1]</option><option>$optionArray[2]</option>";
+    } else if ($row[3] == $optionArray[1]) {
+      $options = "<option>$optionArray[0]</option><option selected>$optionArray[1]</option><option>$optionArray[2]</option>";
+    } else {
+      $options = "<option>$optionArray[0]</option><option>$optionArray[1]</option><option selected>$optionArray[2]</option>";
+    }
+    $row[13] = $options;
+
+    //to handle the radio button (to retrieve data from database and display in the page)
+    $row[14] = $row[15] = $activeCheck = $inactiveCheck = "";
+    if ($row[2] == "active") {
+      $activeCheck = "checked";
+      $row[14] = $activeCheck;
+    } else {
+      $inactiveCheck = "checked";
+      $row[15] = $inactiveCheck;
+    }
+
+    return $row;
   }
 
   public function updateAdLoad($username) //function that is used to retrieve the existing values of the ad from the database to the view
@@ -203,12 +210,12 @@ class advertisements_Controller extends exlFramework
     //form validation 
 
     //$row indices for errors
-        //   'titleErr'     16    
-        //   'categoryErr'  17
-        //   'tagErr'       18
-        //   'contentErr'   19
-        //   'statusErr'    20
-        //   'priceErr'     21
+    //   'titleErr'     16    
+    //   'categoryErr'  17
+    //   'tagErr'       18
+    //   'contentErr'   19
+    //   'statusErr'    20
+    //   'priceErr'     21
 
     $title = $category = $tag = $content = $status = $price = $image = "";
 
@@ -287,6 +294,4 @@ class advertisements_Controller extends exlFramework
       $this->view("updateAd", $row);
     }
   }
-
-
 }
