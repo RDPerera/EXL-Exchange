@@ -1,13 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+<?php $job=$data['job']; ?>
 <?php include "components/headerHome.php"; ?>
-    <title>Job Request</title>
+
     <?php linkCSS('chat'); ?>
     <?php linkJS('jquery.min'); ?>
 </head>
@@ -17,7 +10,6 @@
     <div class="massenger-container">
         <div class="chat-top-header" >
             <?php $data=$data['adDetails'];?>
-            
             <div class="img-container"><img src="<?php echo adIMG($data['image']) ?>" class="addImg"></div>
             <div class="title"> <?php echo $data['title'];?></div>
             <div class="ad-rating">
@@ -43,8 +35,8 @@
     </div>
     <div class="workspace-container">
         
-        <div class="workspace-head"><p>Request a Job</p></div>
-        <form action="<?php echo BASEURL.'/jobRequest/send'; ?>" method="post">
+        <div class="workspace-head"><p>Job Details</p></div>
+        <form action="<?php echo BASEURL.'/job/resend/'.$job['jobId']; ?>" method="post">
         <div class="timer-section">
             <div class="countdown" id="countdown">
                 <ul>
@@ -54,22 +46,43 @@
                 <li><span id="seconds"></span>Seconds</li>
                 </ul>
             </div>
+            <br>
+            <div class="status-job" >
+            <span >Current Status Of Job 
+            <?php     
+                if($job['jobStatus']=='0')
+                {
+                    echo "<span style='color: #ffc107 ; font-weight:500'> Pending For Seller</span>";
+                }
+                else if($job['jobStatus']=='1')
+                {
+                    echo "<span style='color: #00c241 ; font-weight:500'> Seller Accepted</span>";
+                }
+                else if($job['jobStatus']=='2')
+                {
+                    echo "<span style='color: #d82303 ; font-weight:500'> Seller Declined</span>";
+                }
+                //when payment gateway is implemented this part should change
+            ?>
+            </span>
+            </div>
             <div class="set-timer" id="date-title-container">
             <span id="date-title">Set Seller Product Submission Date & Time </span>
             <div class="cluster" style="float:right">
-                <input type="date"  id="date" class="datetime" step="any" name="date">
-                <input type="time" id="time" class="datetime" step="any" name="time">
+                <input type="date"  id="date" class="datetime" step="any" name="date" value="<?php echo $job['date'] ?>">
+                <input type="time" id="time" class="datetime" step="any" name="time" value="<?php echo $job['time'] ?>">
             </div>
             </div>
             <div class="set-timer" id="price-title-container">
             <span id='price-title'>Additional Payment For Seller</span>
             <div class="cluster" style="float:right" id="price-section">
-            Rs.<input type="text" id="ad-pay" class="datetime" value="00.00" name="additionalPrice">
+            Rs.<input type="text" id="ad-pay" class="datetime" name="additionalPrice" value="<?php echo $job['additionalPayment'] ?>">
             </div>
             </div>
             <div class="request-container">
             <div class="request-details">
                 <table>
+                    <tr><td>Job ID </td><td><?php echo $job['jobId']; ?></td></tr>
                     <tr><td>Advertisement ID </td><td><?php echo $data['advertisementID']; ?></td></tr>
                     <tr><td>Seller(Owner) User Name</td><td><?php echo $data['userName']; ?></td></tr>
                     <tr><td>Submission DeadLine </td><td id="dead-line"></td></tr>
@@ -79,7 +92,7 @@
                 </table>
             </div>
             <div class="request-buttons">
-                <input type="submit" class="request-ad" name="submit" value="Send Job Request">
+                <input type="submit" class="request-ad" name="submit" value="Resend Job Request">
             </div>
             </div>
         </div>
@@ -87,27 +100,7 @@
     </div>
     </div>
 <script>
-function myfunc() {
-  let now = new Date();
-  var dd = now.getDate() + 7;
-  var mm = now.getMonth() + 1;
-  var yyyy = now.getFullYear();
-  var h = now.getHours();
-  var m = now.getMinutes();
-  var s = now.getSeconds();
-  if (m < 10) {
-    m = "0" + m;
-  }
-  if (s < 10) {
-    s = "0" + s;
-  }
-  if (h < 10) {
-    h = "0" + h;
-  }
-  document.getElementById("time").value = h + ":" + m + ":" + s;
-  document.getElementById("date").value = yyyy + "-" + mm + "-" + dd;
-}
-myfunc();
+
 (function () {
   const second = 1000,
     minute = second * 60,
@@ -227,5 +220,4 @@ $(document).ready(function () {
 
 
 </script>
-</body>
-</html>
+<?php include "components/footerHome.php"; ?>
