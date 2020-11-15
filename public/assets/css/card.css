@@ -11,14 +11,16 @@
 
 .requests {
   padding: 0;
-  display: flex;
+  margin-top: 10px;
+  padding-right: 50px;
+  padding-left: 30px;
   width: 98%;
   justify-self: center;
 }
 
 .request {
   display: grid;
-  grid-template-columns: 1fr 2fr 1fr 1fr 1fr;
+  grid-template-columns: 2fr 2fr 2fr 2fr 3fr 2fr 2fr;
   align-content: center;
   width: 100%;
   height: 30px;
