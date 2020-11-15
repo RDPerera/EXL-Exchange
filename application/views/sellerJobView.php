@@ -8,6 +8,7 @@
     <?php linkCSS("sdashboard"); ?>
     <?php linkCSS("card"); ?>
     <?php linkFAV("ee-logo.png"); ?>
+    <?php $mode=$data['mode']; ?>
     <?php $jobs=$data['jobs']; ?>
     <?php $data=$data['memory'];?>
 </head>
@@ -40,64 +41,26 @@
             <a href="<?php echo BASEURL; ?>/advertisements_controller"><img src="<?php echo BASEURL; ?>/public/assets/img/icons/icons8-plus-math-96.png" class="sidebar-icons"><span>Create Advertisement</span></a>
             <a href="#"><img src="<?php echo BASEURL; ?>/public/assets/img/icons/icons8-question-mark-96.png" class="sidebar-icons"><span>Help & Support</span></a>
             <a href="#"><img src="<?php echo BASEURL; ?>/public/assets/img/icons/icons8-complaint-90.png" class="sidebar-icons"><span>Complaints</span></a>
-            <a href="#"><img src="<?php echo BASEURL; ?>/public/assets/img/icons/icons8-settings-500.png" class="sidebar-icons"><span>Settings</span></a></div>
+            <a href="#"><img src="<?php echo BASEURL; ?>/public/assets/img/icons/icons8-settings-500.png" class="sidebar-icons"><span>Settings</span></a>
+        </div>
     </div>
 
     <div class="content-super">
         <div class="page-container">
             <div class="content">
-                <div class="main-title"><span class="blue-text">Current</span> Advertisements</div>
-                <div class="advertisements">
-                    <?php
-                    $cardCount = count($data) - 1;
-                    if ($cardCount > 0) {
-                        $i = 1;
-                        while ($i <= $cardCount) {
-                            if (!$data[$i][1]) //to check whether use have inserted an advertisement cover or not
-                            {
-                                $data[$i][1] = 'AdvertisementDefault.jpg'; // if not assign the default image
-                            }
-                            echo "<a href='".BASEURL."/advertisements_Controller/showAd/".$data[$i][0]."' style='text-decoration:none;color:black'>
-                                <div class='card'>
-                                    <img src='" . BASEURL . "/public/assets/img/adUploads/" . $data[$i][1] . "' class='card-image' />
-                                    <div class='card-info'>
-                                        <div class='card-title'>
-                                            " . $data[$i][2] . "
-                                        </div>
-                                        <div class='card-category'>
-                                            Category <span class='card-tag'>" . $data[$i][3] . "</span>
-                                        </div>
-                                        <div class='card-feedback'>
-                                            Feedbacks <span class='card-feedback-number'>+" . $data[$i][4] . "</span>
-                                        </div>
-                                        <div class='card-rate'>
-                                            Rate
-                                            <span class='card-rate-number'><img src='" . BASEURL . "/public/assets/img/icons/icons8-star-96.png'
-                                                    class='rate-star' />" . $data[$i][5] . "</span>
-                                        </div>
-                                        <div class='card-description'>
-                                        " . $data[$i][6] . "
-                                        </div>
-                                    </div>
-                                    <div class='card-price'>
-                                        <span class='card-price-tag'>LKR " . $data[$i][7] . "</span>
-                                    </div>
-                                </div>
-                                </a>
-                                ";
-                            $i++;
-                        }
-                    }
-                    ?>
-                   <a class="nostyle" href="<?php echo BASEURL; ?>/advertisements_controller">  <!--  clear anchor tag styles -->
-                    <div class="empty-card">
-                        <img src="<?php echo BASEURL; ?>/public/assets/img/icons/icons8-plus-math-96.png" width="50px" height="50px" style="vertical-align: middle; padding-right: 10px" />
-                        Create An Advertisement
-                        
-                    </div>
-                    </a>
-                </div>
-                <div class="main-title"><span class="blue-text">JOB</span> Requests</div>
+                <div class="main-title"><span class="blue-text"><?php 
+                if($mode==1)
+                {
+                    echo "Pending";
+                }
+                elseif($mode==2)
+                {
+                    echo "Active";
+                }
+                else{
+                    echo "All";
+                }
+                ?> JOB</span> Requests</div>
                 <?php 
                         foreach ($jobs as $request){
                             

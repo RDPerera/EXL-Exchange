@@ -1,10 +1,16 @@
 <?php
-class sellerDashboard extends exlFramework
+class sellerJobHandler extends exlFramework
 {
     public function __construct()
     {
         $this->helper("linker");
         $this->sellerDashboardModel = $this->model('sellerDashboardModel');
+        $this->model=$this->model("jobResponceModel");
+    }
+    public function get($jobId)
+    {
+        $this->setSession('jobId',$jobId);
+        $this->redirect('sellerJobHandler');
     }
     public function index()
     {
@@ -44,12 +50,23 @@ class sellerDashboard extends exlFramework
                     }
                 }
             }
+            
             //fetching job requests
             $data['memory']=$data;
             $data['jobs']=$this->sellerDashboardModel->getjobs($userName);
             //print_r($this->sellerDashboardModel->getjobs($userName));
             //load the view
-            $this->view("sellerDashboardView", $data);
+            $jobId=$this->getSession("jobId");
+            $data['job']=$this->model->getJob($jobId);
+            $receiver=$data['job']['adId'];
+            $sender=$this->getSession("userName");
+            $data['buyer']=$buyer=$data['job']['userName'];
+            
+            $data['adDetails']=$this->model->getAdDetails($receiver);
+            $this->setSession('buyer',$buyer);
+            $this->setSession('receiver',$receiver);
+            $this->setSession('sender',$sender);
+            $this->view("sellerJobHandlerView", $data);
         } else {
             $this->redirect('login');
         }
@@ -60,6 +77,21 @@ class sellerDashboard extends exlFramework
         session_destroy();
         $this->redirect('login');
     }
+    //accept buyer job request
+    public function accept($jobId)
+    {  
+        $userName=$this->getSession('buyer');
+        $this->model->accept($userName,$jobId);
+        $this->redirect('sellerJobHandler');
+    }
+    //reject job request
+    public function reject($jobId)
+    {  
+        $userName=$this->getSession('buyer');
+        $this->model->reject($userName,$jobId);
+        $this->redirect('sellerJobHandler');
+    }
+
     public function loadChangeDPView()
     {
         $this->view("changeProfilePicture"); //load the view to change the profile picture
@@ -102,8 +134,6 @@ class sellerDashboard extends exlFramework
         }
         $this->redirect('sellerDashboard');
     }
-
-
 
    
 }
