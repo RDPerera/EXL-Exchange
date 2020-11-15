@@ -11,7 +11,7 @@ class job extends exlFramework
     {
         $data=array();
         $receiver="1";
-        $sender="nimaya";
+        $sender="chathura";
         if($this->mainModel->isJob($receiver,$sender))
         {
             $data['job']=$this->mainModel->getJob($receiver,$sender);
@@ -30,7 +30,6 @@ class job extends exlFramework
     {  
         $adId=$this->getSession('receiver');
         $userName=$this->getSession('sender');
-        print_r($_POST);
         $this->mainModel->resendRequest($adId,$userName,$this->input("date"),$this->input("time"),$this->input("additionalPrice"),$jobId);
         $this->redirect('job');
     }
