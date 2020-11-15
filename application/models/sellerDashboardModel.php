@@ -51,6 +51,13 @@ class sellerDashboardModel extends database
         return $row;
     }
 
+    public function getjobs($userName)
+    {
+        $query = "SELECT * FROM job,advertisement WHERE advertisement.userName = '$userName' AND advertisement.advertisementID=job.adId ";
+        $result = mysqli_query($GLOBALS['db'], $query);
+        return mysqli_fetch_all($result,MYSQLI_ASSOC);
+    }
+
     public function updateNewDP($image, $userName)
     {
         $query = "UPDATE user SET profilePicture='$image' WHERE userName = '$userName' ";

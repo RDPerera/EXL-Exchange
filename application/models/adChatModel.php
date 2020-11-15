@@ -14,6 +14,12 @@
             $result = mysqli_query($GLOBALS['db'], $chat);
             return mysqli_fetch_all($result,MYSQLI_ASSOC);
         }
+        public function getSellerChat($adId,$sender,$buyer)
+        {
+            $chat = "SELECT * FROM ad_message WHERE adId='$adId' AND (sender='$sender' OR sender='$buyer')";
+            $result = mysqli_query($GLOBALS['db'], $chat);
+            return mysqli_fetch_all($result,MYSQLI_ASSOC);
+        }
         public function getStatus($receiver)
         {
             $chatStatus = "SELECT * FROM user_online WHERE userName='$receiver' LIMIT 1";

@@ -44,6 +44,10 @@ class sellerDashboard extends exlFramework
                     }
                 }
             }
+            //fetching job requests
+            $data['memory']=$data;
+            $data['jobs']=$this->sellerDashboardModel->getjobs($userName);
+            //print_r($this->sellerDashboardModel->getjobs($userName));
             //load the view
             $this->view("sellerDashboardView", $data);
         } else {
