@@ -8,13 +8,19 @@ class jobResponce extends exlFramework
         $this->model=$this->model("jobResponceModel");
         $this->helper("linker");
     }
-
+    public function get($jobId)
+    {
+        $this->setSession('jobId',$jobId);
+        $this->redirect('jobResponce');
+    }
     public function index()
     {
-        $receiver="1";
-        $sender="dilan";
-        $data['buyer']=$buyer="chathura";
-        $data['job']=$this->model->getJob($receiver,$buyer);
+        $jobId=$this->getSession("jobId");
+        $data['job']=$this->model->getJob($jobId);
+        $receiver=$data['job']['adId'];
+        $sender=$this->getSession("userName");
+        $data['buyer']=$buyer=$data['job']['userName'];
+        
         $data['adDetails']=$this->model->getAdDetails($receiver);
         $this->setSession('buyer',$buyer);
         $this->setSession('receiver',$receiver);

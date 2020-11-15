@@ -52,19 +52,19 @@
             </div>
             <br>
             <div class="status-job" >
-            <span >Current Status Of Job 
+            <span >Current Status Of Job : 
             <?php     
                 if($job['jobStatus']=='0')
                 {
-                    echo "<span style='color: #ffc107 ; font-weight:500'> Pending For Seller</span>";
+                    echo "<span style='color: #ffc107 ; font-weight:500'> Pending </span>";
                 }
                 else if($job['jobStatus']=='1')
                 {
-                    echo "<span style='color: #00c241 ; font-weight:500'> Seller Accepted</span>";
+                    echo "<span style='color: #00c241 ; font-weight:500'>  Accepted</span>";
                 }
                 else if($job['jobStatus']=='2')
                 {
-                    echo "<span style='color: #d82303 ; font-weight:500'> Seller Declined</span>";
+                    echo "<span style='color: #d82303 ; font-weight:500'> Rejected </span>";
                 }
                 //when payment gateway is implemented this part should change
             ?>
@@ -84,7 +84,14 @@
             </div>
             </div>
             <div class="request-container">
-            <div class="request-details">
+            <div class="request-details"
+            <?php 
+                if($job['jobStatus']=='1' or $job['jobStatus']=='2')
+                {
+                    echo "style='background-color:#FBFBFB';";
+                }
+                ?>
+            >
                 <table>
                     <tr><td>Job ID </td><td><?php echo $job['jobId']; ?></td></tr>
                     <tr><td>Advertisement ID </td><td><?php echo $data['advertisementID']; ?></td></tr>
@@ -96,11 +103,18 @@
                     <tr><td>Total Payment</td><td id="total-payment"></td></tr>
                 </table>
             </div>
-            <div class="request-buttons">
-                <div class="button-set">
+            <div class="request-buttons"
+            <?php 
+                if($job['jobStatus']=='1' or $job['jobStatus']=='2')
+                {
+                    echo "style='display:none'";
+                }
+                ?>>
+                <div class="button-set" >
                 <a href="<?php echo BASEURL.'/jobResponce/accept/'.$job['jobId']; ?>"><button class="accept-ad" >Accept</button></a>
                 <a href="<?php echo BASEURL.'/jobResponce/reject/'.$job['jobId']; ?>"><button class="reject-ad" >Reject</button></a>
                 </div>
+                
             </div>
             </div>
         </div>

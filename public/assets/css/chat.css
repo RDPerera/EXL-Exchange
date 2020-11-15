@@ -546,7 +546,32 @@ span.rating {
   border: 1px solid #007bff;
   box-shadow: 1px 1px 1px #ffffff;
 }
-
+.file-server {
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+  width: 100%;
+  background-color: #007bff;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-radius: 10px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 500;
+  border: 1px solid #007bff;
+  color: white;
+  box-shadow: 1px 1px 1px #007bff;
+  transition: ease-in-out 0.3s;
+}
+.file-server:hover {
+  color: #007bff;
+  background-color: #ffffff;
+  border: 1px solid #007bff;
+  box-shadow: 1px 1px 1px #ffffff;
+}
 #date {
   grid-area: date-section;
 }
