@@ -53,11 +53,34 @@ class sellerDashboardModel extends database
 
     public function getjobs($userName)
     {
-        $query = "SELECT * FROM job,advertisement WHERE advertisement.userName = '$userName' AND advertisement.advertisementID=job.adId ";
+        $query = "SELECT *,job.userName as buyer FROM job,advertisement WHERE advertisement.userName = '$userName' AND advertisement.advertisementID=job.adId LIMIT 10";
         $result = mysqli_query($GLOBALS['db'], $query);
         return mysqli_fetch_all($result,MYSQLI_ASSOC);
     }
-
+    public function getPendingjobs($userName)
+    {
+        $query = "SELECT *,job.userName as buyer FROM job,advertisement WHERE advertisement.userName = '$userName' AND advertisement.advertisementID=job.adId AND jobStatus='0'";
+        $result = mysqli_query($GLOBALS['db'], $query);
+        return mysqli_fetch_all($result,MYSQLI_ASSOC);
+    }
+    public function getActivejobs($userName)
+    {
+        $query = "SELECT *,job.userName as buyer FROM job,advertisement WHERE advertisement.userName = '$userName' AND advertisement.advertisementID=job.adId AND jobStatus='1'";
+        $result = mysqli_query($GLOBALS['db'], $query);
+        return mysqli_fetch_all($result,MYSQLI_ASSOC);
+    }
+    public function getAlljobs($userName)
+    {
+        $query = "SELECT *,job.userName as buyer FROM job,advertisement WHERE advertisement.userName = '$userName' AND advertisement.advertisementID=job.adId ";
+        $result = mysqli_query($GLOBALS['db'], $query);
+        return mysqli_fetch_all($result,MYSQLI_ASSOC);
+    }
+    public function setOffline($userName)
+    {
+        $date = date('Y-m-d H:i:s');
+        $query = "UPDATE user_online SET status='0',date_time='$date' WHERE userName = '$userName' ";
+        mysqli_query($GLOBALS['db'], $query);
+    }
     public function updateNewDP($image, $userName)
     {
         $query = "UPDATE user SET profilePicture='$image' WHERE userName = '$userName' ";
