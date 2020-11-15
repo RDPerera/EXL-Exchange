@@ -22,6 +22,15 @@ class adChat extends exlFramework
         }
         $this->view("adChatView",$data);
     }
+    public function sellerChat()
+    {
+        $data['sender']=$sender=$this->getSession('sender');
+        $data['receiver']=$receiver=$this->getSession('receiver');
+        $buyer=$this->getSession('buyer');
+        echo $data['sender'].$data['receiver'].$buyer;
+        $data['chat']=$this->model->getSellerChat($receiver,$sender,$buyer);
+        $this->view("chatSellerView",$data);
+    }
     public function send()
     {
         $data['sender']=$sender=$this->getSession('sender');
