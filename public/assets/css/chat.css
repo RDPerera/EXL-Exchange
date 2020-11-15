@@ -32,6 +32,14 @@
   background-color: #f8f8f8;
 }
 
+img.ratingIcon {
+  width: 25px;
+  height: 25px;
+  vertical-align: middle;
+  padding-right: 5px;
+  padding-bottom: 3px;
+}
+
 #chat-body::-webkit-scrollbar {
   width: 10px;
 }
@@ -430,6 +438,11 @@ span.rating {
   margin-bottom: 10px;
 }
 .request-ad {
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  user-select: none;
   background-color: #007bff;
   padding-top: 10px;
   padding-bottom: 10px;
@@ -449,7 +462,71 @@ span.rating {
   border: 1px solid #007bff;
   box-shadow: 1px 1px 1px #ffffff;
 }
+.accept-ad {
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+  background-color: #00c241;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-radius: 10px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 500;
+  border: 1px solid #00c241;
+  color: white;
+  box-shadow: 1px 1px 1px #00c241;
+  transition: ease-in-out 0.3s;
+  margin-bottom: 5px;
+  width: 100%;
+}
+.accept-ad:focus {
+  outline: 0;
+}
+.accept-ad:hover {
+  color: #00c241;
+  background-color: #ffffff;
+  border: 1px solid #00c241;
+  box-shadow: 1px 1px 1px #ffffff;
+}
+.reject-ad {
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+  width: 100%;
+  background-color: #d82303;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-radius: 10px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 500;
+  border: 1px solid #d82303;
+  color: white;
+  box-shadow: 1px 1px 1px #d82303;
+  transition: ease-in-out 0.3s;
+}
+.reject-ad:hover {
+  color: #d82303;
+  background-color: #ffffff;
+  border: 1px solid #d82303;
+  box-shadow: 1px 1px 1px #ffffff;
+}
+.reject-ad:focus {
+  outline: 0;
+}
 .report-ad {
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  user-select: none;
   background-color: #007bff;
   padding-top: 10px;
   padding-bottom: 10px;
