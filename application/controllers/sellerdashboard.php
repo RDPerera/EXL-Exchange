@@ -53,12 +53,13 @@ class sellerDashboard extends exlFramework
         } else {
             $this->redirect('login');
         }
-        if (isset($_POST['logout'])) {
-            session_destroy();
-            $this->redirect('login');
-        }
     }
-
+    public function logout()
+    {
+        $this->sellerDashboardModel->setOffline($userName);
+        session_destroy();
+        $this->redirect('login');
+    }
     public function loadChangeDPView()
     {
         $this->view("changeProfilePicture"); //load the view to change the profile picture
