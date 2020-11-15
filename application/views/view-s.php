@@ -12,6 +12,7 @@
 
 <body>
     <div class='row'>
+    <div>
         <div class='column'>
             <div class="polaroid">
                 <img src='../../public/assets/img/adUploads/<?php echo $data[4]; ?>' height='590px' width='590px'>
@@ -20,6 +21,8 @@
                 </div>
             </div>
         </div>
+        </div>
+        <div>
         <div class='column'>
             <div class="polaroidRightColumn">
                 <h1> <?php echo $data[5]; ?> </h1>
@@ -33,6 +36,7 @@
             </div>
             <div class='link'> <a href="<?php echo BASEURL;?>/advertisements_Controller/deleteAd/<?php echo $data[8]; ?>"> Delete Advertisement</a>
             </div>
+        </div>
         </div>
     </div>
 </body>

@@ -165,6 +165,7 @@ class advertisements_Controller extends exlFramework
   public function deleteAd($username)
   {
     $this->advertisements_model->delete($username);
+    $this->redirect('sellerDashboard');
   }
 
   private function getExistingData($username)
@@ -291,6 +292,7 @@ class advertisements_Controller extends exlFramework
           $this->advertisements_model->updateWithoutImage($status, $category, $title, $tag, $content, $username, $member1, $member2, $member3, $price);
         }
       }
+      $this->redirect('sellerDashboard');
     } else {
       $this->view("updateAd", $row);
     }

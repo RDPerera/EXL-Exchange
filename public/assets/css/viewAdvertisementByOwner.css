@@ -30,6 +30,7 @@ div.polaroid {
         color:rgb(0, 0, 0);
     }
 div.polaroidRightColumn {
+        border-radius: 8px;
         width: 700px;
        height: 560px;
        background-color:#163961;
