@@ -7,6 +7,7 @@ class advertisements_Controller extends exlFramework
   {
     $this->helper("linker");
     $this->advertisements_model = $this->model('advertisements_model');
+    $this->sellerDashboardModel = $this->model('sellerDashboardModel');
   }
 
   public function index()
@@ -14,18 +15,26 @@ class advertisements_Controller extends exlFramework
     $userName = $_SESSION['userName'];
     //check whether ad limit is reched for the user
     $count = $this->advertisements_model->checkAdLimit($userName);
-
     if($count['count']>=8)
     {
       $this->view("maxAdAlert");
     }
     else{
-      $this->view("dashboardCreate");
+      //Load the values needed for the dashboard
+      $user = $this->sellerDashboardModel->retrieveUser($userName);
+
+      if ($user) {
+          $data[0] = $user['firstName'];
+          $data[1] = $user['lastName'];
+          $data[2] = $user['profilePicture'];
+      }
+      $this->view("s-dashboardANDcreateAd",$data);
     }
   }
 
   public function formInput()
   {
+    // echo "awa";
 
     $complete = "display:none";
     $userName = $_SESSION['userName'];
@@ -122,11 +131,20 @@ class advertisements_Controller extends exlFramework
         }
 
         $this->advertisements_model->store($date, $status, $category, $image, $title, $tag, $content, $userName, $member1, $member2, $member3, $price);
-        $this->redirect("advertisements_Controller");
+        $this->redirect("sellerdashboard");
         $complete = "";
       }
     } else { //there are validation errors
-      $this->view("dashboardCreate", $row);
+      //get the data needed for the dashboard
+      $user = $this->sellerDashboardModel->retrieveUser($userName);
+
+      if ($user) {
+          $row[0] = $user['firstName'];
+          $row[1] = $user['lastName'];
+          $row[2] = $user['profilePicture'];
+      }
+
+      $this->view("s-dashboardANDcreateAd",$row);
     }
 
 
