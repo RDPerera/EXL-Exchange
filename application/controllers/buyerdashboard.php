@@ -18,8 +18,12 @@ class buyerDashboard extends exlFramework
             /*Render View */
             $data['curr-page']="home";
             $this->view("buyerDashboardView",$data);
-
-    
+        }
+        public function logout()
+        {
+            $this->sellerDashboardModel->setOffline($userName);
+            session_destroy();
+            $this->redirect('login');
         }
         public function loadChangeDPView()
         {
