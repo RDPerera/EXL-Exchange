@@ -15,26 +15,23 @@ class advertisements_Controller extends exlFramework
     $userName = $_SESSION['userName'];
     //check whether ad limit is reched for the user
     $count = $this->advertisements_model->checkAdLimit($userName);
-    if($count['count']>=8)
-    {
+    if ($count['count'] >= 8) {
       $this->view("maxAdAlert");
-    }
-    else{
+    } else {
       //Load the values needed for the dashboard
       $user = $this->sellerDashboardModel->retrieveUser($userName);
 
       if ($user) {
-          $data[0] = $user['firstName'];
-          $data[1] = $user['lastName'];
-          $data[2] = $user['profilePicture'];
+        $data[0] = $user['firstName'];
+        $data[1] = $user['lastName'];
+        $data[2] = $user['profilePicture'];
       }
-      $this->view("s-dashboardANDcreateAd",$data);
+      $this->view("s-dashboardANDcreateAd", $data);
     }
   }
 
   public function formInput()
   {
-    // echo "awa";
 
     $complete = "display:none";
     $userName = $_SESSION['userName'];
@@ -139,12 +136,12 @@ class advertisements_Controller extends exlFramework
       $user = $this->sellerDashboardModel->retrieveUser($userName);
 
       if ($user) {
-          $row[0] = $user['firstName'];
-          $row[1] = $user['lastName'];
-          $row[2] = $user['profilePicture'];
+        $row[0] = $user['firstName'];
+        $row[1] = $user['lastName'];
+        $row[2] = $user['profilePicture'];
       }
 
-      $this->view("s-dashboardANDcreateAd",$row);
+      $this->view("s-dashboardANDcreateAd", $row);
     }
 
 
@@ -176,8 +173,21 @@ class advertisements_Controller extends exlFramework
 
   public function showAd($adID)
   {
-    $row = $this->advertisements_model->retrieve($adID);
-    $this->view("view-s", $row);
+    $userName = $_SESSION['userName'];
+
+    //get advertisement data from the database
+    $data = $this->advertisements_model->retrieve($adID);
+
+    //Load the values needed for the dashboard
+    $user = $this->sellerDashboardModel->retrieveUser($userName);
+
+    if ($user) {
+      $data['firstName'] = $user['firstName'];
+      $data['lastName'] = $user['lastName'];
+      $data['profilePicture'] = $user['profilePicture'];
+    }
+
+    $this->view("s-dashboardANDViewAd", $data);
   }
 
   public function deleteAd($adId)
