@@ -16,6 +16,7 @@ class buyerDashboard extends exlFramework
             $data['userName']=$userName=$this->getSession("userName");
             $data["profilePic"]=$this->model->checkOlderDP($userName);
             /*Render View */
+            $data['curr-page']="home";
             $this->view("buyerDashboardView",$data);
 
     
