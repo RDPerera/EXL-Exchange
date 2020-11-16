@@ -18,12 +18,13 @@
         <a href="javascript:void(0);" class="icon" onclick="scrollTheMenu()">
             <i class="fa fa-bars"></i> </a>
         <img src="<?php echo srcIMG("logoWhite.png"); ?>" class="exlLogo">
-        <a href="<?php echo BASEURL.'/buyerDashboard'?>" class="active">Home</a>
-        <a href="<?php echo BASEURL.'/categories'?>">Categories</a>
-        <a href="<?php echo BASEURL.'/about'?>">About</a>
-        <a href="<?php echo BASEURL.'/contact'?>">Contact</a>
-        <a href="<?php echo BASEURL.'/contact'?>">Active Jobs</a>
-        <a href="<?php echo BASEURL.'/contact'?>">All Jobs</a>
+        <a href="<?php echo BASEURL.'/buyerDashboard'?>" <?php if($data['curr-page']=="home"){echo "class='active'";} ?>>Home</a>
+        <a href="#">Categories</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+        <a href="<?php echo BASEURL.'/buyerjob/active'?>" <?php if($data['curr-page']=="active"){echo "class='active'";} ?>>Active Jobs</a>
+        <a href="<?php echo BASEURL.'/buyerjob/pending'?>" <?php if($data['curr-page']=="pending"){echo "class='active'";} ?>>Pending Jobs</a>
+        <a href="<?php echo BASEURL.'/buyerjob'?>" <?php if($data['curr-page']=="all"){echo "class='active'";} ?>>All Jobs</a>
         
         
         <div class="buttons">
