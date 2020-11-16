@@ -35,12 +35,13 @@ class adChat extends exlFramework
     {
         $data['sender']=$sender=$this->getSession('sender');
         $data['receiver']=$receiver=$this->getSession('receiver');
+        $buyer=$this->getSession('buyer');
         $message=$_POST['message'];
         date_default_timezone_set('Asia/Colombo');
         $date=date("Y-m-d");
         $time=date("h:i:sa");
         echo $time;
-        $this->model->send($message,$sender,$receiver,$date,$time);
+        $this->model->send($message,$sender,$receiver,$date,$time,$buyer);
     }
     public function status()
     {
