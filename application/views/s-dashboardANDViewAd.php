@@ -47,7 +47,7 @@
     <div class="content-super">
         <div class="page-container">
             <div class="content">
-                <div class="main-title"><span class="blue-text">Current</span> Advertisements</div>
+                <div class="main-title"><span class="blue-text">My</span> Advertisements</div>
                 <div class='row'>
                     <div>
                         <div class='column'>
@@ -69,9 +69,9 @@
                                 <button class='button2'> The Price - LKR <?php echo $data[12]; ?>.00 </button>
                             </div>
                             <br><br>
-                            <div class='link'> <a href="<?php echo BASEURL; ?>/advertisements_Controller/updateAdLoad/<?php echo $data[0]; ?>"> Update Advertisement</a>
+                            <div class='adView'> <a class='adViewLink' href="<?php echo BASEURL; ?>/advertisements_Controller/updateAdLoad/<?php echo $data[0]; ?>"> Update Advertisement</a>
                             </div>
-                            <div class='link'> <a href="<?php echo BASEURL; ?>/advertisements_Controller/deleteAd/<?php echo $data[0]; ?>"> Delete Advertisement</a>
+                            <div class='adView'> <a class='adViewLink' href="<?php echo BASEURL; ?>/advertisements_Controller/deleteAd/<?php echo $data[0]; ?>"> Delete Advertisement</a>
                             </div>
                         </div>
                     </div>

@@ -1,13 +1,5 @@
 
-body {
-    margin-top: 60px;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #007bff ;
-    /* background-image: url("../img/viewAdBackground.jpg"); */
-    /* #007bff */
-}
-
-.column {
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@600&family=Ubuntu:wght@400;500&display=swap');.column {
     float: left;
     width: 50%;
 }
@@ -22,41 +14,47 @@ div.polaroid {
 
         width: 590px;
        height: 660px;
-       background-color:  #163961;
+       background-color:   #0a7ffb;
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
         border-radius: 8px;
-        margin-left: 180px;
+        margin-left: 50px;
         margin-top: 30px;
         color:rgb(0, 0, 0);
     }
 div.polaroidRightColumn {
         border-radius: 8px;
-        width: 700px;
-       height: 560px;
-       background-color:#163961;
+        width: 750px;
+       height: 660px;
+       background-color: #0a7ffb;
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-        color:rgb(147, 203, 255);
-        margin-left: 40px;
+        color:rgb(255, 255, 255);
+
         margin-top: 30px;
-        text-shadow: 1px 1px 2px rgb(0, 0, 0);
-        /* background-image: url("../img/descBackground2.jpg");  */
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+
+        /* text-shadow: 1px 1px 2px rgb(0, 0, 0); */
+
     }
 div.container {
     text-align: center;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     /* padding: 10px 20px; */
 }
 
 h1{
-    text-shadow: 1px 1px 2px rgb(0, 0, 0);
+    /* text-shadow: 1px 1px 2px rgb(0, 0, 0); */
 	font-weight: 600;
-	font-size: 36px;
+	font-size: 30px;
 	line-height: 40px;
-	padding: 15px 15px 15px 15%;
-	color: rgb(147, 203, 255);
-    background-color: rgb(4, 45, 78);
+	padding: 15px 15px 15px 10%;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    background-color:  #0b6cd4;
 }
 
 img:hover {
+    transition: 300ms;
+
     /* margin-top: 50px; */
     opacity: 0.85;
     
@@ -67,12 +65,12 @@ h1:hover{
   }
 p.desc {
     margin-top: 10;
-    color:rgb(147, 203, 255);
+    color:rgb(255, 255, 255);
     margin-right: 30px;
     margin-left: 30px;
     text-indent: 10px;
     text-align: justify;
-    text-shadow: 1px 1px 1px #000000;
+    /* text-shadow: 1px 1px 1px #000000; */
     }
 
 
@@ -85,14 +83,17 @@ p.imageBottom{
 }
 
 .class1{
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     margin-left: 30px;
     font-weight:bold;
     font-size: larger;
+    letter-spacing: 1px;
+    color: rgb(255, 255, 255);
+    /* text-shadow: 1px 1px 1px #080808; */
     
-
 }
 button {
-    background-color: #081653; 
+    background-color: #152777; 
     border-radius: 8px;
     color: white;
     padding: 15px 32px;
@@ -132,8 +133,10 @@ button {
 
 }
 
-a:link, a:visited {
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+.adViewLink:link, .adViewLink:visited {
+    font-family: 'Source Sans Pro', sans-serif;
+
+    font-family: 'Ubuntu', sans-serif;    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
     border-radius: 8px;
     background-color: #0010a3;
     color: white;
@@ -143,12 +146,14 @@ a:link, a:visited {
     display: inline-block;
   }
   
-  a:hover, a:active {
-    background-color: rgb(12, 0, 80);
+  .adViewLink:hover, .adViewLink:active {
+    background-color: #007bff;
+    transition: 400ms;
+
   }
 
-  div.link{
+  div.adView{
       display: inline;
       padding-left: 40px;
-      margin-left: 2px;
-  }
+      /* margin-left: 2px; */
+  } 
