@@ -39,7 +39,22 @@ class loginModel extends database
         $result = mysqli_query($GLOBALS['db'], $userCheck);
         return mysqli_fetch_assoc($result);
     }
-
+    /* check user is a admin or not */
+    public function adminCheck($userName)
+    {
+        $userName=mysqli_real_escape_string($GLOBALS['db'],$userName);
+        $userCheck = "SELECT * FROM admin WHERE userName='$userName' LIMIT 1";
+        $result = mysqli_query($GLOBALS['db'], $userCheck);
+        return mysqli_fetch_assoc($result);
+    }
+    /* check user is a admin or not */
+    public function moderatorCheck($userName)
+    {
+        $userName=mysqli_real_escape_string($GLOBALS['db'],$userName);
+        $userCheck = "SELECT * FROM moderator WHERE userName='$userName' LIMIT 1";
+        $result = mysqli_query($GLOBALS['db'], $userCheck);
+        return mysqli_fetch_assoc($result);
+    }
     /* check account sataus */
     public function accountCheck($userName)
     {
@@ -48,7 +63,14 @@ class loginModel extends database
         $result = mysqli_query($GLOBALS['db'], $userCheck);
         return mysqli_fetch_assoc($result);
     }
-
+    //set user-message status to ONLINE
+    public function setOnline($userName)
+    {
+        date_default_timezone_set('Asia/Colombo');
+        $date = date('Y-m-d H:i:s');
+        $query = "UPDATE user_online SET status='1',date_time='$date' WHERE userName = '$userName' ";
+        mysqli_query($GLOBALS['db'], $query);
+    }
     /* check username and password are matched */
     public function passwordCheck($userName,$password)
     {

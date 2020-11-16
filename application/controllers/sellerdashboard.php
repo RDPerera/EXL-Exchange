@@ -49,6 +49,7 @@ class sellerDashboard extends exlFramework
             $data['jobs']=$this->sellerDashboardModel->getjobs($userName);
             //print_r($this->sellerDashboardModel->getjobs($userName));
             //load the view
+            
             $this->view("sellerDashboardView", $data);
         } else {
             $this->redirect('login');

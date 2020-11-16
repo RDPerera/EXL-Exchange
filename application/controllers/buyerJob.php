@@ -1,12 +1,41 @@
 <?php
-class buyerDashboard extends exlFramework
+class buyerJob extends exlFramework
 {
     public function __construct()
         {
             $this->helper("linker");
             $this->ads = $this->model('homeModel');
             $this->model=$this->model('buyerDashboardModel');
+            $this->buyerJobModel=$this->model('buyerJobModel');
             $this->sellerDashboardModel = $this->model('sellerDashboardModel');
+        }
+        public function active(){
+            /*Get DATA for Ad Categories */
+            $data['popular']=$this->ads->getAdsPopular();
+            $data['new']=$this->ads->getAdsNew();
+            $data['noob']=$this->ads->getAdsNoob();
+            $data['userName']=$userName=$this->getSession("userName");
+            $data["profilePic"]=$this->model->checkOlderDP($userName);
+            $data['jobs']=$this->buyerJobModel->getAccepted($userName);
+            /*Render View */
+            $data['curr-page']="active";
+            $data['mode']=2;
+            $this->view("buyerJobView",$data);
+            
+    
+        }
+        public function pending(){
+            /*Get DATA for Ad Categories */
+            $data['popular']=$this->ads->getAdsPopular();
+            $data['new']=$this->ads->getAdsNew();
+            $data['noob']=$this->ads->getAdsNoob();
+            $data['userName']=$userName=$this->getSession("userName");
+            $data["profilePic"]=$this->model->checkOlderDP($userName);
+            $data['jobs']=$this->buyerJobModel->getPending($userName);
+            /*Render View */
+            $data['curr-page']="pending";
+            $data['mode']=1;
+            $this->view("buyerJobView",$data);
         }
         public function index(){
             /*Get DATA for Ad Categories */
@@ -15,15 +44,11 @@ class buyerDashboard extends exlFramework
             $data['noob']=$this->ads->getAdsNoob();
             $data['userName']=$userName=$this->getSession("userName");
             $data["profilePic"]=$this->model->checkOlderDP($userName);
+            $data['jobs']=$this->buyerJobModel->getAlljobs($userName);
             /*Render View */
-            $data['curr-page']="home";
-            $this->view("buyerDashboardView",$data);
-        }
-        public function logout()
-        {
-            $this->sellerDashboardModel->setOffline($userName);
-            session_destroy();
-            $this->redirect('login');
+            $data['mode']=3;
+            $data['curr-page']="all";
+            $this->view("buyerJobView",$data);
         }
         public function loadChangeDPView()
         {

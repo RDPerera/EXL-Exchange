@@ -1,0 +1,16 @@
+.profile-pic {
+  width: 40px;
+  height: 40px;
+  margin-top: 16px;
+  margin-right: 10px;
+  border-radius: 30px;
+  border: 2px solid white;
+  cursor: pointer;
+  transition: ease-in-out 0.2s;
+}
+.profile-pic:hover {
+  filter: drop-shadow(1px 1px 5px rgb(255, 255, 255));
+}
+.signin-button {
+  display: none;
+}

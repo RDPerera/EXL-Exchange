@@ -1,6 +1,6 @@
 <?php
 
-class sellerDashboardModel extends database
+class buyerDashboardModel extends database
 {
 
     public function retrieveUser($userName) //retrieves the user table data from the database and returns it
@@ -21,7 +21,6 @@ class sellerDashboardModel extends database
 
     public function sellerAds($userName) //retrieves the user advertisement data from the database and returns it
     {
-
         $sql = "SELECT * FROM advertisement WHERE userName = '$userName' ";
         $result = mysqli_query($GLOBALS['db'], $sql);
         $i = 0;
@@ -48,7 +47,7 @@ class sellerDashboardModel extends database
         $query = "SELECT profilePicture FROM user WHERE userName = '$userName' ";
         $result = mysqli_query($GLOBALS['db'], $query);
         $row = mysqli_fetch_assoc($result);
-        return $row;
+        return $row['profilePicture'];
     }
 
     public function getjobs($userName)
@@ -77,7 +76,6 @@ class sellerDashboardModel extends database
     }
     public function setOffline($userName)
     {
-        date_default_timezone_set('Asia/Colombo');
         $date = date('Y-m-d H:i:s');
         $query = "UPDATE user_online SET status='0',date_time='$date' WHERE userName = '$userName' ";
         mysqli_query($GLOBALS['db'], $query);

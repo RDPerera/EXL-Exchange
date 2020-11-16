@@ -75,14 +75,26 @@
     /* Redirect user to relevent dashboard */
     private function linkDashboard($userName)
     {
+        $this->loginModel->setOnline($userName);
         $user = $this->loginModel->buyerCheck($userName);
         if ($user) {
+        
           $this->redirect('buyerDashboard');
         }
         $user = $this->loginModel->sellerCheck($userName);
         if ($user) { 
 
           $this->redirect('sellerDashboard');
+        }
+        $user = $this->loginModel->adminCheck($userName);
+        if ($user) { 
+
+          $this->redirect('adminDashboard');
+        }
+        $user = $this->loginModel->moderatorCheck($userName);
+        if ($user) { 
+
+          $this->redirect('moderatorDashboard');
         }
     }
     /* return the reson to login failure*/
