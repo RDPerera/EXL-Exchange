@@ -6,13 +6,20 @@ class jobRequest extends exlFramework
         $this->model=$this->model("adChatModel");
         $this->mainModel=$this->model("jobRequestModel");
         $this->secModel=$this->model("jobModel");
+        $this->dashmodel=$this->model('buyerDashboardModel');
         $this->helper("linker");
     }
     
+    public function get($adId)
+    {
+        $this->setSession("adId",$adId);
+        $this->redirect('jobRequest');
+    }
     public function index()
     {
-        $receiver="1";
-        $sender="chathura";
+        $data=array();
+        $receiver=$this->getSession("adId");
+        $sender=$this->getSession("userName");
         if($this->secModel->isJob($receiver,$sender))
         {
             $this->redirect('job');
@@ -23,6 +30,9 @@ class jobRequest extends exlFramework
             $this->setSession('buyer',$sender);
             $this->setSession('receiver',$receiver);
             $this->setSession('sender',$sender);
+            $data['userName']=$userName=$this->getSession("userName");
+            $data["profilePic"]=$this->dashmodel->checkOlderDP($userName);
+            $data['curr-page']="no-page";
             $this->view("jobRequestView",$data);
         }
     }
