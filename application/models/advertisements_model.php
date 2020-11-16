@@ -25,30 +25,30 @@ class advertisements_model extends database
 
     public function retrieve($adID)
     {
-        $query = "SELECT * FROM advertisement WHERE advertisementID = $adID";
+        $query = "SELECT * FROM advertisement WHERE advertisementID = '$adID'";
         $result = mysqli_query($GLOBALS['db'], $query);
         $row = mysqli_fetch_row($result);
         return $row;
     }
 
-    public function delete($adUsername)
+    public function delete($adID)
     {
-        $query = "DELETE FROM advertisement WHERE username = '$adUsername'";
+        $query = "DELETE FROM advertisement WHERE advertisementID = '$adID'";
 
         if (mysqli_query($GLOBALS['db'], $query)) {
-            echo "Deleted the advertisement - $adUsername successfully";
+            // echo "Deleted the advertisement - $adID successfully";
         }
     }
 
-    public function getDataByUsername($username)
+    public function getDataByID($adID)
     {
-        $query = "SELECT * FROM advertisement WHERE username = '$username'";
+        $query = "SELECT * FROM advertisement WHERE advertisementID = '$adID'";
         $result = mysqli_query($GLOBALS['db'], $query);
         $row = mysqli_fetch_row($result);
         return $row;
     }
 
-    public function updateWithImage($status, $category, $image, $title, $tag, $content, $userName, $member1, $member2, $member3, $price)
+    public function updateWithImage($adID,$status, $category, $image, $title, $tag, $content, $userName, $member1, $member2, $member3, $price)
     {
 
         $title = mysqli_real_escape_string($GLOBALS['db'], $title);
@@ -61,10 +61,10 @@ class advertisements_model extends database
         $member3 = mysqli_real_escape_string($GLOBALS['db'],  $member3);
         $price = mysqli_real_escape_string($GLOBALS['db'], $price);
 
-        $query = "UPDATE advertisement SET image = '$image' , status = '$status' ,category = '$category', title = '$title' ,tag = '$tag' ,content = '$content' , member1 = '$member1',member2 = '$member2' ,member3 = '$member3' ,price = '$price' WHERE username = '$userName' ";
+        $query = "UPDATE advertisement SET image = '$image' , status = '$status' ,category = '$category', title = '$title' ,tag = '$tag' ,content = '$content' , member1 = '$member1',member2 = '$member2' ,member3 = '$member3' ,price = '$price' WHERE advertisementID = '$adID' ";
         mysqli_query($GLOBALS['db'], $query);
     }
-    public function updateWithoutImage($status, $category, $title, $tag, $content, $userName, $member1, $member2, $member3, $price)
+    public function updateWithoutImage($adID,$status, $category, $title, $tag, $content, $userName, $member1, $member2, $member3, $price)
     {
         
         $title = mysqli_real_escape_string($GLOBALS['db'], $title);
@@ -77,7 +77,7 @@ class advertisements_model extends database
         $member3 = mysqli_real_escape_string($GLOBALS['db'],  $member3);
         $price = mysqli_real_escape_string($GLOBALS['db'], $price);
 
-        $query = "UPDATE advertisement SET status = '$status' ,category = '$category', title = '$title' ,tag = '$tag' ,content = '$content' , member1 = '$member1',member2 = '$member2' ,member3 = '$member3' ,price = '$price' WHERE username = '$userName' ";
+        $query = "UPDATE advertisement SET status = '$status' ,category = '$category', title = '$title' ,tag = '$tag' ,content = '$content' , member1 = '$member1',member2 = '$member2' ,member3 = '$member3' ,price = '$price' WHERE advertisementID  = '$adID' ";
         mysqli_query($GLOBALS['db'], $query);
     }
 

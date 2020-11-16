@@ -54,7 +54,7 @@
     <div class="content-super">
         <div class="sub-container">
             <div class="main-title-create"><span class="blue-text-create">Create </span>Advertisement</div>
-            <form action="<?php echo BASEURL;?>/advertisements_Controller/formInput" method="post" name="createAdForm" enctype="multipart/form-data">
+            <form action="<?php echo BASEURL;?>/advertisements_Controller/formInput" method="post" name="createAdForm" enctype="multipart/form-data"> 
 
                 <div class="fieldset">
                     <label> Enter the title </label>

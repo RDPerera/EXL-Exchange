@@ -180,16 +180,16 @@ class advertisements_Controller extends exlFramework
     $this->view("view-s", $row);
   }
 
-  public function deleteAd($username)
+  public function deleteAd($adId)
   {
-    $this->advertisements_model->delete($username);
+    $this->advertisements_model->delete($adId);
     $this->redirect('sellerDashboard');
   }
 
-  private function getExistingData($username)
+  private function getExistingData($adID)
   {
-    //get the ad data using the username 
-    $row = $this->advertisements_model->getDataByUsername($username);
+    //get the ad data using the ID
+    $row = $this->advertisements_model->getDataByID($adID);
     $options = "";
     $optionArray = array("Graphics Designing", "Programming", "Content Writing");
 
@@ -216,16 +216,19 @@ class advertisements_Controller extends exlFramework
     return $row;
   }
 
-  public function updateAdLoad($username) //function that is used to retrieve the existing values of the ad from the database to the view
+  public function updateAdLoad($adID) //function that is used to retrieve the existing values of the ad from the database to the view
   {
-    $row = $this->getExistingData($username);
+    $row = $this->getExistingData($adID);
     $this->view("updateAd", $row); //open the updation form using that data
   }
 
-  public function updateAdSubmit($username) //store the updated values from the view to the database
+  public function updateAdSubmit($adID) //store the updated values from the view to the database
   {
+    $username = $_SESSION['userName'];
+    echo $username;
+
     //PART 2
-    $row = $this->getExistingData($username);
+    $row = $this->getExistingData($adID);
 
     //form validation 
 
@@ -304,10 +307,10 @@ class advertisements_Controller extends exlFramework
           $image = $username . $timestamp . "." . $imageFileType; //generating an unique name to the image file
           rename("../public/assets/img/adUploads/$filename", "../public/assets/img/adUploads/$image"); //adding the generated name to the file
 
-          $this->advertisements_model->updateWithImage($status, $category, $image, $title, $tag, $content, $username, $member1, $member2, $member3, $price);
+          $this->advertisements_model->updateWithImage($adID, $status, $category, $image, $title, $tag, $content, $username, $member1, $member2, $member3, $price);
         } else //the user have not uploaded a new image
         {
-          $this->advertisements_model->updateWithoutImage($status, $category, $title, $tag, $content, $username, $member1, $member2, $member3, $price);
+          $this->advertisements_model->updateWithoutImage($adID, $status, $category, $title, $tag, $content, $username, $member1, $member2, $member3, $price);
         }
       }
       $this->redirect('sellerDashboard');

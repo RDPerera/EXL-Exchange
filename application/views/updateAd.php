@@ -13,7 +13,7 @@
 
 <body>
     <h1 align="center">Update the Advertisement</h1>
-    <form method="post" enctype="multipart/form-data" action="<?php echo BASEURL;?>/advertisements_Controller/updateAdSubmit/<?php echo $data[8]; ?>">
+    <form method="post" enctype="multipart/form-data" action="<?php echo BASEURL;?>/advertisements_Controller/updateAdSubmit/<?php echo $data[0]; ?>">
         <div class='center'>
             <div class='polaroid'>
                 <label> Enter the title </label>

@@ -53,7 +53,7 @@
                 <div class="fieldset">
                     <label> Enter the title </label>
                     <input type="text" name="title">
-                    <span class="error"><?php if (!empty($data['titleErr'])) : echo $data['titleErr']; endif; ?></span>
+                    <span class="error"><?php if(!empty($data['titleErr'])) : echo $data['titleErr']; endif; ?></span>
                 </div>
                 <div class="fieldset">
                     <label> Select the category </label>
@@ -68,7 +68,7 @@
                             Content Writing
                         </option>
                     </select>
-                    <span class="error"><?php if (!empty($data['categoryErr'])) : echo $data['categoryErr']; endif; ?></span>
+                    <span class="error"><?php if(!empty($data['categoryErr'])) : echo $data['categoryErr']; endif; ?></span>
 
                 </div>
 
@@ -89,25 +89,25 @@
                         <input type="radio" id="inactive" name="status" value="inactive">
                         <label for="inactive">Inactive</label>
                     </span>
-                    <span class="error"> <?php if (!empty($data['statusErr'])) : echo $data['statusErr']; endif; ?></span>
+                    <span class="error"> <?php if(!empty($data['statusErr'])) : echo $data['statusErr']; endif; ?></span>
                 </div>
                 <div class="fieldset">
                     <label>Enter a search tag </label>
                 </div>
                 <div class="fieldset">
                     <input type="text" name="tag">
-                    <span class="error"> <?php if (!empty($data['tagErr'])) : echo $data['tagErr']; endif; ?></span>
+                    <span class="error"> <?php if(!empty($data['tagErr'])) : echo $data['tagErr']; endif; ?></span>
                     <div>
                         <br>
                         <div class="fieldset">
                             <label>Advertisement Content</label><br>
                             <textarea name="content"></textarea>
-                            <span class="error"> <?php if (!empty($data['contentErr'])) : echo $data['contentErr']; endif; ?></span>
+                            <span class="error"> <?php if(!empty($data['contentErr'])) : echo $data['contentErr']; endif; ?></span>
                         </div>
                         <div class="fieldset">
                             <label>Enter the price</label>
                             <input type="text" name="price" placeholder="The Price In Srilankan Rupees">
-                            <span class="error"> <?php if (!empty($data['priceErr'])) : echo $data['priceErr']; endif; ?> </span>
+                            <span class="error"> <?php if(!empty($data['priceErr'])) : echo $data['priceErr']; endif; ?> </span>
 
                         </div>
                         <div class="addcollabrators">Add Collaborators

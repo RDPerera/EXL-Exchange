@@ -32,9 +32,9 @@
                 <button class='button2'> The Price - LKR <?php echo $data[12]; ?>.00 </button>
             </div>
             <br><br>
-            <div class='link'> <a href="<?php echo BASEURL;?>/advertisements_Controller/updateAdLoad/<?php echo $data[8]; ?>"> Update Advertisement</a>
+            <div class='link'> <a href="<?php echo BASEURL;?>/advertisements_Controller/updateAdLoad/<?php echo $data[0]; ?>"> Update Advertisement</a>
             </div>
-            <div class='link'> <a href="<?php echo BASEURL;?>/advertisements_Controller/deleteAd/<?php echo $data[8]; ?>"> Delete Advertisement</a>
+            <div class='link'> <a href="<?php echo BASEURL;?>/advertisements_Controller/deleteAd/<?php echo $data[0]; ?>"> Delete Advertisement</a>
             </div>
         </div>
         </div>
