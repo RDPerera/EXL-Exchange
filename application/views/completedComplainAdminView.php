@@ -26,41 +26,39 @@
  
 
 <body>
-    
-    <h1>Accomplished<span> Complains</span></h1>
-<table >
-  <tr>
-    <th>Complain<br>Id</th>
-    <th>Complainant</th>
-    <th>Complainee</th>
-    <th>Description</th>
-    <th>Job<br>Id</th>
-    <th>Advertisement<br>ID</th>
-    <th>Complain<br>Type</th>
-    <th>Action<br> status</th>
-    <th>Mod Id</th>
-    <th>Admin Id</th>
-    
-  </tr>
- <?php 
-$result=$data['results'];
-foreach ($result as $row){
-?>
-<td><?php echo $row['complainId'] ; ?></td>
-<td><?php echo $row['complainerUsername'] ; ?></td>
-<td><?php echo $row['accusedUsername'] ; ?></td>
-<td><?php echo $row['description'] ; ?></td>
-<td><?php echo $row['jobId'] ; ?></td>
-<td><?php echo $row['advertisementID'] ; ?></td>
-<td><?php echo $row['complainType'] ; ?></td>
-<td><?php echo $row['actionStatus'] ; ?></td>
-<td><?php echo $row['modId'] ; ?></td>
-<td><?php echo $row['adminId'] ; ?></td>
 
+    
+    <div class="table-container">
+    <p class="title">Accomplished<span> Complains</span></p>
+    <table >
+      <tr>
+        <th>Complain<br>Id</th>
+        <th>Complainant</th>
+        <th>Complainee</th>
+        <th>Description</th>
+        <th>Job<br>Id</th>
+        <th>Advertisement<br>ID</th>
+        <th>Complain<br>Type</th>
+        <th>Action<br> status</th>
+        <th>Mod Id</th>
+        <th>Admin Id</th>
+      </tr>
 
-</tr>
-<?php
-}
-?>
-</table>
+    <?php $result=$data['results'];
+    foreach ($result as $row){?>
+
+    <td><?php echo $row['complainId'] ; ?></td>
+    <td><?php echo $row['ComplainerUsername'] ; ?></td>
+    <td><?php echo $row['accusedUsername'] ; ?></td>
+    <td><?php echo $row['description'] ; ?></td>
+    <td><?php echo $row['jobId'] ; ?></td>
+    <td><?php echo $row['advertisementId'] ; ?></td>
+    <td><?php echo $row['complainType'] ; ?></td>
+    <td><?php echo $row['actionStatus'] ; ?></td>
+    <td><?php echo $row['modId'] ; ?></td>
+    <td><?php echo $row['adminId'] ; ?></td>
+    </tr>
+    <?php } ?>
+    </table>
+</div>
 

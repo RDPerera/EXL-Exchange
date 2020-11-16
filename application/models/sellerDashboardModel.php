@@ -77,6 +77,7 @@ class sellerDashboardModel extends database
     }
     public function setOffline($userName)
     {
+        date_default_timezone_set('Asia/Colombo');
         $date = date('Y-m-d H:i:s');
         $query = "UPDATE user_online SET status='0',date_time='$date' WHERE userName = '$userName' ";
         mysqli_query($GLOBALS['db'], $query);
