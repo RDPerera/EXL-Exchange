@@ -33,16 +33,16 @@
             <span class="slidbar-name"><?php echo $data[0] . " " . $data[1]; ?></span>
         </center>
         <div class="sidebar-menu">
-            <a href="#" class=" selected-item"><img src="<?php echo BASEURL; ?>/public/assets/img/icons/icons8-home-144.png" class="sidebar-icons"><span>Home</span></a>
+            <a href="<?php echo BASEURL; ?>/sellerdashboard" class="selected-item"><img src="<?php echo BASEURL; ?>/public/assets/img/icons/icons8-home-144.png" class="sidebar-icons "><span>Home</span></a>
             <a href="#"><img src="<?php echo BASEURL; ?>/public/assets/img/icons/icons8-chat-96.png" class="sidebar-icons"><span>Messages</span></a>
-            <a href="#"><img src="<?php echo BASEURL; ?>/public/assets/img/icons/icons8-submit-resume-96.png " class="sidebar-icons"><span>Current
-                    Jobs</span></a>
-            <a href="<?php echo BASEURL; ?>/advertisements_controller"><img src="<?php echo BASEURL; ?>/public/assets/img/icons/icons8-plus-math-96.png" class="sidebar-icons"><span>Create an Advertisement</span></a>
-            <a href="#"><img src="<?php echo BASEURL; ?>/public/assets/img/icons/icons8-question-mark-96.png" class="sidebar-icons"><span>Help &
-                    Support</span></a>
+            <a href="<?php echo BASEURL; ?>/sellerJob/pending"><img src="<?php echo BASEURL; ?>/public/assets/img/icons/pending.png " class="sidebar-icons"><span>Pending Jobs</span></a>
+            <a href="<?php echo BASEURL; ?>/sellerJob/active"><img src="<?php echo BASEURL; ?>/public/assets/img/icons/active.png " class="sidebar-icons"><span>Active Jobs</span></a>
+            <a href="<?php echo BASEURL; ?>/sellerJob"><img src="<?php echo BASEURL; ?>/public/assets/img/icons/icons8-submit-resume-96.png " class="sidebar-icons"><span>All Job Request</span></a>
+            <a href="<?php echo BASEURL; ?>/advertisements_controller"><img src="<?php echo BASEURL; ?>/public/assets/img/icons/icons8-plus-math-96.png" class="sidebar-icons"><span>Create Advertisement</span></a>
+            <a href="#"><img src="<?php echo BASEURL; ?>/public/assets/img/icons/icons8-question-mark-96.png" class="sidebar-icons"><span>Help & Support</span></a>
             <a href="#"><img src="<?php echo BASEURL; ?>/public/assets/img/icons/icons8-complaint-90.png" class="sidebar-icons"><span>Complaints</span></a>
-            <a href="#"><img src="<?php echo BASEURL; ?>/public/assets/img/icons/icons8-settings-500.png" class="sidebar-icons"><span>Settings</span></a>
-        </div>
+            <a href="#"><img src="<?php echo BASEURL; ?>/public/assets/img/icons/icons8-settings-500.png" class="sidebar-icons"><span>Settings</span></a></div>
+    </div>
     </div>
 
     <div class="content-super">
