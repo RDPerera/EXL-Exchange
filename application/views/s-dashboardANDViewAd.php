@@ -71,7 +71,7 @@
                             <br><br>
                             <div class='adView'> <a class='adViewLink' href="<?php echo BASEURL; ?>/advertisements_Controller/updateAdLoad/<?php echo $data[0]; ?>"> Update Advertisement</a>
                             </div>
-                            <div class='adView'> <a class='adViewLink' href="<?php echo BASEURL; ?>/advertisements_Controller/deleteAd/<?php echo $data[0]; ?>"> Delete Advertisement</a>
+                            <div class='adView'> <a class='adViewLink' href="<?php echo BASEURL; ?>/advertisements_Controller/deleteAd/<?php echo $data[0]; ?>" onclick="return confirm('Are you sure you want to delete the advertisement?')"> Delete Advertisement</a>
                             </div>
                         </div>
                     </div>

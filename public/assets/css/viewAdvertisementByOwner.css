@@ -3,6 +3,11 @@
     float: left;
     width: 50%;
 }
+
+body{
+
+    background-color: rgb(255, 255, 255);
+}
  
 .row:after {
     content: "";
@@ -47,7 +52,7 @@ h1{
 	font-size: 30px;
 	line-height: 40px;
 	padding: 15px 15px 15px 10%;
-    color: rgb(255, 255, 255);
+    color: rgb(168, 239, 248);
     text-align: center;
     background-color:  #0b6cd4;
 }
