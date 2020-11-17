@@ -29,7 +29,7 @@
 		<br>
 		<div class="section"></div>
 		<div class="inner-wrap">
-			<form method="post"  action="<?php echo BASEURL.'/addModerator/insert';?>">
+			<form method="post"  action="<?php echo BASEURL.'/adminDashboard/insert';?>">
 				<label for="firstname">First Name: </label>
 				<input  type="text" id="firstname" name="firstname" >
 		</div>
@@ -39,7 +39,7 @@
 			<input type="text" id="lastname" name="lastname" >
 		</div>
 		<div class="inner-wrap">
-			<label for="last name">User Name</label>
+			<label for="username">User Name</label>
 			<input type="text" id="username" name="username" >
 		</div>
 		<div class="inner-wrap">

@@ -4,7 +4,8 @@ class addModeratorModel extends database
     /*insert the data into DB*/
     public function insertmod($username,$startdate)
     {
-        $sql = "INSERT INTO moderators VALUES ('$username', '$startdate')";
+        echo $username.$startdate;
+        $sql = "INSERT INTO moderator VALUES ('$username', '$startdate')";
         mysqli_query($GLOBALS['db'], $sql);
     }
     public function insertUser($username,$firstname,$lastname,$dob,$email,$passwd)

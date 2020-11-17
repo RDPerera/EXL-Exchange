@@ -6,11 +6,15 @@
             $this->helper("linker");
             $this->model = $this->model('completedComplainAdminModel');
             $this->amodel = $this->model('addModeratorModel');
+            $this->main_model = $this->model('adminDashboardModel');
         }
 
         public function index()
         {
             $data=array();
+            $admin=$this->getSession("userName");
+            if(!($this->main_model->adminCheck($admin)))
+            {$this->redirect("login");}
             $results=$this->model->fetchData();
             $data['results']=$results;
             $this->view("completedComplainAdminView",$data);
@@ -38,7 +42,7 @@
             $startdate = date('Y-m-d H:i:s');
             $dob =  $_POST['startDate'];
             $passwd=$_POST['password'];
-            $user = $this->amodel->insertmod($firstname,$lastname,$email,$startdate);
+            $user = $this->amodel->insertmod($username,$startdate);
             $user = $this->amodel->insertUser($username,$firstname,$lastname,$dob,$email,$passwd);
         }
     }
