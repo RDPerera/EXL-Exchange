@@ -1,5 +1,5 @@
 <?php $job=$data['job']; ?>
-<?php include "components/headerHome.php"; ?>
+<?php include "components/buyerDashboardHeader.php"; ?>
 
     <?php linkCSS('chat'); ?>
     <?php linkJS('jquery.min'); ?>
@@ -91,8 +91,9 @@
                     <tr><td>Total Payment</td><td id="total-payment"></td></tr>
                 </table>
             </div>
+            
             <div class="request-buttons">
-                <input type="submit" class="request-ad" name="submit" value="Resend Job Request">
+                <input type="submit" class="request-ad" name="submit" <?php if($job['jobStatus']=='1'){ echo "style='display:none' disabled";} ?> value="Resend Job Request">
             </div>
             </div>
         </div>

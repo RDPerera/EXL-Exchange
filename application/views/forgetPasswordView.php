@@ -10,6 +10,7 @@
     <?php 
     $stateSuccess = $data['stateSuccess'];
     $error=$data['error'];
+
     ?>
     
 </head>

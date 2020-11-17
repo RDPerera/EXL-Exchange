@@ -29,6 +29,7 @@
         
         <div class="buttons">
         <img class="profile-pic" onclick="window.location.href='<?php echo BASEURL.'/buyerdashboard/loadChangeDPView' ?>'" src="<?php echo BASEURL;?>/public/assets/img/userImages/<?php if (isset($data["profilePic"])) {echo $data["profilePic"];} else {echo "pp_default.jpg";}?>" class="sidebar-profile">
+        <img class="profile-pic" style="border:none;width:30px;border-radius:0px;height:30px;padding-bottom:5px;padding-right:5px;" onclick="window.location.href='<?php echo BASEURL.'/buyerdashboard/logout' ?>'" src="<?php echo BASEURL;?>/public/assets/img/icons/logout.png" class="sidebar-profile">
         <button  class="signin-button" onclick="window.location.href='<?php echo BASEURL.'/login' ?>'">Log Out</button>
         </div>
         
