@@ -10,13 +10,13 @@
 </head>
 <body>
 <div class="header" >
-  <div class="primary">Admin&nbsp<span>Dashboard</span></div>
-  <button class="logout">Log&nbspOut</button>
+<div class="primary">Moderator&nbsp<span>Dashboard</span></div>
+  <button style="margin-left:1600px"  class="logout" onclick="window.location.href='<?php echo BASEURL.'/adminDashboard/logout' ?>'">Log&nbspOut</button>
 </div>
 <nav >
    <a ><div class="item"><img src="<?php echo BASEURL; ?>/public/assets/img/icons/ee-logo.png" class="logo"></div></a>
-   <a href="<?php echo BASEURL.'/addModerator' ?>"><div class="item selected"><img src="<?php echo BASEURL; ?>/public/assets/img/icons/icons8-user-resume-96.png" class="sidebar-icons"><span>Add Moderators</span></div></a>
-   <a href="<?php echo BASEURL.'/addModerator' ?>"><div class="item selected"><img src="<?php echo BASEURL; ?>/public/assets/img/icons/icons8-user-resume-96.png" class="sidebar-icons"><span>Delete/Update&nbspModerator</span></div></a>
+   <a href="<?php echo BASEURL.'/addModerator' ?>"><div class="item"><img src="<?php echo BASEURL; ?>/public/assets/img/icons/icons8-user-resume-96.png" class="sidebar-icons"><span>Add Moderators</span></div></a>
+   <a href="<?php echo BASEURL.'/addModerator' ?>"><div class="item selected"><img src="<?php echo BASEURL; ?>/public/assets/img/icons/icons8-user-resume-96.png" class="sidebar-icons"><span>Manage&nbspModerator</span></div></a>
    <a href="#second"><div class="item"><img src="<?php echo BASEURL; ?>/public/assets/img/icons/icons8-complaint-90.png" class="sidebar-icons"><span>Current&nbspcomplains</span></div></a>
    <a href="#second"><div class="item"><img src="<?php echo BASEURL; ?>/public/assets/img/icons/icons8-complaint-90.png" class="sidebar-icons"><span>Completed&nbspcomplains</span></div></a>
    <a href="#third"><div class="item"><img src="<?php echo BASEURL; ?>/public/assets/img/icons/icons8-report-96.png" class="sidebar-icons"><span>Reports</span></div></a>
@@ -25,29 +25,30 @@
  <br>
  <br>
     <body>
+      
     <div class="form-style-10">
    <h1 >Update A Moderator</h1>
 <form method="post" >
 <div class="section">Update Info</div>
 		<div class="inner-wrap">
-				<label for="firstname">First Name: </label>
-				<input type="text" name="firstname" value="<?php echo $data['firstname'] ?>" placeholder="Enter First Name" Required>
+				<label for="firstname">First Name </label>
+				<input type="text" name="firstname" value="<?php echo $data[0]['firstName'] ?>"  Required>
 		</div>
 		<br>
 		<div class="inner-wrap">
-			<label for="last name">Last Name:</label>
-            <input type="text" name="lastname" value="<?php echo $data['lastname'] ?>" placeholder="Enter lastname" Required>
+			<label for="last name">Last Name</label>
+            <input type="text" name="lastname" value="<?php echo $data[0]['lastName'] ?>"  Required>
 		</div>
 		<br>
 		<div class="inner-wrap">
-			<label for="E-mail">E-mail:</label>
-			<input type="text" name="email" value="<?php echo $data['email'] ?>" placeholder="Enter email " Required>
+			<label for="E-mail">E-mail</label>
+			<input type="text" name="email" value="<?php echo $data[0]['email'] ?>"  Required>
 		</div>
 		<br>
 		<div class="inner-wrap">
-			<label for="start date">Start Date:</label>
-            <input type="date" name="startdate" value="<?php echo $data['startdate'] ?>" placeholder="Enter the date" Required>
-		</div>
+			<label for="start date">Start Date</label>
+            <input type="date" name="startdate" value="<?php echo $data[0]['stsrtDate'] ?>"  Required>
+    </div>
 		<br>
 		<br>
 		<div class="button-section">
