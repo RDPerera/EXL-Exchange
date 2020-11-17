@@ -2,10 +2,10 @@
 <?php
     class adChatModel extends database
     {
-        public function send($message,$sender,$receiver,$date,$time)
+        public function send($message,$sender,$receiver,$date,$time,$buyer)
         {
             $query = "INSERT INTO ad_message 
-            VALUES('$receiver', '$sender', '$message','$date','$time')";
+            VALUES('$receiver', '$sender', '$message','$date','$time','$buyer')";
             mysqli_query($GLOBALS['db'], $query);
         }
         public function getChat($adId,$sender,$seller,$col1,$col2,$col3,$buyer)
