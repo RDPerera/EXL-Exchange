@@ -1,5 +1,7 @@
 
 <?php include "components/buyerDashboardHeader.php"; ?>
+<?php include "components/sliderHome.php"; ?>
+
 <?php $jobs=$data['jobs']; ?>
 <?php $mode=$data['mode']; ?>
 <?php linkCSS("sdashboard"); ?>

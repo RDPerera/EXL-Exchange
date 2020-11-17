@@ -2,10 +2,10 @@
 class complainModel extends database
 {
     /*GET THE COMPLAIN DATA TO DB*/
-    public function insertComplain($complainerUsername,$accusedUsername,$jobId,$description ,$advertisementID,$complainType)
+    public function insertComplain($complainerUsername,$accusedUsername,$description ,$complainType)
     {
-        $sql = "INSERT INTO complain (complainerUsername,accusedUsername,jobId ,description, advertisementID,complainType)
-        VALUES ('$complainerUsername' , '$accusedUsername' , '$jobId','$description' ,'$advertisementID' ,'$complainType')";
+        $sql = "INSERT INTO complain (complainerUsername,accusedUsername,description,complainType)
+        VALUES ('$complainerUsername' , '$accusedUsername' ,'$description' ,'$complainType')";
         $result = mysqli_query($GLOBALS['db'], $sql);
     }
     /* SELECT AD INFO FROM DB*/
