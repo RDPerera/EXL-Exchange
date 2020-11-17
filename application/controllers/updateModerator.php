@@ -25,7 +25,7 @@
                 $lastname = $_POST['lastname'];
                 $email = $_POST['email'];
                 $startdate= $_POST['startdate'];
-                $this->model->updateUser($firstname,$lastname,$email,$startdate,$id);
+                $this->model->updateUser($firstname , $lastname , $startdate,$email,$id);
             }
         }
     }

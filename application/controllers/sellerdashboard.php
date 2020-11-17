@@ -13,7 +13,7 @@ class sellerDashboard extends exlFramework
         $user = $this->sellerDashboardModel->retrieveUser($userName);
 
         if ($user) {
-
+            
             $data[0][0] = $user['firstName'];
             $data[0][1] = $user['lastName'];
             $data[0][2] = $user['profilePicture'];
