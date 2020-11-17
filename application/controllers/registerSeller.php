@@ -24,7 +24,6 @@
             $data['errors']=$this->initiate();
             $this->helper("linker");
             $this->view("registerSellerView",$data);
-           
         }
 
         public function submit()
