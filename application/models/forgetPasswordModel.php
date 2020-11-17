@@ -4,7 +4,6 @@ class forgetPasswordModel extends database
     /* check whether user is exits */
     public function userCheck($email)
     {
-        $userName=mysqli_real_escape_string($GLOBALS['db'],$userName);
         $userCheck = "SELECT * FROM user WHERE email='$email' LIMIT 1";
         $result = mysqli_query($GLOBALS['db'], $userCheck);
         return mysqli_fetch_assoc($result);
