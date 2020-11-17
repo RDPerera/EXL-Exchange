@@ -30,11 +30,16 @@
 
         public function insert()
         {
-            $firstname =  $_POST['firstname'];
+            $username =  $_POST['username'];
+            $firstname = $_POST['firstname'];
             $lastname =  $_POST['lastname'];
             $email =  $_POST['email'];
-            $startdate =  $_POST['startDate'];
+            date_default_timezone_set('Asia/Colombo');
+            $startdate = date('Y-m-d H:i:s');
+            $dob =  $_POST['startDate'];
+            $passwd=$_POST['password'];
             $user = $this->amodel->insertmod($firstname,$lastname,$email,$startdate);
+            $user = $this->amodel->insertUser($username,$firstname,$lastname,$dob,$email,$passwd);
         }
     }
 ?>

@@ -4,7 +4,7 @@
 .form-style-10 {
   width: 600px;
   padding: 30px;
-  margin-top: 100px;
+  margin-top: 20px;
   margin-left: 500px;
 }
 
@@ -13,11 +13,11 @@
   border-radius: 6px;
   margin-bottom: 0;
 }
-input[type="text"] {
+input[type="text"],
+input[type="password"] {
   border: none;
   font-size: medium;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-
   border-radius: 10px;
   background-color: rgb(243, 243, 243);
   transition: ease-in-out 0.3s;
@@ -26,13 +26,13 @@ input[type="date"] {
   border: none;
   font-size: medium;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-
   border-radius: 10px;
   background-color: rgb(243, 243, 243);
   transition: ease-in-out 0.3s;
 }
 
-input[type="text"]:hover {
+input[type="text"]:hover,
+input[type="password"]:hover {
   background-color: rgb(231, 231, 231);
 }
 

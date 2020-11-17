@@ -38,18 +38,22 @@
 			<label for="last name">Last Name:</label>
 			<input type="text" id="lastname" name="lastname" >
 		</div>
-		<br>
+		<div class="inner-wrap">
+			<label for="last name">User Name</label>
+			<input type="text" id="username" name="username" >
+		</div>
 		<div class="inner-wrap">
 			<label for="E-mail">E-mail:</label>
 			<input  type="text" id="E-mail"  name="email">
 		</div>
-		<br>
 		<div class="inner-wrap">
-			<label for="start date">Start Date:</label>
+			<label for="start date">DOB</label>
 			<input type="date"  name="startDate" id="startdate">
 		</div>
-		<br>
-		<br>
+		<div class="inner-wrap">
+			<label for="start date">Password</label>
+			<input type="password"  name="password" id="password">
+		</div>
 		<div class="button-section">
 			<input type="submit" name="Submit" >
 		</div>
