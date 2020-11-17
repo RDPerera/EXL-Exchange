@@ -19,12 +19,24 @@
             $data['results']=$results;
             $this->view("completedComplainAdminView",$data);
         }
-
-        public function approve($compID)
+        public function logout()
         {
-            $modId="1";
+            session_destroy();
+            $this->redirect('login');
+        }
+        public function current()
+        {
+            $data=array();
+            
+            $results=$this->model->fetchDataCur();
+            $data['results']=$results;
+            $this->view("completedComplainAdminCurrView",$data);
+        }
+        public function approve()
+        {
+            $modId=$this->getSession("userName");
             $actionStatus=$_POST['action'];
-            $user = $this->model->approve($modId,$actionStatus,$compID);
+            $user = $this->model->approve($modId,$actionStatus,$_POST['compId']);
         }
         public function addModerator()
         {
@@ -44,6 +56,7 @@
             $passwd=$_POST['password'];
             $user = $this->amodel->insertmod($username,$startdate);
             $user = $this->amodel->insertUser($username,$firstname,$lastname,$dob,$email,$passwd);
+            $this->redirect("adminDashboard");
         }
     }
 ?>
