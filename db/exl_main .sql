@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 15, 2020 at 08:39 PM
+-- Generation Time: Nov 17, 2020 at 06:38 PM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.4.7
 
@@ -20,6 +20,25 @@ SET time_zone = "+00:00";
 --
 -- Database: `exl_main`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `admin`
+--
+
+CREATE TABLE `admin` (
+  `userName` varchar(1000) NOT NULL,
+  `date` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `admin`
+--
+
+INSERT INTO `admin` (`userName`, `date`) VALUES
+('uvindu', '2020-11-19'),
+('uvindu', '2020-11-03');
 
 -- --------------------------------------------------------
 
@@ -50,9 +69,19 @@ CREATE TABLE `advertisement` (
 --
 
 INSERT INTO `advertisement` (`advertisementID`, `dateTime`, `status`, `category`, `image`, `title`, `tag`, `content`, `userName`, `member1`, `member2`, `member3`, `price`, `rate`, `feedbacks`) VALUES
-(1, '2020-10-15 17:05:13', 'Active', 'Blog Writing', 'write-seo-medical-and-healthcare-blog-posts.jpg', 'I will write SEO medical and healthcare blog posts', 'Blog', 'A search engine optimized blog post on a healthcare-related topic written by an experienced, US-trained, native English-speaking registered nurse.\r\n\r\n\r\n\r\n80% of internet users search for health information online. Are they getting it from your site? Or is someone else getting your views and your potential clients?\r\n\r\n\r\n\r\nI can turn complex medical concepts into easy-to-read content that increases your website\'s traffic over time. When you publish high-quality content to your site consistently, you\'re more likely to move up in Google\'s search rankings.', 'dilan', 'nimaya', '', '', 1350, 4, 15),
-(2, '2020-10-15 17:05:13', 'Active', 'Med Blog Writing', 'write-seo-medical-and-healthcare-blog-posts.jpg', 'I will write SEO medical and healthcare blog posts New', 'Blog', 'A search engine optimized blog post on a healthcare-related topic written by an experienced, US-trained, native English-speaking registered nurse.\r\n\r\n\r\n\r\n80% of internet users search for health information online. Are they getting it from your site? Or is someone else getting your views and your potential clients?\r\n\r\n\r\n\r\nI can turn complex medical concepts into easy-to-read content that increases your website\'s traffic over time. When you publish high-quality content to your site consistently, you\'re more likely to move up in Google\'s search rankings.\r\n\r\n\r\n\r\nAll posts include keyword optimizing to attract traffic and formatting to keep the reader\'s attention.\r\n', 'dilan', '', '', '', 1550, 3, 12),
-(18, '2020-11-10 11:51:04', 'active', 'Graphics Designing', '', 'Photography For BDs', 'sdf', 'asdsadsadasd', 'dilanH', '', '', '', 1500, 0, 0);
+(18, '2020-11-10 11:51:04', 'active', 'Graphics Designing', '', 'Photography For BDs', 'sdf', 'asdsadsadasd', 'dilanH', '', '', '', 1500, 0, 0),
+(20, '2020-11-16 12:08:41', 'active', 'Content Writing', 'nimaya1605524921.jpg', 'I will create an amazing signature logo for your brand', 'sign', 'I\'ll navigate with you through the process of creating your very own logo! Together we\'ll discuss in detail your brand and vision so that I can perfect a visual identity that will communicate your values and will make your brand stand out from the crowd.', 'nimaya', '', '', '', 750, 0, 0),
+(21, '2020-11-16 12:18:33', 'active', 'Graphics Designing', 'nimaya1605525513.jpg', 'I will create your brochure or leaflet with illustrations', 'ilustrator', '\'m an illustrator and graphic designer with more than 10 years experience in layout design of books and brochures. I\'ll provide you an unique brochure with original illustrations.\r\nI can do commercial or corporate brochures, annual or sale reports, white papers, guides, etc.', 'nimaya', '', '', '', 1000, 0, 0),
+(22, '2020-11-16 12:20:26', 'active', 'Graphics Designing', 'nimaya1605525626.jpg', 'I will remove malware recover hacked wordpress, security fix', 'ad-remove', 'Blacklisted by Google\r\n✔️Disabled by Host\r\n✔️Redirecting & Sending Spam\r\n✔️Spam in Search Results\r\n✔️Abnormal Resource Usage\r\n✔️Google ads / Facebook Ads / malware-infected ( see Extra options )', 'nimaya', '', '', '', 1400, 0, 0),
+(23, '2020-11-16 12:21:46', 'active', 'Graphics Designing', 'nimaya1605525706.jpg', 'I will craft your existing squarespace page to perfection', 'craft', 'About This Gig,I have built 100+ Squarespace websites and worked with clients from all over the world. I have over 10+ years of experience with start-ups, established businesses, and non-profits.', 'nimaya', '', '', '', 15000, 0, 0),
+(28, '2020-11-16 12:27:42', 'active', 'Graphics Designing', 'dilan1605526062.jpg', 'I will create lofi hip hop illustration and GIF animations', 'gif', 'I will create cool looking animated illustrations that can be looped forever. Something like lo-fi hip hop animations.', 'dilan', '', '', '', 2500, 0, 0),
+(29, '2020-11-16 12:29:29', 'active', 'Graphics Designing', 'dilan1605526169.jpg', 'I will create whiteboard explainer video cheaper than others', 'whiteboard', 'The animation is not only entertaining and interactive, but it will also explain your point in depth where a picture might fail you.', 'dilan', '', '', '', 3500, 0, 0),
+(30, '2020-11-16 12:30:41', 'active', 'Graphics Designing', 'dilan1605526241.jpg', 'I will create a wix ecommerce website', 'wix', 'I\'m one of the original Wix Pro Designers, certified by Wix. I have been designing Wix websites for more than nine years. I\'m a member of the Wix Partners Council.', 'dilan', 'nimaya', '', '', 8000, 0, 0),
+(31, '2020-11-16 12:33:04', 'active', 'Graphics Designing', 'dilan1605526384.jpg', 'I will design your brand identity', 'brand', 'Yotam Bezalel Studio is a leading boutique branding studio, with twenty years of experience, holding a circle of cross-continent customers, rich resume and big success stories in the food and lifestyle industry.', 'dilan', '', '', '', 2000, 0, 0),
+(32, '2020-11-16 12:34:01', 'active', 'Graphics Designing', 'dilan1605526441.jpg', 'I will design stunning game environments', 'game', 'If you need stunning game backgrounds and environments that will make your game look amazing, then you are in the right place!', 'dilan', '', '', '', 5000, 0, 0),
+(33, '2020-11-16 12:35:48', 'active', 'Graphics Designing', 'dilan1605526548.jpg', 'I will professionally retouch a product photography', 'editing', 'Hi! My name is Sergei. I\'m professional retoucher with over a six years of experience. I would love to take your images to the next level and to exceed your expectations with high-end retouching!', 'dilan', '', '', '', 4500, 0, 0),
+(34, '2020-11-16 12:37:46', 'active', 'Graphics Designing', 'nimaya1605526666.jpg', 'I will edit and retouch images creatively in photoshop', 'editing', 'I am a Dubai based retoucher ,working in the industry for 5 years now\r\n\r\n(Kindly find my attached portfolio below, which comprises of a vast variety of different brands/projects i have worked with over the years)', 'nimaya', '', '', '', 1500, 0, 0),
+(35, '2020-11-16 12:39:07', 'active', 'Graphics Designing', 'nimaya1605526747.jpg', 'I will do high quality photoshop editing or photo manipulation', 'editing', 'I am a photoshop designer and artist featured by many popular social media pages, even on official Adobe students photoshop instagram page. If you are interested, check it in stories section (Great features) on my instagram page called @thunderer_ica. Plus you can see step by step how i work. Cheers!', 'nimaya', '', '', '', 5000, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -74,17 +103,10 @@ CREATE TABLE `ad_message` (
 --
 
 INSERT INTO `ad_message` (`adId`, `sender`, `message`, `date`, `time`, `receiver`) VALUES
-('1', 'dilan', 'hi', '2020-11-15', '07:10:19', ''),
-('1', 'chathura', 'hi', '2020-11-15', '07:11:03', ''),
-('1', 'dilan', 'hi', '2020-11-15', '09:08:23', ''),
-('1', 'dilan', 'hi', '2020-11-15', '09:08:34', ''),
-('1', 'dilan', '12', '2020-11-15', '09:19:08', ''),
-('1', 'dilan', 'hi', '2020-11-15', '09:41:35', ''),
-('1', 'dilan', 'hi', '2020-11-15', '09:59:07', ''),
-('1', 'chathura', 'hello', '2020-11-15', '10:02:56', ''),
-('1', 'dilan', 'no', '2020-11-15', '10:03:11', ''),
-('1', 'dilan', 'no', '2020-11-15', '10:05:32', ''),
-('1', 'dilan', '844', '2020-11-15', '10:05:54', '');
+('28', 'chathura', 'hi', '2020-11-16', '05:38:16', 'chathura'),
+('28', 'dilan', 'hi', '2020-11-16', '05:38:59', 'chathura'),
+('32', 'chathura', 'hi', '2020-11-16', '05:40:15', 'chathura'),
+('32', 'dilan', 'hi', '2020-11-16', '05:40:21', 'chathura');
 
 -- --------------------------------------------------------
 
@@ -107,6 +129,33 @@ INSERT INTO `buyer` (`userName`, `buyerRate`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `complain`
+--
+
+CREATE TABLE `complain` (
+  `complainId` int(11) NOT NULL,
+  `ComplainerUsername` varchar(1000) NOT NULL,
+  `accusedUsername` varchar(1000) NOT NULL,
+  `description` text NOT NULL,
+  `jobId` int(10) NOT NULL,
+  `advertisementId` int(10) NOT NULL,
+  `complainType` int(3) NOT NULL,
+  `actionStatus` int(3) NOT NULL,
+  `modId` varchar(1000) NOT NULL,
+  `adminId` varchar(1000) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `complain`
+--
+
+INSERT INTO `complain` (`complainId`, `ComplainerUsername`, `accusedUsername`, `description`, `jobId`, `advertisementId`, `complainType`, `actionStatus`, `modId`, `adminId`) VALUES
+(1, 'dilan', 'nimaya', 'Foul Play', 0, 0, 2, 0, '1', '1'),
+(12, 'nimnaka', 'charith', 'Abuse Words', 1, 0, 2, 5, '', '');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `job`
 --
 
@@ -125,10 +174,26 @@ CREATE TABLE `job` (
 --
 
 INSERT INTO `job` (`jobId`, `adId`, `userName`, `date`, `time`, `additionalPayment`, `jobStatus`) VALUES
-(15, 1, 'nimaya', '2020-11-22', '00:43:38', 0.00, 1),
-(16, 1, 'dilan', '2020-11-22', '02:46:47', 0.00, 0),
-(17, 1, 'dilan', '2020-11-22', '14:49:02', 0.00, 2),
-(18, 1, 'chathura', '2020-11-22', '14:51:32', 0.00, 2);
+(21, 28, 'chathura', '2020-11-30', '17:40:07', 0.00, 1),
+(22, 31, 'chathura', '2020-11-23', '17:39:52', 0.00, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `moderator`
+--
+
+CREATE TABLE `moderator` (
+  `userName` varchar(1000) NOT NULL,
+  `stsrtDate` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `moderator`
+--
+
+INSERT INTO `moderator` (`userName`, `stsrtDate`) VALUES
+('charitha', '2020-11-17');
 
 -- --------------------------------------------------------
 
@@ -175,9 +240,11 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`userName`, `firstName`, `lastName`, `dob`, `email`, `accountStatus`, `verificationStatus`, `verificationOTP`, `password`, `profilePicture`) VALUES
-('chathura', 'Chathura', 'Rathnayake', '2020-11-11', 'crathnayake@gmail.com', 0, 1, 1255, '0cc175b9c0f1b6a831c399e269772661', 'chathura1605382078.jpg'),
-('dilan', 'Dilan', 'Perera', '2020-11-17', 'r.dilanperera@gmail.com', 0, 1, 9631714, '0cc175b9c0f1b6a831c399e269772661', 'dilan.png'),
-('nimaya', 'Nimaya', 'Perera', '0000-00-00', 'manthi@manthi.com', 0, 1, 0, '0cc175b9c0f1b6a831c399e269772661', 'nimaya.png');
+('charitha', 'Charitha', 'Attalage', '2020-11-20', 'charitha@gmail.com', 0, 1, 12345, 'fc5e038d38a57032085441e7fe7010b0', 'admin.png'),
+('chathura', 'Chathura', 'Rathnayake', '2020-11-11', 'crathnayake@gmail.com', 0, 1, 1255, 'fc5e038d38a57032085441e7fe7010b0', 'chathura1605478069.jpg'),
+('dilan', 'Dilan', 'Perera', '2020-11-17', 'r.dilanperera@gmail.com', 0, 1, 9631714, 'fc5e038d38a57032085441e7fe7010b0', 'dilan.png'),
+('nimaya', 'Nimaya', 'Perera', '0000-00-00', 'manthi@manthi.com', 0, 1, 0, 'fc5e038d38a57032085441e7fe7010b0', 'nimaya.png'),
+('uvindu', 'Uvindu', 'Sandeepa', '2020-11-06', 'uvindu@gmail.com', 0, 1, 1255, 'fc5e038d38a57032085441e7fe7010b0', 'uvindu.png');
 
 -- --------------------------------------------------------
 
@@ -210,11 +277,11 @@ CREATE TABLE `user_online` (
 --
 
 INSERT INTO `user_online` (`userName`, `status`, `date_time`) VALUES
-('dilan', 0, '2020-11-15 18:00:35'),
+('dilan', 1, '2020-11-17 22:45:39'),
 ('insert', 1, '2020-11-11 18:20:11'),
-('nimaya', 1, '2020-11-12 18:20:36'),
-('chathura', 1, '2020-11-20 01:02:32'),
-('chathura', 1, '2020-11-20 01:02:32');
+('nimaya', 1, '2020-11-16 23:01:12'),
+('chathura', 1, '2020-11-16 23:03:20'),
+('chathura', 1, '2020-11-16 23:03:20');
 
 --
 -- Indexes for dumped tables
@@ -225,6 +292,12 @@ INSERT INTO `user_online` (`userName`, `status`, `date_time`) VALUES
 --
 ALTER TABLE `advertisement`
   ADD PRIMARY KEY (`advertisementID`);
+
+--
+-- Indexes for table `complain`
+--
+ALTER TABLE `complain`
+  ADD PRIMARY KEY (`complainId`);
 
 --
 -- Indexes for table `job`
@@ -252,13 +325,19 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `advertisement`
 --
 ALTER TABLE `advertisement`
-  MODIFY `advertisementID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `advertisementID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+
+--
+-- AUTO_INCREMENT for table `complain`
+--
+ALTER TABLE `complain`
+  MODIFY `complainId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `job`
 --
 ALTER TABLE `job`
-  MODIFY `jobId` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `jobId` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
