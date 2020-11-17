@@ -7,11 +7,13 @@ class verification extends exlFramework
         $this->helper('mail');
         $this->verificationModel = $this->model('verificationModel');
     }
+
     public function index()
     {
         $data['stateInvalid'] = "display:none";
         $data['stateAlready'] = "display:none";
         $data['stateSuccess'] = "display:none";
+
         /* Get Session DATA */
         $userName = $this->getSession('userName');
         $accountType = $this->getSession('accoutType');
@@ -21,6 +23,7 @@ class verification extends exlFramework
         
         $data['error'] = $error = "";
         $this->view("verificationView",$data);
+        
         // Create OTP Code
         $otp=rand ( 1000000 , 9999999 );
         $token=md5($otp);

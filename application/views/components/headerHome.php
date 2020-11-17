@@ -24,7 +24,7 @@
         
         <div class="buttons">
             <button class="signin-button" onclick="window.location.href='<?php echo BASEURL.'/login' ?>'">Sign In</button>
-            <button class="signup-button" onclick="window.location.href='<?php echo BASEURL.'/register' ?>'">Sign Up</button>
+            <button class="signup-button" onclick="window.location.href='<?php echo BASEURL.'/registerController' ?>'">Sign Up</button>
         </div>
         <div class="search-container">
             <form action="">
