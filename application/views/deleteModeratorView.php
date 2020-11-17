@@ -13,42 +13,43 @@
   <button class="logout">Log&nbspOut</button>
 </div>
 <nav >
-   <a ><div class="item"><img src="<?php echo BASEURL; ?>/public/assets/img/icons/ee-logo.png" class="logo"></div></a>
-   <a href="<?php echo BASEURL.'/addModerator' ?>"><div class="item selected"><img src="<?php echo BASEURL; ?>/public/assets/img/icons/icons8-user-resume-96.png" class="sidebar-icons"><span>Add Moderators</span></div></a>
-   <a href="<?php echo BASEURL.'/addModerator' ?>"><div class="item selected"><img src="<?php echo BASEURL; ?>/public/assets/img/icons/icons8-user-resume-96.png" class="sidebar-icons"><span>Delete/Update&nbspModerator</span></div></a>
-   <a href="#second"><div class="item"><img src="<?php echo BASEURL; ?>/public/assets/img/icons/icons8-complaint-90.png" class="sidebar-icons"><span>Current&nbspcomplains</span></div></a>
-   <a href="#second"><div class="item"><img src="<?php echo BASEURL; ?>/public/assets/img/icons/icons8-complaint-90.png" class="sidebar-icons"><span>Completed&nbspcomplains</span></div></a>
-   <a href="#third"><div class="item"><img src="<?php echo BASEURL; ?>/public/assets/img/icons/icons8-report-96.png" class="sidebar-icons"><span>Reports</span></div></a>
-   <a href="#fourth"><div class="item"><img src="<?php echo BASEURL; ?>/public/assets/img/icons/icons8-pay-96.png" class="sidebar-icons"><span>Payments</span></div></a>
+   <div class="item-image"><img src="<?php echo BASEURL; ?>/public/assets/img/icons/ee-logo.png" class="logo"></div>
+   <a href="<?php echo BASEURL.'/adminDashboard/addModerator' ?>"><div class="item"><img src="<?php echo BASEURL; ?>/public/assets/img/icons/icons8-user-resume-96.png" class="sidebar-icons"><span>Add Moderators</span></div></a>
+   <a href="<?php echo BASEURL.'/deleteModerator' ?>"><div class="item selected"><img src="<?php echo BASEURL; ?>/public/assets/img/icons/icons8-user-resume-96.png" class="sidebar-icons"><span>Manage Moderators</span></div></a>
+   <a href="<?php echo BASEURL.'/adminDashboard/current' ?>"><div class="item"><img src="<?php echo BASEURL; ?>/public/assets/img/icons/icons8-complaint-90.png" class="sidebar-icons"><span>Current&nbspcomplains</span></div></a>
+   <a href="<?php echo BASEURL.'/adminDashboard' ?>"><div class="item" ><img src="<?php echo BASEURL; ?>/public/assets/img/icons/icons8-complaint-90.png" class="sidebar-icons"><span>Completed&nbspcomplains</span></div></a>
+   <a href="<?php echo BASEURL.'/adminDashboard' ?>"><div class="item"><img src="<?php echo BASEURL; ?>/public/assets/img/icons/icons8-report-96.png" class="sidebar-icons"><span>Reports</span></div></a>
+   <a href="<?php echo BASEURL.'/adminDashboard' ?>"><div class="item"><img src="<?php echo BASEURL; ?>/public/assets/img/icons/icons8-pay-96.png" class="sidebar-icons"><span>Payments</span></div></a>
  </nav>
  <br>
  <br>
 <body>
-    <h1>Update / Delete<span> Moderator</span> </h1>
+    <h1> Manage <span> Moderator</span> </h1>
+  <div class="inner-container" style="margin-left:350px;margin-right:50px">
 <table >
-  <tr>
-    <td>id</td>
-    <td>first name</td>
-    <td>last name</td>
-    <td>E mail</td>
-    <td>start date</td>
-    <td>edit</td>
-    <td>delete</td>
+  <tr style="background-color: #007bff;color:white">
+    <td style="background-color: #007bff;">Moderator</td>
+    <td style="background-color: #007bff;">First name</td>
+    <td style="background-color: #007bff;">Last name</td>
+    <td style="background-color: #007bff;">E mail</td>
+    <td style="background-color: #007bff;">Start Date</td>
+    <td style="background-color: #007bff;">Edit</td>
+    <td style="background-color: #007bff;"> Delete</td>
   </tr>
  <?php 
 $result=$data['results'];
 foreach ($result as $row){
 ?>
-<td><?php echo $row['id'] ; ?></td>
-<td><?php echo $row['firstname'] ; ?></td>
-<td><?php echo $row['lastname'] ; ?></td>
+<td><?php echo $row['userName'] ; ?></td>
+<td><?php echo $row['firstName'] ; ?></td>
+<td><?php echo $row['lastName'] ; ?></td>
 <td><?php echo $row['email'] ; ?></td>
-<td><?php echo $row['startdate'] ; ?></td>
-<td><a href="<?php echo BASEURL.'/updateModerator/update/'.$row['id']; ?>"> <button type="button" class="deletebutton">Update</button></a></td>
-<td><a href="<?php echo BASEURL.'/deleteModerator/delete/'.$row['id']; ?>"><button type="button" class="deletebutton">Delete</button></a></td>
+<td><?php echo $row['stsrtDate'] ; ?></td>
+<td><a href="<?php echo BASEURL.'/updateModerator/update/'.$row['userName']; ?>"> <button type="button" class="deletebutton">Update</button></a></td>
+<td><a href="<?php echo BASEURL.'/deleteModerator/delete/'.$row['userName']; ?>"><button type="button" class="deletebutton">Delete</button></a></td>
 </tr>
 <?php
 }
 ?>
 </table>
-
+</div>
