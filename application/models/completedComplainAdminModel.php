@@ -4,7 +4,7 @@ class completedComplainAdminModel extends database
     /* fetch all complain data where action status is 0 */
     public function fetchData()
     {
-        $query = "SELECT * FROM complain WHERE (modId IS NOT NULL) AND (adminId IS NOT NULL)";
+        $query = "SELECT * FROM complain";
         $result = mysqli_query($GLOBALS['db'], $query);
         return mysqli_fetch_all($result,MYSQLI_ASSOC);
     }
