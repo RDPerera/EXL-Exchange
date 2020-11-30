@@ -1,0 +1,2 @@
+[2020-12-01 01:09:57]	kamal98             		MODE         		LOCALHOST		64184		ACCESSED
+[2020-12-01 01:10:01]	kamaal98             		UNOTH         		LOCALHOST		64184		DENIED

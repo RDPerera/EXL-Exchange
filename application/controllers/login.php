@@ -4,6 +4,7 @@
         public function __construct()
         {
             $this->helper("linker");
+            $this->helper("log");
             $this->loginModel = $this->model('loginModel');
         }
         public function index()
@@ -15,7 +16,6 @@
             $errors["userName"]="";
             $errors["password"]="";
             $data['errors']=$errors;
-            $this->helper("linker");
             $this->view("loginView",$data);
            
         }
@@ -62,6 +62,7 @@
                   }
                   else
                   {
+                      logAccessDenied($userName);
                       $errors["password"]= "Invaild Login ! - Wrong User Name OR Password";
                   }  
                   
@@ -75,25 +76,26 @@
     /* Redirect user to relevent dashboard */
     private function linkDashboard($userName)
     {
+        
         $this->loginModel->setOnline($userName);
         $user = $this->loginModel->buyerCheck($userName);
         if ($user) {
-        
+          logBuyerAccess($userName);
           $this->redirect('buyerDashboard');
         }
         $user = $this->loginModel->sellerCheck($userName);
         if ($user) { 
-
+            logSellerAccess($userName);
           $this->redirect('sellerDashboard');
         }
         $user = $this->loginModel->adminCheck($userName);
         if ($user) { 
-
+            logAdminAccess($userName);
           $this->redirect('adminDashboard');
         }
         $user = $this->loginModel->moderatorCheck($userName);
         if ($user) { 
-
+            logModeratorAccess($userName);
           $this->redirect('moderatorDashboard');
         }
     }
