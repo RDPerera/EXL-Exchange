@@ -141,12 +141,13 @@
     {
         $user = $this->loginModel->userNameCheck($userName);
         if ($user) { 
+            $loc=getLocInfo();
             $token=$user['password'];
             $email=$user['email'];
             $userName=$user['userName'];
             $fisrtName=$user['firstName'];
             $lastName=$user['lastName'];
-            // Create Link 
+            // Create reset pw Link 
             $link=BASEURL."/forgetPassword/getNewPasswords?userName=".$userName."&token=".$token;
             // Set email format to HTML
             $Subject = 'Logged in Alert- EXL-Exchange';
@@ -154,7 +155,7 @@
             $Body= "<b> <p style='font-family:Segoe UI, Tahoma, Geneva, Verdana, sans-serif;font-size:15px;'>Hi $fisrtName ,</b><br>
             You are logged in to your EXL-Exchange Account.
             <br><br>
-            If this is not you,You can reset your EXL-Exchange account password by clicking
+            If this is not you,you can reset your EXL-Exchange account password by clicking
             <a href='$link'> here. </a><br><br>
             <br>
             The EXL-Exchange";

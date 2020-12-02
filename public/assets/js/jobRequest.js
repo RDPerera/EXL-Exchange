@@ -1,24 +1,3 @@
-function myfunc() {
-  let now = new Date();
-  var dd = now.getDate() + 7;
-  var mm = now.getMonth() + 1;
-  var yyyy = now.getFullYear();
-  var h = now.getHours();
-  var m = now.getMinutes();
-  var s = now.getSeconds();
-  if (m < 10) {
-    m = "0" + m;
-  }
-  if (s < 10) {
-    s = "0" + s;
-  }
-  if (h < 10) {
-    h = "0" + h;
-  }
-  document.getElementById("time").value = h + ":" + m + ":" + s;
-  document.getElementById("date").value = yyyy + "-" + mm + "-" + dd;
-}
-myfunc();
 (function () {
   const second = 1000,
     minute = second * 60,
