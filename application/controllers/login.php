@@ -5,6 +5,7 @@
         {
             $this->helper("linker");
             $this->helper("log");
+            $this->helper("mail");
             $this->loginModel = $this->model('loginModel');
         }
         public function index()
@@ -86,17 +87,20 @@
         $user = $this->loginModel->sellerCheck($userName);
         if ($user) { 
             logSellerAccess($userName);
-          $this->redirect('sellerDashboard');
+            $this->notify($userName);
+            $this->redirect('sellerDashboard');
         }
         $user = $this->loginModel->adminCheck($userName);
         if ($user) { 
+            $this->notify($userName);
             logAdminAccess($userName);
-          $this->redirect('adminDashboard');
+            $this->redirect('adminDashboard');
         }
         $user = $this->loginModel->moderatorCheck($userName);
         if ($user) { 
+            $this->notify($userName);
             logModeratorAccess($userName);
-          $this->redirect('moderatorDashboard');
+            $this->redirect('moderatorDashboard');
         }
     }
     /* return the reson to login failure*/
@@ -131,6 +135,32 @@
         }
         else {
             return "Your Account is BLOCKED Contact EXL-Exchange !";
+        }
+    }
+    private function notify($userName)
+    {
+        $user = $this->loginModel->userNameCheck($userName);
+        if ($user) { 
+            $token=$user['password'];
+            $email=$user['email'];
+            $userName=$user['userName'];
+            $fisrtName=$user['firstName'];
+            $lastName=$user['lastName'];
+            // Create Link 
+            $link=BASEURL."/forgetPassword/getNewPasswords?userName=".$userName."&token=".$token;
+            // Set email format to HTML
+            $Subject = 'Logged in Alert- EXL-Exchange';
+            
+            $Body= "<b> <p style='font-family:Segoe UI, Tahoma, Geneva, Verdana, sans-serif;font-size:15px;'>Hi $fisrtName ,</b><br>
+            You are logged in to your EXL-Exchange Account.
+            <br><br>
+            If this is not you,You can reset your EXL-Exchange account password by clicking
+            <a href='$link'> here. </a><br><br>
+            <br>
+            The EXL-Exchange";
+
+            $AltBody = "You are logged in to your account ,if not reset password ".$link;
+            sendMail($email,$fisrtName." ".$lastName,$Subject,$Body,$AltBody);
         }
     }
 }

@@ -1,0 +1,6 @@
+[2020-12-02 13:29:57]	dilan             		SELLER         		LOCALHOST		53100		ACCESSED
+[2020-12-02 13:30:22]	dilan             		SELLER         		LOCALHOST		53108		ACCESSED
+[2020-12-02 13:30:26]	dilan             		SELLER         		LOCALHOST		53108		ACCESSED
+[2020-12-02 13:30:53]	dilan             		SELLER         		LOCALHOST		53120		ACCESSED
+[2020-12-02 13:32:06]	dilan             		SELLER         		LOCALHOST		53133		ACCESSED
+[2020-12-02 13:35:35]	dilan             		SELLER         		LOCALHOST		53351		ACCESSED
