@@ -6,6 +6,9 @@ class sellerJobHandler extends exlFramework
         $this->helper("linker");
         $this->sellerDashboardModel = $this->model('sellerDashboardModel');
         $this->model=$this->model("jobResponceModel");
+        $this->loginModel = $this->model('loginModel');
+        $this->helper("log");
+        $this->helper("mail");
     }
     public function get($jobId)
     {
@@ -82,6 +85,7 @@ class sellerJobHandler extends exlFramework
     {  
         $userName=$this->getSession('buyer');
         $this->model->accept($userName,$jobId);
+        $this->notify($userName,$jobId,"Accepted");
         $this->redirect('sellerJobHandler');
     }
     //reject job request
@@ -89,6 +93,7 @@ class sellerJobHandler extends exlFramework
     {  
         $userName=$this->getSession('buyer');
         $this->model->reject($userName,$jobId);
+        $this->notify($userName,$jobId,"Rejected");
         $this->redirect('sellerJobHandler');
     }
 
@@ -96,7 +101,31 @@ class sellerJobHandler extends exlFramework
     {
         $this->view("changeProfilePicture"); //load the view to change the profile picture
     }
+    private function notify($userName,$jobId,$state)
+    {
+        $user = $this->loginModel->userNameCheck($userName);
+        if ($user) { 
+            $email=$user['email'];
+            $userName=$user['userName'];
+            $fisrtName=$user['firstName'];
+            //login link
+            $link=BASEURL."/login";
 
+            // Set email format to HTML
+            $Subject = "Job Request $state";
+            $state=strtolower($state);
+            $Body= "<b> <p style='font-family:Segoe UI, Tahoma, Geneva, Verdana, sans-serif;font-size:15px;'>$fisrtName ,</b><br>
+            Your JOB Request to Job Id : <b>$jobId</b> was <b>$state</b> by the seller.
+            <br><br>
+            You can login to your account by clicking 
+            <a href='$link'> here. </a><br><br>
+            <br>
+            The EXL-Exchange";
+
+            $AltBody = "Job Request $state ; $jobId";
+            sendMail($email,$fisrtName." ".$lastName,$Subject,$Body,$AltBody);
+        }
+    }
     public function handleThePicture()
     {
         $userName = $_SESSION['userName'];  

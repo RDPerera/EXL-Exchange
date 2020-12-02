@@ -42,7 +42,7 @@ class jobResponce extends exlFramework
         $this->model->reject($userName,$jobId);
         $this->redirect('jobResponce');
     }
-
+    
 }
 
 ?>
