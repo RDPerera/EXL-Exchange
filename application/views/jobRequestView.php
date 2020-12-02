@@ -47,8 +47,8 @@
             <div class="set-timer" id="date-title-container">
                 <span id="date-title">Set Seller Product Submission Date & Time </span>
                 <div class="cluster" style="float:right">
-                    <input type="date"  id="date" class="datetime" step="any" name="job-date">
-                    <input type="time" id="time" class="datetime" step="any" name="job-time">
+                    <input type="date"  id="date" class="datetime" step="any" name="job-date" value="<?php date_default_timezone_set('Asia/Colombo');echo date('Y-m-d', strtotime("+7 day")); ?>" min="<?php echo date('Y-m-d'); ?>">
+                    <input type="time" id="time" class="datetime" step="any" name="job-time" value="<?php echo date('H:i:s'); ?>" min="<?php echo date('H:i:s'); ?>">
                 </div>
                 </div>
                 <div class="set-timer" id="price-title-container">
