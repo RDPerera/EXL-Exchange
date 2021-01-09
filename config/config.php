@@ -1,18 +1,10 @@
 <?php
 
-// Database configurations 
-// define("HOST", "sql12.freemysqlhosting.net");
-// define("USER", "sql12377730");
-// define("DATABASE", "sql12377730");
-// define("PASSWORD", "XLWKDaf4Zf");
-
-define("HOST", "localhost");
-define("USER", "root");
-define("DATABASE", "exl_main");
-define("PASSWORD", "");
+define("HOST", "88.211.101.190:3306");
+define("USER", "ijoflrpf_exlmain");
+define("DATABASE", "ijoflrpf_exlmain");
+define("PASSWORD", "KeepCalm&Auth123");
 
 
-// Base URL
-//define("BASEURL", "https://exl-exchange.herokuapp.com");
 define("BASEURL", "http://localhost/EXL-Exchange");
 ?>
