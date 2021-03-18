@@ -37,6 +37,7 @@
             $modId=$this->getSession("userName");
             $actionStatus=$_POST['action'];
             $user = $this->model->approve($modId,$actionStatus,$_POST['compId']);
+            $this->redirect('adminDashboard');
         }
         public function addModerator()
         {

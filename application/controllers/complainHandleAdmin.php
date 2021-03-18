@@ -20,6 +20,7 @@
             $adminId="1";
             $actionStatus=$_POST['action'];
             $user = $this->model->approve($adminId,$actionStatus,$compID);
+            $this->redirect('adminDashboard');
         }
     }   
 ?>

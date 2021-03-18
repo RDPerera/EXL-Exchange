@@ -30,7 +30,7 @@
             </div>
             <div class="fieldset">
                 <label for="dob" class="label">Date Of Birth</label>
-                <input type="date" placeholder="Enter DOB" name="dob" id="dob" autocomplete="off">
+                <input type="date" placeholder="Enter DOB" name="dob" id="dob" autocomplete="off" max="<?php echo date("Y-m-d", strtotime("-18 year", time()));?>">
                 <span class="error"><?php echo $errors["dob"];?></span>
             </div>
             <div class="fieldset">
