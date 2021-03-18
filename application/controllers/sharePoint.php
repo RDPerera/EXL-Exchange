@@ -12,13 +12,6 @@ class sharePoint extends exlFramework
         $data['files']=$this->shareModel->fileList();
         $this->view("sharePointView",$data);
     }
-    public function downloadFile()
-    {
-            $file=$this->shareModel->file($_GET['id']);
-            echo "<h1>File".$file['name']."</h1>";
-            $filepath = BASEURL.'/public/assets/uploads/' . $file['name'];
-            echo "<a href=".$filepath." target='_blank'>asdasdad</a>";
-    }
     public function uploadFile()
     {
             $filename = $_FILES['myfile']['name'];
@@ -31,7 +24,7 @@ class sharePoint extends exlFramework
             } elseif ($_FILES['myfile']['size'] > 1000000) { 
                 echo "File too large!";
             } else {
-                if (move_uploaded_file($file, $destination) or 1) {
+                if (move_uploaded_file($file, $destination)) {
                     if ($this->shareModel->fileUpload($filename,$size,0)) {
                         echo "File uploaded successfully";
                     }

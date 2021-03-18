@@ -17,9 +17,9 @@ class sharePointModel extends database{
     }
     
 
-    public function fileUpload($name,$size,$download)
+    public function fileUpload($name,$size)
     {
-        $sql = "INSERT INTO files (name, size, job_id) VALUES ('$name', $size, 1235)";
+        $sql = "INSERT INTO files (name, size) VALUES ('$name', $size)";
         return mysqli_query($GLOBALS['db'], $sql);
     }
 }
