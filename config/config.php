@@ -12,4 +12,3 @@ define("PASSWORD", "1234");
 
 define("BASEURL", "http://localhost/EXL-Exchange");
 ?>
-
