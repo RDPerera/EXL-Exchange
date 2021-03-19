@@ -127,7 +127,9 @@ class advertisements_Controller extends exlFramework
           rename("../public/assets/img/adUploads/$filename", "../public/assets/img/adUploads/$image"); //adding the generated name to the file
         }
 
+        
         $this->advertisements_model->store($date, $status, $category, $image, $title, $tag, $content, $userName, $member1, $member2, $member3, $price);
+        // $this->advertisements_model->
         $this->redirect("sellerdashboard");
         $complete = "";
       }
@@ -328,4 +330,14 @@ class advertisements_Controller extends exlFramework
       $this->view("updateAd", $row);
     }
   }
+
+  public function showAdForVisitor($adID)
+  {  
+   $ip = "$_SERVER[REMOTE_ADDR]"; //getting the ip address of the user who clicked the advertisement
+   $this->advertisements_model->recordAdClicks($adID,$ip);
+   echo "This page shows the advertisement - (under construction)";
+
+   //put the code to load the ad view here
+  }
+
 }

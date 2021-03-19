@@ -1,0 +1,6 @@
+[2021-03-19 20:04:00]	dilan             		SELLER         		LOCAL		12290						ACCESSED
+[2021-03-19 20:04:42]	dilan             		SELLER         		LOCAL		9296						ACCESSED
+[2021-03-19 20:11:50]	chathura             		BUYER         		LOCAL		9398						ACCESSED
+[2021-03-19 20:41:12]	dilan             		SELLER         		LOCAL		14041						ACCESSED
+[2021-03-19 20:44:11]	dilan             		SELLER         		LOCAL		14437						ACCESSED
+[2021-03-19 20:47:08]	dilan             		SELLER         		LOCAL		1100						ACCESSED
