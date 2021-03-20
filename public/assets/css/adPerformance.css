@@ -1,0 +1,55 @@
+.content-super {
+  margin: auto;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-gap: 50px;
+  row-gap: 10px;
+  background-color: #ffffff;
+  margin: 10px 10px 10px 10px;
+  /* padding: 10px; */
+  grid-template-rows: 300px 530px;
+  
+}
+
+.grid-container > div {
+
+  box-shadow: 0 0px 6px 0 rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  background-color: rgb(255, 251, 251);
+ 
+  font-size: 30px;
+}
+
+.ad {
+  grid-area: 1 / 1 / span 1 / span 2;
+  margin: 10px 10px 10px 10px;
+
+}
+.clicks {
+    margin: 10px 10px 10px 10px;
+}
+.requests {
+    margin: 10px 10px 10px 10px;
+}
+
+.clicks-head {
+    height: 60px;
+    display: grid;
+    align-items: center;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    background-color: #007bff;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; 
+}
+
+.clicks-head p {
+    font-size:medium;
+    color: white;
+    font-weight: 500;
+    margin-left: 15px;
+    margin-top:10px;
+ 
+  }
