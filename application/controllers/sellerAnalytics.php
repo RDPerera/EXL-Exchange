@@ -5,11 +5,12 @@ class sellerAnalytics extends exlFramework
     {
         $this->helper("linker");
         $this->sellerDashboardModel = $this->model('sellerDashboardModel');
+        $this->sellerAnalyticsModel = $this->model('sellerAnalyticsModel');
     }
     public function index() //function to load the initial analytics page
     {
 
-        $userName = $_SESSION['userName'];  
+        $userName = $_SESSION['userName'];
         //retrieving user data from the database
         $user = $this->sellerDashboardModel->retrieveUser($userName);
 
@@ -46,16 +47,17 @@ class sellerAnalytics extends exlFramework
                 }
             }
             //load the view
-            
+
             $this->view("s-dashboardANDanalytics", $data);
         } else {
             $this->redirect('login');
         }
     }
 
-    public function loadStatPage($adID){ //to display the advertisement details on top
+    public function loadStatPage($adID)
+    { //to display the advertisement details on top
 
-        $userName = $_SESSION['userName'];  
+        $userName = $_SESSION['userName'];
         //retrieving user data from the database
         $user = $this->sellerDashboardModel->retrieveUser($userName);
 
@@ -75,14 +77,21 @@ class sellerAnalytics extends exlFramework
 
             //retrieving user ad data from the model
             $dataFromAds = $this->sellerDashboardModel->retrieveAd($adID);
-           // print_r($dataFromAds);
+            // print_r($dataFromAds);
             $data[0][8] = $dataFromAds;
- 
+
             //load the view
-            
+
             $this->view("s-dashboardAND_AdPerformance", $data);
         } else {
             $this->redirect('login');
         }
+    }
+
+    public function getClicksData($adID)
+    {
+        $clicksData = $this->sellerAnalyticsModel->retrieveClicksData($adID);
+        print json_encode($clicksData);
+        
     }
 }

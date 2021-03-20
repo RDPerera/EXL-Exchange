@@ -10,10 +10,19 @@
     <?php linkCSS("sdashboard"); ?>
     <?php linkCSS("card"); ?>
     <?php linkFAV("ee-logo.png"); ?>
+    <?php linkJS("jquery.min"); ?>
+    <?php linkJS("Chart.min"); ?>
+    <?php linkJS("clicksGraph"); ?>
 
 </head>
 
 <body>
+
+    <!-- To get the advertisement ID and make it avaible for the clicksGraph javascript file -->
+    <script type="text/javascript">
+        var adID = <?php echo $adData['advertisementID']; ?>;
+    </script>
+
     <input type="checkbox" id="home">
     <header class="header">
         <label for="home"><img src='<?php echo BASEURL; ?>/public/assets/img/icons/ee-logo.png' class="home-menu"></label>
@@ -88,14 +97,19 @@
 
     <div class="content-super">
         <div class="grid-container">
-        <div class="ad">headewr</div>
+            <div class="ad">advertisement information</div>
             <div class="clicks">
                 <div class="clicks-head">
                     <p>Advertisement Clicks</p>
                 </div>
+                <div class="clicks-graph">
+                <canvas id="mycanvas"></canvas> 
+                </div>
             </div>
-            <div class="requests"><p>The other thing</p></div>
-            
+            <div class="requests">
+                <p>The other thing</p>
+            </div>
+
 
         </div>
 
