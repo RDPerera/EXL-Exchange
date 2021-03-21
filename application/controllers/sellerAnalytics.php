@@ -77,11 +77,23 @@ class sellerAnalytics extends exlFramework
 
             //retrieving user ad data from the model
             $dataFromAds = $this->sellerDashboardModel->retrieveAd($adID);
-            // print_r($dataFromAds);
             $data[0][8] = $dataFromAds;
 
-            //load the view
+            //retrieving total clicks and requests data
+            $ClicksRequests = $this->sellerAnalyticsModel->totalCLicksRequests($adID);
+            //computing the RCR value
+            if($ClicksRequests['totalClicks']!=0)
+            {
+                //get the value to two decimal places
+                $ClicksRequests['rcr'] = number_format((float)(($ClicksRequests['totalRequests']/$ClicksRequests['totalClicks'])*100.0), 2, '.', '');
+            
+            }
+            else{
+                $ClicksRequests['rcr']=0;
+            }
+            $data[0][9] = $ClicksRequests;
 
+            //load the view
             $this->view("s-dashboardAND_AdPerformance", $data);
         } else {
             $this->redirect('login');

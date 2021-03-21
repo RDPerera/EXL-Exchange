@@ -17,8 +17,8 @@ $(document).ready(function () {
         datasets: [
           {
             label: "Ad Clicks",
-            backgroundColor: "rgba(200, 200, 200, 0.75)",
-            borderColor: "rgba(200, 200, 200, 0.75)",
+            backgroundColor: "rgba(0, 123, 255, 0.50)",
+            borderColor: "rgba(0, 123, 255, 1)",
             hoverBackgroundColor: "rgba(200, 200, 200, 1)",
             hoverBorderColor: "rgba(200, 200, 200, 1)",
             data: clicks,
@@ -71,8 +71,8 @@ $(document).ready(function () {
         datasets: [
           {
             label: "Job Requests",
-            backgroundColor: "rgba(200, 200, 200, 0.75)",
-            borderColor: "rgba(200, 200, 200, 0.75)",
+            backgroundColor: "rgba(0, 123, 255, 0.50)",
+            borderColor: "rgba(0, 123, 255, 1)",
             hoverBackgroundColor: "rgba(200, 200, 200, 1)",
             hoverBorderColor: "rgba(200, 200, 200, 1)",
             data: requests,

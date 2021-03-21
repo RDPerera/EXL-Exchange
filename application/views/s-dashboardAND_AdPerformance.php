@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Job Responce</title>
     <?php $adData = $data[0][8]; ?>
+    <?php $ClicksRequests = $data[0][9]; ?>
     <?php linkCSS('adPerformance'); ?>
     <?php linkCSS("sdashboard"); ?>
     <?php linkCSS("card"); ?>
@@ -56,50 +57,37 @@
         </div>
     </div>
 
-    <!-- <div class="content-super">
-        <div class="page-container">
-            <div class="main-container">
-                <div class="massenger-container">
-                    <div class="chat-top-header">
-                        <div class="img-container"><img src="<?php echo adIMG($adData['image']) ?>" class="addImg"></div>
-                        <div class="title"> <?php echo $adData['title']; ?></div>
+    <div class="content-super">
+        <div class="grid-container">
+            <div class="ad">
+                <div class="header1">
+                    <div class="report-head">
+                        <p>The Advertisement Information</p>
+                    </div>
+                </div>
+                <div class="imag">
+                    <div class="img-container"><img src="<?php echo adIMG($adData['image']) ?>" class="addImg"></div>
+                </div>
+                <div class="title">
+                    <p><?php echo $adData['title']; ?></p>
+                    <div class="rating">
                         <div class="ad-rating">
                             <span class='feed-container'><?php echo "LKR " . $adData['price'] . ".00"; ?></span>
                             <span class='category-container'><?php echo "Category : " . $adData['category']; ?></span>
                             <span class='rate-container'><img src="<?php echo icoIMG('icons8-star-96.png') ?>" class='ratingIcon'>
-                                <span class='rating'><?php echo $adData['rate'] . " | Feedbacks " . $adData['feedbacks']; ?></span>
+                                <span class='rating'><?php echo $adData['rate'] . " | Feedbacks " . $adData['feedbacks']; ?></span></span>
+                            <span class='status-container'><?php echo "Status : " . $adData['status']; ?></span>
                         </div>
-                        <div class="content"><?php echo $adData['content'] ?></div>
-
                     </div>
-
                 </div>
 
-            </div>
-            <div class="main-container">
-                <div class="massenger-container">
-               
-                    <div class="workspace-container">
-
-                        <div class="workspace-head">
-                            <p>The other thing</p>
-                        </div>
-
-                    </div>
+                <div class="content1">
+                    <div class="content"><?php echo $adData['content'] ?></div>
+                </div>
+                <div class="right">
+                    <p>The RCR Value ~ <?php echo $ClicksRequests['rcr']; ?>%<span class='rcr'><br>The Request - Click Ratio measures the proportion of individuals who clicks an seller advertisement and subsequently requests it.</span></p>
 
                 </div>
-
-            </div>
-
-
-        </div>
-    </div> -->
-
-    <div class="content-super">
-        <div class="grid-container">
-
-            <div class="ad">
-                advertisement information
             </div>
 
             <div class="report">
@@ -119,9 +107,6 @@
                     <canvas id="requestsCanvas"></canvas>
                 </div>
             </div>
-     
-
-
         </div>
 
     </div>
