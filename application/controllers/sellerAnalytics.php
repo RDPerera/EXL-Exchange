@@ -112,4 +112,10 @@ class sellerAnalytics extends exlFramework
         print json_encode($requestsData);
         
     }
+    public function getEarningsData($userName)
+    {
+        $requestsData = $this->sellerAnalyticsModel->retrieveEarningsData($userName);
+        print json_encode($requestsData);
+        
+    }
 }

@@ -73,4 +73,27 @@ class sellerAnalyticsModel extends database
 
         return $data;
     }
+
+    public function retrieveEarningsData($userName)
+    {
+        //setting header to json
+        header('Content-Type: application/json');
+
+        //query to get the number of clicks of an advertisement
+        $query = sprintf("SELECT CONCAT(YEAR(date), '/', WEEK(date)) AS theWeek, SUM(sellerAmount) AS earnings FROM payment WHERE seller='$userName' GROUP BY theWeek ORDER BY YEAR(DATE) ASC, WEEK(date) ASC");
+        //execute query
+        $result = $GLOBALS['db']->query($query);
+
+        //loop through the returned data
+        $data = array();
+        foreach ($result as $row) {
+            $data[] = $row;
+        }
+
+        //free memory associated with result
+        $result->close();
+
+        //return the data
+        return $data;
+    }
 }

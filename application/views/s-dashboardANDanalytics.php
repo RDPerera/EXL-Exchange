@@ -9,9 +9,18 @@
     <?php linkCSS("sdashboard"); ?>
     <?php linkCSS("model") ?>
     <?php linkCSS("card"); ?>
+    <?php linkCSS("sellerEarnings"); ?>
+    <?php linkJS("jquery.min"); ?>
+    <?php linkJS("Chart.min"); ?>
+    <?php linkJS("sellerEarnings"); ?>
 </head>
 
 <body>
+    <!-- To get the username and make it avaible for the clicksGraph javascript file -->
+    <script type="text/javascript">
+        var username = <?php echo 5; ?>;
+    </script>
+
     <input type="checkbox" id="home">
     <header class="header">
         <label for="home"><img src='<?php echo BASEURL; ?>/public/assets/img/icons/ee-logo.png' class="home-menu"></label>
@@ -37,7 +46,7 @@
             <a href="<?php echo BASEURL; ?>/sellerJob/pending"><img src="<?php echo BASEURL; ?>/public/assets/img/icons/pending.png " class="sidebar-icons"><span>Pending Jobs</span></a>
             <a href="<?php echo BASEURL; ?>/sellerJob/active"><img src="<?php echo BASEURL; ?>/public/assets/img/icons/active.png " class="sidebar-icons"><span>Active Jobs</span></a>
             <a href="<?php echo BASEURL; ?>/sellerJob"><img src="<?php echo BASEURL; ?>/public/assets/img/icons/icons8-submit-resume-96.png " class="sidebar-icons"><span>All Job Request</span></a>
-            <a href="<?php echo BASEURL; ?>/advertisements_controller" ><img src="<?php echo BASEURL; ?>/public/assets/img/icons/icons8-plus-math-96.png" class="sidebar-icons"><span>Create Advertisement</span></a>
+            <a href="<?php echo BASEURL; ?>/advertisements_controller"><img src="<?php echo BASEURL; ?>/public/assets/img/icons/icons8-plus-math-96.png" class="sidebar-icons"><span>Create Advertisement</span></a>
             <a href="<?php echo BASEURL; ?>/sellerAnalytics" class="selected-item"><img src="<?php echo BASEURL; ?>/public/assets/img/icons/icons8-report-96.png" class="sidebar-icons"><span>Analytics</span></a>
             <a href="#"><img src="<?php echo BASEURL; ?>/public/assets/img/icons/icons8-question-mark-96.png" class="sidebar-icons"><span>Help & Support</span></a>
             <a href="<?php echo BASEURL; ?>/sellercomplaint"><img src="<?php echo BASEURL; ?>/public/assets/img/icons/icons8-complaint-90.png" class="sidebar-icons"><span>Complaints</span></a>
@@ -101,6 +110,21 @@
                     </a>
                 </div>
                 <div class="main-title"><span class="blue-text">Earnings</span> Statistics</div>
+
+                <div class="bottom">
+                    <div class="bottom-head">
+                        <p>Your Earnings</p>
+                    </div>
+                    <div class="plot">
+                        <div class="report-graph">
+                            <canvas id="earningsCanvas"></canvas>
+                        </div>
+                    </div>
+                    <div class="textArea">
+                        <p>Total Earnings ~ LKR 5000.00</p>
+                        <p>Earnings This Month ~ LKR 5000.00</p>
+                    </div>
+                </div>
 
             </div>
         </div>
