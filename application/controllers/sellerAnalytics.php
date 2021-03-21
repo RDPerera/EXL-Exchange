@@ -94,4 +94,10 @@ class sellerAnalytics extends exlFramework
         print json_encode($clicksData);
         
     }
+    public function getRequestsData($adID)
+    {
+        $requestsData = $this->sellerAnalyticsModel->retrieveRequestsData($adID);
+        print json_encode($requestsData);
+        
+    }
 }

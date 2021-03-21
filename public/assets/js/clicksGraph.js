@@ -1,3 +1,4 @@
+//to get the clicks data
 $(document).ready(function () {
   $.ajax({
     //to perform an ajax request
@@ -15,7 +16,7 @@ $(document).ready(function () {
         labels: date,
         datasets: [
           {
-            label: "AD Clicks",
+            label: "Ad Clicks",
             backgroundColor: "rgba(200, 200, 200, 0.75)",
             borderColor: "rgba(200, 200, 200, 0.75)",
             hoverBackgroundColor: "rgba(200, 200, 200, 1)",
@@ -25,8 +26,7 @@ $(document).ready(function () {
         ],
       };
 
-      var ctx = $("#mycanvas"); //selecting the element with the id mycanvas
-      var steps = 3;
+      var ctx = $("#clicksCanvas"); //selecting the element with the id 
       var barGraph = new Chart(ctx, {
         type: "line",
         data: chartdata,
@@ -34,6 +34,60 @@ $(document).ready(function () {
           title: {
             display: true,
             text: "Number of advertisement clicks with the time",
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+          },
+        }
+      });
+    },
+    error: function (data) {
+      console.log(data);
+    },
+  });
+});
+
+
+//to get the requests data
+$(document).ready(function () {
+  $.ajax({
+    //to perform an ajax request
+    url: `/EXL-EXCHANGE/sellerAnalytics/getRequestsData/${adID}`, //retrieve relevant data from this location
+    method: "GET",
+    success: function (data) {
+      //executed when the ajax request succeeds
+      var week = [];
+      var requests = [];
+      for (var i in data) {
+        week.push("" + data[i].theWeek);
+        requests.push(data[i].requests);
+      }
+      var chartdata = {
+        labels: week,
+        datasets: [
+          {
+            label: "Job Requests",
+            backgroundColor: "rgba(200, 200, 200, 0.75)",
+            borderColor: "rgba(200, 200, 200, 0.75)",
+            hoverBackgroundColor: "rgba(200, 200, 200, 1)",
+            hoverBorderColor: "rgba(200, 200, 200, 1)",
+            data: requests,
+          },
+        ],
+      };
+
+      var ctx = $("#requestsCanvas"); //selecting the element with the id 
+      var barGraph = new Chart(ctx, {
+        type: "line",
+        data: chartdata,
+        options: {
+          title: {
+            display: true,
+            text: "Number of job requests with the time",
             scales: {
                 yAxes: [{
                     ticks: {

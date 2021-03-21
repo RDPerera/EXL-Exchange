@@ -97,18 +97,29 @@
 
     <div class="content-super">
         <div class="grid-container">
-            <div class="ad">advertisement information</div>
-            <div class="clicks">
-                <div class="clicks-head">
-                    <p>Advertisement Clicks</p>
+
+            <div class="ad">
+                advertisement information
+            </div>
+
+            <div class="report">
+                <div class="report-head">
+                    <p>Advertisement Views</p>
                 </div>
-                <div class="clicks-graph">
-                <canvas id="mycanvas"></canvas> 
+                <div class="report-graph">
+                    <canvas id="clicksCanvas"></canvas>
                 </div>
             </div>
-            <div class="requests">
-                <p>The other thing</p>
+
+            <div class="report">
+                <div class="report-head">
+                    <p>Job Requests</p>
+                </div>
+                <div class="report-graph">
+                    <canvas id="requestsCanvas"></canvas>
+                </div>
             </div>
+     
 
 
         </div>
