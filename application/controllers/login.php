@@ -161,7 +161,7 @@
             The EXL-Exchange";
 
             $AltBody = "You are logged in to your account ,if not reset password ".$link;
-            //sendMail($email,$fisrtName." ".$lastName,$Subject,$Body,$AltBody);
+            sendMail($email,$fisrtName." ".$lastName,$Subject,$Body,$AltBody);
         }
     }
 }
