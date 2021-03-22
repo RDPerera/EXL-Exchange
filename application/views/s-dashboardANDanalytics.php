@@ -13,12 +13,13 @@
     <?php linkJS("jquery.min"); ?>
     <?php linkJS("Chart.min"); ?>
     <?php linkJS("sellerEarnings"); ?>
+    <?php $additionalData = $data[0][8]; ?>
 </head>
 
 <body>
-    <!-- To get the username and make it avaible for the clicksGraph javascript file -->
+    <!-- To get the username and make it available for the sellerEarnings javascript file -->
     <script type="text/javascript">
-        var username = <?php echo 5; ?>;
+        var username = '<?php echo $additionalData['username']; ?>';
     </script>
 
     <input type="checkbox" id="home">
@@ -121,8 +122,14 @@
                         </div>
                     </div>
                     <div class="textArea">
-                        <p>Total Earnings ~ LKR 5000.00</p>
-                        <p>Earnings This Month ~ LKR 5000.00</p>
+                        <p>Total Earnings ~
+                            <font class="amount">LKR <?php echo $additionalData['total']; ?>.00 </font>
+                            <span class="description"><br>Total seller earnings from the creation of the seller account upto today</span>
+                        </p>
+                        <p>Earnings This Month ~
+                            <font class="amount">LKR <?php echo $additionalData['thisMonthTotal']; ?>.00 </font>
+                            <span class="description"><br>Seller earnings within this month</span>
+                        </p>
                     </div>
                 </div>
 

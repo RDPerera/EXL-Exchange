@@ -1,7 +1,7 @@
 $(document).ready(function () {
   $.ajax({
     //to perform an ajax request
-    url: `/EXL-EXCHANGE/sellerAnalytics/getEarningsData/dilan`, //retrieve relevant data from this location
+    url: `/EXL-EXCHANGE/sellerAnalytics/getEarningsData/${username}`, //retrieve relevant data from this location
     method: "GET",
     success: function (data) {
       //executed when the ajax request succeeds

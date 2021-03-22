@@ -96,4 +96,18 @@ class sellerAnalyticsModel extends database
         //return the data
         return $data;
     }
+
+    public function getEarningsTotal($userName){
+        $query = "SELECT SUM(sellerAmount)as total FROM payment WHERE seller='$userName';";
+        $result = mysqli_query($GLOBALS['db'], $query);
+        $row = mysqli_fetch_assoc($result);
+        return $row;
+    }
+
+    public function getEarningsThisMonthTotal($userName){
+        $query = "SELECT SUM(sellerAmount) as thisMonthTotal FROM payment WHERE (MONTH(date) = MONTH(CURRENT_DATE()) AND YEAR(date) = YEAR(CURRENT_DATE())) AND seller='$userName';";
+        $result = mysqli_query($GLOBALS['db'], $query);
+        $row = mysqli_fetch_assoc($result);
+        return $row;
+    }
 }
