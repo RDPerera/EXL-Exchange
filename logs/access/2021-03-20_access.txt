@@ -1,0 +1,5 @@
+[2021-03-20 12:00:25]	dilan             		SELLER         		LOCAL		8419						ACCESSED
+[2021-03-20 12:09:08]	dilan             		SELLER         		LOCAL		1523						ACCESSED
+[2021-03-20 12:09:26]	dilan             		SELLER         		LOCAL		1537						ACCESSED
+[2021-03-20 12:09:35]	dilan             		SELLER         		LOCAL		1537						ACCESSED
+[2021-03-20 12:29:38]	dilan             		SELLER         		LOCAL		1694						ACCESSED

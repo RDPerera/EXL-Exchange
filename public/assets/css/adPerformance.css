@@ -1,0 +1,272 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
+
+.right{
+  grid-area: right;
+  padding:25px;
+  margin: 30px;
+  margin-top: 15px;
+  border-radius: 30px;
+  background-color: rgb(243, 243, 243);
+  font-family: 'Noto Sans', sans-serif;
+}
+.right p{
+  line-height: 0.6;
+  color: #007bff;
+  font-family: 'Noto Sans', sans-serif;
+}
+
+.rcr{
+  font-size: small;
+  color: rgb(0, 0, 0);
+  font-weight: 500;
+}
+.content-super {
+  margin: auto;
+}
+
+.header1 {
+  grid-area: header;
+}
+.imag {
+  grid-area: imag;
+}
+.ad-title {
+  grid-area: title;
+}
+.content1 {
+  margin-bottom: 10px;
+  grid-area: content1;
+  
+}
+.rating {
+  grid-area: rating;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 750px 750px;
+  grid-gap: 50px;
+  row-gap: 10px;
+  column-gap: 10px;
+  background-color: #ffffff;
+  margin: 10px 10px 10px 10px;
+  padding: 5px;
+  grid-template-rows: 300px 530px;
+}
+
+.grid-container > div {
+  box-shadow: 0 0px 6px 0 rgba(0, 0, 0, 0.3);
+  background-color: rgb(255, 251, 251);
+  font-size: 30px;
+}
+
+.ad {
+  display: grid;
+  grid-area: 1 / 1 / span 1 / span 2;
+  grid-template-areas:
+    "header header header header header header"
+    "imag title title title title right"
+    "imag content1 content1 content1 content1 right"
+    "imag content1 content1 content1 content1 right";
+  margin: 10px 10px 10px 10px;
+  border-radius: 15px;
+}
+.report {
+  border-radius: 10px;
+  margin: 10px 10px 10px 10px;
+}
+.requests {
+  border-radius: 10px;
+  margin: 10px 10px 10px 10px;
+}
+
+.report-head {
+  height: 60px;
+  display: grid;
+  align-items: center;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  background-color: #007bff;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.report-head p {
+  font-size: medium;
+  color: white;
+  font-weight: 500;
+  margin-left: 15px;
+  margin-top: 10px;
+}
+
+.report-graph {
+  padding: 10px;
+  width: 700px;
+  height: 700px;
+}
+
+#reportCanvas {
+}
+
+.addImg {
+  width: 250px;
+  height: 200px;
+  border-radius: 15px;
+  border: 2px solid white;
+  transition: ease-in-out 0.3s;
+  cursor: pointer;
+  box-shadow: 0 0px 3px 0 rgba(0, 0, 0, 0.3);
+}
+.addImg:hover {
+  opacity: 0.5;
+}
+.img-container {
+  grid-area: myArea;
+  padding: 10px;
+  /* padding-top: 20px; */
+}
+
+.ad-title {
+  margin: 20px;
+  font-size: large;
+  font-weight: 600;
+  grid-area: title;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: black;
+  transition: ease-in-out 0.3s;
+  cursor: pointer;
+}
+.title:hover {
+  color: #007bff;
+}
+
+/* afas */
+
+.content {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: black;
+  grid-area: myArea;
+  /* overflow-y: scroll; */
+  height: 89px;
+  font-size: 13px;
+}
+.title {
+  /* margin-top: 5px; */
+  font-size: large;
+  font-weight: 600;
+  grid-area: title;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: black;
+  transition: ease-in-out 0.3s;
+  cursor: pointer;
+  
+  
+}
+/* .title p{
+  
+  border-radius: 20px;
+  padding: 0.5em 0.2em 0.8em 0.5em;
+} */
+.title:hover {
+  color: #007bff;
+}
+.ad-rating {
+  grid-area: myArea;
+  display: inline;
+}
+span.rating {
+  vertical-align: middle;
+  color: rgb(243, 243, 243);
+  font-size: medium;
+  font-weight: 600;
+}
+.rate-container {
+  margin-left: 5px;
+  align-items: center;
+  vertical-align: middle;
+  overflow: hidden;
+  color: white;
+  font-weight: 500;
+  font-size: 11px;
+  float: left;
+  background-color: #ffc107;
+  border-radius: 9px;
+  padding-bottom: 2px;
+  padding-top: 2px;
+  padding-left: 8px;
+  padding-right: 8px;
+  box-shadow: 1px 1px 2px #ffc107;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+.feed-container {
+  align-items: center;
+  vertical-align: middle;
+  overflow: hidden;
+  color: white;
+  float: left;
+  font-weight: 500;
+  font-size: 15px;
+  background-color: #007bff;
+  border-radius: 9px;
+  padding-bottom: 4px;
+  padding-top: 5px;
+  padding-left: 8px;
+  padding-right: 8px;
+  box-shadow: 1px 1px 2px #007bff;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+.status-container {
+  margin-left: 5px;
+  align-items: center;
+  vertical-align: middle;
+  overflow: hidden;
+  color: white;
+  float: left;
+  font-weight: 500;
+  font-size: 15px;
+  background-color: #00c241;
+  border-radius: 9px;
+  padding-bottom: 4px;
+  padding-top: 5px;
+  padding-left: 8px;
+  padding-right: 8px;
+  box-shadow: 1px 1px 2px #00c241;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+.category-container {
+  margin-left: 5px;
+  align-items: center;
+  vertical-align: middle;
+  overflow: hidden;
+  color: white;
+  float: left;
+  font-weight: 500;
+  font-size: 15px;
+  background-color: #d82303;
+  border-radius: 9px;
+  padding-bottom: 4px;
+  padding-top: 5px;
+  padding-left: 8px;
+  padding-right: 8px;
+  box-shadow: 1px 1px 2px #d82303;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+/* .content1::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background-color: #f8f8f8;
+}
+
+.content1::-webkit-scrollbar {
+  width: 10px;
+}
+.content1::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: rgb(202, 202, 202);
+} */
+
+img.ratingIcon {
+  width: 25px;
+  height: 25px;
+  vertical-align: middle;
+  padding-right: 5px;
+  padding-bottom: 3px;
+}

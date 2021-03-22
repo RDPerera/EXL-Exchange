@@ -13,14 +13,14 @@ class sellerDashboard extends exlFramework
         $user = $this->sellerDashboardModel->retrieveUser($userName);
 
         if ($user) {
-            
+
             $data[0][0] = $user['firstName'];
             $data[0][1] = $user['lastName'];
             $data[0][2] = $user['profilePicture'];
             $data[0][3] = $user['dob'];
             $data[0][4] = $user['email'];
 
-            //retrieving user data from the database
+            //retrieving seller data from the database
             $user = $this->sellerDashboardModel->retrieveSeller($userName);
             $data[0][5] = $user['mainRate'];
             $data[0][6] = $user['communicationRate'];
@@ -57,6 +57,7 @@ class sellerDashboard extends exlFramework
     }
     public function logout()
     {
+        $userName = $_SESSION['userName'];  
         $this->sellerDashboardModel->setOffline($userName);
         session_destroy();
         $this->redirect('login');

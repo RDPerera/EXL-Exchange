@@ -1,0 +1,202 @@
+
+  img.ratingIcon {
+    width: 25px;
+    height: 25px;
+    vertical-align: middle;
+    padding-right: 5px;
+    padding-bottom: 3px;
+  }
+  
+  #chat-body::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  #chat-body::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: rgb(202, 202, 202);
+  }
+
+  .chat-top-header {
+    background-color: #fbfbfb;
+    box-shadow: 0 0px 4px -2px rgba(0, 0, 0, 0.5);
+    z-index: 10;
+    padding-bottom: 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    grid-area: header;
+    display: grid;
+    grid-template-areas:
+      "img title "
+      "img rate  "
+      "img content";
+  }
+
+  .workspace-container {
+    grid-area: workspace;
+    width: 650px;
+    border-radius: 10px;
+    margin-left: 20px;
+    margin-right: 10px;
+    background-color: rgb(251, 251, 251);
+    box-shadow: 0 0px 6px 0 rgba(0, 0, 0, 0.3);
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  }
+  .massenger-container {
+    box-shadow: 0 0px 6px 0 rgba(0, 0, 0, 0.3);
+    display: grid;
+    grid-area: messenger;
+    grid-template-areas:
+      "header header header header header"
+      "side main main main main"
+      "side main main  main main";
+    background-color: #007bff;
+    color: white;
+    border-radius: 10px;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  }
+  .main-container {
+    display: grid;
+    height: 100%;
+    background-color: white;
+    margin-top: 70px;
+    margin-bottom: 18px;
+    margin-left: 10px;
+    grid-template-areas: "messenger messenger messenger workspace";
+  }
+  .addImg {
+    width: 150px;
+    height: 150px;
+    border-radius: 15px;
+    border: 2px solid white;
+    transition: ease-in-out 0.3s;
+    cursor: pointer;
+    box-shadow: 0 0px 3px 0 rgba(0, 0, 0, 0.3);
+  }
+  .addImg:hover {
+    opacity: 0.5;
+  }
+  .img-container {
+    grid-area: img;
+    padding: 10px;
+    padding-top: 20px;
+  }
+  .content {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    color: black;
+    grid-area: content;
+    overflow-y: scroll;
+    height: 89px;
+    font-size: 13px;
+  }
+  .title {
+    margin-top: 20px;
+    font-size: large;
+    font-weight: 600;
+    grid-area: title;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    color: black;
+    transition: ease-in-out 0.3s;
+    cursor: pointer;
+  }
+  .title:hover {
+    color: #007bff;
+  }
+  .ad-rating {
+    grid-area: rate;
+    display: inline;
+  }
+  span.rating {
+    vertical-align: middle;
+    color: rgb(243, 243, 243);
+    font-size: medium;
+    font-weight: 600;
+  }
+  .rate-container {
+    margin-left: 5px;
+    align-items: center;
+    vertical-align: middle;
+    overflow: hidden;
+    color: white;
+    font-weight: 500;
+    font-size: 11px;
+    float: left;
+    background-color: #00c241;
+    border-radius: 9px;
+    padding-bottom: 2px;
+    padding-top: 2px;
+    padding-left: 8px;
+    padding-right: 8px;
+    box-shadow: 1px 1px 2px #00c241;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  }
+  .feed-container {
+    align-items: center;
+    vertical-align: middle;
+    overflow: hidden;
+    color: white;
+    float: left;
+    font-weight: 500;
+    font-size: 15px;
+    background-color: #007bff;
+    border-radius: 9px;
+    padding-bottom: 4px;
+    padding-top: 5px;
+    padding-left: 8px;
+    padding-right: 8px;
+    box-shadow: 1px 1px 2px #007bff;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  }
+  .category-container {
+    margin-left: 5px;
+    align-items: center;
+    vertical-align: middle;
+    overflow: hidden;
+    color: white;
+    float: left;
+    font-weight: 500;
+    font-size: 15px;
+    background-color: #d82303;
+    border-radius: 9px;
+    padding-bottom: 4px;
+    padding-top: 5px;
+    padding-left: 8px;
+    padding-right: 8px;
+    box-shadow: 1px 1px 2px #d82303;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+  .workspace-head {
+    grid-area: workspace;
+    width: 100%;
+    height: 60px;
+    margin: 0;
+    display: grid;
+    align-items: center;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    background-color: #007bff;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  }
+  .workspace-head p {
+    font-size: larger;
+    color: white;
+    font-weight: 600;
+    margin-left: 20px;
+  }
+
+  @media only screen and (max-width: 1300px) {
+    .main-container {
+      display: grid;
+      padding-right: 10px;
+      grid-template-areas:
+        "messenger"
+        "workspace";
+    }
+  
+ 
+  }
+
+ 
+  
+
+  

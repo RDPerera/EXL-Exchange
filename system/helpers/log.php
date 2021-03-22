@@ -8,7 +8,7 @@ function logUserAccess($userName,$accountType,$status)
     if ($status==1){$status="ACCESSED";}else{$status="DENIED";}
     $geoLoc=getLocInfo();
     $log="[" . date('Y-m-d H:i:s') . "]\t" . $userName. "             \t\t" . $accountType . 
-    "         \t\t" . $ip . "\t\t" . $_SERVER['REMOTE_PORT']."\t\t".$geoLoc->country."\t\t".$geoLoc->city."\t\t". $status . "\n";
+    "         \t\t" . $ip . "\t\t" . $_SERVER['REMOTE_PORT']."\t\t".isset($geoLoc->country)."\t\t".isset($geoLoc->city)."\t\t". $status . "\n";
     $fp = fopen($loc,'a');
     fwrite($fp, $log);
     fclose($fp); 

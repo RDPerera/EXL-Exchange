@@ -88,4 +88,10 @@ class advertisements_model extends database
         $row = mysqli_fetch_assoc($result);
         return $row;
     }
+
+    public function recordAdClicks($adID,$ip)
+    {
+        $query = "INSERT INTO ad_stats(adID,date,ip) VALUES('$adID',NOW(),'$ip')";
+        mysqli_query($GLOBALS['db'], $query);
+    }
 }

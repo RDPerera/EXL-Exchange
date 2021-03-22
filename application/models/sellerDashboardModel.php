@@ -92,4 +92,10 @@ class sellerDashboardModel extends database
         $query = "UPDATE user SET profilePicture=null WHERE userName = '$userName' ";
         return mysqli_query($GLOBALS['db'], $query);
     }
+    public function retrieveAd($adID){
+        $query = "SELECT * FROM advertisement WHERE advertisementID='$adID' ";
+        $result = mysqli_query($GLOBALS['db'], $query);
+        $row = mysqli_fetch_assoc($result);
+        return $row;
+    }
 }
