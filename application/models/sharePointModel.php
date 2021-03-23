@@ -12,14 +12,14 @@ class sharePointModel extends database{
         $sql = "SELECT * FROM files";
         $result = mysqli_query($GLOBALS['db'], $sql);
         $files = mysqli_fetch_all($result, MYSQLI_ASSOC);
-        print_r($files);
         return $files;
     }
     
 
-    public function fileUpload($name,$size)
+    public function fileUpload($name,$size,$jobid)
     {
-        $sql = "INSERT INTO files (name, size) VALUES ('$name', $size)";
+        echo "<br>".$name.$size.$jobid;
+        $sql = "INSERT INTO files (name,size,jobid) VALUES ('$name',$size,$jobid)";
         return mysqli_query($GLOBALS['db'], $sql);
     }
 }
