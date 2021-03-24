@@ -8,7 +8,7 @@
     <?php linkFav('ee-logo.png'); ?>
 </head>
 <body>
-    <form method="post" action="<?php echo BASEURL;?>/sellerdashboard/handleThePicture" name="profilePictureForm" enctype="multipart/form-data"> 
+    <form method="post" action="<?php echo BASEURL;?>/sellerDashboard/handleThePicture" name="profilePictureForm" enctype="multipart/form-data"> 
         <div class="container">
             <div class="header"><span style="color:#007BFF">Change the Profile Picture</span> </div>
             <label class="custom-file-upload">

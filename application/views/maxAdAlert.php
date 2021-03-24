@@ -1,7 +1,7 @@
 <!-- <?php
         echo "<script>
         alert('You have reached the maximum limit of advertisements you can create.!');
-        window.location.href='" . BASEURL . "/sellerdashboard';
+        window.location.href='" . BASEURL . "/sellerDashboard';
      </script>";
         ?> -->
 
@@ -25,7 +25,7 @@
             <div class="card__info-hover">
             </div>
             <div class="card__img"></div>
-            <a href='<?php echo BASEURL; ?>/sellerdashboard' class="card_link">
+            <a href='<?php echo BASEURL; ?>/sellerDashboard' class="card_link">
                 <div class="card__img--hover"></div>
             </a>
             <div class="card__info">
