@@ -73,4 +73,41 @@ class sellerAnalyticsModel extends database
 
         return $data;
     }
+
+    public function retrieveEarningsData($userName)
+    {
+        //setting header to json
+        header('Content-Type: application/json');
+
+        //query to get the number of clicks of an advertisement
+        $query = sprintf("SELECT CONCAT(YEAR(date), '/', WEEK(date)) AS theWeek, SUM(sellerAmount) AS earnings FROM payment WHERE seller='$userName' GROUP BY theWeek ORDER BY YEAR(DATE) ASC, WEEK(date) ASC");
+        //execute query
+        $result = $GLOBALS['db']->query($query);
+
+        //loop through the returned data
+        $data = array();
+        foreach ($result as $row) {
+            $data[] = $row;
+        }
+
+        //free memory associated with result
+        $result->close();
+
+        //return the data
+        return $data;
+    }
+
+    public function getEarningsTotal($userName){
+        $query = "SELECT SUM(sellerAmount)as total FROM payment WHERE seller='$userName';";
+        $result = mysqli_query($GLOBALS['db'], $query);
+        $row = mysqli_fetch_assoc($result);
+        return $row;
+    }
+
+    public function getEarningsThisMonthTotal($userName){
+        $query = "SELECT SUM(sellerAmount) as thisMonthTotal FROM payment WHERE (MONTH(date) = MONTH(CURRENT_DATE()) AND YEAR(date) = YEAR(CURRENT_DATE())) AND seller='$userName';";
+        $result = mysqli_query($GLOBALS['db'], $query);
+        $row = mysqli_fetch_assoc($result);
+        return $row;
+    }
 }

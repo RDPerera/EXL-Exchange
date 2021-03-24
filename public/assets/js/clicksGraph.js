@@ -26,7 +26,7 @@ $(document).ready(function () {
         ],
       };
 
-      var ctx = $("#clicksCanvas"); //selecting the element with the id 
+      var ctx = $("#clicksCanvas"); //selecting the element with the id
       var barGraph = new Chart(ctx, {
         type: "line",
         data: chartdata,
@@ -34,15 +34,30 @@ $(document).ready(function () {
           title: {
             display: true,
             text: "Number of advertisement clicks with the time",
-            scales: {
-                yAxes: [{
-                    ticks: {
-                        beginAtZero: true
-                    }
-                }]
-            }
           },
-        }
+          scales: {
+            yAxes: [
+              {
+                scaleLabel: {
+                  display: true,
+                  labelString: "Number of clicks",
+                },
+                ticks: {
+                  beginAtZero: true,
+                  callback: function(value) {if (value % 1 === 0) {return value;}} //to depict only integers
+                },
+              },
+            ],
+            xAxes: [
+              {
+                scaleLabel: {
+                  display: true,
+                  labelString: "Date",
+                },
+              },
+            ],
+          },
+        },
       });
     },
     error: function (data) {
@@ -50,7 +65,6 @@ $(document).ready(function () {
     },
   });
 });
-
 
 //to get the requests data
 $(document).ready(function () {
@@ -80,7 +94,7 @@ $(document).ready(function () {
         ],
       };
 
-      var ctx = $("#requestsCanvas"); //selecting the element with the id 
+      var ctx = $("#requestsCanvas"); //selecting the element with the id
       var barGraph = new Chart(ctx, {
         type: "line",
         data: chartdata,
@@ -88,15 +102,30 @@ $(document).ready(function () {
           title: {
             display: true,
             text: "Number of job requests with the time",
-            scales: {
-                yAxes: [{
-                    ticks: {
-                        beginAtZero: true
-                    }
-                }]
-            }
           },
-        }
+          scales: {
+            yAxes: [
+              {
+                scaleLabel: {
+                  display: true,
+                  labelString: "Number of requests",
+                },
+                ticks: {
+                  beginAtZero: true,
+                  callback: function(value) {if (value % 1 === 0) {return value;}} //to depict only integers
+                },
+              },
+            ],
+            xAxes: [
+              {
+                scaleLabel: {
+                  display: true,
+                  labelString: "Year / Week",
+                },
+              },
+            ],
+          },
+        },
       });
     },
     error: function (data) {

@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap');
+.bottom{
+    height: 500px;
+    /* width: 1300px; */
+    box-shadow: 0 0px 6px 0 rgba(0, 0, 0, 0.3);
+    display: grid;
+    grid-template-areas:
+      "bottomHead bottomHead bottomHead"
+      "plot plot textArea"
+      "plot plot textArea";
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-bottom: 50px;
+    border-radius: 10px;
+    background-color: rgb(255, 255, 255);
+}
+
+.plot{
+    height: 400px;
+    margin: 20px;
+    padding:20px;
+    grid-area: plot;
+}
+ 
+.report-graph {
+    width: 700px;
+    height: 700px;
+  }
+
+ 
+.text{
+    
+    grid-area: textArea;
+}
+
+.textArea{
+  line-height:0.6;
+  color: #007bff;
+  font-size: 35px;
+  padding:20px;
+  margin: 30px;
+  margin-top: 90px;
+  border-radius: 10px;
+  background-color: #f1f1f1;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.amount{
+  color: rgb(109, 109, 109);
+}
+
+.description{
+  color: rgb(70, 70, 70);
+  font-size: 15px;
+}
+
+.bottom-head {
+    grid-area: bottomHead;
+    height: 60px;
+    display: grid;
+    align-items: center;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    background-color: #007bff;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  .bottom-head p {
+    font-size: medium;
+    color: white;
+    font-weight: 500;
+    margin-left: 15px;
+    margin-top: 10px;
+  }

@@ -28,6 +28,17 @@ class sellerAnalytics extends exlFramework
             $data[0][6] = $user['communicationRate'];
             $data[0][7] = $user['deliveringRate'];
 
+            //retrieving the earnings data from the model
+            //Total earnings from the creation of the account upto today
+            $result1 = $this->sellerAnalyticsModel->getEarningsTotal($userName);
+            $additionalData['total'] = $result1['total'];
+
+             //earnings from within this month
+            $result2 = $this->sellerAnalyticsModel->getEarningsThisMonthTotal($userName);
+            $additionalData['thisMonthTotal'] = $result2['thisMonthTotal'];
+            $additionalData['username'] = $userName; //additionally putting the username - we need this to genarate the graph in main analytics page
+            $data[0][8]=$additionalData; //putting those to $data variable
+
             //retriving user ad data from the model
             $dataFromAds = $this->sellerDashboardModel->sellerAds($userName);
 
@@ -109,6 +120,12 @@ class sellerAnalytics extends exlFramework
     public function getRequestsData($adID)
     {
         $requestsData = $this->sellerAnalyticsModel->retrieveRequestsData($adID);
+        print json_encode($requestsData);
+        
+    }
+    public function getEarningsData($userName)
+    {
+        $requestsData = $this->sellerAnalyticsModel->retrieveEarningsData($userName);
         print json_encode($requestsData);
         
     }
