@@ -62,16 +62,17 @@ $files=$data['files'];
       <p class="title"><span class="big">Deliver </span>The Finished Product</p>
       <form action="<?php echo BASEURL.'/sharePoint/uploadFile';?>" method="post" enctype="multipart/form-data">
         Discription of deliver 
-        <br><textarea class="textbox" name="w3review" rows="4" cols="50">
+        <br><textarea class="textbox" name="dis" rows="4" cols="50">
         </textarea><br><br>
         File must be compressed into .zip , .rar or .tar format.<br>
-        <div class="upload_background"><input type="file" name="myfile" class="filebtn">
-          <button type="submit" name="save" class="uploadbtn">Upload And Send</button>
+        <div class="upload_background"><input type="file" name="filex" class="filebtn">
+          <button type="submit" name="finalsave" class="uploadbtn">Upload And Send</button>
         </div>
         <br>
         <input type="checkbox" name="final" id="final" onclick="showrate()"> Consider this as a final product delivery.
         <div id="rateSec" style="display:none">
-        <p class="title"><span class="big">Rate </span>Buyer</p>
+        <p class="title"><span class="big">Rate </span>The Buyer</p>
+        Considering overroll expresion about the buyer, give him a rate.
         <div class="rate">
           <input type="radio" id="star5" name="rate" value="5" />
           <label for="star5" title="text">5 stars</label>

@@ -22,7 +22,7 @@ class registerBuyerModel extends database
         VALUES('$userName', '$firstName', '$lastName','$dob','$email',0,0,0,'$password')";
         mysqli_query($GLOBALS['db'], $query);
         $query = "INSERT INTO buyer
-        VALUES('$userName',0)";
+        VALUES('$userName',0,0,0)";
         mysqli_query($GLOBALS['db'], $query);
     }
 }

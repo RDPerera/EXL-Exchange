@@ -18,8 +18,23 @@ class sharePointModel extends database{
 
     public function fileUpload($name,$size,$jobid)
     {
-        echo "<br>".$name.$size.$jobid;
-        $sql = "INSERT INTO files (name,size,jobid) VALUES ('$name',$size,$jobid)";
+        $sql = "INSERT INTO files (name,size,jobid,final,description) VALUES ('$name',$size,$jobid,0,'not-final')";
+        return mysqli_query($GLOBALS['db'], $sql);
+    }
+    public function productUpload($name,$size,$jobid,$descri)
+    {
+        $sql = "INSERT INTO files (name,size,jobid,final,description) VALUES ('$name',$size,$jobid,1,'$descri')";
+        return mysqli_query($GLOBALS['db'], $sql);
+    }
+    public function updateRate($buyerId,$rate)
+    {
+        $sql = "SELECT * FROM buyer WHERE userName= '".$buyerId."' LIMIT 1";
+        $result = mysqli_query($GLOBALS['db'], $sql);
+        $buyer = mysqli_fetch_all($result, MYSQLI_ASSOC);
+        $newReview=$buyer[0]['reviews']+1;
+        $newTotalrate=$buyer[0]['totalRate']+$rate;
+        $newRate=round($newTotalrate/$newReview);
+        $sql = "UPDATE buyer SET buyerRate=".$newRate.",reviews=".$newReview.",totalRate=".$newTotalrate." WHERE userName='".$buyerId."'";
         return mysqli_query($GLOBALS['db'], $sql);
     }
 }

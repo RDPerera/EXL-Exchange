@@ -195,7 +195,7 @@ body {
   background-color: #ececec;
 }
 .rate {
-  float: left;
+  float: right;
   height: 46px;
   padding: 0 10px;
 }
@@ -216,16 +216,77 @@ body {
   content: '★ ';
 }
 .rate > input:checked ~ label {
-  color: #ffc700;    
+  color: #ffd900;    
 }
 .rate:not(:checked) > label:hover,
 .rate:not(:checked) > label:hover ~ label {
-  color: #deb217;  
+  color: #ffd900;  
 }
 .rate > input:checked + label:hover,
 .rate > input:checked + label:hover ~ label,
 .rate > input:checked ~ label:hover,
 .rate > input:checked ~ label:hover ~ label,
 .rate > label:hover ~ input:checked ~ label {
-  color: #c59b08;
+  color: #ffd900;
+}
+
+.loader {
+  border: 10px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 10px solid #007bff;
+  width: 70px;
+  height: 70px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+  margin-bottom: 10px;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+.progress
+{
+  font-size: medium;
+  font-weight: 600;
+  color: #007bff;
+}
+.fullpage
+{
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+  position: fixed; 
+  z-index: 1;
+  left: 0;
+  top: 0;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.sucess
+{
+  width: 200px;
+  height: 200px;
+}
+.sucess-text
+{
+  font-size: medium;
+  text-align: center;
+  font-weight: 600;
+  color: #089c21;
+}
+.faild-text
+{
+  font-size: medium;
+  text-align: center;
+  font-weight: 600;
+  color: #c02d09;
 }
