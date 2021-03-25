@@ -11,3 +11,23 @@ function showrate() {
     rateSec.style.display = "none";
   }
 }
+
+function showProductName()
+{
+  var fileInput = document.getElementById('productf');   
+  var filename = fileInput.files[0].name;
+  var filesize =fileInput.files[0].filesize;
+  var text=document.getElementById('productname');
+  text.innerHTML="<b>File Name : </b>"+filename;
+}
+
+
+
+function showName()
+{
+  var fileInput = document.getElementById('file');   
+  var filename = fileInput.files[0].name;
+  var filesize =fileInput.files[0].filesize;
+  var text=document.getElementById('filename');
+  text.innerHTML="<b>File Name : </b>"+filename;
+}

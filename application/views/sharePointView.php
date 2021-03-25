@@ -6,30 +6,32 @@ $files=$data['files'];
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>EXL Share Point</title>
-  <?php linkCSS('sharePoint'); ?>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EXL Share Point</title>
+    <?php linkCSS('sharePoint'); ?>
+    <?php linkCSS("sdashboard"); ?>
+    <?php linkCSS("card"); ?>
+    <?php linkFAV("ee-logo.png"); ?>
 </head>
 
 <body>
-  <!-- nav bar -->
-  <div class="navbar">
-    <div class="head">
-      EXL Share Point
-    </div>
-    <div class="userimg">
-      <img class="profile-pic" src="<?php echo BASEURL;?>/public/assets/img/userImages/<?php if (isset($data["profilePic"])) {echo $data["profilePic"];} else {echo "pp_default.jpg" ;}?>">
-    </div>
-  </div>
+    
+  <?php include "components/sellerDash.php"; ?>
+  <div class="content-super">
+  <div class="page-container">
+  <div class="content">
   <!-- File Share -->
   <div class="main-grid">
 
     <div class="container-upper">
       <p class="title"><span class="big">Resources</span> Files</p>
+      <?php if(count($files)>0){ ?>
       <div class="scrollable" id="style-1">
-        <?php foreach ($files as $file): ?>
+      <?php }else{?>
+        <div class="scrollable-empty" id="style-1">
+        <?php } foreach ($files as $file): ?>
+        <?php if($file['final']=='0'){ ?>
         <div class="filecontainer">
           <div class="file">
             <img class="fileimg" src="<?php echo BASEURL.'/public/assets/img/icons/file.png?'?>">
@@ -46,33 +48,59 @@ $files=$data['files'];
                 <img class="downloadimg" src="<?php echo BASEURL.'/public/assets/img/icons/download.png?'?>"></a></div>
           </div>
         </div>
+        <?php } else { ?>
+          <div class="productcontainer">
+          <div class="product">
+            <img class="productimg" src="<?php echo BASEURL.'/public/assets/img/icons/file.png?'?>">
+            <div class="name">
+            Product Delivery <br> 
+            </div>
+            <div class="producttime">
+              
+              <?php echo $file['time']; ?>
+            </div>
+            <div class="size">
+            File Name :
+              <?php echo $file['name']; ?><br>  
+            File Size :
+              <?php echo floor($file['size'] / 1000) . ' KB'; ?>
+              <br>
+              Description :
+              <?php echo $file['description']; ?>
+            </div>
+            <div class="download"><a href="<?php echo BASEURL." /public/assets/uploads/".$file['name']?>">
+                <img class="downloadimg" src="<?php echo BASEURL.'/public/assets/img/icons/download2.png?'?>"></a></div>
+          </div>
+        </div>
+        <?php } ?>
         <?php endforeach;?>
       </div>
     </div>
+    <!-- Upload Section -->
     <div class="upload-sec">
       <p class="title"><span class="big">Send </span>Resources Files</p>
       <form action="<?php echo BASEURL.'/sharePoint/uploadFile';?>" method="post" enctype="multipart/form-data">
         File must be compressed into .zip , .rar or .tar format.<br>
-        <div class="upload_background"><input type="file" name="myfile" class="filebtn">
+        <div class="upload_background"><input type="file" name="myfile" onchange="showName()" id="file" class="filebtn"><span id='filename'></span>
           <button type="submit" name="save" class="uploadbtn">Upload And Send</button>
         </div>
       </form>
     </div>
     <div class="rightside">
-      <p class="title"><span class="big">Deliver </span>The Finished Product</p>
+    <!-- Product Upload Section -->
+    <p class="title"><span class="big">Deliver </span>The Finished Product</p>
       <form action="<?php echo BASEURL.'/sharePoint/uploadFile';?>" method="post" enctype="multipart/form-data">
         Discription of deliver 
-        <br><textarea class="textbox" name="dis" rows="4" cols="50">
-        </textarea><br><br>
+        <br><textarea class="textbox" name="dis" rows="4" cols="50"></textarea><br><br>
         File must be compressed into .zip , .rar or .tar format.<br>
-        <div class="upload_background"><input type="file" name="filex" class="filebtn">
+        <div class="upload_background"><input type="file" id="productf" onchange="showProductName()" name="filex" class="filebtn"><span id='productname'></span>
           <button type="submit" name="finalsave" class="uploadbtn">Upload And Send</button>
         </div>
         <br>
         <input type="checkbox" name="final" id="final" onclick="showrate()"> Consider this as a final product delivery.
         <div id="rateSec" style="display:none">
         <p class="title"><span class="big">Rate </span>The Buyer</p>
-        Considering overroll expresion about the buyer, give him a rate.
+        Give your rate to buyer
         <div class="rate">
           <input type="radio" id="star5" name="rate" value="5" />
           <label for="star5" title="text">5 stars</label>

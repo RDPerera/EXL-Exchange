@@ -5,12 +5,31 @@ class sharePoint extends exlFramework
     {
         $this->helper("linker");
         $this->shareModel = $this->model('sharePointModel');
+        $this->sellerDashboardModel = $this->model('sellerDashboardModel');
     }
 
     public function index()
     {
         // Get the relevent file list
         $data['files']=$this->shareModel->fileList();
+        $data['buyer']='chathura';
+
+        $userName = 'dilan';
+        //retrieving user data from the database
+        $user = $this->sellerDashboardModel->retrieveUser($userName);
+
+        if ($user) {
+
+            $data[0][0] = $user['firstName'];
+            $data[0][1] = $user['lastName'];
+            $data[0][2] = $user['profilePicture'];
+            $data[0][3] = $user['dob'];
+            $data[0][4] = $user['email'];
+            $data[0][5] = $user['mainRate'];
+            $data[0][6] = $user['communicationRate'];
+            $data[0][7] = $user['deliveringRate'];
+        }
+
         $this->view("sharePointView",$data);
     }
     //Movethe file to Upload dir and track the change in DB
@@ -30,7 +49,7 @@ class sharePoint extends exlFramework
             $destination = BASEURL.'/public/assets/uploads/' . $filename;
             $extension = pathinfo($filename, PATHINFO_EXTENSION);
             $size = $_FILES['myfile']['size'];
-
+            //file type checkup
             if (!in_array($extension, ['zip', 'tar', 'rar','pdf'])) {
                 echo "<div class='fullpage'>
                 <div class='loadercontainer'>
@@ -39,6 +58,7 @@ class sharePoint extends exlFramework
                 </div>
                 </div>";
             } 
+            //file size checkup
             elseif ($_FILES['myfile']['size'] > 1000000) {
                 
                 echo "<div class='fullpage'>
@@ -49,23 +69,24 @@ class sharePoint extends exlFramework
                         </div>";
             }
             else{
-                // echo "<div class='fullpage'>
-                // <div class='loadercontainer'>
-                //     <div class='loader'></div>
-                //     <div class='progress'>Uploading...</div>
-                // </div>
-                // </div>";
-                // if (ob_get_length()) {
-                //     ob_end_flush();
-                //     flush();
-                // }
-                // sleep(2);
+                echo "<div class='fullpage'>
+                <div class='loadercontainer'>
+                    <div class='loader'></div>
+                    <div class='progress'>Uploading...</div>
+                </div>
+                </div>";
+                if (ob_get_length()) {
+                    ob_end_flush();
+                    flush();
+                }
+                sleep(2);
                 if (move_uploaded_file($_FILES["myfile"]["tmp_name"], $destination)  or 1) {
                     if ($this->shareModel->fileUpload($filename,$size,$jobId)) {
                         echo "<div class='fullpage'>
                         <div class='loadercontainer'>
                             <img src='".icoIMG('success.png')."' alt='success' class='sucess'> 
                             <div class='sucess-text'>Successfully Uploaded ! </div>
+                            <a class='backlink' href='".BASEURL."/sharePoint'><div class='back'>Back To SharePoint</div></a>
                         </div>
                         </div>";
                     }   
@@ -98,6 +119,7 @@ class sharePoint extends exlFramework
             $destination = BASEURL.'/public/assets/uploads/' . $filename;
             $extension = pathinfo($filename, PATHINFO_EXTENSION);
             $size = $_FILES['filex']['size'];
+            //file type checkup
             if (!in_array($extension, ['zip', 'tar', 'rar','pdf'])) {  
                 echo "<div class='fullpage'>
                 <div class='loadercontainer'>
@@ -119,6 +141,7 @@ class sharePoint extends exlFramework
                         <div class='loadercontainer'>
                                 <img src='".icoIMG('success.png')."' alt='success' class='sucess'> 
                             <div class='sucess-text'>Successfully Uploaded ! </div>
+                            <a class='backlink' href='".BASEURL."/sharePoint'><div class='back'>Back To SharePoint</div></a>
                         </div>
                         </div>";
                     }
