@@ -109,7 +109,7 @@
                         <!--  clear anchor tag styles -->
                         <div class="empty-card">
                             <img src="<?php echo BASEURL; ?>/public/assets/img/icons/icons8-plus-math-96.png" width="50px" height="50px" style="vertical-align: middle; padding-right: 10px" />
-                            Create An Advertisement
+                            Create an Advertisement
 
                         </div>
                     </a>
