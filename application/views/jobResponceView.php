@@ -56,15 +56,19 @@
             <?php     
                 if($job['jobStatus']=='0')
                 {
-                    echo "<span style='color: #ffc107 ; font-weight:500'> Pending </span>";
+                    echo "<span style='color: #ffc107 ; font-weight:500'> Pending For Seller</span>";
                 }
                 else if($job['jobStatus']=='1')
                 {
-                    echo "<span style='color: #00c241 ; font-weight:500'>  Accepted</span>";
+                    echo "<span style='color: #00c241 ; font-weight:500'> Seller Accepted And Waiting For Payment</span>";
                 }
                 else if($job['jobStatus']=='2')
                 {
-                    echo "<span style='color: #d82303 ; font-weight:500'> Rejected </span>";
+                    echo "<span style='color: #d82303 ; font-weight:500'> Seller Declined</span>";
+                }
+                else if($job['jobStatus']=='3')
+                {
+                    echo "<span style='color: #313fff ; font-weight:500'> Completed</span>";
                 }
                 //when payment gateway is implemented this part should change
             ?>

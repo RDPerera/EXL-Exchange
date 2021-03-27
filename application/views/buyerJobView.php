@@ -25,13 +25,13 @@
             foreach ($jobs as $request){
                 
     ?>
-    <a href="<?php echo BASEURL.'/sellerJobHandler/get/'.$request['jobId'];?>" style="text-decoration:none;color:#333;">
+    <a href="<?php echo BASEURL.'/job/get/'.$request['adId'];?>" style="text-decoration:none;color:#333;">
     <div class="requests">
     
         <div class="request">
             <span><span class="request-title">Advertisemet ID</span><?php echo $request['adId'] ?></span>
             <span><span class="request-title">Job ID</span><?php echo $request['jobId'] ?></span>
-            <span><span class="request-title">Buyer Name</span><?php echo $request['buyer'] ?></span>
+            <span><span class="request-title">Seller Name</span><?php echo $request['userName'] ?></span>
             <span><span class="request-title">Request Status</span>
             <?php     
             if($request['jobStatus']=='0')

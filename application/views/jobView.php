@@ -60,7 +60,7 @@
                 }
                 else if($job['jobStatus']=='1')
                 {
-                    echo "<span style='color: #00c241 ; font-weight:500'> Seller Accepted</span>";
+                    echo "<span style='color: #00c241 ; font-weight:500'> Seller Accepted And Waiting For Payment</span>";
                 }
                 else if($job['jobStatus']=='2')
                 {
@@ -103,8 +103,10 @@
             <div class="request-buttons">
                 <input type="submit" class="request-ad" name="submit" <?php if($job['jobStatus']=='1' or $job['jobStatus']=='3'){ echo "style='display:none' disabled";} ?> value="Resend Job Request">
                 <div class="button-set" >
-                <?php if($job['jobStatus']=='3' or $job['jobStatus']=='1'){ ?><a href="<?php echo BASEURL.'/sharePointBuyer' ?>"><div name="x" class="std-ad" >Get an Invoice</div></a><?php } ?>
+                <?php if($job['jobStatus']=='3' or $job['jobStatus']=='1' or $job['jobStatus']=='4'){ ?><a href="<?php echo BASEURL.'/sharePointBuyer' ?>"><div name="x" class="std-ad" >Get an Invoice</div></a><?php } ?>
                 <a href="<?php echo BASEURL.'/sharePointBuyer' ?>"><div name="y" class="std-ad" >Report </div></a>
+                <a href="<?php echo BASEURL.'/sharePointBuyer' ?>"><div name="z" class="std-ad" >Help</div></a> 
+                <?php if($job['jobStatus']=='1'){ ?><a href="<?php echo BASEURL.'/sharePointBuyer' ?>"><div name="x" class="comp-ad" >Do The Payment</div></a><?php } ?>
                 <a href="<?php echo BASEURL.'/sharePointBuyer' ?>"><div name="z" class="comp-ad" >Go To Job</div></a> 
                 </div>
             </div>

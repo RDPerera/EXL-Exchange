@@ -10,6 +10,7 @@
     <?php $adData=$data['adDetails'];?>
     <?php linkCSS('job-responce'); ?>
     <?php linkJS('jquery.min'); ?>
+    
     <?php linkCSS("sdashboard"); ?>
     <?php linkCSS("card"); ?>
     <?php linkFAV("ee-logo.png"); ?>
@@ -69,11 +70,15 @@
                         }
                         else if($job['jobStatus']=='1')
                         {
-                            echo "<span style='color: #00c241 ; font-weight:500'>  Accepted</span>";
+                            echo "<span style='color: #00c241 ; font-weight:500'> Pending for buyer payment</span>";
                         }
                         else if($job['jobStatus']=='2')
                         {
                             echo "<span style='color: #d82303 ; font-weight:500'> Rejected </span>";
+                        }
+                        else if($job['jobStatus']=='3')
+                        {
+                            echo "<span style='color: #313fff ; font-weight:500'> Rejected </span>";
                         }
                         //when payment gateway is implemented this part should change
                     ?>
@@ -99,8 +104,7 @@
                         {
                             echo "style='background-color:#FBFBFB';";
                         }
-                        ?>
-                    >
+                        ?>>
                         <table>
                             <tr><td>Job ID </td><td><?php echo $job['jobId']; ?></td></tr>
                             <tr><td>Advertisement ID </td><td><?php echo $adData['advertisementID']; ?></td></tr>
@@ -112,27 +116,19 @@
                             <tr><td>Total Payment</td><td id="total-payment"></td></tr>
                         </table>
                     </div>
-                    <div class="request-buttons"
-                    <?php 
+                    <div class="request-buttons">
+                        <div class="button-set" ><div <?php 
                         if($job['jobStatus']=='1' or $job['jobStatus']=='2')
                         {
                             echo "style='display:none'";
                         }
                         ?>>
-                        <div class="button-set" >
                         <a href="<?php echo BASEURL.'/sellerJobHandler/accept/'.$job['jobId']; ?>"><button class="accept-ad" >Accept</button></a>
-                        <a href="<?php echo BASEURL.'/sellerJobHandler/reject/'.$job['jobId']; ?>"><button class="reject-ad" >Reject</button></a>
-                        </div>
-                        
-                    </div>
-                    <div class="request-buttons">
-                        <div class="button-set" >
-                            <?php if($job['jobStatus']=='3' or $job['jobStatus']=='1' or $job['jobStatus']=='4'){ ?><a href="<?php echo BASEURL.'/sharePointBuyer' ?>"><div name="x" class="std-ad" >Get an Invoice</div></a><?php } ?>
-                            <a href="<?php echo BASEURL.'/sharePointBuyer' ?>"><div name="y" class="std-ad" >Report </div></a>
-                            <a href="<?php echo BASEURL.'/sharePointBuyer' ?>"><div name="z" class="std-ad" >Help</div></a> 
-                            <?php if($job['jobStatus']=='1'){ ?><a href="<?php echo BASEURL.'/sharePointBuyer' ?>"><div name="x" class="comp-ad" >Do The Payment</div></a><?php } ?>
-                            <a href="<?php echo BASEURL.'/sharePointBuyer' ?>"><div name="z" class="comp-ad" >Go To Job</div></a> 
-                            </div>
+                        <a href="<?php echo BASEURL.'/sellerJobHandler/reject/'.$job['jobId']; ?>"><button class="reject-ad" >Reject</button></a></div>
+                            <?php if($job['jobStatus']=='3' or $job['jobStatus']=='1' or $job['jobStatus']=='4'){ ?><a class="hideme" href="<?php echo BASEURL.'/sharePointBuyer' ?>"><div name="x" class="std-ad" >Get an Invoice</div></a><?php } ?>
+                            <a class="hideme" href="<?php echo BASEURL.'/sharePoint' ?>"><div name="y" class="std-ad" >Report </div></a>
+                            <a class="hideme" href="<?php echo BASEURL.'/sharePoint' ?>"><div name="z" class="std-ad" >Help</div></a> 
+                            <a class="hideme" href="<?php echo BASEURL.'/sharePoint' ?>"><div name="z" class="comp-ad" >Go To Job</div></a> 
                         </div>
                     </div>
                 </div>

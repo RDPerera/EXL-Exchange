@@ -14,7 +14,9 @@ class job extends exlFramework
     public function get($adId)
     {
         $this->setSession("adId",$adId);
+        $this->redirect('job');
     }
+    
     public function index()
     {
         $data=array();

@@ -155,7 +155,7 @@ img.ratingIcon {
 }
 .workspace-container {
   grid-area: workspace;
-  width: 650px;
+  width: 100%;
   border-radius: 10px;
   margin-left: 20px;
   margin-right: 10px;
@@ -179,11 +179,12 @@ img.ratingIcon {
 .main-container {
   display: grid;
   height: 100%;
+  margin-right: 30px;
   background-color: white;
   margin-top: 70px;
   margin-bottom: 18px;
   margin-left: 10px;
-  grid-template-areas: "messenger messenger messenger workspace";
+  grid-template-areas: "messenger messenger workspace workspace";
 }
 
 .time {
