@@ -92,11 +92,11 @@
                     </div>
                     <div class="textArea">
                         <p>Total Earnings ~
-                            <font class="amount">LKR <?php echo $additionalData['total']; ?>.00 </font>
+                            <font class="amount">LKR <?php echo number_format((float)$additionalData['total'], 2, '.', ''); ?> </font>
                             <span class="description"><br>Total seller earnings from the creation of the seller account upto today</span>
                         </p>
                         <p>Earnings This Month ~
-                            <font class="amount">LKR <?php echo $additionalData['thisMonthTotal']; ?>.00 </font>
+                            <font class="amount">LKR <?php echo number_format((float)$additionalData['thisMonthTotal'], 2, '.', '');?> </font>
                             <span class="description"><br>Seller earnings within this month</span>
                         </p>
                     </div>
