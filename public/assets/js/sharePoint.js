@@ -31,3 +31,18 @@ function showName()
   var text=document.getElementById('filename');
   text.innerHTML="<b>File Name : </b>"+filename;
 }
+function activeSubmit()
+{
+  // Get the checkbox
+  var checkBox = document.getElementById("check");
+  // Get the output text
+  var btn = document.getElementById("btnx");
+  // If the checkbox is checked, display the output text
+  if (checkBox.checked == true) {
+    btn.style.pointerEvents='auto';
+    btn.style.backgroundColor='#00ad2b';
+  } else {
+    btn.style.pointerEvents='none';
+    btn.style.backgroundColor='rgb(85, 85, 85)';
+  }
+}

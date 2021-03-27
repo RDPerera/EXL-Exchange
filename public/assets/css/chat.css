@@ -155,7 +155,6 @@ img.ratingIcon {
 }
 .workspace-container {
   grid-area: workspace;
-  width: 800px;
   border-radius: 10px;
   margin-left: 20px;
   margin-right: 10px;
@@ -180,9 +179,9 @@ img.ratingIcon {
   display: grid;
   height: 100%;
   background-color: white;
-  margin-top: 25px;
+  margin: 10px;
+  margin-top: 35px;
   margin-bottom: 18px;
-  margin-left: 10px;
   grid-template-areas: "messenger workspace";
 }
 
@@ -521,6 +520,65 @@ span.rating {
 .reject-ad:focus {
   outline: 0;
 }
+.std-ad {
+  text-align: center;
+  font-size: small;
+  margin-top: 5px;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+  width: 100%;
+  background-color: #f7f7f7;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-radius: 10px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 500;
+  border: 1px solid #007bff;
+  color:#007bff;
+  box-shadow: 1px 1px 1px #f7f7f7;
+  transition: ease-in-out 0.3s;
+  cursor: pointer;
+}
+.std-ad:focus {
+  outline: 0;
+}
+.comp-ad {
+  text-align: center;
+  font-size: small;
+  margin-top: 5px;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+  width: 100%;
+  background-color: #007bff;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-radius: 10px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 500;
+  border: 1px solid #007bff;
+  color: white;
+  box-shadow: 1px 1px 1px #007bff;
+  transition: ease-in-out 0.3s;
+}
+.comp-ad:hover {
+  color: #007bff;
+  background-color: #ffffff;
+  border: 1px solid #007bff;
+  box-shadow: 1px 1px 1px #ffffff;
+}
+.comp-ad:focus {
+  outline: 0;
+}
 .report-ad {
   -webkit-user-select: none;
   -khtml-user-select: none;
@@ -709,4 +767,32 @@ span.rating {
   .feed-container {
     display: none;
   }
+}
+
+.go-to-job
+{
+  border: none;
+  padding:10px 50px;
+  background-color: #007bff;
+  border-radius: 5px;
+  color: white;
+  transition: ease-in-out 0.3s;
+}
+.go-to-job:hover
+{
+  background-color: white;
+  color: #007bff;
+  box-shadow: 1px 1px 5px 1px #347bcc;
+}
+.completed-text
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #14a733;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 60px;
+  font-weight: 600;
+  width: 100%;
+  height: 300px;
 }
