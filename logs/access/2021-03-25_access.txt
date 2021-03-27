@@ -1,1 +1,6 @@
+<<<<<<< HEAD
 [2021-03-25 21:38:16]	dilan             		SELLER         		LOCAL		51540						ACCESSED
+=======
+[2021-03-25 23:26:46]	dilan             		SELLER         		LOCAL		12331						ACCESSED
+[2021-03-25 23:27:20]	dilan             		SELLER         		LOCAL		12357						ACCESSED
+>>>>>>> b610d9f0d7397a4fc756278217629c883e144bd6
