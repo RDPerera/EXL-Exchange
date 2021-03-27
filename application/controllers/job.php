@@ -27,6 +27,7 @@ class job extends exlFramework
             $this->setSession('buyer',$sender);
             $this->setSession('receiver',$receiver);
             $this->setSession('sender',$sender);
+            $this->setSession('jobId',$data['job'][0]['jobId']);
             $data['userName']=$userName=$this->getSession("userName");
             $data["profilePic"]=$this->dashmodel->checkOlderDP($userName);
             $data['curr-page']="no-page";

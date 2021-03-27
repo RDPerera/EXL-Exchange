@@ -1,6 +1,5 @@
 
 <?php include "components/buyerDashboardHeader.php"; ?>
-<?php include "components/sliderHome.php"; ?>
 
 <?php $jobs=$data['jobs']; ?>
 <?php $mode=$data['mode']; ?>
@@ -47,6 +46,10 @@
             {
                 echo "<span style='color: #d82303 ; font-weight:500'> Rejected </span>";
             }
+            else if($job['jobStatus']=='3')
+            {
+                echo "<span style='color: #313fff ; font-weight:500'> Completed</span>";
+            }
             //when payment gateway is implemented this part should change
         ?>
             </span>
@@ -58,4 +61,5 @@
         
             <?php } ?>
             </div>
+<br><br>
 <?php include "components/footerHome.php"; ?>
