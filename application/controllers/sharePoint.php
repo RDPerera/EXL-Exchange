@@ -12,9 +12,9 @@ class sharePoint extends exlFramework
     {
         // Get the relevent file list
         $data['files']=$this->shareModel->fileList();
-        $data['buyer']='chathura';
+        $data['buyer']=$this->getSession('buyer');
 
-        $userName = 'dilan';
+        $userName = $this->getSession('userName');
         //retrieving user data from the database
         $user = $this->sellerDashboardModel->retrieveUser($userName);
 
@@ -36,8 +36,9 @@ class sharePoint extends exlFramework
     public function uploadFile()
     {
         //replace with session data
-        $jobId=123;
-        $buyerId='chathura';
+        $jobId=$this->getSession('jobId');
+        $buyerId=$this->getSession('buyer');
+
 
         //Load Mormal View
         $data['files']=$this->shareModel->fileList();

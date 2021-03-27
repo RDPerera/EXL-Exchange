@@ -5,3 +5,7 @@
 [2021-03-27 17:15:09]	chathura             		BUYER         		LOCAL		49606						ACCESSED
 [2021-03-27 17:30:06]	chathura             		BUYER         		LOCAL		49806						ACCESSED
 [2021-03-27 17:44:30]	chathura             		BUYER         		LOCAL		50574						ACCESSED
+[2021-03-27 21:15:18]	dilan             		SELLER         		LOCAL		39300						ACCESSED
+[2021-03-27 21:16:31]	chathura             		BUYER         		LOCAL		39370						ACCESSED
+[2021-03-27 21:24:53]	chathura             		BUYER         		LOCAL		39764						ACCESSED
+[2021-03-27 21:58:11]	chathura             		BUYER         		LOCAL		42292						ACCESSED

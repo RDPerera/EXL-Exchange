@@ -10,6 +10,7 @@
     <?php $adData=$data['adDetails'];?>
     <?php linkCSS('job-responce'); ?>
     <?php linkJS('jquery.min'); ?>
+    
     <?php linkCSS("sdashboard"); ?>
     <?php linkCSS("card"); ?>
     <?php linkFAV("ee-logo.png"); ?>
@@ -18,39 +19,7 @@
 </head>
 
 <body>
-    <input type="checkbox" id="home">
-    <header class="header">
-        <label for="home"><img src='<?php echo BASEURL; ?>/public/assets/img/icons/ee-logo.png' class="home-menu"></label>
-        <div class="left-head">Seller<span class="min-text"> Dashboard</span></div>
-        <form method="post" action="<?php echo BASEURL.'/sellerDashboard/logout'; ?>">
-            <div class="right-head"><input type="submit" name="logout" value="Log Out" class="head-btn"></div></form>
-    </header>
-    <div class="sidebar">
-        <center>
-            <div class="sidebar-profile-container">
-                <a href="<?php echo BASEURL;?>/sellerDashboard/loadChangeDPView"><img src="<?php echo BASEURL; ?>/public/assets/img/userImages/<?php if ($data[0][2]) {
-                                                                                                echo $data[0][2];
-                                                                                            } else {
-                                                                                                echo "pp_default.jpg";
-                                                                                            } ?>" class="sidebar-profile"></a>
-            </div>
-            <span class="slidbar-name"><?php echo $data[0][0] . " " . $data[0][1]; ?></span>
-        </center>
-        <div class="sidebar-menu">
-            <a href="<?php echo BASEURL; ?>/sellerDashboard"><img src="<?php echo BASEURL; ?>/public/assets/img/icons/icons8-home-144.png" class="sidebar-icons"><span>Home</span></a>
-            <a href="#"><img src="<?php echo BASEURL; ?>/public/assets/img/icons/icons8-chat-96.png" class="sidebar-icons"><span>Messages</span></a>
-            <a href="<?php echo BASEURL; ?>/sellerJob/pending"><img src="<?php echo BASEURL; ?>/public/assets/img/icons/pending.png " class="sidebar-icons"><span>Pending Jobs</span></a>
-            <a href="<?php echo BASEURL; ?>/sellerJob/active"><img src="<?php echo BASEURL; ?>/public/assets/img/icons/active.png " class="sidebar-icons"><span>Active Jobs</span></a>
-            <a href="<?php echo BASEURL; ?>/sellerJob"><img src="<?php echo BASEURL; ?>/public/assets/img/icons/icons8-submit-resume-96.png " class="sidebar-icons"><span>All Job Request</span></a>
-            <a href="<?php echo BASEURL; ?>/advertisements_Controller"><img src="<?php echo BASEURL; ?>/public/assets/img/icons/icons8-plus-math-96.png" class="sidebar-icons"><span>Create Advertisement</span></a>
-            <a href="<?php echo BASEURL; ?>/sellerAnalytics"><img src="<?php echo BASEURL; ?>/public/assets/img/icons/icons8-report-96.png" class="sidebar-icons"><span>Analytics</span></a>
-
-            <a href="#"><img src="<?php echo BASEURL; ?>/public/assets/img/icons/icons8-question-mark-96.png" class="sidebar-icons"><span>Help & Support</span></a>
-            <a href="<?php echo BASEURL; ?>/sellercomplaint"><img src="<?php echo BASEURL; ?>/public/assets/img/icons/icons8-complaint-90.png" class="sidebar-icons"><span>Complaints</span></a>
-            <a href="#"><img src="<?php echo BASEURL; ?>/public/assets/img/icons/icons8-settings-500.png" class="sidebar-icons"><span>Settings</span></a>
-        </div>
-    </div>
-
+    <?php include "components/sellerDash.php"; ?>
     <div class="content-super">
         <div class="page-container">
             <div class="main-container">
@@ -101,11 +70,15 @@
                         }
                         else if($job['jobStatus']=='1')
                         {
-                            echo "<span style='color: #00c241 ; font-weight:500'>  Accepted</span>";
+                            echo "<span style='color: #00c241 ; font-weight:500'> Pending for buyer payment</span>";
                         }
                         else if($job['jobStatus']=='2')
                         {
                             echo "<span style='color: #d82303 ; font-weight:500'> Rejected </span>";
+                        }
+                        else if($job['jobStatus']=='3')
+                        {
+                            echo "<span style='color: #313fff ; font-weight:500'> Rejected </span>";
                         }
                         //when payment gateway is implemented this part should change
                     ?>
@@ -131,8 +104,7 @@
                         {
                             echo "style='background-color:#FBFBFB';";
                         }
-                        ?>
-                    >
+                        ?>>
                         <table>
                             <tr><td>Job ID </td><td><?php echo $job['jobId']; ?></td></tr>
                             <tr><td>Advertisement ID </td><td><?php echo $adData['advertisementID']; ?></td></tr>
@@ -144,19 +116,20 @@
                             <tr><td>Total Payment</td><td id="total-payment"></td></tr>
                         </table>
                     </div>
-                    <div class="request-buttons"
-                    <?php 
+                    <div class="request-buttons">
+                        <div class="button-set" ><div <?php 
                         if($job['jobStatus']=='1' or $job['jobStatus']=='2')
                         {
                             echo "style='display:none'";
                         }
                         ?>>
-                        <div class="button-set" >
                         <a href="<?php echo BASEURL.'/sellerJobHandler/accept/'.$job['jobId']; ?>"><button class="accept-ad" >Accept</button></a>
-                        <a href="<?php echo BASEURL.'/sellerJobHandler/reject/'.$job['jobId']; ?>"><button class="reject-ad" >Reject</button></a>
+                        <a href="<?php echo BASEURL.'/sellerJobHandler/reject/'.$job['jobId']; ?>"><button class="reject-ad" >Reject</button></a></div>
+                            <?php if($job['jobStatus']=='3' or $job['jobStatus']=='1' or $job['jobStatus']=='4'){ ?><a class="hideme" href="<?php echo BASEURL.'/sharePointBuyer' ?>"><div name="x" class="std-ad" >Get an Invoice</div></a><?php } ?>
+                            <a class="hideme" href="<?php echo BASEURL.'/sharePoint' ?>"><div name="y" class="std-ad" >Report </div></a>
+                            <a class="hideme" href="<?php echo BASEURL.'/sharePoint' ?>"><div name="z" class="std-ad" >Help</div></a> 
+                            <a class="hideme" href="<?php echo BASEURL.'/sharePoint' ?>"><div name="z" class="comp-ad" >Go To Job</div></a> 
                         </div>
-                        
-                    </div>
                     </div>
                 </div>
             </div>
