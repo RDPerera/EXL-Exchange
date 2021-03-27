@@ -59,5 +59,10 @@
             $user = $this->amodel->insertUser($username,$firstname,$lastname,$dob,$email,$passwd);
             $this->redirect("adminDashboard");
         }
+
+        public function loadReportView(){
+            $data = [];
+            $this->view("adminReport",$data);
+        }
     }
 ?>

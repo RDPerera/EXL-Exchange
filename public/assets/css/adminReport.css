@@ -1,0 +1,56 @@
+.mainContainer {
+  margin-left: 320px;
+  margin-top: 50px;
+  display: grid;
+  grid-template-areas:
+    "half"
+    "half";
+}
+
+.top {
+  display: grid;
+  grid-area: half;
+  grid-template-areas:
+    "head head head"
+    "plot plot description"
+    "plot plot description";
+  box-shadow: 0 0px 6px 0 rgba(0, 0, 0, 0.3);
+  background-color: rgb(255, 251, 251);
+  font-size: 30px;
+  border-radius: 15px;
+  margin-right: 15px;
+}
+
+/* .top > div {
+  box-shadow: 0 0px 6px 0 rgba(0, 0, 0, 0.3);
+  background-color: rgb(255, 251, 251);
+  font-size: 30px;
+} */
+
+.topHead {
+  display: grid;
+  grid-area: head;
+  height: 60px;
+  align-items: center;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  background-color: #007bff;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.topHead p {
+  font-size: medium;
+  color: white;
+  font-weight: 500;
+  margin-left: 15px;
+  margin-top: 10px;
+}
+
+.plot {
+  display: grid;
+  grid-area: plot;
+}
+.description {
+  display: grid;
+  grid-area: description;
+}
