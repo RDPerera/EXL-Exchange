@@ -153,6 +153,7 @@ $files=$data['files'];
         <br><br>
         <input type="checkbox" name="final" id="check" onclick="activeSubmit()"> I recive my product and I want to complete this job and enableing seller to get his money.
         <div class="submitSec"><button type="submit" name="finalsave" id="btnx" class="uploadbtnx">Complete The Job</button></div>
+        <a href="<?php echo BASEURL ?>/job"><div class="backbtn">Back</div></a>
       </form>
     </div>
 

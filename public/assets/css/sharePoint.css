@@ -530,4 +530,43 @@ body {
 .image-container img {
   width: 500px;
 }
+.backbtn
+{
+  float: right;
+  margin-right: 5px;
+  padding: 10px 20px;
+  padding-bottom: 11px;
+  background-color: #007bff;
+  color: white;
+  border-radius: 5px;
+  border: none;
+  width: 80px;
+  transition: ease-in-out 0.3s;
+  font-size: small;
+}
+.backbtn:hover
+{
+  background-color: rgb(240, 240, 240);
+  color: #007bff;
 
+}
+.bkbtn
+{
+  float: right;
+  padding: 10px 20px;
+  padding-bottom: 11px;
+  background-color: #007bff;
+  color: white;
+  border-radius: 5px;
+  border: none;
+  width: 150px;
+  transition: ease-in-out 0.3s;
+  font-size: small;
+  margin-top: 10px;
+}
+.bkbtn:hover
+{
+  background-color: rgb(240, 240, 240);
+  color: #007bff;
+  
+}

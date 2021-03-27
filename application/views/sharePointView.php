@@ -98,6 +98,7 @@ $files=$data['files'];
         </div>
         <br>
         <input type="checkbox" name="final" id="final" onclick="showrate()"> Consider this as a final product delivery.
+        <a href="<?php echo BASEURL.'/sellerJobHandler' ?>"><div name="z" class="bkbtn" >Back To Countdown Page</div></a> 
         <div id="rateSec" style="display:none">
         <p class="title"><span class="big">Rate </span>The Buyer</p>
         Give your rate to buyer
@@ -113,6 +114,7 @@ $files=$data['files'];
           <input type="radio" id="star1" name="rate" value="1" />
           <label for="star1" title="text">1 star</label>
         </div>
+        
         </div>
       </form>
     </div>
