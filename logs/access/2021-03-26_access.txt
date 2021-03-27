@@ -1,0 +1,10 @@
+[2021-03-26 16:13:39]	dilan             		SELLER         		LOCAL		47186						ACCESSED
+[2021-03-26 16:13:55]	chathura             		BUYER         		LOCAL		47202						ACCESSED
+[2021-03-26 16:15:42]	dilan             		SELLER         		LOCAL		47236						ACCESSED
+[2021-03-26 16:17:05]	dilan             		SELLER         		LOCAL		47370						ACCESSED
+[2021-03-26 16:21:57]	dilan             		SELLER         		LOCAL		47638						ACCESSED
+[2021-03-26 16:22:13]	chathura             		BUYER         		LOCAL		47638						ACCESSED
+[2021-03-26 16:24:40]	dilan             		SELLER         		LOCAL		47800						ACCESSED
+[2021-03-26 16:24:54]	chathura             		UNOTH         		LOCAL		47818						DENIED
+[2021-03-26 16:25:33]	chathura             		BUYER         		LOCAL		47838						ACCESSED
+[2021-03-26 16:29:01]	chathura             		BUYER         		LOCAL		48016						ACCESSED

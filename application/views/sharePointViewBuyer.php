@@ -78,7 +78,7 @@ $files=$data['files'];
         </div>
       </form>
     </div>
-    <?php if($data['isActive']==1){ ?>
+    <?php if($data['isActive']=='1'){ ?>
     <div class="rightside">
     <!-- fnish order Section -->
     <p class="title"><span class="big">Complete </span>The Order</p>
@@ -158,7 +158,7 @@ $files=$data['files'];
 
 
   </div>
-  <?php } else { echo "asdasdas".$data['isActive'];?>
+  <?php } else { ?>
     <div class="rightside">
       <div class="image-container">
       <img src="<?php echo BASEURL ?>/public/assets/img/completed.svg" alt="complete">

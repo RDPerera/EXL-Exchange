@@ -1,4 +1,4 @@
-<?php include "components/headerHome.php"; ?>
+<?php include "components/buyerDashboardHeader.php"; ?>
     <title>Job Request</title>
     <?php linkCSS('chat'); ?>
     <?php linkJS('jquery.min'); ?>
@@ -75,4 +75,4 @@
     </div>
     </div>
     <?php linkJS("jobRequest"); ?>
-    <?php include "components/footerHome.php"; ?>
+    <?php include "components/fixedFooter.php"; ?>

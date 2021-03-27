@@ -15,7 +15,7 @@ class sharePointBuyer extends exlFramework
         $data["profilePic"]=$this->model->checkOlderDP($userName);
         $data['isActive']=$this->shareModel->isActive($jobId);
         // Get the relevent file list   
-        $data['files']=$this->shareModel->fileList();
+        $data['files']=$this->shareModel->fileList($jobId);
         $this->view("sharePointViewBuyer",$data);
     }
     //Movethe file to Upload dir and track the change in DB
@@ -26,7 +26,7 @@ class sharePointBuyer extends exlFramework
         $sellerId=$this->getSession("seller");
         $data['userName']=$buyerId=$this->getSession("buyer");
         //Load Mormal View
-        $data['files']=$this->shareModel->fileList();
+        $data['files']=$this->shareModel->fileList($jobId);
         $data['isActive']=$this->shareModel->isActive($jobId);
         //$this->getSession("userName");
         $data["profilePic"]=$this->model->checkOlderDP($userName);
@@ -100,7 +100,7 @@ class sharePointBuyer extends exlFramework
                         <div class='loadercontainer'>
                             <img src='".icoIMG('success.png')."' alt='success' class='sucess'> 
                             <div class='sucess-text'>Job Status Changed Successfully! </div>
-                            <a class='backlink' href='".BASEURL."/job'><div class='back'>Back To Previous</div></a>
+                            <a class='backlink' href='".BASEURL."/job'><div class='back'>Back To Prev Page</div></a>
                         </div>
                         </div>";
         }

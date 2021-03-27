@@ -29,6 +29,7 @@ class jobRequest extends exlFramework
         }
         else
         {
+            
             $data['adDetails']=$this->model->getCollaborators($receiver);
             $this->setSession('buyer',$sender);
             $this->setSession('receiver',$receiver);

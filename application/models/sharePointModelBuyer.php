@@ -7,9 +7,9 @@ class sharePointModelBuyer extends database{
         $file = mysqli_fetch_assoc($result);
         return $file;
     }
-    public function fileList()
+    public function fileList($jobId)
     {
-        $sql = "SELECT * FROM files";
+        $sql = "SELECT * FROM files WHERE jobId=$jobId";
         $result = mysqli_query($GLOBALS['db'], $sql);
         $files = mysqli_fetch_all($result, MYSQLI_ASSOC);
         return $files;
