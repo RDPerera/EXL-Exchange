@@ -84,4 +84,28 @@ class adminDashboard extends exlFramework
         $revenueData = $this->main_model->retrieveRevenueData();
         print json_encode($revenueData);
     }
+
+    //retrieve visitor data for plotting
+    public function getVisitorByCountry()
+    {
+
+        /*TO GET THE COUNTRY DATA OF EACH IP*/
+
+        //get the visitor by country
+        $visitorData = $this->main_model->retrieveVisitorByCountry();
+
+        //create a new array $data, which has each country and its corresponding visitor count
+        foreach ($visitorData as $row) {
+            $data[] = array("country" => ($this->ip_info($row['ip'], "Country")), "visitors" => $row['visitors']);
+        }
+
+        print json_encode($data);
+    }
+
+    //retrieve visitor data for plotting
+    public function getVistorByDate()
+    {
+        $visitorData = $this->main_model->retrieveVisitorByDate();
+        print json_encode($visitorData);
+    }
 }
