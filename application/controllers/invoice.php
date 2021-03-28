@@ -10,6 +10,7 @@ class invoice extends exlFramework
     public function get($jobID)
     {
         $data=$this->model->getAll($jobID);
+        $data['buyer']=$this->model->getBuyer($jobID);
         $this->view("invoiceView",$data);
     }
 }

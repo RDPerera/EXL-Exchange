@@ -7,5 +7,12 @@ class invoiceModel extends database{
         $file = mysqli_fetch_assoc($result);
         return $file;
     }
+    public function getBuyer($jobId)
+    {
+        $sql = "SELECT * FROM job,advertisement,user WHERE job.jobId=$jobId AND advertisement.advertisementID=job.adId AND job.userName=user.userName LIMIT 1";
+        $result = mysqli_query($GLOBALS['db'], $sql);
+        $file = mysqli_fetch_assoc($result);
+        return $file;
+    }
 }
 ?>

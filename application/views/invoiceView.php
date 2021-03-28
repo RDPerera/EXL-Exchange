@@ -39,10 +39,6 @@
         <td class="ans"><?php echo $data['category']; ?></td>
       </tr>
       <tr>
-        <td class="rule">Advertisement Owner</td>
-        <td class="ans"><?php echo $data['firstName']." ".$data['lastName']; ?></td>
-      </tr>
-      <tr>
         <td class="rule">Advertisement Rate</td>
         <td class="ans"><?php echo $data['rate']; ?></td>
       </tr>
@@ -56,6 +52,14 @@
     <div class="main">Payment Details</div>
     <br />
     <table class="tbl2">
+    <tr>
+        <td class="rule">Buyer Name</td>
+        <td class="ans"><?php echo $data['buyer']['firstName']." ".$data['buyer']['lastName']; ?></td>
+      </tr>
+      <tr>
+        <td class="rule">Buyer Email</td>
+        <td class="ans"><?php echo $data['buyer']['email']; ?></td>
+      </tr>
       <tr>
         <td class="rule">Seller Name</td>
         <td class="ans"><?php echo $data['firstName']." ".$data['lastName']; ?></td>
@@ -86,7 +90,7 @@
       </tr>
       <tr>
         <td class="rule">Total Payment</td>
-        <td class="ans">Rs.<?php echo $data['price']+$data['additionalPayment'].".00"; ?></td>
+        <td class="ans"><u>Rs.<?php echo $data['price']+$data['additionalPayment'].".00"; ?></u></td>
       </tr>
     </table>
   </div>

@@ -103,7 +103,7 @@
             <div class="request-buttons">
                 <input type="submit" class="request-ad" name="submit" <?php if($job['jobStatus']=='1' or $job['jobStatus']=='3'){ echo "style='display:none' disabled";} ?> value="Resend Job Request">
                 <div class="button-set" >
-                <?php if($job['jobStatus']=='3' or $job['jobStatus']=='1' or $job['jobStatus']=='4'){ ?><a href="<?php echo BASEURL.'/sharePointBuyer' ?>"><div name="x" class="std-ad" >Get an Invoice</div></a><?php } ?>
+                <?php if($job['jobStatus']=='3' or $job['jobStatus']=='1' or $job['jobStatus']=='4'){ ?><a target="_blank" href="<?php echo BASEURL."/invoice/get/".$job['jobId']; ?>"><div name="x" class="std-ad" >Get an Invoice</div></><?php } ?>
                 <a href="<?php echo BASEURL.'/sharePointBuyer' ?>"><div name="y" class="std-ad" >Report </div></a>
                 <a href="<?php echo BASEURL.'/sharePointBuyer' ?>"><div name="z" class="std-ad" >Help</div></a> 
                 <?php if($job['jobStatus']=='1'){ ?><a href="<?php echo BASEURL.'/sharePointBuyer' ?>"><div name="x" class="comp-ad" >Do The Payment</div></a><?php } ?>
