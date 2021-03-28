@@ -146,29 +146,6 @@ class advertisements_Controller extends exlFramework
       $this->view("s-dashboardANDcreateAd", $row);
     }
 
-
-    // $userCheck = "SELECT * FROM user WHERE userName='$userName' LIMIT 1";
-    // $result = mysqli_query($db, $userCheck);
-    // $user = mysqli_fetch_assoc($result);
-    // if ($user) {
-    //   $firstName = $user['firstName'];
-    //   $lastName = $user['lastName'];
-    //   $profilePicture = $user['profilePicture'];
-    //   $dob = $user['dob'];
-    //   $email = $user['email'];
-    //   $userCheck = " SELECT * FROM seller WHERE userName='$userName' LIMIT 1 ";
-    //   $result = mysqli_query($db, $userCheck);
-    //   $user = mysqli_fetch_assoc($result);
-    //   $mainRate = $user['mainRate'];
-    //   $communicationRate = $user['communicationRate'];
-    //   $deliveringRAte = $user['deliveringRate'];
-    // } else {
-    //   header('Location: ../login/login.php');
-    // }
-    // if (isset($_POST['logout'])) {
-    //   session_destroy();
-    //   header('Location: ../login/login.php');
-    // }
     $this->redirect('sellerDashboard');
   }
 
@@ -203,15 +180,18 @@ class advertisements_Controller extends exlFramework
     //get the ad data using the ID
     $row = $this->advertisements_model->getDataByID($adID);
     $options = "";
-    $optionArray = array("Graphics Designing", "Programming", "Content Writing");
+    $optionArray = array("Graphics Designing", "Programming", "Content Writing","Other");
 
     //to handle the select tag (to retrieve data from database and display in the page)
     if ($row[3] == $optionArray[0]) {
-      $options = "<option selected>$row[3]</option><option>$optionArray[1]</option><option>$optionArray[2]</option>";
+      $options = "<option selected>$row[3]</option><option>$optionArray[1]</option><option>$optionArray[2]</option><option>$optionArray[3]</option>";
     } else if ($row[3] == $optionArray[1]) {
-      $options = "<option>$optionArray[0]</option><option selected>$optionArray[1]</option><option>$optionArray[2]</option>";
-    } else {
-      $options = "<option>$optionArray[0]</option><option>$optionArray[1]</option><option selected>$optionArray[2]</option>";
+      $options = "<option>$optionArray[0]</option><option selected>$optionArray[1]</option><option>$optionArray[2]</option><option>$optionArray[3]</option>";
+    } else if ($row[3] == $optionArray[2])  {
+      $options = "<option>$optionArray[0]</option><option>$optionArray[1]</option><option selected>$optionArray[2]</option><option>$optionArray[3]</option>";
+    }
+    else{
+      $options = "<option>$optionArray[0]</option><option>$optionArray[1]</option><option>$optionArray[2]</option><option selected>$optionArray[3]</option>";
     }
     $row[13] = $options;
 
