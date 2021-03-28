@@ -39,7 +39,27 @@
 
         </div>
         <div class="bottom">
-            1
+            <div class="topHead">
+                <p>Web Traffic Analytics</p>
+            </div>
+            <div class="plot1">
+                <canvas id="byCountryCanvas"></canvas>
+            </div>
+            <div class="plot2">
+                <canvas id="visitorCanvas"></canvas>
+            </div>
+            <div class="descBottom">
+
+            <!-- code the backend of this -->
+            <p>Visitor total ~
+                    <font class="amount"><?php echo (int)$data['avgRevenue']; ?> </font>
+                    <span class="amt_text2"><br>Total visitors this month</span>
+                </p>
+                <p>Average visitors ~
+                    <font class="amount"><?php echo (int)$data['avgRevenue']; ?> </font>
+                    <span class="amt_text2"><br>Current average visitors per day</span>
+                </p>
+            </div>
         </div>
     </div>
 

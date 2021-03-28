@@ -24,7 +24,7 @@ class adminDashboardModel extends database
         //setting header to json
         header('Content-Type: application/json');
 
-        //query to get the 
+        //query to get the revenue data
         $query = sprintf("SELECT CONCAT(YEAR(date), '/', WEEK(date)) AS theWeek, SUM(exlAmount) AS revenue FROM payment GROUP BY theWeek ORDER BY YEAR(DATE) ASC, WEEK(date) ASC;");
 
         //execute query
@@ -60,4 +60,53 @@ class adminDashboardModel extends database
         $row = mysqli_fetch_assoc($result);
         return $row;
     }
+
+    public function retrieveVisitorByCountry()
+    {
+        //setting header to json
+        header('Content-Type: application/json');
+
+        //query to get the visitors grouped by country - for the current month
+        $query = sprintf("SELECT ip,COUNT(recordID) AS visitors FROM ad_stats WHERE (MONTH(date) = MONTH(CURRENT_DATE()) AND YEAR(date) = YEAR(CURRENT_DATE())) GROUP BY ip;");
+
+        //execute query
+        $result = $GLOBALS['db']->query($query);
+
+        //loop through the returned data
+        $data = array();
+        foreach ($result as $row) {
+            $data[] = $row;
+        }
+
+        //free memory associated with result
+        $result->close();
+
+        //return the data
+        return $data;
+    }
+
+    public function retrieveVisitorByDate()
+    {
+        //setting header to json
+        header('Content-Type: application/json');
+
+        //query to get the number of clicks of an advertisement
+        $query = sprintf("SELECT COUNT(recordID) AS visitors,date FROM ad_stats GROUP BY date;");
+
+        //execute query
+        $result = $GLOBALS['db']->query($query);
+
+        //loop through the returned data
+        $data = array();
+        foreach ($result as $row) {
+            $data[] = $row;
+        }
+
+        //free memory associated with result
+        $result->close();
+
+        //return the data
+        return $data;
+    }
+
 }
