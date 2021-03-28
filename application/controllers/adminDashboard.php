@@ -63,7 +63,7 @@ class adminDashboard extends exlFramework
 
     public function loadReportView()
     {
-
+        //retrieve data needed for the top part
         //retrieve this month revenue data to generate the description
         $thisMonthRevenue = $this->main_model->retrieveRevenueThisMonth();
 
@@ -74,6 +74,15 @@ class adminDashboard extends exlFramework
         $data['thisMonthTotal'] = $thisMonthRevenue['thisMonthTotal'];
         $data['avgRevenue'] = $avgRevenue['avgRevenue'];
 
+
+        //retrieve data needed for the bottom part
+        $bottomData = $this->main_model-> totalAverageVisitors();
+
+         //to send those data to the view
+        $data['totalVisitors'] = $bottomData['totalVisitors'];
+        $data['avgVisitors'] = $bottomData['avgVisitors'];
+
+        
         $this->view("adminReport", $data);
     }
 

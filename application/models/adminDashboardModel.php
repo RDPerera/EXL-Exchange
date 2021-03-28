@@ -109,4 +109,22 @@ class adminDashboardModel extends database
         return $data;
     }
 
+    public function totalAverageVisitors()
+    {
+        //query to get the total number of visitors for this month
+        $query1 = "SELECT COUNT(recordID) AS totalVisitors FROM ad_stats WHERE (MONTH(date) = MONTH(CURRENT_DATE()) AND YEAR(date) = YEAR(CURRENT_DATE()));"; 
+        $result = mysqli_query($GLOBALS['db'], $query1);
+        $tempData1 = mysqli_fetch_assoc($result);
+        $data['totalVisitors'] = $tempData1['totalVisitors'];
+        
+
+        //to get the final output
+        $query2="SELECT AVG(visitors) AS avgVisitors FROM (SELECT date, COUNT(recordID)AS visitors FROM ad_stats GROUP BY date) AS T1;";
+        $result = mysqli_query($GLOBALS['db'], $query2);
+        $tempData2 = mysqli_fetch_assoc($result);
+        $data['avgVisitors'] = $tempData2['avgVisitors'];
+
+        return $data;
+    }
+
 }
