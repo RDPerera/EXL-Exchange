@@ -68,7 +68,7 @@
                 }
                 /* Quering in seller/user tables*/
                 if ($numberOfErrors== 0) {
-                    $this->registerModel->addSeller($userName,$firstName,$lastName,$dob,$email,md5($password_1));
+                    $this->registerModel->addSeller($userName,$firstName,$lastName,$dob,$email,password_hash($password_1+"EXL", PASSWORD_DEFAULT));
                     $this->setSession('userName',$userName);
                     $this->setSession('accoutType',"Buyer");
                     $this->setSession('email',$email);
