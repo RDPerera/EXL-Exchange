@@ -78,7 +78,11 @@
                         }
                         else if($job['jobStatus']=='3')
                         {
-                            echo "<span style='color: #313fff ; font-weight:500'> Rejected </span>";
+                            echo "<span style='color: #313fff ; font-weight:500'> Completed </span>";
+                        }
+                        else if($job['jobStatus']=='4')
+                        {
+                            echo "<span style='color: #00c241 ; font-weight:500'> Running</span>";
                         }
                         //when payment gateway is implemented this part should change
                     ?>
@@ -118,7 +122,7 @@
                     </div>
                     <div class="request-buttons">
                         <div class="button-set" ><div <?php 
-                        if($job['jobStatus']=='1' or $job['jobStatus']=='2')
+                        if($job['jobStatus']!='0')
                         {
                             echo "style='display:none'";
                         }

@@ -26,10 +26,16 @@ class job extends exlFramework
         {
             $data['job']=$this->mainModel->getJob($receiver,$sender);
             $data['adDetails']=$this->model->getCollaborators($receiver);
+            $this->setSession('adData',$data['adDetails']);
             $this->setSession('buyer',$sender);
             $this->setSession('receiver',$receiver);
             $this->setSession('sender',$sender);
+            $this->setSession('jobData',$data['job']);
             $this->setSession('jobId',$data['job']['jobId']);
+            $this->setSession('adPay',$data['job']['additionalPayment']);
+            $this->setSession('adPrice',$data['adDetails']['price']);
+            $collab=$this->model->getCollaborators($adId);
+            $this->setSession('seller',$collab['userName']);
             $data['userName']=$userName=$this->getSession("userName");
             $data["profilePic"]=$this->dashmodel->checkOlderDP($userName);
             $data['curr-page']="no-page";
