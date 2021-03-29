@@ -4,12 +4,14 @@ class invoice extends exlFramework
     public function __construct()
     {
         $this->helper("linker");
-        $this->shareModel = $this->model('sharePointModel');
-        $this->sellerDashboardModel = $this->model('sellerDashboardModel');
+        $this->model = $this->model('invoiceModel');
     }
 
-    public function index()
+    public function get($jobID)
     {
-        $this->view('invoiceView');
+        $data=$this->model->getAll($jobID);
+        $data['buyer']=$this->model->getBuyer($jobID);
+        $this->view("invoiceView",$data);
     }
 }
+?>

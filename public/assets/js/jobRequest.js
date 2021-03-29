@@ -78,7 +78,7 @@ $(document).ready(function () {
 
   $(document).on("click", ".message-submit", function () {
     var chat_message = $("#message").val();
-    if (chat_message != "") {
+    if (true) {
       $.ajax({
         url: "adChat/send",
         method: "POST",

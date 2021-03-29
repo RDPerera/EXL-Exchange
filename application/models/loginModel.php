@@ -76,8 +76,12 @@ class loginModel extends database
     {
         $userName=mysqli_real_escape_string($GLOBALS['db'],$userName);
         $password=mysqli_real_escape_string($GLOBALS['db'],$password);
-        $userCheck = "SELECT * FROM user WHERE userName='$userName' and password='$password' LIMIT 1";
+        $userCheck = "SELECT * FROM user WHERE userName='$userName' LIMIT 1";
         $result = mysqli_query($GLOBALS['db'], $userCheck);
-        return mysqli_fetch_assoc($result);
+        $x=mysqli_fetch_assoc($result);
+        if(password_verify($password+"EXL", $x['password']))
+        {
+            return $x;
+        }
     }
 }

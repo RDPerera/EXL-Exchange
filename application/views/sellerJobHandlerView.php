@@ -77,7 +77,11 @@
                         }
                         else if($job['jobStatus']=='3')
                         {
-                            echo "<span style='color: #313fff ; font-weight:500'> Rejected </span>";
+                            echo "<span style='color: #313fff ; font-weight:500'> Completed </span>";
+                        }
+                        else if($job['jobStatus']=='4')
+                        {
+                            echo "<span style='color: #00c241 ; font-weight:500'> Running</span>";
                         }
                         //when payment gateway is implemented this part should change
                     ?>
@@ -117,14 +121,14 @@
                     </div>
                     <div class="request-buttons">
                         <div class="button-set" ><div <?php 
-                        if($job['jobStatus']=='1' or $job['jobStatus']=='2')
+                        if($job['jobStatus']!='0')
                         {
                             echo "style='display:none'";
                         }
                         ?>>
                         <a href="<?php echo BASEURL.'/sellerJobHandler/accept/'.$job['jobId']; ?>"><button class="accept-ad" >Accept</button></a>
                         <a href="<?php echo BASEURL.'/sellerJobHandler/reject/'.$job['jobId']; ?>"><button class="reject-ad" >Reject</button></a></div>
-                            <?php if($job['jobStatus']=='3' or $job['jobStatus']=='1' or $job['jobStatus']=='4'){ ?><a class="hideme" href="<?php echo BASEURL.'/sharePointBuyer' ?>"><div name="x" class="std-ad" >Get an Invoice</div></a><?php } ?>
+                            <?php if($job['jobStatus']=='3' or $job['jobStatus']=='1' or $job['jobStatus']=='4'){ ?><a class="hideme" target="_blank" href="<?php echo BASEURL."/invoice/get/".$job['jobId']; ?>"><div name="x" class="std-ad" >Get an Invoice</div></><?php } ?>
                             <a class="hideme" href="<?php echo BASEURL.'/sharePoint' ?>"><div name="y" class="std-ad" >Report </div></a>
                             <a class="hideme" href="<?php echo BASEURL.'/sharePoint' ?>"><div name="z" class="std-ad" >Help</div></a> 
                             <a class="hideme" href="<?php echo BASEURL.'/sharePoint' ?>"><div name="z" class="comp-ad" >Go To Job</div></a> 

@@ -47,7 +47,7 @@
                 if (empty($userName)) { $errors["userName"]="userName is required"; }
                 if ($agreement==0) { $errors["agreement"]="You need to agree the Terms and Privacy"; }
                 if (empty($email)) { $errors["email"]="Email is required"; }
-                if (!empty($email)){if(strcmp(substr($email,-6),".ac.lk")!=0){$errors["email"]="Email must be an University Email";}}
+                if (!empty($email)){if(strcmp(substr($email,-18),"stu.ucsc.cmb.ac.lk")!=0){$errors["email"]="Email must be an University Email";}}
                 if (empty($firstName)) { $errors["firstname"]="First Name is required"; }
                 if (empty($lastName)) { $errors["lastname"]="Last Name is required"; }
                 if (empty($dob)) { $errors["dob"]= "Date Of Birth is required"; }
@@ -69,7 +69,7 @@
                 }
                 /* Quering in seller/user tables*/
                 if ($numberOfErrors== 0) {
-                    $this->registerModel->addSeller($userName,$firstName,$lastName,$dob,$email,md5($password_1));
+                    $this->registerModel->addSeller($userName,$firstName,$lastName,$dob,$email,password_hash($password_1+"EXL", PASSWORD_DEFAULT));
                     $this->setSession('userName',$userName);
                     $this->setSession('accoutType',"Seller");
                     $this->setSession('email',$email);

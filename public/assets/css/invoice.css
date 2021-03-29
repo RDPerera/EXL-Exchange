@@ -1,77 +1,84 @@
 body {
-    margin: auto;
-    background-color: rgb(238, 238, 238);
-    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  }
-  .container {
-    margin: auto;
-    background-color: white;
-    display: grid;
-    width: 70%;
-    grid-template-areas:
-      "ad ad"
-      "pay qr";
-  }
-  .subhead {
-    width: 80%;
-    display: flex;
-    align-items: center;
-  }
-  .head {
-    margin: auto;
-    background-color: #007bff;
-    width: 70%;
-    color: white;
-  }
-  .logo {
-    margin-left: 50px;
-    margin-right: 500px;
-    width: 400px;
-    grid-area: logo;
-  }
-  .title {
-    font-size: 70px;
-    font-weight: 600;
-    grid-area: invoice;
-  }
-  .addata {
-    grid-area: ad;
-  }
-  .payment {
-    grid-area: pay;
-  }
-  .imge {
-    display: flex;
-    justify-self: center;
-    align-self: center;
-    width: 250px;
-    height: 250px;
-    grid-area: qr;
-  }
-  .main {
-    color: #007bff;
-    font-weight: 600;
-    font-size: large;
-    margin-left: 80px;
-    margin-top: 20px;
-  }
-  .rule {
-    padding: 10px;
-    background-color: rgb(230, 230, 230);
-  }
-  .ans {
-    padding: 10px;
-    background-color: rgb(230, 230, 230);
-  }
-  .tbl {
-    width: 100%;
-    padding-left: 100px;
-    padding-right: 100px;
-    padding-bottom: 20px;
-  }
-  .tbl2 {
-    width: 100%;
-    padding-left: 100px;
-    padding-bottom: 50px;
-  }
-  
+  margin: auto;
+  background-color: rgb(238, 238, 238);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+.container {
+  margin: auto;
+  background-color: white;
+  display: grid;
+  width: 70%;
+  grid-template-areas:
+    "ad ad"
+    "pay qr";
+}
+.subhead {
+  width: 80%;
+  display: flex;
+  align-items: center;
+}
+.head {
+  margin: auto;
+  background-color: #007bff;
+  width: 70%;
+  color: white;
+}
+.logo {
+  margin-left: 50px;
+  margin-right: 500px;
+  width: 400px;
+  grid-area: logo;
+}
+.title {
+  font-size: 70px;
+  font-weight: 600;
+  grid-area: invoice;
+}
+.addata {
+  grid-area: ad;
+}
+.payment {
+  grid-area: pay;
+}
+.imge {
+  display: flex;
+  justify-self: center;
+  align-self: center;
+  width: 250px;
+  height: 250px;
+  grid-area: qr;
+}
+.main {
+  color: #007bff;
+  font-weight: 600;
+  font-size: large;
+  margin-left: 80px;
+  margin-top: 20px;
+}
+.rule {
+  padding: 10px;
+  background-color: rgb(230, 230, 230);
+}
+.ans {
+  padding: 10px;
+  background-color: rgb(230, 230, 230);
+}
+.tbl {
+  width: 100%;
+  padding-left: 100px;
+  padding-right: 100px;
+  padding-bottom: 20px;
+}
+.tbl2 {
+  width: 100%;
+  padding-left: 100px;
+  padding-bottom: 20px;
+}
+.printButton {
+  background-color: #007bff;
+  color: white;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  padding:10px;
+  border: none;
+}

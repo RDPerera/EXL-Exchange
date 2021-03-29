@@ -47,7 +47,7 @@ class sharePoint extends exlFramework
         //Normal Resource Upload
         if (isset($_POST['save'])){
             $filename = $_FILES['myfile']['name'];
-            $destination = BASEURL.'/public/assets/uploads/' . $filename;
+            $destination = '../public/assets/uploads/' . $filename;
             $extension = pathinfo($filename, PATHINFO_EXTENSION);
             $size = $_FILES['myfile']['size'];
             //file type checkup
