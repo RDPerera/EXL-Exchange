@@ -18,6 +18,7 @@ class advertisements_model extends database
 
 
         $query = "INSERT INTO advertisement (dateTime,status,category,image,title,tag,content,userName,member1,member2,member3,price) VALUES ('$date','$status', '$category','$image' , '$title' , '$tag' ,'$content' , '$userName' , '$member1' , '$member2' , '$member3','$price')";
+        echo $query;
         mysqli_query($GLOBALS['db'], $query);
         // $complete = "";
 

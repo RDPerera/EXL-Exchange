@@ -146,29 +146,6 @@ class advertisements_Controller extends exlFramework
       $this->view("s-dashboardANDcreateAd", $row);
     }
 
-
-    // $userCheck = "SELECT * FROM user WHERE userName='$userName' LIMIT 1";
-    // $result = mysqli_query($db, $userCheck);
-    // $user = mysqli_fetch_assoc($result);
-    // if ($user) {
-    //   $firstName = $user['firstName'];
-    //   $lastName = $user['lastName'];
-    //   $profilePicture = $user['profilePicture'];
-    //   $dob = $user['dob'];
-    //   $email = $user['email'];
-    //   $userCheck = " SELECT * FROM seller WHERE userName='$userName' LIMIT 1 ";
-    //   $result = mysqli_query($db, $userCheck);
-    //   $user = mysqli_fetch_assoc($result);
-    //   $mainRate = $user['mainRate'];
-    //   $communicationRate = $user['communicationRate'];
-    //   $deliveringRAte = $user['deliveringRate'];
-    // } else {
-    //   header('Location: ../login/login.php');
-    // }
-    // if (isset($_POST['logout'])) {
-    //   session_destroy();
-    //   header('Location: ../login/login.php');
-    // }
     $this->redirect('sellerDashboard');
   }
 
