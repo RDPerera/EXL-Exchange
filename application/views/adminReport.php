@@ -52,11 +52,11 @@
 
             <!-- code the backend of this -->
             <p>Visitor total ~
-                    <font class="amount"><?php echo (int)$data['avgRevenue']; ?> </font>
+                    <font class="amount"><?php echo (int)$data['totalVisitors']; ?> </font>
                     <span class="amt_text2"><br>Total visitors this month</span>
                 </p>
                 <p>Average visitors ~
-                    <font class="amount"><?php echo (int)$data['avgRevenue']; ?> </font>
+                    <font class="amount"><?php echo (int)$data['avgVisitors']; ?> </font>
                     <span class="amt_text2"><br>Current average visitors per day</span>
                 </p>
             </div>
