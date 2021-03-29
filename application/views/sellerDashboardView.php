@@ -88,11 +88,19 @@
                         }
                         else if($request['jobStatus']=='1')
                         {
-                            echo "<span style='color: #00c241 ; font-weight:500'>  Accepted</span>";
+                            echo "<span style='color: #00c241 ; font-weight:500'> Accepted and Waiting</span>";
                         }
                         else if($request['jobStatus']=='2')
                         {
                             echo "<span style='color: #d82303 ; font-weight:500'> Rejected </span>";
+                        }
+                        else if($request['jobStatus']=='3')
+                        {
+                            echo "<span style='color: #313fff ; font-weight:500'> Completed </span>";
+                        }
+                        else if($request['jobStatus']=='4')
+                        {
+                            echo "<span style='color: #00c241 ; font-weight:500'> Running </span>";
                         }
                         //when payment gateway is implemented this part should change
                     ?>

@@ -17,11 +17,11 @@
     <input type="hidden" name="cancel_url" value="http://7ba9a4e322be.ngrok.io">
     <input type="hidden" name="notify_url" value="http://7ba9a4e322be.ngrok.io">  
     <input type="hidden" name="order_id" value="<?php echo $data['adId']; ?>">
-    <input type="hidden" name="items" value="Payment form <?php $data['jobId'] ?>"><br>
+    <input type="hidden" name="items" value="Advertisement ID : <?php echo $data['adData']['advertisementID']; ?>"><br>
     <input type="hidden" name="currency" value="LKR">
     <input type="hidden" name="amount" value="<?php echo $data['adPrice']+$data['adPay']; ?>">  
-    <input type="hidden" name="first_name" value="<?php echo data['jobId']; ?>">
-    <input type="hidden" name="last_name" value="<?php echo $data['jobId']; ?>"><br>
+    <input type="hidden" name="first_name" value="<?php echo $data['jobData']['userName']; ?>">
+    <input type="hidden" name="last_name" value=""><br>
     <input type="hidden" name="email" value="samanp@gmail.com">
     <input type="hidden" name="phone" value="0771234567"><br>
     <input type="hidden" name="address" value="No.1, Galle Road">

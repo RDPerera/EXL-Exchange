@@ -68,7 +68,7 @@ $files=$data['files'];
               Description :
               <?php echo $file['description']; ?>
             </div>
-            <div class="download"><a href="<?php echo BASEURL." /public/assets/uploads/".$file['name']?>">
+            <div class="download"><a href="<?php echo BASEURL."/public/assets/uploads/".$file['name']?>">
                 <img class="downloadimg" src="<?php echo BASEURL.'/public/assets/img/icons/download2.png?'?>"></a></div>
           </div>
         </div>
