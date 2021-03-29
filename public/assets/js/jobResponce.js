@@ -61,7 +61,7 @@
 })();
 
 $(document).ready(function () {
-  fetchChat();
+  fetchChat();//render begin
   fetchStatus();
   updateScroll();
   var scrolled = false;
@@ -70,13 +70,14 @@ $(document).ready(function () {
       scrolled = true;
     });
     if (!scrolled) {
-      updateScroll();
+      updateScroll();//not when scrolling
     }
-    fetchChat();
+    fetchChat();//every 100ms
     fetchStatus();
-  }, 100);
+  }, 1000);
 
   $(document).on("click", ".message-submit", function () {
+    
     var chat_message = $("#message").val();
     if (chat_message != "") {
       $.ajax({
@@ -84,7 +85,7 @@ $(document).ready(function () {
         method: "POST",
         data: { message: chat_message },
         success: function (data) {
-          $("#message").val("");
+          $("#message").val("");//empty the chat
           scrolled = false;
         },
       });

@@ -22,6 +22,7 @@ class adChat extends exlFramework
         }
         $this->view("adChatView",$data);
     }
+    //render seller chat
     public function sellerChat()
     {
         $data['sender']=$sender=$this->getSession('sender');
@@ -29,6 +30,7 @@ class adChat extends exlFramework
         $buyer=$this->getSession('buyer');
         echo $data['sender'].$data['receiver'].$buyer;
         $data['chat']=$this->model->getSellerChat($receiver,$sender,$buyer);
+        
         $this->view("chatSellerView",$data);
     }
     public function send()
@@ -39,8 +41,7 @@ class adChat extends exlFramework
         $message=$_POST['message'];
         date_default_timezone_set('Asia/Colombo');
         $date=date("Y-m-d");
-        $time=date("h:i:sa");
-        echo $time;
+        $time=date("h:i:s");
         $this->model->send($message,$sender,$receiver,$date,$time,$buyer);
     }
     public function status()
@@ -49,6 +50,7 @@ class adChat extends exlFramework
         $data['chatStatus']=$this->model->getStatus($realReceiver);
         $data['userDetails']=$this->model->getDetails($realReceiver);
         $this->view("chatStatusView",$data);
+        
     }
     public function adstatus()
     {
