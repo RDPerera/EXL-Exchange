@@ -41,7 +41,7 @@
         <?php  if($job['jobStatus']!='3') { ?>
             <div class="countdown" id="countdown">
                 <ul>
-                <li><span id="days"></span>days</li>
+                <li><span id="days"></span>Days</li>
                 <li><span id="hours"></span>Hours</li>
                 <li><span id="minutes"></span>Minutes</li>
                 <li><span id="seconds"></span>Seconds</li>
