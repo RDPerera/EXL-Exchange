@@ -66,6 +66,9 @@
                         <option>
                             Content Writing
                         </option>
+                        <option>
+                            Other
+                        </option>
                     </select>
                     <span class="error"><?php if(!empty($data['categoryErr'])) : echo $data['categoryErr']; endif; ?></span>
 

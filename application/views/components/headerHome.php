@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,21 +11,23 @@
     <?php linkCSS("homeCards") ?>
     <?php linkCSS("homeSlideShow") ?>
     <?php linkCSS("footer") ?>
+    <?php linkCSS("categories") ?>
 </head>
+
 <body>
-<!-- the navigation bar -->
-<div class="topnav" id="myTopnav">
+    <!-- the navigation bar -->
+    <div class="topnav" id="myTopnav">
         <a href="javascript:void(0);" class="icon" onclick="scrollTheMenu()">
             <i class="fa fa-bars"></i> </a>
         <img src="<?php echo srcIMG("logoWhite.png"); ?>" class="exlLogo">
-        <a href="<?php echo BASEURL?>" class="active">Home</a>
-        <a href="<?php echo BASEURL.'/categories'?>">Categories</a>
-        <a href="<?php echo BASEURL.'/about'?>">About</a>
-        <a href="<?php echo BASEURL.'/contact'?>">Contact</a>
-        
+        <a href="<?php echo BASEURL ?>" class="active">Home</a>
+        <a href="<?php echo BASEURL . '/categories/load/0' ?>">Categories</a>  <!-- call it with the parameter 0 - there are results -->
+        <a href="<?php echo BASEURL . '/about' ?>">About</a>
+        <a href="<?php echo BASEURL . '/contact' ?>">Contact</a>
+
         <div class="buttons">
-            <button class="signin-button" onclick="window.location.href='<?php echo BASEURL.'/login' ?>'">Sign In</button>
-            <button class="signup-button" onclick="window.location.href='<?php echo BASEURL.'/registerController' ?>'">Sign Up</button>
+            <button class="signin-button" onclick="window.location.href='<?php echo BASEURL . '/login' ?>'">Sign In</button>
+            <button class="signup-button" onclick="window.location.href='<?php echo BASEURL . '/registerController' ?>'">Sign Up</button>
         </div>
         <div class="search-container">
             <form action="">
@@ -32,4 +35,4 @@
                 <button type="submit"><i class="fa fa-search"></i></button>
             </form>
         </div>
-</div>
+    </div>

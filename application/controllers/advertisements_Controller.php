@@ -180,15 +180,18 @@ class advertisements_Controller extends exlFramework
     //get the ad data using the ID
     $row = $this->advertisements_model->getDataByID($adID);
     $options = "";
-    $optionArray = array("Graphics Designing", "Programming", "Content Writing");
+    $optionArray = array("Graphics Designing", "Programming", "Content Writing","Other");
 
     //to handle the select tag (to retrieve data from database and display in the page)
     if ($row[3] == $optionArray[0]) {
-      $options = "<option selected>$row[3]</option><option>$optionArray[1]</option><option>$optionArray[2]</option>";
+      $options = "<option selected>$row[3]</option><option>$optionArray[1]</option><option>$optionArray[2]</option><option>$optionArray[3]</option>";
     } else if ($row[3] == $optionArray[1]) {
-      $options = "<option>$optionArray[0]</option><option selected>$optionArray[1]</option><option>$optionArray[2]</option>";
-    } else {
-      $options = "<option>$optionArray[0]</option><option>$optionArray[1]</option><option selected>$optionArray[2]</option>";
+      $options = "<option>$optionArray[0]</option><option selected>$optionArray[1]</option><option>$optionArray[2]</option><option>$optionArray[3]</option>";
+    } else if ($row[3] == $optionArray[2])  {
+      $options = "<option>$optionArray[0]</option><option>$optionArray[1]</option><option selected>$optionArray[2]</option><option>$optionArray[3]</option>";
+    }
+    else{
+      $options = "<option>$optionArray[0]</option><option>$optionArray[1]</option><option>$optionArray[2]</option><option selected>$optionArray[3]</option>";
     }
     $row[13] = $options;
 

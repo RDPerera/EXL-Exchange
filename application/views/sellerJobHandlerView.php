@@ -10,7 +10,6 @@
     <?php $adData=$data['adDetails'];?>
     <?php linkCSS('job-responce'); ?>
     <?php linkJS('jquery.min'); ?>
-    
     <?php linkCSS("sdashboard"); ?>
     <?php linkCSS("card"); ?>
     <?php linkFAV("ee-logo.png"); ?>
