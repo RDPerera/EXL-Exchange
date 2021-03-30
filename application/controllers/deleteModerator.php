@@ -18,6 +18,7 @@
         public function delete($id)
         {
             $this->model->deleteUser($id);
+            $this->redirect('deleteModerator');
         }
     }
 ?>
