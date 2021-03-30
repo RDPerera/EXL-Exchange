@@ -92,13 +92,13 @@
         }
         $user = $this->loginModel->adminCheck($userName);
         if ($user) { 
-            $this->notify($userName);
+            //$this->notify($userName);
             logAdminAccess($userName);
             $this->redirect('adminDashboard');
         }
         $user = $this->loginModel->moderatorCheck($userName);
         if ($user) { 
-            $this->notify($userName);
+            //$this->notify($userName);
             logModeratorAccess($userName);
             $this->redirect('moderatorDashboard');
         }
