@@ -133,7 +133,7 @@
                         <a href="<?php echo BASEURL.'/sellerJobHandler/accept/'.$job['jobId']; ?>"><button class="accept-ad" >Accept</button></a>
                         <a href="<?php echo BASEURL.'/sellerJobHandler/reject/'.$job['jobId']; ?>"><button class="reject-ad" >Reject</button></a></div>
                             <?php if($job['jobStatus']=='3' or $job['jobStatus']=='1' or $job['jobStatus']=='4'){ ?><a class="hideme" target="_blank" href="<?php echo BASEURL."/invoice/get/".$job['jobId']; ?>"><div name="x" class="std-ad" >Get an Invoice</div></><?php } ?>
-                            <a class="hideme" href="<?php echo BASEURL.'/sharePoint' ?>"><div name="z" class="std-ad" >Help</div></a> 
+                            <a class="hideme" target="_blank" href="<?php echo BASEURL.'/helpCenter' ?>"><div name="z" class="std-ad" >Help</div></a> 
                             <a class="hideme" href="<?php echo BASEURL.'/sharePoint' ?>"><div name="z" class="comp-ad" >Go To Job</div></a> 
                         </div>
                     </div>

@@ -2,3 +2,17 @@
 [2021-03-29 04:57:01]	chathura             		BUYER         		LOCAL		53956						ACCESSED
 [2021-03-29 05:04:25]	chathura             		BUYER         		LOCAL		54056						ACCESSED
 [2021-03-29 05:04:53]	dilan             		SELLER         		LOCAL		54076						ACCESSED
+[2021-03-29 15:05:15]	dilan             		SELLER         		LOCAL		59930						ACCESSED
+[2021-03-29 15:39:14]	chathura             		BUYER         		LOCAL		60434						ACCESSED
+[2021-03-29 15:49:03]	chathura             		BUYER         		LOCAL		60626						ACCESSED
+[2021-03-29 15:56:18]	chathura             		BUYER         		LOCAL		60752						ACCESSED
+[2021-03-29 16:01:12]	dilan             		SELLER         		LOCAL		60988						ACCESSED
+[2021-03-29 17:32:11]	dilan             		SELLER         		LOCAL		33904						ACCESSED
+[2021-03-29 19:01:25]	chathura             		BUYER         		LOCAL		34588						ACCESSED
+[2021-03-29 19:25:19]	dilan             		SELLER         		LOCAL		34882						ACCESSED
+[2021-03-29 22:18:40]	george             		BUYER         		LOCAL		40510						ACCESSED
+[2021-03-29 22:52:55]	chathura             		UNOTH         		LOCAL		40886						DENIED
+[2021-03-29 22:52:59]	chathura             		UNOTH         		LOCAL		40886						DENIED
+[2021-03-29 22:54:10]	chathura             		BUYER         		LOCAL		40910						ACCESSED
+[2021-03-29 23:35:17]	nandula             		SELLER         		LOCAL		41464						ACCESSED
+[2021-03-29 23:43:53]	dilan             		SELLER         		LOCAL		41516						ACCESSED

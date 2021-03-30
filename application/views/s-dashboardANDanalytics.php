@@ -54,7 +54,7 @@
 
     <div class="content-super">
         <div class="page-container">
-            <div class="content">
+            <div class="content" style="overflow: hidden">
                 <div class="main-title"><span class="blue-text">Advertisement</span> Performance</div>
                 <div class="advertisements">
                     <?php

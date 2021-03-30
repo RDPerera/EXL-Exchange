@@ -19,10 +19,11 @@
    <a href="<?php echo BASEURL.'/moderatorDashboard' ?>"><div class="item " ><img src="<?php echo BASEURL; ?>/public/assets/img/icons/icons8-complaint-90.png" class="sidebar-icons"><span>Completed&nbspcomplaints</span></div></a>
    <a href="<?php echo BASEURL.'/moderatorDashboard/loadReportView' ?>"><div class="item"><img src="<?php echo BASEURL; ?>/public/assets/img/icons/icons8-report-96.png" class="sidebar-icons"><span>Reports</span></div></a>
    <a href="<?php echo BASEURL.'/moderatorDashboard/payment' ?>"><div class="item selected" ><img src="<?php echo BASEURL; ?>/public/assets/img/icons/icons8-pay-96.png" class="sidebar-icons"><span>Payments</span></div></a>
+   <a href="<?php echo BASEURL.'/helpHandle' ?>"><div class="item"><img src="<?php echo BASEURL; ?>/public/assets/img/icons/icons8-submit-resume-96.png" class="sidebar-icons"><span>Help Responds</span></div></a>
  </nav>
 <br><br>
 <div class="table-container">
-  <p class="title">Accomplished<span> Complaint</span></p>
+  <p class="title">Payment<span> From The Buyers</span></p>
     <table >
       <tr>
         <th>Payument Id</th>
