@@ -12,6 +12,11 @@
     <?php linkCSS("homeSlideShow") ?>
     <?php linkCSS("footer") ?>
     <?php linkCSS("categories") ?>
+
+<!-- css files for view ad by visitor-->
+    <?php linkCSS("viewAdVisitor"); ?>
+    <?php linkCSS('adPerformance'); ?>
+
 </head>
 
 <body>

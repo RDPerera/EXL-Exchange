@@ -1,0 +1,78 @@
+.visitor {
+  margin: 15px;
+  height: 790px;
+  width: 1400px;
+  margin-left: 240px;
+  margin-top: 15px;
+}
+
+.adSection {
+  margin: 15px;
+  padding: 10px;
+  border-radius: 15px;
+  box-shadow: 0 0px 6px 0 rgba(0, 0, 0, 0.3);
+  grid-area: adSection;
+  display: grid;
+  grid-template-areas:
+    "adImg adTitle"
+    "adImg adContent"
+    "adImg review";
+}
+
+.review {
+  margin: 15px;
+  margin-left: 50px;
+  width: 550px;
+  border-radius: 15px;
+  box-shadow: 0 0px 6px 0 rgba(0, 0, 0, 0.3);
+  grid-area: review;
+}
+
+.adImg {
+  margin: 10px;
+  padding: 10px;
+  grid-area: adImg;
+}
+
+.adTitle {
+  margin: 10px;
+  padding: 10px;
+  grid-area: adTitle;
+}
+
+.adContent {
+  margin: 10px;
+  padding: 10px;
+  grid-area: adContent;
+}
+
+.review-head {
+  grid-area: review;
+  width: 100%;
+  height: 60px;
+  margin: 0;
+  display: grid;
+  align-items: center;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  background-color: #007bff;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+.review-head p {
+  font-size: larger;
+  color: white;
+  font-weight: 600;
+  margin-left: 20px;
+}
+
+.reviewCard {
+  padding: 15px;
+  margin: 15px;
+  box-shadow: 0 0px 6px 0 rgba(0, 0, 0, 0.3);
+  border-radius: 7px;
+}
+
+.reviewCard-head {
+  color: #2a2a2a;
+  border-bottom: 2px solid #007bff;
+}

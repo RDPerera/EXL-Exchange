@@ -127,7 +127,7 @@ class advertisements_Controller extends exlFramework
           rename("../public/assets/img/adUploads/$filename", "../public/assets/img/adUploads/$image"); //adding the generated name to the file
         }
 
-        
+
         $this->advertisements_model->store($date, $status, $category, $image, $title, $tag, $content, $userName, $member1, $member2, $member3, $price);
         // $this->advertisements_model->
         $this->redirect("sellerdashboard");
@@ -180,17 +180,16 @@ class advertisements_Controller extends exlFramework
     //get the ad data using the ID
     $row = $this->advertisements_model->getDataByID($adID);
     $options = "";
-    $optionArray = array("Graphics Designing", "Programming", "Content Writing","Other");
+    $optionArray = array("Graphics Designing", "Programming", "Content Writing", "Other");
 
     //to handle the select tag (to retrieve data from database and display in the page)
     if ($row[3] == $optionArray[0]) {
       $options = "<option selected>$row[3]</option><option>$optionArray[1]</option><option>$optionArray[2]</option><option>$optionArray[3]</option>";
     } else if ($row[3] == $optionArray[1]) {
       $options = "<option>$optionArray[0]</option><option selected>$optionArray[1]</option><option>$optionArray[2]</option><option>$optionArray[3]</option>";
-    } else if ($row[3] == $optionArray[2])  {
+    } else if ($row[3] == $optionArray[2]) {
       $options = "<option>$optionArray[0]</option><option>$optionArray[1]</option><option selected>$optionArray[2]</option><option>$optionArray[3]</option>";
-    }
-    else{
+    } else {
       $options = "<option>$optionArray[0]</option><option>$optionArray[1]</option><option>$optionArray[2]</option><option selected>$optionArray[3]</option>";
     }
     $row[13] = $options;
@@ -312,12 +311,18 @@ class advertisements_Controller extends exlFramework
   }
 
   public function showAdForVisitor($adID)
-  {  
-   $ip = "$_SERVER[REMOTE_ADDR]"; //getting the ip address of the user who clicked the advertisement
-   $this->advertisements_model->recordAdClicks($adID,$ip);
-   echo "This page shows the advertisement - (under construction)";
+  {
+    $ip = "$_SERVER[REMOTE_ADDR]"; //getting the ip address of the user who clicked the advertisement
+    $this->advertisements_model->recordAdClicks($adID, $ip); //recording it
 
-   //put the code to load the ad view here
+
+    //getting the advertisement data to load the ad form the database
+    $data = $this->advertisements_model->retrieve($adID);
+
+    //getting the ad review data to load the ad form the database
+    $data['reviewData'] = $this->advertisements_model->retrieveReviewData($adID);
+
+    //loading the advertisement view
+    $this->view("visitorViewAd", $data);
   }
-
 }

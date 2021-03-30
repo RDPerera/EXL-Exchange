@@ -19,7 +19,7 @@
             <i class="fa fa-bars"></i> </a>
         <img src="<?php echo srcIMG("logoWhite.png"); ?>" class="exlLogo">
         <a href="<?php echo BASEURL.'/buyerDashboard'?>" <?php if($data['curr-page']=="home"){echo "class='active'";} ?>>Home</a>
-        <a href="#">Categories</a>
+        <a href="<?php echo BASEURL . '/categories/load/0' ?>">Categories</a>
         <a href="#">About</a>
         <a href="#">Contact</a>
         <a href="<?php echo BASEURL.'/buyerJob/active'?>" <?php if($data['curr-page']=="active"){echo "class='active'";} ?>>Active Jobs</a>
