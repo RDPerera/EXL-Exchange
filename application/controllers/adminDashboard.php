@@ -20,6 +20,17 @@ class adminDashboard extends exlFramework
         $data['results'] = $results;
         $this->view("completedComplainAdminView", $data);
     }
+    public function payment()
+    {
+        $data = array();
+        $admin = $this->getSession("userName");
+        if (!($this->main_model->adminCheck($admin))) {
+            $this->redirect("login");
+        }
+        $results = $this->model->payments();
+        $data['results'] = $results;
+        $this->view("PaymentAdminView", $data);
+    }
     public function logout()
     {
         session_destroy();
@@ -28,7 +39,6 @@ class adminDashboard extends exlFramework
     public function current()
     {
         $data = array();
-
         $results = $this->model->fetchDataCur();
         $data['results'] = $results;
         $this->view("completedComplainAdminCurrView", $data);
@@ -45,7 +55,7 @@ class adminDashboard extends exlFramework
         $data = array();
         $this->view("addModeratorView", $data);
     }
-
+    //insert admin
     public function insert()
     {
         $username =  $_POST['username'];
@@ -58,7 +68,7 @@ class adminDashboard extends exlFramework
         $passwd = $_POST['password'];
         $user = $this->amodel->insertmod($username, $startdate);
         $user = $this->amodel->insertUser($username, $firstname, $lastname, $dob, $email, $passwd);
-        $this->redirect("adminDashboard");
+        $this->redirect("deleteModerator");
     }
 
     public function loadReportView()

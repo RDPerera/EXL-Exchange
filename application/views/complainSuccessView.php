@@ -4,12 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
+    <title>Complaint</title>
     <?php linkCSS("sdashboard"); ?>
     <?php linkCSS("card"); ?>
 	<?php linkFAV("ee-logo.png"); ?>
 	<?php linkCSS('add-moderator'); ?>
-    <?php linkCSS('helpSubmit');?>
 <style>
     .container{
         width:100%;
@@ -20,7 +19,6 @@
     .tbl{
         padding:10px;
         align-self:center;
-        
     }
     .title
     {
@@ -54,12 +52,17 @@
     tr,td{
         padding:10px;
     }
-    .success{
+    .sccuess{
         color:green;
         font-weight:600;
     }
     body{
         font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .successimg{
+        width:200px;
+        height:200px;
+        padding-left:20px;
     }
 </style>
 </head>
@@ -91,44 +94,20 @@
             <a href="<?php echo BASEURL; ?>/advertisements_controller"><img src="<?php echo BASEURL; ?>/public/assets/img/icons/icons8-plus-math-96.png" class="sidebar-icons"><span>Create Advertisement</span></a>
             <a href="<?php echo BASEURL; ?>/sellerAnalytics"><img src="<?php echo BASEURL; ?>/public/assets/img/icons/icons8-report-96.png" class="sidebar-icons"><span>Analytics</span></a>
             <a href="#"><img src="<?php echo BASEURL; ?>/public/assets/img/icons/icons8-question-mark-96.png" class="sidebar-icons"><span>Help & Support</span></a>
-            <a href="<?php echo BASEURL; ?>/complaint" class="selected-item"><img src="<?php echo BASEURL; ?>/public/assets/img/icons/icons8-complaint-90.png" class="sidebar-icons"><span>Complaints</span></a>
+            <a href="<?php echo BASEURL; ?>/complain" class="selected-item"><img src="<?php echo BASEURL; ?>/public/assets/img/icons/icons8-complaint-90.png" class="sidebar-icons"><span>Complaints</span></a>
             </div>
     </div>
 
 <div class="content-super">
     <div class="page-container">
-    <form method="post"  action="<?php echo BASEURL.'/complain/insert';?>" enctype="multipart/form-data">
-<div class="container">
-<input type="hidden" name="complainerUsername" value="<?php echo $data['complainerUsername']; ?>">
-<table class="tbl">
-    <tr class="srule"><td class="scolumn" colspan="2"><p class="title">complain Form</p></td></tr>
-    <tr class="rule"><td class="column">Issue</td><td class="column2">
-        <select name="issue" id="issue" class="issue">
-            <option value="Account Issue" class="op" selected>Select complain Type</option>
-            <option value="Fraud" class="op">Fraud</option>
-            <option value="Abuse" class="op">Abuse</option>
-            <option value="Seller Rule Violation" class="op">Seller Rule Violation</option>
-			<option value="Buyer Rule Violation" class="op">Buyer Rule Violation</option>
-            <option value="Failures" class="op">Failures</option>
-        </select>
-    </td></tr>
-	<tr class="rule"><td class="column">Accuesed UserName</td><td class="column2">
-        <input type="text" name="accusedusername" id="accusedusername" class="accusedusername">
-    </td></tr>
-    <tr class="rule"><td class="column">Descrition</td><td class="column2">
-        <textarea name="description" id="description" cols="30" rows="10" class="description"></textarea>
-    </td></tr>
-	<tr class="rule"><td class="column">Job Id</td><td class="column2">
-	<input type="text" name="jobid" id="jobid" class="jobid">
-    </td></tr>
-	<tr class="rule"><td class="column">Advertisment Id Id</td><td class="column2">
-	<input type="text" name="adid" id="adid" class="adid">
-    </td></tr>
-    <tr class="rule"><td class="column"></td><td class="column2">
-	 <input type="submit" name="submit" id="submit" value="Make a complaint" class="submit">
-    </td></tr>
-</table>
-<form>
+        <div class="container">
+            <table class="tbl">
+            <tr><td><img src="<?php echo BASEURL.'/public/assets/img/icons/success.png'; ?>" alt="success" class="successimg"></td></tr>
+            <tr><td><p class="sccuess">Complain Sent Successfull !</p></td></tr>
+            <tr><td><a href="<?php echo BASEURL.'/complain' ?>"><p class="sccuess">Back</p></td></tr>
+            </table> 
+        </div>                                                                                    
+    </div>
 </div>
 </body>
 </html>

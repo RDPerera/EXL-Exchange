@@ -26,7 +26,10 @@
                 $email = $_POST['email'];
                 $startdate= $_POST['startdate'];
                 $this->model->updateUser($firstname , $lastname , $startdate,$email,$id);
+                $this->redirect('deleteModerator');
             }
+
+            
         }
     }
 ?>

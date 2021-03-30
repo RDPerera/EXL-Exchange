@@ -78,7 +78,7 @@ $files=$data['files'];
         </div>
       </form>
     </div>
-    <?php if($data['isActive']=='1'){ ?>
+    <?php if($data['isActive']=='4'){ ?>
     <div class="rightside">
     <!-- fnish order Section -->
     <p class="title"><span class="big">Complete </span>The Order</p>

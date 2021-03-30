@@ -15,6 +15,7 @@ class updateModeratorModel extends database
     {
         mysqli_query($GLOBALS['db'],"UPDATE moderator SET stsrtDate='$startdate' where userName='$id'");
         mysqli_query($GLOBALS['db'],"UPDATE user SET firstName='$firstname' ,lastName='$lastname', email='$email' where userName='$id'");
+        
     }
 
      /* insert moderator data */
