@@ -14,6 +14,14 @@
             $data['results']=$results;
             $this->view("allModeratorView",$data);
         }
+        public function mod()
+        {
+            $data=array();
+            $results=$this->model->fetchModerators();
+            $data['results']=$results;
+            $this->view("allModeratorViewMod",$data);
+        }
+
 
     }
 ?>
