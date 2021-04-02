@@ -16,9 +16,7 @@ function sendMail($to,$toName,$subject,$body,$altBody)
 
     $mail->isSMTP();                                            
     $mail->Host       = 'smtp.gmail.com';                    
-    $mail->SMTPAuth   = true;                                   
-    $mail->Username   = 'exlexchangemail@gmail.com';                  
-    $mail->Password   = 'exl@1234';                              
+    $mail->SMTPAuth   = true;                                                               
     $mail->SMTPSecure = "tls";        
     $mail->Port       = 587;
     $mail->setFrom('exlexchangemail@gmail.com', 'EXL-Exchange');
